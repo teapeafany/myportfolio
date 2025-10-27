@@ -1,0 +1,567 @@
+/* Work Page Styles */
+body {
+    background: #000300;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Background Video */
+.background-video {
+    position: fixed;
+    top: -10%;
+    left: 50%;
+    width: 60%;
+    height: 150vh;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.4;
+    border: none;
+    outline: none;
+    transform: translateX(-50%);
+}
+
+.work-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    max-height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.work-logo {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    margin-top: 10rem;
+    margin-bottom: 3rem;
+    filter: drop-shadow(0 0 15px rgba(254, 195, 7, 0.4));
+}
+
+/* Projects List */
+.projects-list {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    align-items: center;
+}
+
+.project-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.project-item.hovered {
+    transform: translateX(-250px) !important;
+}
+
+.project-item:hover {
+    transform: translateX(-250px) !important;
+    transition: transform 0.4s ease;
+}
+
+.project-image {
+    position: relative;
+    width: 500px;
+    height: 250px;
+    margin-bottom: 0;
+}
+
+.placeholder-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.placeholder-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 1;
+}
+
+.project-thumb {
+    filter: brightness(25%);
+}
+
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 3; /* sits above the image */
+    pointer-events: none; /* allow underlying clicks unless overridden */
+}
+
+.project-status {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FEC307;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 150;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.2rem;
+    z-index: 4;
+    pointer-events: auto; /* enable interactions on status if needed */
+}
+
+
+.project-subtitle {
+    color: #ccc;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+.project-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .8rem .8rem;
+    border: 1px solid #FEC307;
+    border-radius: 1px;
+    background: transparent;
+    transition: all 0.3s ease;
+    width: 500px;
+    box-sizing: border-box;
+    align-self: center;
+}
+
+.project-title:hover {
+    background: rgba(254, 195, 7, 0.05);
+    transition: background 0.3s ease;
+}
+
+.title-text {
+    color: #FEC307;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+}
+
+.action-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.action-text {
+    color: #FEC307;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.play-button {
+    width: 40px;
+    height: 40px;
+    background: #FEC307;
+    color: #021502;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #FEC307;
+}
+
+.play-button:hover {
+    background: #021502;
+    color: #FEC307;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+/* Side Panel */
+.side-panel {
+    position: absolute;
+    top: 0;
+    left: 100%;                 /* place immediately to the right of the .project-item (touches the image/title) */
+    width: 500px;                /* same width as the image + title container */
+    height: 100%;               /* same combined height as the image + title */
+    background: #FFFDE8;
+    border-radius: 1px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateX(0); /* no offset - panel touches the image directly */
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 20;
+    box-sizing: border-box;
+}
+
+.project-item:hover .side-panel {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.panel-tags {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tag {
+    padding: 0.3rem 0.8rem;
+    border-radius: 3px;
+    font-size: 1.1rem;
+    font-weight: 50;
+    letter-spacing: -0.03em;
+    font-style: italic;
+    border: 2px solid;
+    font-family: 'Arial';
+    
+}
+
+.tag.ux {
+    background: rgba(254, 195, 7, 0.3);
+    color: #FEC307;
+    border-color: #FEC307;
+}
+
+.tag.ui {
+    background: rgba(76, 175, 80, 0.3);
+    color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.tag.digital {
+    background: rgba(244, 67, 54, 0.3);
+    color: #f44336;
+    border-color: #f44336;
+}
+
+.tag.design {
+    background: rgba(33, 150, 243, 0.3);
+    color: #021502;
+    border-color: #2196F3;
+}
+
+.tag.web {
+    background: rgba(156, 39, 176, 0.3);
+    color: #021502;
+    border-color: #9C27B0;
+}
+
+.panel-date {
+    color: #021502;
+    font-family: 'Arial';
+    font-size: 1.1rem;
+    font-weight: 50;
+    letter-spacing: -0.03em;
+    font-style: italic;
+}
+
+.panel-description {
+    color: #021502;
+    font-family: 'Arial';
+    font-size: 1.1rem;
+    font-weight: 50;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+.panel-tools {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tool-label {
+    color: #021502;
+    font-family: 'Arial';
+    font-size: 1.1rem;
+    font-weight: 50;
+    letter-spacing: -0.03em;
+    font-style: italic;
+    margin-bottom: 0;
+    display: inline;
+}
+
+.tool-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tool-tag {
+    background: transparent;
+    color: #021502;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid #021502;
+    border-radius: 3px;
+    font-family: 'Arial';
+    font-size: 1.1rem;
+    font-weight: 50;
+    letter-spacing: -0.03em;
+    font-style: italic;
+}
+
+/* Project Pages Styles */
+.project-header {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    align-items: flex-start;
+}
+
+.project-image-large {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    flex-shrink: 0;
+}
+
+.placeholder-image-large {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    border-radius: 1px;
+    overflow: hidden;
+}
+
+.project-status-large {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FEC307;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 150;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    z-index: 4;
+}
+
+.project-info {
+    flex: 1;
+}
+
+.project-title-large {
+    color: #FEC307;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+}
+
+.project-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.project-date {
+    color: #021502;
+    font-family: 'Arial';
+    font-size: 1.1rem;
+    font-weight: 50;
+    letter-spacing: -0.03em;
+    font-style: italic;
+}
+
+.project-description-large {
+    color: #021502;
+    font-family: 'Arial';
+    font-size: 1.1rem;
+    font-weight: 50;
+    letter-spacing: -0.03em;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.project-tools-large {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-content {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    color: #021502;
+    font-family: 'Arial';
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.project-content h2 {
+    color: #FEC307;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+.project-content ul {
+    margin-left: 2rem;
+}
+
+.project-content li {
+    margin-bottom: 0.5rem;
+}
+
+.back-button {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.back-link {
+    color: #FEC307;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border: 1px solid #FEC307;
+    padding: 0.8rem 2rem;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    background: rgba(254, 195, 7, 0.1);
+}
+
+/* Footer */
+.work-footer {
+    text-align: center;
+    font-family: 'Arial';
+    font-size: 1.5rem;
+    font-weight: 100;
+    letter-spacing: -0.03em;
+    margin-bottom: 5rem;
+}
+
+.work-footer p {
+    color: #FEC307;
+    font-family: 'Instrument Sans', sans-serif;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .work-container {
+        padding: 1rem;
+    }
+    
+    .work-logo {
+        max-width: 250px;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+    
+    .projects-list {
+        gap: 2rem;
+    }
+    
+    .project-image {
+        height: 200px;
+    }
+    
+    .placeholder-text {
+        font-size: 1.2rem;
+    }
+    
+    .title-text {
+        font-size: 1rem;
+    }
+    
+    .action-text {
+        font-size: 0.8rem;
+    }
+    
+    .side-panel {
+        position: fixed;
+        top: 50%;
+        left: 0%;
+        transform: translate(-50%, -50%);
+        width: 70%;
+        max-width: 500px;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    .project-item:hover .side-panel {
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .work-logo {
+        max-width: 200px;
+    }
+    
+    .project-image {
+        height: 150px;
+    }
+    
+    .placeholder-text {
+        font-size: 1rem;
+    }
+    
+    .project-title {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .side-panel {
+        width: 95%;
+        padding: 1.5rem;
+    }
+}

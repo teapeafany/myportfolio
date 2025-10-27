@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headspace - Tiffany Lee</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/headspace.css">
+</head>
+<body>
+    <!-- Shared Navigation -->
+    <div id="navigation-container"></div>
+    
+    <!-- Main Content -->
+    <main class="headspace-container">
+        <img src="film/thoughts.png" alt="thoughts" class="hslogo">
+        
+        <!-- Subtitle -->
+        
+            <div class="headspacesubtitle subtitle-1">Journaling is a part of my daily routine. Stories, scripts, sketches, scenes, you name it.</div>
+            <div class="headspacesubtitle subtitle-2">Whether it be my late night ten cents, or a screenplay for a new film, I jot everything on fresh leuchtturm1917.</div>
+            <div class="headspacesubtitle subtitle-3">I heard from a little birdie you're interested in my story. Well, where do I begin?</div>
+        
+        <!-- Personal Journal Image -->
+        <div class="personal-journal">
+            <div class="journal-container">
+                <img src="film/myjournal.png" alt="Personal Journal" class="journal-background">
+                <div class="journal-content">
+                    <div class="journal-left-column">
+                        <!-- Text content will go here -->
+                    </div>
+                    <div class="journal-divider"></div>
+                    <div class="journal-right-column">
+                        <img src="film/partone.png" alt="Part One" class="partone-image">
+                        <img src="film/partonestory.svg" alt="Part One Story" class="storyright-overlay">
+
+                        <div class="journal-ppt-container">
+                            <iframe src="https://gtvault-my.sharepoint.com/personal/tlee602_gatech_edu/_layouts/15/Doc.aspx?sourcedoc={cd0cb488-1324-4a46-a67d-8d2aff07467a}&amp;action=embedview&amp;wdAr=1.7777777777777777" width="400px" height="220px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Include shared navigation
+        function includeNavigation() {
+            const navHTML = `
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-item" id="nav-home">HOME</a>
+                    <a href="work.html" class="nav-item" id="nav-design">WORK</a>
+                    <a href="headspace.html" class="nav-item" id="nav-headspace">HEADSPACE</a>
+                    <a href="cinema.html" class="nav-item" id="nav-cinema">THE CINEMA</a>
+                </nav>
+            `;
+            document.getElementById('navigation-container').innerHTML = navHTML;
+            
+            // Set active state
+            document.getElementById('nav-headspace').classList.add('active');
+        }
+        
+        // Load navigation when page loads
+        document.addEventListener('DOMContentLoaded', includeNavigation);
+        
+        // Add smooth fade-in
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+    </script>
+    
+    <script src="js/headspace.js"></script>
+</body>
+</html>

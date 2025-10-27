@@ -1,0 +1,27 @@
+<!-- Navigation Menu -->
+<nav class="nav-menu">
+    <a href="index.html" class="nav-item" id="nav-home">HOME</a>
+    <a href="design-process.html" class="nav-item" id="nav-design">WORK</a>
+    <a href="#" class="nav-item" id="nav-headspace">HEADSPACE</a>
+    <a href="#" class="nav-item" id="nav-cinema">THE CINEMA</a>
+</nav>
+
+<script>
+// Navigation script to handle active states
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Remove active class from all nav items
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // Add active class to current page
+    if (currentPage === 'index.html' || currentPage === '') {
+        document.getElementById('nav-home').classList.add('active');
+    } else if (currentPage === 'design-process.html') {
+        document.getElementById('nav-design').classList.add('active');
+    }
+    // Add more conditions for other pages as needed
+});
+</script>

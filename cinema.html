@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cinema - Tiffany Lee</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cinema.css">
+</head>
+<body>
+    <!-- Shared Navigation -->
+    <div id="navigation-container"></div>
+    
+    <!-- Main Content -->
+    <main class="cinema-container">
+        <!-- Cinema content will go here -->
+    </main>
+    
+    <script>
+        // Include shared navigation
+        function includeNavigation() {
+            const navHTML = `
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-item" id="nav-home">HOME</a>
+                    <a href="work.html" class="nav-item" id="nav-design">WORK</a>
+                    <a href="headspace.html" class="nav-item" id="nav-headspace">HEADSPACE</a>
+                    <a href="cinema.html" class="nav-item" id="nav-cinema">THE CINEMA</a>
+                </nav>
+            `;
+            document.getElementById('navigation-container').innerHTML = navHTML;
+            
+            // Set active state
+            document.getElementById('nav-cinema').classList.add('active');
+        }
+        
+        // Load navigation when page loads
+        document.addEventListener('DOMContentLoaded', includeNavigation);
+        
+        // Add smooth fade-in
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+    </script>
+</body>
+</html>

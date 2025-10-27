@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCIOLY @GT - Tiffany Lee</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/scioly.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <div id="hero-section" class="hero-section fade-in-section">
+    <!-- Shared Navigation -->
+    <div id="navigation-container"></div>
+        <img src="film/sciolyfront.svg" alt="SCIOLY @GT" class="project-title">
+
+        <a href="#next-section">
+            <img src="film/downarrow.svg" alt="Down Arrow" class="down-arrow">
+        </a>
+    </div>
+
+    <!-- Next Section -->
+    <div id="next-section" class="next-section">
+        <div class="content-container">
+            <!-- Section 00: Project Overview -->
+            <div class="section fade-in-section">
+                <h2 class="section-title">00: Project Overview</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Context</h3>
+                    <p class="context-text">
+                        Science Olympiad competitions involve complex scheduling and multiple teams, making management a logistical challenge. They needed a system that could simplify responsibilities for admins and coaches.
+                    </p>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">The Challenge</h3>
+                    <p class="overview-text">
+                        Scioly is a scoring and tournament management system used to run Science Olympiad competitions at Georgia Tech. I was tasked with designing new role-based features that streamlined event scheduling for admins and made team registration intuitive for coaches.
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Question Section -->
+    <div class="question-section fade-in-section">
+        <div class="question-container">
+            <h2 class="question-text">How might we streamline tournament management for Science Olympiad competitions at Georgia Tech?</h2>
+        </div>
+    </div>
+
+    <!-- Design Process Section -->
+    <div class="next-section">
+        <div class="content-container">
+            <!-- Section 01: Design Process -->
+            <div class="section fade-in-section">
+                <h2 class="section-title">01: Design Process</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">User Research</h3>
+                    <p class="insights-text">
+                        Conducted interviews with tournament administrators and coaches to understand pain points in the current system. Key findings included confusion around registration deadlines and difficulty tracking team availability.
+                    </p>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Wireframing</h3>
+                    <p class="insights-text">
+                        Created low-fidelity wireframes focusing on role-based access and intuitive navigation. Prioritized clear visual hierarchy and minimal cognitive load for both admin and coach users.
+                    </p>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Prototyping</h3>
+                    <p class="insights-text">
+                        Developed interactive prototypes to test user flows and gather feedback on the scheduling interface. Iterated based on usability testing with actual tournament organizers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- My Contributions Section -->
+    <div class="next-section">
+        <div class="content-container">
+            <!-- Section 02: My Contributions -->
+            <div class="section fade-in-section">
+                <h2 class="section-title">02: My Contributions</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Coach Role Interface</h3>
+                    <p class="insights-text">
+                        Designed a clear login and dashboard where coaches can view events, browse available time slots, and self-register their teams. Reduced confusion and reliance on manual admin updates.
+                    </p>
+                    <div class="wireframes-container">
+                        <img src="film/Coach Portal.svg" alt="Coach Interface" class="wireframes-image">
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Admin Role Flow</h3>
+                    <p class="insights-text">
+                        Prototyped the scheduling system for generating event time blocks, setting maximum slots per event, and auto-populating them into the coach dashboard.
+                    </p>
+                    <div class="wireframes-container">
+                        <img src="film/Coach Portal - Registered Events.svg" alt="Admin Interface" class="wireframes-image">
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Interaction Design</h3>
+                    <p class="insights-text">
+                        Created detailed interaction states (hover indicators, selection confirmations, and real-time availability tracking) to make time slot selection intuitive and error-free.
+                    </p>
+                    <div class="wireframes-container">
+                        <img src="film/Coach Portal - select multiple.svg" alt="Interaction States" class="wireframes-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Prototype Section -->
+    <div class="question-section fade-in-section">
+        <div class="question-container">
+            <h2 class="question-text">03: Final Prototype</h2>
+            <div class="prototype-container">
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/9PpJ0tFD5VV0lSTq0QM9hU/Epoch-Scoring-System?page-id=360%3A1163&node-id=2183-3306&starting-point-node-id=2183%3A3306&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>            </div>
+        </div>
+        
+        <!-- Back to Top Arrow -->
+        <a href="#hero-section">
+            <img src="film/downarrow.svg" alt="Back to Top" class="up-arrow">
+        </a>
+    </div>
+    
+    <script>
+        // Include shared navigation
+        function includeNavigation() {
+            const navHTML = `
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-item" id="nav-home">HOME</a>
+                    <a href="work.html" class="nav-item" id="nav-work">WORK</a>
+                    <a href="headspace.html" class="nav-item" id="nav-headspace">HEADSPACE</a>
+                    <a href="#" class="nav-item" id="nav-cinema">THE CINEMA</a>
+                    <a href="work.html" class="nav-item nav-back" id="nav-back" aria-label="Back to Work">
+                        <img src="film/backbuttonchow.svg" alt="Back" class="back-button-icon">
+                    </a>
+                </nav>
+            `;
+            document.getElementById('navigation-container').innerHTML = navHTML;
+            
+            // Set active state
+            document.getElementById('nav-work').classList.add('active');
+        }
+        
+        // Load navigation when page loads
+        document.addEventListener('DOMContentLoaded', includeNavigation);
+        
+        // Scroll Snap Animation - Show sections as they snap into view
+        function handleScrollAnimation() {
+            const sections = document.querySelectorAll('.fade-in-section');
+            
+            sections.forEach((section, index) => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionHeight = section.getBoundingClientRect().height;
+                const windowHeight = window.innerHeight;
+                
+                // More lenient detection - show section when it's mostly in view
+                const isInView = sectionTop <= windowHeight * 0.3 && sectionTop >= -sectionHeight * 0.7;
+                
+                if (isInView) {
+                    section.classList.add('is-visible');
+                }
+            });
+        }
+        
+        // Add scroll event listener with faster response
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            scrollTimeout = setTimeout(handleScrollAnimation, 10);
+        });
+        
+        // Initialize hero section immediately and run detection
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.fade-in-section');
+            // Show hero section (first section) immediately
+            if (sections[0]) {
+                sections[0].classList.add('is-visible');
+            }
+            // Run detection immediately
+            handleScrollAnimation();
+        });
+        
+        // Add keyboard navigation for scroll snap
+        document.addEventListener('keydown', (e) => {
+            const sections = document.querySelectorAll('.fade-in-section');
+            const currentScroll = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const currentSection = Math.round(currentScroll / windowHeight);
+            
+            if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: (currentSection + 1) * windowHeight,
+                    behavior: 'smooth'
+                });
+            } else if (e.key === 'ArrowUp' && currentSection > 0) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: (currentSection - 1) * windowHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
+        
+        // Add smooth fade-in
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+    </script>
+</body>
+</html>

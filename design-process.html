@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Process - Tiffany Lee</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/design-process.css">
+</head>
+<body>
+    <!-- Shared Navigation -->
+    <div id="navigation-container"></div>
+    
+    <!-- Main Content -->
+    <main class="design-process-container">
+        <h1 class="page-title">DESIGN PROCESS</h1>
+        
+        <!-- Folder Stack -->
+        <div class="folder-stack">
+            <!-- Folder 1: Archive Log -->
+            <div class="folder folder-1" data-project="archive-log">
+                <div class="folder-tab">
+                    <span class="tab-text">ARCHIVE LOG</span>
+                </div>
+                <div class="folder-body">
+                    <div class="folder-content">
+                        <div class="folder-label">GRID DAILY_01-05</div>
+                        <div class="folder-code">CODE_001 //</div>
+                        <div class="folder-pattern"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Folder 2: Drift -->
+            <div class="folder folder-2" data-project="drift">
+                <div class="folder-tab">
+                    <span class="tab-text">DRIFT</span>
+                </div>
+                <div class="folder-body">
+                    <div class="folder-content">
+                        <div class="folder-label">CODE_002 //</div>
+                        <div class="folder-pattern drift-pattern"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Folder 3: Falling -->
+            <div class="folder folder-3" data-project="falling">
+                <div class="folder-tab">
+                    <span class="tab-text">FALLING</span>
+                </div>
+                <div class="folder-body">
+                    <div class="folder-content">
+                        <div class="folder-label">CODE_003 //</div>
+                        <div class="folder-pattern falling-pattern"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Folder 4: Signal -->
+            <div class="folder folder-4" data-project="signal">
+                <div class="folder-tab">
+                    <span class="tab-text">SIGNAL</span>
+                </div>
+                <div class="folder-body">
+                    <div class="folder-content">
+                        <div class="folder-label">CODE_004 //</div>
+                        <div class="folder-pattern signal-pattern"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Folder 5: After Work -->
+            <div class="folder folder-5" data-project="after-work">
+                <div class="folder-tab">
+                    <span class="tab-text">AFTER WORK</span>
+                </div>
+                <div class="folder-body">
+                    <div class="folder-content">
+                        <div class="folder-label">CODE_005 //</div>
+                        <div class="folder-pattern afterwork-pattern"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Project Content Area -->
+        <div class="project-content" id="project-content">
+            <div class="project-placeholder">
+                <p>Select a folder to view project details</p>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Include shared navigation
+        function includeNavigation() {
+            const navHTML = `
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-item" id="nav-home">HOME</a>
+                    <a href="work.html" class="nav-item" id="nav-design">DESIGN PROCESS</a>
+                    <a href="headspace.html" class="nav-item" id="nav-headspace">HEADSPACE</a>
+                    <a href="#" class="nav-item" id="nav-cinema">THE CINEMA</a>
+                </nav>
+            `;
+            document.getElementById('navigation-container').innerHTML = navHTML;
+            
+            // Set active state
+            document.getElementById('nav-design').classList.add('active');
+        }
+        
+        // Load navigation when page loads
+        document.addEventListener('DOMContentLoaded', includeNavigation);
+        
+        // Add smooth fade-in
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+    </script>
+    
+    <script src="js/design-process.js"></script>
+</body>
+</html>

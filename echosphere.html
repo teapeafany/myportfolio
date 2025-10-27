@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECHOSPHERE - Tiffany Lee</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Instrument Sans', sans-serif;
+        }
+        .project-title {
+            color: #FEC307;
+            font-size: 4rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Shared Navigation -->
+    <div id="navigation-container"></div>
+    
+    <h1 class="project-title">ECHOSPHERE</h1>
+    
+    <script>
+        // Include shared navigation
+        function includeNavigation() {
+            const navHTML = `
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-item" id="nav-home">HOME</a>
+                    <a href="work.html" class="nav-item" id="nav-work">DESIGN PROCESS</a>
+                    <a href="headspace.html" class="nav-item" id="nav-headspace">HEADSPACE</a>
+                    <a href="#" class="nav-item" id="nav-cinema">THE CINEMA</a>
+                </nav>
+            `;
+            document.getElementById('navigation-container').innerHTML = navHTML;
+            
+            // Set active state
+            document.getElementById('nav-work').classList.add('active');
+        }
+        
+        // Load navigation when page loads
+        document.addEventListener('DOMContentLoaded', includeNavigation);
+        
+        // Add smooth fade-in
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+    </script>
+</body>
+</html>

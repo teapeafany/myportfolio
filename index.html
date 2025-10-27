@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiffany Lee - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Video Background -->
+    <video autoplay muted loop playsinline class="video-bg">
+        <source src="film/noaudioedited.mov" type="video/mp4">
+    </video>
+    
+    <!-- Film Grain Overlay -->
+    <div class="film-grain"></div>
+    
+    
+    <!-- Shared Navigation -->
+    <div id="navigation-container"></div>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <img src="film/logotiffany.png" alt="Tiffany Lee" class="logo">
+    </main>
+    
+    <!-- Subtitle Container -->
+    <div class="subtitle-container">
+        <p class="subtitle subtitle-1">[This portfolio is a collection of fragments: ]</p>
+        <p class="subtitle subtitle-2">[my design work, my films born from nostalgia, ]</p>
+        <p class="subtitle subtitle-3">[and pieces of my headspace stitched together like a scrapbook. ]</p>
+        <p class="subtitle subtitle-4">[Each project carries a bit of who I am: ]</p>
+        <p class="subtitle subtitle-5">[a student designer learning to translate the unseen into design. ]</p>
+    </div>
+
+    <script>
+        // Include shared navigation
+        function includeNavigation() {
+            const navHTML = `
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-item" id="nav-home">HOME</a>
+                    <a href="work.html" class="nav-item" id="nav-design">WORK</a>
+                    <a href="headspace.html" class="nav-item" id="nav-headspace">HEADSPACE</a>
+                    <a href="cinema.html" class="nav-item" id="nav-cinema">THE CINEMA</a>
+                </nav>
+            `;
+            document.getElementById('navigation-container').innerHTML = navHTML;
+            
+            // Set active state
+            document.getElementById('nav-home').classList.add('active');
+        }
+        
+        // Load navigation when page loads
+        document.addEventListener('DOMContentLoaded', includeNavigation);
+        
+        // Prevent flash and add smooth fade-in
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.video-bg');
+            const body = document.body;
+            
+            if (video) {
+                video.addEventListener('loadeddata', function() {
+                    video.classList.add('loaded');
+                    body.classList.add('loaded');
+                });
+            } else {
+                // If no video, just fade in the body
+                setTimeout(() => {
+                    body.classList.add('loaded');
+                }, 100);
+            }
+        });
+    </script>
+</body>
+</html>

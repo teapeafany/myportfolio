@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+/* Video Background */
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    /* darken the video without affecting transparency of children */
+    filter: brightness(55%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.video-bg.loaded {
+    opacity: 1;
+}
+
+/* Film Grain Overlay */
+.film-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('film/texture.png');
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+
+@keyframes grain {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -10%); }
+    20% { transform: translate(-15%, 5%); }
+    30% { transform: translate(7%, -25%); }
+    40% { transform: translate(-5%, 25%); }
+    50% { transform: translate(-15%, 10%); }
+    60% { transform: translate(15%, 0%); }
+    70% { transform: translate(0%, 15%); }
+    80% { transform: translate(3%, 35%); }
+    90% { transform: translate(-10%, 10%); }
+}
+
+/* Navigation Menu */
+.nav-menu {
+    position: absolute;
+    top: 6%;
+    left: 6%;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    z-index: 30;
+}
+
+.nav-item {
+    color: #FEC307;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 550;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: -0.03em;
+    transition: opacity 0.3s ease;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.nav-item:hover {
+    opacity: 0.7;
+}
+
+.nav-item.active {
+    opacity: 0.4;
+    cursor: default;
+    pointer-events: none;
+}
+
+/* Main Content */
+.main-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 85%;
+    max-width: 900px;
+    z-index: 10;
+}
+
+.logo {
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5em;
+    filter: drop-shadow(0 0 15px rgba(254, 195, 7, 0.4));
+}
+
+/* Subtitle Container */
+.subtitle-container {
+    position: fixed;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 900px;
+    text-align: center;
+    z-index: 10;
+    height: 2em;
+    overflow: hidden;
+}
+
+.subtitle {
+    color: #FEC307;
+    font-family: 'Arial';
+    font-size: 1.5rem;
+    font-style: italic;
+    letter-spacing: -0.03em;
+    line-height: 1.8;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.subtitle-1 {
+    animation: cycleSubtitles 15s infinite;
+}
+
+.subtitle-2 {
+    animation: cycleSubtitles 15s infinite 3s;
+}
+
+.subtitle-3 {
+    animation: cycleSubtitles 15s infinite 6s;
+}
+
+.subtitle-4 {
+    animation: cycleSubtitles 15s infinite 9s;
+}
+
+.subtitle-5 {
+    animation: cycleSubtitles 15s infinite 12s;
+}
+
+@keyframes cycleSubtitles {
+    0%, 15% {
+        opacity: 0;
+    }
+    15%, 20% {
+        opacity: 1;
+    }
+    20%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        left: 5%;
+        gap: 1em;
+    }
+    
+    .nav-item {
+        font-size: 0.9rem;
+    }
+    
+    .logo {
+        max-width: 300px;
+        margin-bottom: 1em;
+    }
+    
+    .subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .main-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        max-width: 250px;
+    }
+    
+    .subtitle {
+        font-size: 0.85rem;
+    }
+}
