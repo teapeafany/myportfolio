@@ -13,8 +13,37 @@
     
     <!-- Main Content -->
     <main class="cinema-container">
-        <!-- Cinema content will go here -->
+        <!-- Video Container -->
+        <div class="video-container">
+            <iframe 
+                id="video-iframe"
+                width="800" 
+                height="450" 
+                src="https://www.youtube.com/embed/7XPD9Hph7YE?start=3&autoplay=0&mute=0&controls=1&rel=0" 
+                title="Tiffany Lee - Film Portfolio" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+            <!-- Black Screen Overlay -->
+            <div class="black-screen" id="black-screen"></div>
+        </div>
+        
+        <!-- Next Page Button -->
+        <button class="next-page-btn" id="next-video-btn">
+            <img src="film/nextpagebutton.svg" alt="Next Video" />
+        </button>
     </main>
+    
+    <!-- Subtitle Container -->
+    <div class="cinemasubtitle-container">
+        <div class="cinemasubtitle subtitle-1">
+            If you made it here, I'm happy to show you another part of my life and work, through one of my favorite mediums, film.
+        </div>
+        <div class="cinemasubtitle subtitle-2">
+            Settle in, grab a tea, and get cozy! The showing has begun.
+        </div>
+    </div>
     
     <script>
         // Include shared navigation
@@ -41,6 +70,103 @@
             setTimeout(() => {
                 document.body.classList.add('loaded');
             }, 100);
+        });
+        
+        // Video switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const nextBtn = document.getElementById('next-video-btn');
+            const videoIframe = document.getElementById('video-iframe');
+            const blackScreen = document.getElementById('black-screen');
+            let currentVideo = 1;
+            
+            const videos = [
+                'https://www.youtube.com/embed/7XPD9Hph7YE?start=3&autoplay=0&mute=0&controls=1&rel=0',
+                'https://www.youtube.com/embed/KknuJHiBBr8?autoplay=0&mute=0&controls=1&rel=0'
+            ];
+            
+            // Background dimming functionality
+            function handleVideoStateChange() {
+                let isVideoPlaying = false;
+                let isVideoPaused = false;
+                
+                // Since we can't directly access YouTube iframe events due to cross-origin restrictions,
+                // we'll use a combination of focus detection and periodic checking
+                const checkVideoState = () => {
+                    // Check if the iframe is focused (user is interacting with video)
+                    if (document.activeElement === videoIframe) {
+                        document.body.classList.add('video-playing');
+                        isVideoPlaying = true;
+                        isVideoPaused = false;
+                    } else {
+                        // Additional check: if user clicks on video area
+                        videoIframe.addEventListener('click', () => {
+                            document.body.classList.add('video-playing');
+                            isVideoPlaying = true;
+                            isVideoPaused = false;
+                        });
+                    }
+                };
+                
+                // Check every 2 seconds
+                setInterval(checkVideoState, 2000);
+                
+                // Also check on window focus/blur
+                window.addEventListener('focus', () => {
+                    if (document.activeElement === videoIframe) {
+                        document.body.classList.add('video-playing');
+                        isVideoPlaying = true;
+                        isVideoPaused = false;
+                    }
+                });
+                
+                window.addEventListener('blur', () => {
+                    document.body.classList.remove('video-playing');
+                    isVideoPlaying = false;
+                    isVideoPaused = true;
+                });
+                
+                // Add click listener to background to restore normal state when video is paused
+                document.addEventListener('click', (e) => {
+                    // Only trigger if clicking outside the video container and video is paused
+                    if (!videoIframe.contains(e.target) && !videoIframe.parentElement.contains(e.target) && isVideoPaused) {
+                        document.body.classList.remove('video-playing');
+                        isVideoPlaying = false;
+                    }
+                });
+                
+                // Monitor video iframe for pause/play state changes
+                videoIframe.addEventListener('blur', () => {
+                    // When iframe loses focus, assume video might be paused
+                    setTimeout(() => {
+                        if (document.activeElement !== videoIframe) {
+                            isVideoPaused = true;
+                            isVideoPlaying = false;
+                        }
+                    }, 1000);
+                });
+            }
+            
+            // Initialize video state monitoring
+            handleVideoStateChange();
+            
+            nextBtn.addEventListener('click', function() {
+                // Show black screen
+                blackScreen.classList.add('active');
+                
+                setTimeout(() => {
+                    // Switch video source
+                    currentVideo = currentVideo === 1 ? 2 : 1;
+                    videoIframe.src = videos[currentVideo - 1];
+                    
+                    // Reset video playing state when switching
+                    document.body.classList.remove('video-playing');
+                    
+                    // Hide black screen
+                    setTimeout(() => {
+                        blackScreen.classList.remove('active');
+                    }, 500);
+                }, 1000);
+            });
         });
     </script>
 </body>

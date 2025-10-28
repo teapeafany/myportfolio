@@ -19,18 +19,62 @@
     <!-- Shared Navigation -->
     <div id="navigation-container"></div>
     
-    <!-- Main Content -->
-    <main class="main-content">
-        <img src="film/logotiffany.png" alt="Tiffany Lee" class="logo">
-    </main>
-    
-    <!-- Subtitle Container -->
-    <div class="subtitle-container">
-        <p class="subtitle subtitle-1">[This portfolio is a collection of fragments: ]</p>
-        <p class="subtitle subtitle-2">[my design work, my films born from nostalgia, ]</p>
-        <p class="subtitle subtitle-3">[and pieces of my headspace stitched together like a scrapbook. ]</p>
-        <p class="subtitle subtitle-4">[Each project carries a bit of who I am: ]</p>
-        <p class="subtitle subtitle-5">[a student designer learning to translate the unseen into design. ]</p>
+    <!-- Carousel Container -->
+    <div class="carousel-container">
+        <!-- Scroll Sections -->
+        <section class="scroll-section hero-section">
+            <!-- Main Content -->
+            <main class="main-content">
+                <img src="film/logotiffany.png" alt="Tiffany Lee" class="logo">
+            </main>
+            
+            <!-- Subtitle Container -->
+            <div class="subtitle-container">
+                <p class="subtitle subtitle-1">[This portfolio is a collection of fragments: ]</p>
+                <p class="subtitle subtitle-2">[my design work, my short films, ]</p>
+                <p class="subtitle subtitle-3">[and pieces of my headspace stitched together like a scrapbook. ]</p>
+                <p class="subtitle subtitle-4">[Each project carries a bit of who I am: ]</p>
+                <p class="subtitle subtitle-5">[a student designer learning to translate the unseen into design. ]</p>
+            </div>
+        </section>
+        
+        <!-- About section with text -->
+        <section class="scroll-section about-section">
+            <div class="about-content">
+                <p class="about-text">Hi, nice to meet you.</p>
+                <p class="about-text">If you're reading this, I guess you want to know more about me.</p>
+                <p class="about-text">For one, I am a designer. I design experiences connecting humans with technology and creative media, both in the digital and physical realm.</p>
+                <p class="about-text">My philosophy is human-centered and rooted in immersion, creating spaces where users can truly resonate.</p>
+                <p class="about-text">To me, design doesn't just solve problems, it tells stories, evokes emotion, and leaves an impression long after the screen turns off.</p>
+            </div>
+        </section>
+        
+        <!-- Duplicate sections for seamless loop -->
+        <section class="scroll-section hero-section">
+            <!-- Main Content -->
+            <main class="main-content">
+                <img src="film/logotiffany.png" alt="Tiffany Lee" class="logo">
+            </main>
+            
+            <!-- Subtitle Container -->
+            <div class="subtitle-container">
+                <p class="subtitle subtitle-1">[This portfolio is a collection of fragments: ]</p>
+                <p class="subtitle subtitle-2">[my design work, my short films, ]</p>
+                <p class="subtitle subtitle-3">[and pieces of my headspace stitched together like a scrapbook. ]</p>
+                <p class="subtitle subtitle-4">[Each project carries a bit of who I am: ]</p>
+                <p class="subtitle subtitle-5">[a student designer learning to translate the unseen into design. ]</p>
+            </div>
+        </section>
+        
+        <section class="scroll-section about-section">
+            <div class="about-content">
+                <p class="about-text">Hi, nice to meet you.</p>
+                <p class="about-text">If you're reading this, I guess you want to know more about me.</p>
+                <p class="about-text">For one, I am a designer. I design experiences connecting humans with technology and creative media, both in the digital and physical realm.</p>
+                <p class="about-text">My philosophy is human-centered and rooted in immersion, creating spaces where users can truly resonate.</p>
+                <p class="about-text">To me, design doesn't just solve problems, it tells stories, evokes emotion, and leaves an impression long after the screen turns off.</p>
+            </div>
+        </section>
     </div>
 
     <script>
@@ -69,6 +113,64 @@
                     body.classList.add('loaded');
                 }, 100);
             }
+        });
+        
+        // Handle seamless carousel scroll behavior
+        let lastScrollY = window.scrollY;
+        let isScrollingUp = false;
+        let isLooping = false;
+        
+        window.addEventListener('scroll', function() {
+            const currentScrollY = window.scrollY;
+            const logos = document.querySelectorAll('.logo');
+            const viewportHeight = window.innerHeight;
+            
+            // Determine scroll direction
+            if (currentScrollY < lastScrollY) {
+                isScrollingUp = true;
+            } else {
+                isScrollingUp = false;
+            }
+            
+            // Handle seamless loop - when at the end of duplicated sections, jump to start
+            if (currentScrollY >= viewportHeight * 3 - 10 && !isLooping) {
+                isLooping = true;
+                window.scrollTo({ top: viewportHeight, behavior: 'instant' });
+                setTimeout(() => {
+                    isLooping = false;
+                }, 100);
+                return;
+            }
+            
+            // Handle seamless loop - when at the start and scrolling up, jump to end
+            if (currentScrollY <= 10 && isScrollingUp && !isLooping) {
+                isLooping = true;
+                window.scrollTo({ top: viewportHeight * 2, behavior: 'instant' });
+                setTimeout(() => {
+                    isLooping = false;
+                }, 100);
+                return;
+            }
+            
+            // Animate logos based on scroll position
+            logos.forEach((logo, index) => {
+                const sectionIndex = Math.floor(currentScrollY / viewportHeight);
+                const isCurrentSection = sectionIndex === index || sectionIndex === index + 2;
+                
+                if (isScrollingUp && isCurrentSection) {
+                    const scrollProgress = Math.min((currentScrollY % viewportHeight) / viewportHeight, 1);
+                    const translateY = scrollProgress * -100;
+                    const opacity = Math.max(1 - scrollProgress, 0);
+                    
+                    logo.style.transform = `translateY(${translateY}%)`;
+                    logo.style.opacity = opacity;
+                } else {
+                    logo.style.transform = 'translateY(0)';
+                    logo.style.opacity = '1';
+                }
+            });
+            
+            lastScrollY = currentScrollY;
         });
     </script>
 </body>

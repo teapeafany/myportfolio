@@ -13,7 +13,6 @@ body {
 body.loaded {
     opacity: 1;
 }
-
 body::before {
     content: '';
     position: fixed;
@@ -21,12 +20,21 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('../film/theater.jpeg') center/contain no-repeat;
+    background-image: url('../film/theater.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     z-index: -3;
+    opacity: 1;
+    transition: opacity 0.5s ease;
 }
 
-/* Film Grain Overlay */
-body::after {
+body.video-playing::before {
+    opacity: 0.35;
+}
+
+/* Film Grain Overlay - Removed */
+/* body::after {
     content: '';
     position: fixed;
     top: 0;
@@ -40,10 +48,10 @@ body::after {
     pointer-events: none;
     z-index: -1;
     opacity: 0.7;
-}
+} */
 
-/* Side Gradients */
-.cinema-container::before {
+/* Side Gradients - Removed */
+/* .cinema-container::before {
     content: '';
     position: fixed;
     top: 0;
@@ -59,7 +67,7 @@ body::after {
         rgba(0, 0, 0, 0.8) 100%);
     z-index: -2;
     pointer-events: none;
-}
+} */
 
 .cinema-container {
     position: relative;
@@ -68,8 +76,72 @@ body::after {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: calc(11vh);
     z-index: 10;
+}
+
+.video-container {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), 
+                0 0 20px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 8px;
+    max-width: 900px;
+    width: 100%;
+}
+
+.video-container iframe {
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    height: 500px;
+}
+
+.next-page-btn {
+    position: absolute;
+    right: 11rem;
+    top: 40%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.8;
+    z-index: 20;
+}
+
+.next-page-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+    opacity: 1;
+}
+
+.next-page-btn img {
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+.black-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 100;
+    pointer-events: none;
+    border-radius: 4px;
+}
+
+.black-screen.active {
+    opacity: 1;
+    pointer-events: all;
 }
 
 .cinemasubtitle-container {
@@ -81,7 +153,7 @@ body::after {
     max-width: 900px;
     text-align: center;
     z-index: 10;
-    height: 2em;
+    height: 5em;
     overflow: hidden;
 }
 
@@ -100,6 +172,7 @@ body::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: opacity 0.5s ease;
 }
 
 .subtitle-1 {
@@ -108,6 +181,12 @@ body::after {
 
 .subtitle-2 {
     animation: cycleSubtitles 20s infinite 4s;
+}
+
+body.video-playing .subtitle-1,
+body.video-playing .subtitle-2 {
+    animation-play-state: paused;
+    opacity: 0;
 }
 
 .subtitle-3 {
@@ -128,13 +207,43 @@ body::after {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    body::before {
-        background-position: center center;
+    .video-container {
+        width: 90%;
+        max-width: 600px;
+    }
+    
+    .video-container iframe {
+        width: 100%;
+        height: 300px;
+    }
+    
+    .next-page-btn {
+        right: 10px;
+    }
+    
+    .next-page-btn img {
+        width: 50px;
+        height: 50px;
     }
 }
 
 @media (max-width: 480px) {
-    body::before {
-        background-position: center center;
+    .video-container {
+        width: 95%;
+        max-width: 400px;
+    }
+    
+    .video-container iframe {
+        width: 100%;
+        height: 225px;
+    }
+    
+    .next-page-btn {
+        right: 5px;
+    }
+    
+    .next-page-btn img {
+        width: 40px;
+        height: 40px;
     }
 }

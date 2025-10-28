@@ -25,9 +25,18 @@
         <div class="personal-journal">
             <div class="journal-container">
                 <img src="film/myjournal.png" alt="Personal Journal" class="journal-background">
+                
+                <!-- Navigation Buttons -->
+                <button class="journal-nav-button journal-back-button" onclick="previousPage()">
+                    <img src="film/backpagebutton.svg" alt="Previous Page" class="nav-button-icon">
+                </button>
+                <button class="journal-nav-button journal-next-button" onclick="nextPage()">
+                    <img src="film/nextpagebutton.svg" alt="Next Page" class="nav-button-icon">
+                </button>
+                
                 <div class="journal-content">
                     <div class="journal-left-column">
-                        <!-- Text content will go here -->
+                        <img src="film/aboutme.svg" alt="About Me" class="aboutme-image">
                     </div>
                     <div class="journal-divider"></div>
                     <div class="journal-right-column">
@@ -71,6 +80,17 @@
                 document.body.classList.add('loaded');
             }, 100);
         });
+        
+        // Journal navigation functions
+        function previousPage() {
+            // Add your previous page logic here
+            console.log('Previous page clicked');
+        }
+        
+        function nextPage() {
+            // Add your next page logic here
+            console.log('Next page clicked');
+        }
     </script>
     
     <script src="js/headspace.js"></script>
