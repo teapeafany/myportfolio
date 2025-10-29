@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiffany Lee - Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Video Background -->
-    <video autoplay muted loop playsinline class="video-bg">
+    <video class="video-bg" autoplay muted loop>
         <source src="film/noaudioedited.mov" type="video/mp4">
     </video>
     
@@ -19,79 +22,61 @@
     <!-- Shared Navigation -->
     <div id="navigation-container"></div>
     
-    <!-- Carousel Container -->
-    <div class="carousel-container">
-        <!-- Scroll Sections -->
-        <section class="scroll-section hero-section">
-            <!-- Main Content -->
-            <main class="main-content">
-                <img src="film/logotiffany.png" alt="Tiffany Lee" class="logo">
-            </main>
-            
-            <!-- Subtitle Container -->
-            <div class="subtitle-container">
-                <p class="subtitle subtitle-1">[This portfolio is a collection of fragments: ]</p>
-                <p class="subtitle subtitle-2">[my design work, my short films, ]</p>
-                <p class="subtitle subtitle-3">[and pieces of my headspace stitched together like a scrapbook. ]</p>
-                <p class="subtitle subtitle-4">[Each project carries a bit of who I am: ]</p>
-                <p class="subtitle subtitle-5">[a student designer learning to translate the unseen into design. ]</p>
-            </div>
-        </section>
+    <!-- First Section - Logo -->
+    <section class="scroll-section">
+        <main class="main-content">
+            <img src="film/logotiffany.png" alt="Tiffany Lee" class="logo">
+        </main>
         
-        <!-- About section with text -->
-        <section class="scroll-section about-section">
-            <div class="about-content">
+        <!-- Subtitle Container -->
+        <div class="subtitle-container">
+            <p class="subtitle subtitle-1">[This portfolio is a collection of fragments: ]</p>
+            <p class="subtitle subtitle-2">[my design work, my short films, ]</p>
+            <p class="subtitle subtitle-3">[and pieces of my headspace stitched together like a scrapbook. ]</p>
+            <p class="subtitle subtitle-4">[Each project carries a bit of who I am: ]</p>
+            <p class="subtitle subtitle-5">[a student designer learning to translate the unseen into design. ]</p>
+        </div>
+    </section>
+    
+    <!-- Second Section - About Text -->
+    <section class="scroll-section">
+        <div class="about-content">
+            <div class="text-group" data-group="1">
                 <p class="about-text">Hi, nice to meet you.</p>
                 <p class="about-text">If you're reading this, I guess you want to know more about me.</p>
-                <p class="about-text">For one, I am a designer. I design experiences connecting humans with technology and creative media, both in the digital and physical realm.</p>
-                <p class="about-text">My philosophy is human-centered and rooted in immersion, creating spaces where users can truly resonate.</p>
-                <p class="about-text">To me, design doesn't just solve problems, it tells stories, evokes emotion, and leaves an impression long after the screen turns off.</p>
             </div>
-        </section>
-        
-        <!-- Duplicate sections for seamless loop -->
-        <section class="scroll-section hero-section">
-            <!-- Main Content -->
-            <main class="main-content">
-                <img src="film/logotiffany.png" alt="Tiffany Lee" class="logo">
-            </main>
             
-            <!-- Subtitle Container -->
-            <div class="subtitle-container">
-                <p class="subtitle subtitle-1">[This portfolio is a collection of fragments: ]</p>
-                <p class="subtitle subtitle-2">[my design work, my short films, ]</p>
-                <p class="subtitle subtitle-3">[and pieces of my headspace stitched together like a scrapbook. ]</p>
-                <p class="subtitle subtitle-4">[Each project carries a bit of who I am: ]</p>
-                <p class="subtitle subtitle-5">[a student designer learning to translate the unseen into design. ]</p>
-            </div>
-        </section>
-        
-        <section class="scroll-section about-section">
-            <div class="about-content">
-                <p class="about-text">Hi, nice to meet you.</p>
-                <p class="about-text">If you're reading this, I guess you want to know more about me.</p>
+            <div class="text-group" data-group="2">
                 <p class="about-text">For one, I am a designer. I design experiences connecting humans with technology and creative media, both in the digital and physical realm.</p>
                 <p class="about-text">My philosophy is human-centered and rooted in immersion, creating spaces where users can truly resonate.</p>
+            </div>
+            
+            <div class="text-group" data-group="3">
                 <p class="about-text">To me, design doesn't just solve problems, it tells stories, evokes emotion, and leaves an impression long after the screen turns off.</p>
             </div>
-        </section>
-    </div>
+            
+            <div class="text-group" data-group="4">
+                <p class="about-text">I hope you enjoy this experience...</p>
+            </div>
+            
+            <div class="text-group" data-group="5">
+                <p class="about-text">(And in case I don't see ya, good afternoon, good evening, and good night!)</p>
+            </div>
+        </div>
+    </section>
 
     <script>
         // Include shared navigation
         function includeNavigation() {
             const navHTML = `
                 <nav class="nav-menu">
-                    <a href="index.html" class="nav-item" id="nav-home">HOME</a>
-                    <a href="work.html" class="nav-item" id="nav-design">WORK</a>
-                    <a href="headspace.html" class="nav-item" id="nav-headspace">HEADSPACE</a>
-                    <a href="cinema.html" class="nav-item" id="nav-cinema">THE CINEMA</a>
+                    <a href="index.html" class="nav-item active">Home</a>
+                    <a href="work.html" class="nav-item">Work</a>
+                    <a href="headspace.html" class="nav-item">Headspace</a>
+                    <a href="cinema.html" class="nav-item">The Cinema</a>
                 </nav>
             `;
             document.getElementById('navigation-container').innerHTML = navHTML;
-            
-            // Set active state
-            document.getElementById('nav-home').classList.add('active');
         }
         
         // Load navigation when page loads
@@ -115,63 +100,80 @@
             }
         });
         
-        // Handle seamless carousel scroll behavior
-        let lastScrollY = window.scrollY;
-        let isScrollingUp = false;
-        let isLooping = false;
-        
-        window.addEventListener('scroll', function() {
-            const currentScrollY = window.scrollY;
-            const logos = document.querySelectorAll('.logo');
-            const viewportHeight = window.innerHeight;
+        // Scroll-triggered text animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const textGroups = document.querySelectorAll('.text-group');
+            let animationSpeed = 1; // Default speed multiplier
+            let scrollAcceleration = 0;
+            let lastScrollTime = 0;
             
-            // Determine scroll direction
-            if (currentScrollY < lastScrollY) {
-                isScrollingUp = true;
-            } else {
-                isScrollingUp = false;
-            }
-            
-            // Handle seamless loop - when at the end of duplicated sections, jump to start
-            if (currentScrollY >= viewportHeight * 3 - 10 && !isLooping) {
-                isLooping = true;
-                window.scrollTo({ top: viewportHeight, behavior: 'instant' });
-                setTimeout(() => {
-                    isLooping = false;
-                }, 100);
-                return;
-            }
-            
-            // Handle seamless loop - when at the start and scrolling up, jump to end
-            if (currentScrollY <= 10 && isScrollingUp && !isLooping) {
-                isLooping = true;
-                window.scrollTo({ top: viewportHeight * 2, behavior: 'instant' });
-                setTimeout(() => {
-                    isLooping = false;
-                }, 100);
-                return;
-            }
-            
-            // Animate logos based on scroll position
-            logos.forEach((logo, index) => {
-                const sectionIndex = Math.floor(currentScrollY / viewportHeight);
-                const isCurrentSection = sectionIndex === index || sectionIndex === index + 2;
-                
-                if (isScrollingUp && isCurrentSection) {
-                    const scrollProgress = Math.min((currentScrollY % viewportHeight) / viewportHeight, 1);
-                    const translateY = scrollProgress * -100;
-                    const opacity = Math.max(1 - scrollProgress, 0);
-                    
-                    logo.style.transform = `translateY(${translateY}%)`;
-                    logo.style.opacity = opacity;
-                } else {
-                    logo.style.transform = 'translateY(0)';
-                    logo.style.opacity = '1';
-                }
+            // Initially hide all groups
+            textGroups.forEach(group => {
+                group.style.opacity = '0';
+                group.style.transform = 'translateY(0)';
             });
             
-            lastScrollY = currentScrollY;
+            function calculateWordCount(group) {
+                const text = group.textContent || group.innerText;
+                return text.trim().split(/\s+/).length;
+            }
+            
+            function detectScrollSpeed() {
+                const currentTime = Date.now();
+                const timeDiff = currentTime - lastScrollTime;
+                lastScrollTime = currentTime;
+                
+                // If scrolling very fast (less than 50ms between scroll events)
+                if (timeDiff < 50) {
+                    scrollAcceleration += 0.1;
+                    animationSpeed = Math.min(1 + scrollAcceleration, 3); // Max 3x speed
+                } else {
+                    scrollAcceleration = Math.max(scrollAcceleration - 0.05, 0);
+                    animationSpeed = Math.max(1 + scrollAcceleration, 1);
+                }
+            }
+            
+            function checkScrollPosition() {
+                const scrollY = window.scrollY;
+                const windowHeight = window.innerHeight;
+                
+                // Detect scroll speed
+                detectScrollSpeed();
+                
+                // If scrolled to about text section (second section)
+                if (scrollY >= windowHeight * 0.3) {
+                    let cumulativeDelay = 0;
+                    
+                    textGroups.forEach((group, index) => {
+                        const wordCount = calculateWordCount(group);
+                        // Base delay of 1 second + 100ms per word, adjusted by speed
+                        const baseDelay = 1000 + (wordCount * 100);
+                        const adjustedDelay = baseDelay / animationSpeed;
+                        
+                        setTimeout(() => {
+                            group.style.opacity = '1';
+                        }, cumulativeDelay);
+                        
+                        cumulativeDelay += adjustedDelay;
+                    });
+                } else {
+                    // Reset all groups when back to logo section
+                    textGroups.forEach(group => {
+                        group.style.opacity = '0';
+                    });
+                    // Reset speed when going back to logo
+                    animationSpeed = 1;
+                    scrollAcceleration = 0;
+                }
+            }
+            
+            // Listen for scroll events
+            window.addEventListener('scroll', checkScrollPosition);
+            
+            // Check initial position
+            checkScrollPosition();
         });
+        
     </script>
 </body>
 </html>
