@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         
         content.innerHTML = `
-            <h3 style="color: #2c2c2c; margin-bottom: 1rem; font-family: 'Instrument Sans', sans-serif;">${label}</h3>
+            <h3 style="color: #2c2c2c; margin-bottom: 1rem; font-family: 'Arial';">${label}</h3>
             <div style="width: 200px; height: 150px; background: #f0f0f0; border: 2px dashed #ccc; margin: 1rem auto; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
                 <span style="color: #999; font-size: 0.9rem;">Placeholder Image</span>
             </div>

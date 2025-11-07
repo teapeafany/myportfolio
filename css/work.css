@@ -126,12 +126,12 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #FEC307;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Arial';
     font-size: 1.5rem;
-    font-weight: 150;
+    font-weight: lighter;
     font-style: italic;
     text-transform: uppercase;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     margin-bottom: 0.2rem;
     z-index: 4;
     pointer-events: auto; /* enable interactions on status if needed */
@@ -140,7 +140,7 @@ body {
 
 .project-subtitle {
     color: #ccc;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Arial';
     font-size: 0.9rem;
     font-style: italic;
 }
@@ -165,11 +165,11 @@ body {
 
 .title-text {
     color: #FEC307;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Arial';
     font-size: 2.4rem;
-    font-weight: 400;
+    font-weight: 100;
     text-transform: uppercase;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
 }
 
 .action-container {
@@ -181,35 +181,13 @@ body {
 
 .action-text {
     color: #FEC307;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Arial';
     font-size: 0.8rem;
     font-weight: 100;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: -0.04em;
 }
 
-.play-button {
-    width: 40px;
-    height: 40px;
-    background: #FEC307;
-    color: #021502;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid #FEC307;
-}
-
-.play-button:hover {
-    background: #021502;
-    color: #FEC307;
-    transform: scale(1.05);
-    transition: all 0.3s ease;
-}
 /* Side Panel */
 .side-panel {
     position: absolute;
@@ -252,7 +230,7 @@ body {
     border-radius: 3px;
     font-size: 1.1rem;
     font-weight: 50;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     font-style: italic;
     border: 2px solid;
     font-family: 'Arial';
@@ -294,7 +272,7 @@ body {
     font-family: 'Arial';
     font-size: 1.1rem;
     font-weight: 50;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     font-style: italic;
 }
 
@@ -303,7 +281,7 @@ body {
     font-family: 'Arial';
     font-size: 1.1rem;
     font-weight: 50;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     line-height: 1;
     margin-bottom: 1.5rem;
     text-align: right;
@@ -321,7 +299,7 @@ body {
     font-family: 'Arial';
     font-size: 1.1rem;
     font-weight: 50;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     font-style: italic;
     margin-bottom: 0;
     display: inline;
@@ -342,7 +320,7 @@ body {
     font-family: 'Arial';
     font-size: 1.1rem;
     font-weight: 50;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     font-style: italic;
 }
 
@@ -375,12 +353,12 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #FEC307;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Arial';
     font-size: 1.5rem;
-    font-weight: 150;
+    font-weight: 100;
     font-style: italic;
     text-transform: uppercase;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     z-index: 4;
 }
 
@@ -390,11 +368,11 @@ body {
 
 .project-title-large {
     color: #FEC307;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Arial';
     font-size: 3rem;
-    font-weight: 400;
+    font-weight: 100;
     text-transform: uppercase;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     margin-bottom: 1rem;
 }
 
@@ -410,7 +388,7 @@ body {
     font-family: 'Arial';
     font-size: 1.1rem;
     font-weight: 50;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     font-style: italic;
 }
 
@@ -419,7 +397,7 @@ body {
     font-family: 'Arial';
     font-size: 1.1rem;
     font-weight: 50;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     line-height: 1.6;
     margin-bottom: 2rem;
 }
@@ -441,9 +419,9 @@ body {
 
 .project-content h2 {
     color: #FEC307;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Arial';
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: 100;
     margin-top: 3rem;
     margin-bottom: 1rem;
 }
@@ -463,7 +441,7 @@ body {
 
 .back-link {
     color: #FEC307;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Arial';
     font-size: 1.2rem;
     text-decoration: none;
     border: 1px solid #FEC307;
@@ -482,15 +460,21 @@ body {
     font-family: 'Arial';
     font-size: 1.5rem;
     font-weight: 100;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     margin-bottom: 5rem;
 }
 
 .work-footer p {
     color: #FEC307;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Arial';
+    font-size: 1.5rem;
+    font-weight: 100;
+    line-height: 1.8;
     font-style: italic;
+    letter-spacing: -0.04em;
     margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Responsive Design */

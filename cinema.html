@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Cinema - Tiffany Lee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,100;0,400;0,500;0,600;0,700;1,100;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cinema.css">
 </head>
@@ -81,7 +84,8 @@
             
             const videos = [
                 'https://www.youtube.com/embed/7XPD9Hph7YE?start=3&autoplay=0&mute=0&controls=1&rel=0',
-                'https://www.youtube.com/embed/KknuJHiBBr8?autoplay=0&mute=0&controls=1&rel=0'
+                'https://www.youtube.com/embed/KknuJHiBBr8?autoplay=0&mute=0&controls=1&rel=0',
+                'https://www.youtube.com/embed/okb1mJCpJkc?autoplay=0&mute=0&controls=1&rel=0'
             ];
             
             // Background dimming functionality
@@ -154,8 +158,8 @@
                 blackScreen.classList.add('active');
                 
                 setTimeout(() => {
-                    // Switch video source
-                    currentVideo = currentVideo === 1 ? 2 : 1;
+                    // Switch video source (cycle through all videos)
+                    currentVideo = (currentVideo % videos.length) + 1;
                     videoIframe.src = videos[currentVideo - 1];
                     
                     // Reset video playing state when switching

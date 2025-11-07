@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work - Tiffany Lee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,100;0,400;0,500;0,600;0,700;1,100;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/work.css">
 </head>
@@ -38,7 +41,6 @@
                     <span class="title-text">ECHOSPHERE</span>
                     <div class="action-container">
                         <span class="action-text">CASE STUDY</span>
-                        <div class="play-button">▶</div>
                     </div>
                 </div>
                 <!-- Side Panel -->
@@ -76,7 +78,6 @@
                     <span class="title-text">CHOW CLUB</span>
                     <div class="action-container">
                         <span class="action-text">CASE STUDY</span>
-                        <div class="play-button">▶</div>
                     </div>
                 </div>
                 <!-- Side Panel -->
@@ -116,7 +117,6 @@
                     <span class="title-text">SCIOLY @GT</span>
                     <div class="action-container">
                         <span class="action-text">DESIGN FEATURE</span>
-                        <div class="play-button">▶</div>
                     </div>
                 </div>
                 <!-- Side Panel -->
@@ -172,27 +172,23 @@
             const projectItems = document.querySelectorAll('.project-item');
             
             projectItems.forEach(item => {
+                const projectName = item.getAttribute('data-project');
+                let targetPage = '';
+                
+                switch(projectName) {
+                    case 'echosphere':
+                        targetPage = 'echosphere.html';
+                        break;
+                    case 'chowclub':
+                        targetPage = 'chowclub.html';
+                        break;
+                    case 'scioly':
+                        targetPage = 'scioly.html';
+                        break;
+                }
+                
+                // Add click handler to project item
                 item.addEventListener('click', function(e) {
-                    // Don't navigate if clicking on the play button
-                    if (e.target.classList.contains('play-button')) {
-                        return;
-                    }
-                    
-                    const projectName = this.getAttribute('data-project');
-                    let targetPage = '';
-                    
-                    switch(projectName) {
-                        case 'echosphere':
-                            targetPage = 'echosphere.html';
-                            break;
-                        case 'chowclub':
-                            targetPage = 'chowclub.html';
-                            break;
-                        case 'scioly':
-                            targetPage = 'scioly.html';
-                            break;
-                    }
-                    
                     if (targetPage) {
                         window.location.href = targetPage;
                     }

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,100;0,400;0,500;0,600;0,700;1,100;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Video Background -->
@@ -63,6 +63,16 @@
                 <p class="about-text">(And in case I don't see ya, good afternoon, good evening, and good night!)</p>
             </div>
         </div>
+        
+        <!-- Progress Bar -->
+        <div class="about-progress-bar" id="about-progress-bar">
+            <div class="progress-line"></div>
+            <div class="progress-circle" data-group="1"></div>
+            <div class="progress-circle" data-group="2"></div>
+            <div class="progress-circle" data-group="3"></div>
+            <div class="progress-circle" data-group="4"></div>
+            <div class="progress-circle" data-group="5"></div>
+        </div>
     </section>
 
     <script>
@@ -103,9 +113,21 @@
         // Scroll-triggered text animation
         document.addEventListener('DOMContentLoaded', function() {
             const textGroups = document.querySelectorAll('.text-group');
-            let animationSpeed = 1; // Default speed multiplier
-            let scrollAcceleration = 0;
-            let lastScrollTime = 0;
+            const progressBar = document.getElementById('about-progress-bar');
+            const progressCircles = document.querySelectorAll('.progress-circle');
+            let animationTimeouts = [];
+            let isInAboutSection = false;
+            let windowHeight = window.innerHeight;
+            let maxScroll = windowHeight * 2; // Two sections, each 100vh
+            let lastScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+            let scrollDirection = 'down'; // Track scroll direction
+            let visibleGroups = new Set(); // Track which groups are visible
+            
+            // Function to recalculate max scroll
+            function recalculateMaxScroll() {
+                windowHeight = window.innerHeight;
+                maxScroll = windowHeight * 2;
+            }
             
             // Initially hide all groups
             textGroups.forEach(group => {
@@ -118,60 +140,255 @@
                 return text.trim().split(/\s+/).length;
             }
             
-            function detectScrollSpeed() {
-                const currentTime = Date.now();
-                const timeDiff = currentTime - lastScrollTime;
-                lastScrollTime = currentTime;
+            function clearAllAnimations() {
+                // Clear all pending timeouts
+                animationTimeouts.forEach(timeout => clearTimeout(timeout));
+                animationTimeouts = [];
                 
-                // If scrolling very fast (less than 50ms between scroll events)
-                if (timeDiff < 50) {
-                    scrollAcceleration += 0.1;
-                    animationSpeed = Math.min(1 + scrollAcceleration, 3); // Max 3x speed
+                // Hide all text groups immediately
+                textGroups.forEach((group, index) => {
+                    group.style.opacity = '0';
+                    visibleGroups.delete(index); // Remove from visible set
+                });
+            }
+            
+            function updateProgressBar() {
+                // Show progress bar when text starts appearing (first text section "Hi...")
+                const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+                const aboutSectionThreshold = windowHeight * 0.3;
+                
+                // Show when text animation starts (at aboutSectionThreshold) through max scroll
+                if (scrollY >= aboutSectionThreshold && scrollY <= maxScroll) {
+                    progressBar.classList.add('visible');
                 } else {
-                    scrollAcceleration = Math.max(scrollAcceleration - 0.05, 0);
-                    animationSpeed = Math.max(1 + scrollAcceleration, 1);
+                    progressBar.classList.remove('visible');
                 }
+                
+                // Update circle states based on visible text groups
+                // Find the highest index of visible text groups - that's the active one
+                let activeIndex = -1;
+                visibleGroups.forEach(index => {
+                    if (index > activeIndex) {
+                        activeIndex = index; // Track the highest visible index
+                    }
+                });
+                
+                // Update each circle based on its relationship to the active index
+                textGroups.forEach((group, index) => {
+                    const circle = progressCircles[index];
+                    if (!circle) return;
+                    
+                    circle.classList.remove('active', 'completed');
+                    
+                    if (activeIndex >= 0) {
+                        if (index < activeIndex) {
+                            // Groups before active are completed
+                            circle.classList.add('completed');
+                        } else if (index === activeIndex) {
+                            // Current group is active
+                            circle.classList.add('active');
+                        }
+                        // Groups after active remain inactive (no class added)
+                    }
+                });
+            }
+            
+            function skipToGroup(groupIndex) {
+                // Clear all animations
+                clearAllAnimations();
+                
+                // Show all groups up to and including the clicked group
+                textGroups.forEach((group, index) => {
+                    if (index <= groupIndex) {
+                        group.style.opacity = '1';
+                        visibleGroups.add(index); // Add to visible set
+                    }
+                });
+                
+                // Update progress bar immediately
+                updateProgressBar();
+                
+                // Mark as in about section
+                isInAboutSection = true;
+            }
+            
+            // Add click handlers to progress circles
+            progressCircles.forEach((circle, index) => {
+                circle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    skipToGroup(index);
+                });
+            });
+            
+            function preventScrollPastMax() {
+                const scrollY = window.scrollY;
+                
+                // Prevent scrolling past the second section
+                if (scrollY > maxScroll) {
+                    window.scrollTo({
+                        top: maxScroll,
+                        behavior: 'auto'
+                    });
+                    return true; // Indicate scroll was prevented
+                }
+                return false;
             }
             
             function checkScrollPosition() {
-                const scrollY = window.scrollY;
-                const windowHeight = window.innerHeight;
+                let scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
                 
-                // Detect scroll speed
-                detectScrollSpeed();
+                // Determine scroll direction
+                if (scrollY > lastScrollY) {
+                    scrollDirection = 'down';
+                } else if (scrollY < lastScrollY) {
+                    scrollDirection = 'up';
+                }
+                lastScrollY = scrollY;
                 
-                // If scrolled to about text section (second section)
-                if (scrollY >= windowHeight * 0.3) {
-                    let cumulativeDelay = 0;
+                // FIRST: Prevent scrolling past max and get corrected scroll position
+                if (scrollY > maxScroll) {
+                    window.scrollTo({
+                        top: maxScroll,
+                        behavior: 'auto'
+                    });
+                    scrollY = maxScroll; // Use corrected scroll position
+                }
+                
+                const aboutSectionThreshold = windowHeight * 0.3;
+                
+                // If scrolling up anywhere, hide text immediately
+                if (scrollDirection === 'up') {
+                    clearAllAnimations();
+                    isInAboutSection = false;
+                    updateProgressBar(); // Update progress bar before returning
+                    return; // Don't proceed with showing text
+                }
+                
+                // Check if we're at max scroll - reveal all text immediately (when scrolling down or reaching it)
+                if (scrollY >= maxScroll) {
+                    // Clear any pending animations
+                    clearAllAnimations();
+                    isInAboutSection = true;
                     
+                    // Reveal all text groups immediately
                     textGroups.forEach((group, index) => {
-                        const wordCount = calculateWordCount(group);
-                        // Base delay of 1 second + 100ms per word, adjusted by speed
-                        const baseDelay = 1000 + (wordCount * 100);
-                        const adjustedDelay = baseDelay / animationSpeed;
-                        
-                        setTimeout(() => {
-                            group.style.opacity = '1';
-                        }, cumulativeDelay);
-                        
-                        cumulativeDelay += adjustedDelay;
+                        group.style.opacity = '1';
+                        visibleGroups.add(index); // Track that all groups are visible
                     });
+                    updateProgressBar(); // Update progress bar
+                }
+                // Check if we're in the about text section (but not at max scroll yet)
+                else if (scrollY >= aboutSectionThreshold && scrollY < maxScroll) {
+                    // Only start animation if scrolling down and we weren't already in this section
+                    if (scrollDirection === 'down' && !isInAboutSection) {
+                        isInAboutSection = true;
+                        clearAllAnimations();
+                        updateProgressBar(); // Update progress bar when entering section
+                        
+                        let cumulativeDelay = 0;
+                        
+                        textGroups.forEach((group, index) => {
+                            const wordCount = calculateWordCount(group);
+                            // Base delay of 1 second + 100ms per word
+                            const baseDelay = 1000 + (wordCount * 100);
+                            
+                            const timeout = setTimeout(() => {
+                                group.style.opacity = '1';
+                                visibleGroups.add(index); // Track that this group is now visible
+                                updateProgressBar(); // Update progress bar as each group appears
+                            }, cumulativeDelay);
+                            
+                            animationTimeouts.push(timeout);
+                            cumulativeDelay += baseDelay;
+                        });
+                    }
                 } else {
-                    // Reset all groups when back to logo section
-                    textGroups.forEach(group => {
-                        group.style.opacity = '0';
-                    });
-                    // Reset speed when going back to logo
-                    animationSpeed = 1;
-                    scrollAcceleration = 0;
+                    // We're in the logo section - reset everything
+                    if (isInAboutSection) {
+                        isInAboutSection = false;
+                        clearAllAnimations();
+                    }
+                    // Update progress bar (will hide it since we're not in about section)
+                    updateProgressBar();
                 }
             }
             
-            // Listen for scroll events
-            window.addEventListener('scroll', checkScrollPosition);
+            // Aggressive scroll prevention - check immediately on every scroll
+            function enforceScrollLimit() {
+                const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollY > maxScroll) {
+                    // Force scroll position back immediately
+                    window.scrollTo(0, maxScroll);
+                    document.documentElement.scrollTop = maxScroll;
+                    document.body.scrollTop = maxScroll;
+                    return true;
+                }
+                return false;
+            }
+            
+            // Throttling variable for scroll position checking
+            let ticking = false;
+            
+            // Immediate scroll prevention without throttling
+            window.addEventListener('scroll', function(e) {
+                // Always enforce scroll limit immediately (no throttling)
+                if (enforceScrollLimit()) {
+                    return;
+                }
+                
+                // Throttle the checkScrollPosition call only
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        checkScrollPosition();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: false });
+            
+            // Prevent wheel scrolling past max
+            window.addEventListener('wheel', function(e) {
+                const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+                
+                // If at max and trying to scroll down, prevent it
+                if (scrollY >= maxScroll && e.deltaY > 0) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    enforceScrollLimit();
+                }
+            }, { passive: false });
+            
+            // Prevent touch scrolling past max (for mobile)
+            let lastTouchY = 0;
+            window.addEventListener('touchmove', function(e) {
+                const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+                const touchY = e.touches[0].clientY;
+                
+                // If at max and swiping down, prevent it
+                if (scrollY >= maxScroll && touchY < lastTouchY) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    enforceScrollLimit();
+                }
+                
+                lastTouchY = touchY;
+            }, { passive: false });
+            
+            // Also check on resize to ensure max scroll is still correct
+            window.addEventListener('resize', function() {
+                recalculateMaxScroll();
+                if (window.scrollY > maxScroll) {
+                    window.scrollTo(0, maxScroll);
+                }
+                // Recheck scroll position after resize
+                checkScrollPosition();
+            });
             
             // Check initial position
             checkScrollPosition();
+            updateProgressBar(); // Initial progress bar update
         });
         
     </script>

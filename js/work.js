@@ -69,11 +69,11 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         
         content.innerHTML = `
-            <h2 style="color: #FEC307; font-family: 'Instrument Sans', sans-serif; font-size: 1.5rem; margin-bottom: 1rem;">${project.title}</h2>
-            <div style="color: #FEC307; font-family: 'Instrument Sans', sans-serif; font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">${project.status}</div>
-            <div style="color: #ccc; font-family: 'Instrument Sans', sans-serif; font-size: 0.9rem; font-style: italic; margin-bottom: 1.5rem;">${project.subtitle}</div>
-            <p style="color: #f0f0f0; font-family: 'Instrument Sans', sans-serif; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">${project.description}</p>
-            <button onclick="this.closest('.modal').remove()" style="background: #FEC307; color: #0a0a0a; border: none; padding: 0.8rem 1.5rem; border-radius: 5px; font-family: 'Instrument Sans', sans-serif; font-weight: 600; cursor: pointer;">Close</button>
+            <h2 style="color: #FEC307; font-family: 'Arial'; font-size: 1.5rem; margin-bottom: 1rem;">${project.title}</h2>
+            <div style="color: #FEC307; font-family: 'Arial'; font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">${project.status}</div>
+            <div style="color: #ccc; font-family: 'Arial'; font-size: 0.9rem; font-style: italic; margin-bottom: 1.5rem;">${project.subtitle}</div>
+            <p style="color: #f0f0f0; font-family: 'Arial'; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">${project.description}</p>
+            <button onclick="this.closest('.modal').remove()" style="background: #FEC307; color: #0a0a0a; border: none; padding: 0.8rem 1.5rem; border-radius: 5px; font-family: 'Arial'; font-weight: 600; cursor: pointer;">Close</button>
         `;
         
         modal.appendChild(content);
