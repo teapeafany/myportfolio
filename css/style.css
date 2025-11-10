@@ -29,6 +29,7 @@ body.loaded {
     height: 100%;
     object-fit: cover;
     z-index: -2;
+    background: #000300;
     /* darken the video without affecting transparency of children */
     filter: brightness(55%);
     opacity: 1;
