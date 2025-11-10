@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="css/headspace.css">
 </head>
 <body>
+    <div id="loading-screen" class="loading-screen" role="status" aria-live="polite">
+        <div class="loading-content">
+            <div class="loading-spinner" aria-hidden="true"></div>
+            <p>Loading Headspace...</p>
+        </div>
+    </div>
     <!-- Shared Navigation -->
     <div id="navigation-container"></div>
     
@@ -79,6 +85,24 @@
             setTimeout(() => {
                 document.body.classList.add('loaded');
             }, 100);
+        });
+
+        // Loading screen handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const loader = document.getElementById('loading-screen');
+
+            function hideLoader() {
+                if (!loader || loader.classList.contains('hidden')) {
+                    return;
+                }
+                loader.classList.add('hidden');
+                setTimeout(() => loader.remove(), 600);
+            }
+
+            // Hide once all assets are loaded
+            window.addEventListener('load', hideLoader);
+            // Fallback in case load event takes too long
+            setTimeout(hideLoader, 4000);
         });
         
         // Journal navigation functions
