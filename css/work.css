@@ -63,6 +63,10 @@ body {
     transition: transform 0.3s ease;
 }
 
+.project-item[data-project="echosphere"] {
+    cursor: default;
+}
+
 .project-item.hovered {
     transform: translateX(-250px) !important;
 }
