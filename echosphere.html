@@ -4,53 +4,243 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECHOSPHERE - Tiffany Lee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Switzer:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        body {
-            background: white;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            font-family: 'Arial';
-        }
-        .project-title {
-            color: #FEC307;
-            font-size: 4rem;
-            font-weight: 100;
-            text-transform: uppercase;
-            letter-spacing: -0.04em;
-        }
-    </style>
+    <link rel="stylesheet" href="css/echosphere.css">
 </head>
 <body>
-    <!-- Shared Navigation -->
-    <div id="navigation-container"></div>
-    
-    <h1 class="project-title">ECHOSPHERE</h1>
+    <!-- Hero Section -->
+    <div id="hero-section" class="hero-section fade-in-section">
+        <!-- Shared Navigation -->
+        <div id="navigation-container"></div>
+        
+        <img src="film/echosphere.svg" alt="ECHOSPHERE" class="project-title">
+
+        <a href="#next-section">
+            <img src="film/downarrow.svg" alt="Down Arrow" class="down-arrow">
+        </a>
+    </div>
+
+    <!-- Next Section -->
+    <div id="next-section" class="next-section">
+        <div class="content-container">
+            <!-- Section 00: Project Overview -->
+            <div class="section fade-in-section">
+                <h2 class="section-title">00: Project Overview</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Overview</h3>
+                    <p class="context-text">
+                        Echosphere is a conceptual music-discovery experience we developed, targeted towards all music listeners ages 18-24, focused on breaking algorithmic filter bubbles and introducing a genuine exploratory experience.
+                    </p>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">The Context</h3>
+                    <p class="overview-text">
+                        Current music platforms like Spotify and Apple Music overwhelmingly rely on recommendation algorithms that recycle familiar content, limiting genuine discovery and weakening emotional engagement with music. Users reported feeling disconnected from artists, overwhelmed by surface-level recommendations, and constrained by systems that rarely reflect their mood, headspace, or social environment.
+                    </p>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">The Problems</h3>
+                    <ul class="insights-list">
+                        <li>Over-reliance on algorithms means repetitive, predictable recommendations, limiting genuine discovery.</li>
+                        <li>Users feel emotionally disconnected from artists when discovering them on streaming platforms, as content lacks depth, storytelling, or personal context.</li>
+                        <li>Users are frustrated when music platforms are context blind, ignoring mood, environment, and social space.</li>
+                    </ul>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Our Goals</h3>
+                    <ul class="insights-list">
+                        <li>Break out of algorithmic filter bubbles</li>
+                        <li>Rebuild meaningful artist-listener relationships</li>
+                        <li>Enable emotionally-intelligent, context-aware music discovery</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Question Section -->
+    <div class="question-section fade-in-section">
+        <div class="question-container">
+            <h2 class="question-text">How might we create a music discovery experience that breaks algorithmic filter bubbles and rebuilds meaningful connections between artists and listeners?</h2>
+        </div>
+    </div>
+
+    <!-- Design Process Section -->
+    <div class="next-section">
+        <div class="content-container">
+            <!-- Section 01: Design Process -->
+            <div class="section fade-in-section">
+                <h2 class="section-title">01: Design Process</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Research Analysis: Affinity Mapping</h3>
+                    <p class="insights-text">
+                        Through user interviews and affinity mapping, we identified key themes in how users discover and connect with music. Our analysis revealed patterns around emotional connection, discovery and curation, contextual and emotional music preferences, social aspects of music sharing, artist-listener relationships, and the limitations of algorithmic recommendations.
+                    </p>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Design Goals</h3>
+                    <p class="insights-text">
+                        Our user research revealed a clear pattern: current music platforms are failing to create meaningful, emotional, and socially rich discovery experiences. To address these gaps, our design goals focus on three core areas:
+                    </p>
+                    <ul class="insights-list">
+                        <li>Enable Human-Centered, Non-Algorithmic Social Discovery</li>
+                        <li>Deepen Artist-Listener Relationships</li>
+                        <li>Create Emotionally Intelligent Music Discovery</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- My Contributions Section -->
+    <div class="next-section">
+        <div class="content-container">
+            <!-- Section 02: Our Design Features -->
+            <div class="section fade-in-section">
+                <h2 class="section-title">02: Our Design Features</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Feature: Community Discovery Spaces</h3>
+                    <p class="insights-text">
+                        Instead of AI-generated suggestions, users can explore the music spheres of people around them, friends, peers, or even strangers nearby. This supports authentic discovery through human taste and shared moments, fulfilling users' need for subtle, meaningful social connection without overwhelming feeds or performative social pressure.
+                    </p>
+                    <p class="insights-text" style="font-style: italic; opacity: 0.8; margin-top: 1rem;">
+                        Design Goal: Enable Human-Centered, Non-Algorithmic Social Discovery
+                    </p>
+                    <div class="wireframes-container">
+                        <!-- Add Community Discovery Spaces UI image here -->
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Feature: User Spheres</h3>
+                    <p class="insights-text">
+                        User Spheres create immersive, story-driven spaces crafted by artists and friends. By offering behind-the-scenes content, personal updates, and curated music bubbles that they can share with their fans and friends, this feature directly responds to users' desire for deeper context and stronger emotional ties with the artists they follow.
+                    </p>
+                    <p class="insights-text" style="font-style: italic; opacity: 0.8; margin-top: 1rem;">
+                        Design Goal: Deepen Artist-Listener Relationships
+                    </p>
+                    <div class="wireframes-container">
+                        <!-- Add User Spheres UI image here -->
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Feature: Mood & Environment Spheres</h3>
+                    <p class="insights-text">
+                        Users reported that algorithmic playlists feel shallow and disconnected from their actual mood or environment. Mood & Environment Spheres use contextual cues (weather, time, location, and listening habits) to generate more personal, emotionally resonant discovery paths. These spheres adapt through interactive 'Vibe checks,' giving users control over how their exploration evolves.
+                    </p>
+                    <p class="insights-text" style="font-style: italic; opacity: 0.8; margin-top: 1rem;">
+                        Design Goal: Create Emotionally Intelligent Music Discovery
+                    </p>
+                    <div class="wireframes-container">
+                        <!-- Add Mood & Environment Spheres UI image here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Prototype Section -->
+    <div class="question-section fade-in-section">
+        <div class="question-container">
+            <h2 class="question-text">03: Final Prototype</h2>
+            <div class="prototype-container">
+                <!-- Add your Figma embed here -->
+            </div>
+        </div>
+        
+        <!-- Back to Top Arrow -->
+        <a href="#hero-section">
+            <img src="film/downarrow.svg" alt="Back to Top" class="up-arrow">
+        </a>
+    </div>
     
     <script>
-        // Include shared navigation
+        // Include back button only
         function includeNavigation() {
             const navHTML = `
                 <nav class="nav-menu">
-                    <a href="index.html" class="nav-item" id="nav-home">HOME</a>
-                    <a href="work.html" class="nav-item" id="nav-work">DESIGN PROCESS</a>
-                    <a href="headspace.html" class="nav-item" id="nav-headspace">HEADSPACE</a>
-                    <a href="#" class="nav-item" id="nav-cinema">THE CINEMA</a>
+                    <a href="work.html" class="nav-item nav-back" id="nav-back" aria-label="Back to Work">
+                        <img src="film/nextpagebutton.svg" alt="Back" class="back-button-icon">
+                    </a>
                 </nav>
             `;
             document.getElementById('navigation-container').innerHTML = navHTML;
-            
-            // Set active state
-            document.getElementById('nav-work').classList.add('active');
         }
         
         // Load navigation when page loads
         document.addEventListener('DOMContentLoaded', includeNavigation);
+        
+        // Scroll Snap Animation - Show sections as they snap into view
+        function handleScrollAnimation() {
+            const sections = document.querySelectorAll('.fade-in-section');
+            
+            sections.forEach((section, index) => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionHeight = section.getBoundingClientRect().height;
+                const windowHeight = window.innerHeight;
+                
+                // More lenient detection - show section when it's mostly in view
+                const isInView = sectionTop <= windowHeight * 0.3 && sectionTop >= -sectionHeight * 0.7;
+                
+                if (isInView) {
+                    section.classList.add('is-visible');
+                }
+            });
+        }
+        
+        // Add scroll event listener with faster response
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            scrollTimeout = setTimeout(handleScrollAnimation, 10);
+        });
+        
+        // Initialize hero section immediately and run detection
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.fade-in-section');
+            // Show hero section (first section) immediately
+            if (sections[0]) {
+                sections[0].classList.add('is-visible');
+            }
+            // Run detection immediately
+            handleScrollAnimation();
+        });
+        
+        // Add keyboard navigation for scroll snap
+        document.addEventListener('keydown', (e) => {
+            const sections = document.querySelectorAll('.fade-in-section');
+            const currentScroll = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const currentSection = Math.round(currentScroll / windowHeight);
+            
+            if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: (currentSection + 1) * windowHeight,
+                    behavior: 'smooth'
+                });
+            } else if (e.key === 'ArrowUp' && currentSection > 0) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: (currentSection - 1) * windowHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
         
         // Add smooth fade-in
         document.addEventListener('DOMContentLoaded', function() {

@@ -1,3 +1,6 @@
+/* Import Switzer Font */
+@import url('Switzer_Complete/Fonts/WEB/css/switzer.css');
+
 /* Custom Font */
 @font-face {
     font-family: 'Myhandwriting-Regular';
@@ -12,8 +15,8 @@ body {
     background: #000;
     margin: 0;
     padding: 0;
-    font-family: 'Arial';
-    font-weight: 100;
+    font-family: 'Switzer', sans-serif;
+    font-weight: 300;
     position: relative;
     overflow: auto !important;
     height: auto !important;
@@ -89,10 +92,10 @@ body::after {
 
 .loading-content p {
     color: #FEC307;
-    font-family: 'Arial';
+    font-family: 'Switzer', sans-serif;
     font-size: 1rem;
-    font-weight: 100;
-    letter-spacing: -0.04em;
+    font-weight: 300;
+    letter-spacing: normal;
     text-transform: uppercase;
 }
 
@@ -121,7 +124,23 @@ body::after {
     width: 100%;
     height: auto;
     margin-bottom: 2rem;
-    filter: drop-shadow(0 0 15px rgba(254, 195, 7, 0.4));
+    filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.5)) 
+            drop-shadow(0 0 30px rgba(255, 120, 0, 0.3))
+            drop-shadow(0 0 45px rgba(255, 100, 0, 0.2));
+    animation: logoGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+    0% {
+        filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.5)) 
+                drop-shadow(0 0 30px rgba(255, 120, 0, 0.3))
+                drop-shadow(0 0 45px rgba(255, 100, 0, 0.2));
+    }
+    100% {
+        filter: drop-shadow(0 0 20px rgba(255, 160, 20, 0.6)) 
+                drop-shadow(0 0 35px rgba(255, 140, 10, 0.4))
+                drop-shadow(0 0 50px rgba(255, 120, 0, 0.3));
+    }
 }
 
 /* Personal Journal Layout */
@@ -295,11 +314,11 @@ body::after {
 
 .headspacesubtitle {
     color: #FEC307;
-    font-family: 'Arial';
+    font-family: 'Switzer', sans-serif;
     font-size: 1.5rem;
-    font-weight: lighter;
-    font-style: italic;
-    letter-spacing: -0.03em;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
     line-height: 1.8;
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.9);
     opacity: 0;

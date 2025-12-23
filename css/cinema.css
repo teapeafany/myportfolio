@@ -3,8 +3,8 @@ body {
     background: #000;
     margin: 0;
     padding: 0;
-    font-family: 'Arial';
-    font-weight: 100;
+    font-family: 'Switzer', sans-serif;
+    font-weight: 300;
     position: relative;
     overflow: hidden;
     opacity: 0;
@@ -161,11 +161,10 @@ body.video-playing::before {
 
 .cinemasubtitle {
     color: #FEC307;
-    font-family: 'Arial';
+    font-family: 'Switzer', sans-serif;
     font-size: 1.5rem;
-    font-weight: 100;
-    font-style: italic;
-    letter-spacing: -0.04em;
+    font-style: extra-light;
+    letter-spacing: normal;
     line-height: 1.8;
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.9);
     opacity: 0;

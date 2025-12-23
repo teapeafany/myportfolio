@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work - Tiffany Lee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Switzer:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/work.css">
 </head>
@@ -19,15 +22,18 @@
     <!-- Main Content -->
     <main class="work-container">
         <img src="film/work.png" alt="Work" class="work-logo">
-        <!-- Footer -->
-        <div class="work-footer">
-        <p>Hey there! Glad you stopped by.</p> <p>Lately, I’ve been exploring design on a broader canvas, blending the physical and digital. </p> <p>Here’s a glimpse into a few of the digital stories I’ve helped bring to life...</p>
+
+        <!-- Filter Buttons -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">ALL</button>
+            <button class="filter-btn" data-filter="ux-ui">UX/UI</button>
+            <button class="filter-btn" data-filter="explorations">DESIGN EXPLORATIONS</button>
         </div>
 
         <!-- Projects List -->
         <div class="projects-list">
             <!-- Project 1: ECHOSPHERE -->
-            <div class="project-item" data-project="echosphere">
+            <div class="project-item" data-project="echosphere" data-category="ux-ui">
             <div class="project-image">
                 <div class="placeholder-image">
                 <img src="film/echospherelogo.svg" alt="ECHOSPHERE logo" class="project-thumb">
@@ -65,7 +71,7 @@
             </div>
             
             <!-- Project 2: CHOW CLUB -->
-            <div class="project-item" data-project="chowclub">
+            <div class="project-item" data-project="chowclub" data-category="ux-ui">
                 <div class="project-image">
                     <div class="placeholder-image">
                     <img src="film/chowclublogo.svg" alt="CHOWCLUB logo" class="placeholder-image">
@@ -103,7 +109,7 @@
             </div>
             
             <!-- Project 3: SCIOLY PAGE -->
-            <div class="project-item" data-project="scioly">
+            <div class="project-item" data-project="scioly" data-category="ux-ui">
                 <div class="project-image">
                     <div class="placeholder-image">
                     <img src="film/scioly logo.svg" alt="SCIOLY logo" class="placeholder-image">
@@ -127,7 +133,7 @@
                         </div>
                     </div>
                     <div class="panel-description">
-                    For this client project, I worked with Georgia Tech’s Science Olympiad team to design features that bring order to the chaos, making coordination seamless for admins and coaches alike.                    </div>
+                    For this client project, I worked with Georgia Tech's Science Olympiad team to design features that bring order to the chaos, making coordination seamless for admins and coaches alike.                    </div>
                     <div class="panel-tools">
                         <span class="tool-label">Tools:</span>
                         <div class="tool-tags">
@@ -173,6 +179,9 @@
                 let targetPage = '';
                 
                 switch(projectName) {
+                    case 'echosphere':
+                        targetPage = 'echosphere.html';
+                        break;
                     case 'chowclub':
                         targetPage = 'chowclub.html';
                         break;
@@ -199,5 +208,37 @@
     </script>
     
     <script src="js/work.js"></script>
+    
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectItems = document.querySelectorAll('.project-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter projects
+                    projectItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        
+                        if (filterValue === 'all') {
+                            item.classList.remove('hidden');
+                        } else if (filterValue === category) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

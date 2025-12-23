@@ -1,3 +1,6 @@
+/* Import Switzer Font */
+@import url('Switzer_Complete/Fonts/WEB/css/switzer.css');
+
 /* Work Page Styles */
 body {
     background: #000300;
@@ -39,8 +42,58 @@ body {
     width: 100%;
     height: auto;
     margin-top: 10rem;
+    margin-bottom: 6rem;
+    filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.5)) 
+            drop-shadow(0 0 30px rgba(255, 120, 0, 0.3))
+            drop-shadow(0 0 45px rgba(255, 100, 0, 0.2));
+    animation: logoGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+    0% {
+        filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.5)) 
+                drop-shadow(0 0 30px rgba(255, 120, 0, 0.3))
+                drop-shadow(0 0 45px rgba(255, 100, 0, 0.2));
+    }
+    100% {
+        filter: drop-shadow(0 0 20px rgba(255, 160, 20, 0.6)) 
+                drop-shadow(0 0 35px rgba(255, 140, 10, 0.4))
+                drop-shadow(0 0 50px rgba(255, 120, 0, 0.3));
+    }
+}
+
+/* Filter Container */
+.filter-container {
+    display: flex;
+    gap: 1rem;
     margin-bottom: 3rem;
-    filter: drop-shadow(0 0 15px rgba(254, 195, 7, 0.4));
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    color: #FEC307;
+    border: 1px solid #FEC307;
+    padding: 0.5rem 1.5rem;
+    font-family: 'Switzer', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 1px;
+}
+
+.filter-btn:hover {
+    background: rgba(254, 195, 7, 0.1);
+}
+
+.filter-btn.active {
+    background: rgba(254, 195, 7, 0.2);
+    border-color: #FEC307;
 }
 
 /* Projects List */
@@ -50,8 +103,17 @@ body {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    margin-top: 0;
     margin-bottom: 4rem;
     align-items: center;
+}
+
+.project-item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-item.hidden {
+    display: none;
 }
 
 .project-item {
@@ -108,46 +170,23 @@ body {
     filter: brightness(25%);
 }
 
-.project-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    padding: 1rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    z-index: 3; /* sits above the image */
-    pointer-events: none; /* allow underlying clicks unless overridden */
-}
-
 .project-status {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #FEC307;
-    font-family: 'Arial';
+    font-family: 'Switzer', sans-serif;
     font-size: 1.5rem;
-    font-weight: lighter;
-    font-style: italic;
+    font-weight: 300;
+    font-style: normal;
     text-transform: uppercase;
-    letter-spacing: -0.04em;
+    letter-spacing: normal;
     margin-bottom: 0.2rem;
     z-index: 4;
-    pointer-events: auto; /* enable interactions on status if needed */
+    pointer-events: auto;
 }
 
-
-.project-subtitle {
-    color: #ccc;
-    font-family: 'Arial';
-    font-size: 0.9rem;
-    font-style: italic;
-}
 .project-title {
     display: flex;
     align-items: center;
@@ -169,11 +208,11 @@ body {
 
 .title-text {
     color: #FEC307;
-    font-family: 'Arial';
-    font-size: 2.4rem;
-    font-weight: 100;
+    font-family: 'Switzer', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: -0.04em;
+    letter-spacing: normal;
 }
 
 .action-container {
@@ -185,26 +224,26 @@ body {
 
 .action-text {
     color: #FEC307;
-    font-family: 'Arial';
-    font-size: 0.8rem;
-    font-weight: 100;
+    font-family: 'Switzer', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: -0.04em;
+    letter-spacing: normal;
 }
 
 /* Side Panel */
 .side-panel {
     position: absolute;
     top: 0;
-    left: 100%;                 /* place immediately to the right of the .project-item (touches the image/title) */
-    width: 500px;                /* same width as the image + title container */
-    height: 100%;               /* same combined height as the image + title */
+    left: 100%;
+    width: 500px;
+    height: 100%;
     background: #FFFDE8;
     border-radius: 1px;
     padding: 2rem 1.5rem;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     opacity: 0;
-    transform: translateX(0); /* no offset - panel touches the image directly */
+    transform: translateX(0);
     transition: all 0.3s ease;
     pointer-events: none;
     z-index: 20;
@@ -232,13 +271,12 @@ body {
 .tag {
     padding: 0.3rem 0.8rem;
     border-radius: 3px;
-    font-size: 1.1rem;
-    font-weight: 50;
-    letter-spacing: -0.04em;
-    font-style: italic;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: normal;
+    font-style: normal;
     border: 2px solid;
-    font-family: 'Arial';
-    
+    font-family: 'Switzer', sans-serif;
 }
 
 .tag.ux {
@@ -259,34 +297,22 @@ body {
     border-color: #f44336;
 }
 
-.tag.design {
-    background: rgba(33, 150, 243, 0.3);
-    color: #021502;
-    border-color: #2196F3;
-}
-
-.tag.web {
-    background: rgba(156, 39, 176, 0.3);
-    color: #021502;
-    border-color: #9C27B0;
-}
-
 .panel-date {
     color: #021502;
-    font-family: 'Arial';
-    font-size: 1.1rem;
-    font-weight: 50;
-    letter-spacing: -0.04em;
-    font-style: italic;
+    font-family: 'Switzer', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: normal;
+    font-style: normal;
 }
 
 .panel-description {
     color: #021502;
-    font-family: 'Arial';
-    font-size: 1.1rem;
-    font-weight: 50;
-    letter-spacing: -0.04em;
-    line-height: 1;
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 300;
+    letter-spacing: normal;
+    line-height: 1.7;
     margin-bottom: 1.5rem;
     text-align: right;
 }
@@ -300,11 +326,11 @@ body {
 
 .tool-label {
     color: #021502;
-    font-family: 'Arial';
-    font-size: 1.1rem;
-    font-weight: 50;
-    letter-spacing: -0.04em;
-    font-style: italic;
+    font-family: 'Switzer', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: normal;
+    font-style: normal;
     margin-bottom: 0;
     display: inline;
 }
@@ -321,161 +347,31 @@ body {
     padding: 0.3rem 0.8rem;
     border: 1px solid #021502;
     border-radius: 3px;
-    font-family: 'Arial';
-    font-size: 1.1rem;
-    font-weight: 50;
-    letter-spacing: -0.04em;
-    font-style: italic;
-}
-
-/* Project Pages Styles */
-.project-header {
-    display: flex;
-    gap: 3rem;
-    margin-bottom: 4rem;
-    align-items: flex-start;
-}
-
-.project-image-large {
-    position: relative;
-    width: 500px;
-    height: 300px;
-    flex-shrink: 0;
-}
-
-.placeholder-image-large {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
-    border-radius: 1px;
-    overflow: hidden;
-}
-
-.project-status-large {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #FEC307;
-    font-family: 'Arial';
-    font-size: 1.5rem;
-    font-weight: 100;
-    font-style: italic;
-    text-transform: uppercase;
-    letter-spacing: -0.04em;
-    z-index: 4;
-}
-
-.project-info {
-    flex: 1;
-}
-
-.project-title-large {
-    color: #FEC307;
-    font-family: 'Arial';
-    font-size: 3rem;
-    font-weight: 100;
-    text-transform: uppercase;
-    letter-spacing: -0.04em;
-    margin-bottom: 1rem;
-}
-
-.project-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.project-date {
-    color: #021502;
-    font-family: 'Arial';
-    font-size: 1.1rem;
-    font-weight: 50;
-    letter-spacing: -0.04em;
-    font-style: italic;
-}
-
-.project-description-large {
-    color: #021502;
-    font-family: 'Arial';
-    font-size: 1.1rem;
-    font-weight: 50;
-    letter-spacing: -0.04em;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-}
-
-.project-tools-large {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.project-content {
-    max-width: 800px;
-    margin: 0 auto 4rem;
-    color: #021502;
-    font-family: 'Arial';
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.project-content h2 {
-    color: #FEC307;
-    font-family: 'Arial';
-    font-size: 2rem;
-    font-weight: 100;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-}
-
-.project-content ul {
-    margin-left: 2rem;
-}
-
-.project-content li {
-    margin-bottom: 0.5rem;
-}
-
-.back-button {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.back-link {
-    color: #FEC307;
-    font-family: 'Arial';
-    font-size: 1.2rem;
-    text-decoration: none;
-    border: 1px solid #FEC307;
-    padding: 0.8rem 2rem;
-    border-radius: 1px;
-    transition: all 0.3s ease;
-}
-
-.back-link:hover {
-    background: rgba(254, 195, 7, 0.1);
+    font-family: 'Switzer', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: normal;
+    font-style: normal;
 }
 
 /* Footer */
 .work-footer {
     text-align: center;
-    font-family: 'Arial';
+    font-family: 'Switzer', sans-serif;
     font-size: 1.5rem;
-    font-weight: 100;
-    letter-spacing: -0.04em;
+    font-weight: 300;
+    letter-spacing: normal;
     margin-bottom: 5rem;
 }
 
 .work-footer p {
     color: #FEC307;
-    font-family: 'Arial';
+    font-family: 'Switzer', sans-serif;
     font-size: 1.5rem;
-    font-weight: 100;
+    font-weight: 300;
     line-height: 1.8;
-    font-style: italic;
-    letter-spacing: -0.04em;
+    font-style: normal;
+    letter-spacing: normal;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -490,27 +386,35 @@ body {
     .work-logo {
         max-width: 250px;
         margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    
+    .filter-container {
         margin-bottom: 2rem;
+        gap: 0.75rem;
+    }
+    
+    .filter-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 1.2rem;
     }
     
     .projects-list {
         gap: 2rem;
+        margin-top: 0;
     }
     
     .project-image {
         height: 200px;
     }
     
-    .placeholder-text {
-        font-size: 1.2rem;
-    }
-    
     .title-text {
-        font-size: 1rem;
+        font-size: 1.6rem;
+        letter-spacing: normal;
     }
     
     .action-text {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     
     .side-panel {
@@ -531,15 +435,11 @@ body {
 
 @media (max-width: 480px) {
     .work-logo {
-        max-width: 200px;
+        max-width: 300px;
     }
     
     .project-image {
         height: 150px;
-    }
-    
-    .placeholder-text {
-        font-size: 1rem;
     }
     
     .project-title {

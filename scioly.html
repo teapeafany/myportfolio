@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCIOLY @GT - Tiffany Lee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Switzer:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/scioly.css">
 </head>
@@ -137,23 +140,16 @@
     </div>
     
     <script>
-        // Include shared navigation
+        // Include back button only
         function includeNavigation() {
             const navHTML = `
                 <nav class="nav-menu">
-                    <a href="index.html" class="nav-item" id="nav-home">HOME</a>
-                    <a href="work.html" class="nav-item" id="nav-work">WORK</a>
-                    <a href="headspace.html" class="nav-item" id="nav-headspace">HEADSPACE</a>
-                    <a href="#" class="nav-item" id="nav-cinema">THE CINEMA</a>
                     <a href="work.html" class="nav-item nav-back" id="nav-back" aria-label="Back to Work">
-                        <img src="film/backbuttonchow.svg" alt="Back" class="back-button-icon">
+                        <img src="film/nextpagebutton.svg" alt="Back" class="back-button-icon">
                     </a>
                 </nav>
             `;
             document.getElementById('navigation-container').innerHTML = navHTML;
-            
-            // Set active state
-            document.getElementById('nav-work').classList.add('active');
         }
         
         // Load navigation when page loads
