@@ -129,6 +129,16 @@ html {
     scroll-snap-stop: always;
 }
 
+.project-overview-section {
+    background: #313C98;
+    color: #ffffff;
+}
+
+.project-overview-section {
+    background: #313C98;
+    color: #ffffff;
+}
+
 .content-container {
     max-width: 900px;
     width: 100%;
@@ -147,6 +157,55 @@ html {
     padding: 0;
 }
 
+.intro-section {
+    background: #f8f8f8;
+}
+
+.intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    position: relative;
+}
+
+.intro-visual {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 0;
+    opacity: 0.6;
+}
+
+.intro-music-gif {
+    max-width: 200px;
+    width: 50%;
+    height: auto;
+}
+
+.intro-text {
+    font-size: 2.2rem;
+    line-height: 1.8;
+    font-weight: 300;
+    letter-spacing: normal;
+    color: #1a2a4a;
+    margin-bottom: 3rem;
+    font-style: normal;
+}
+
+.intro-text:last-child {
+    margin-bottom: 0;
+}
+
+.intro-text strong {
+    font-weight: 700;
+    color: #1a2a4a;
+}
+
+.intro-text em {
+    font-style: italic;
+    font-weight: 300;
+    color: #1a2a4a;
+}
+
 .section-title {
     text-align: center;
     font-size: 2.2rem;
@@ -159,12 +218,24 @@ html {
     width: 100%;
 }
 
+.project-overview-section .section-title {
+    color: #ffffff;
+}
+
 .subsection {
     margin-bottom: 3rem;
 }
 
 .subsection:last-child {
     margin-bottom: 0;
+}
+
+.insight-subsection {
+    margin-bottom: 10rem !important;
+}
+
+.insight-subsection:last-child {
+    margin-bottom: 10rem !important;
 }
 
 .subsection-title {
@@ -178,6 +249,11 @@ html {
     letter-spacing: normal;
 }
 
+.project-overview-section .subsection-title {
+    color: #ffffff;
+    opacity: 0.8;
+}
+
 .context-text, .overview-text, .insights-text {
     font-size: 1.25rem;
     line-height: 1.8;
@@ -185,6 +261,12 @@ html {
     letter-spacing: normal;
     font-weight: 300;
     color: #1a1a1a;
+}
+
+.project-overview-section .context-text,
+.project-overview-section .overview-text,
+.project-overview-section .insights-text {
+    color: #ffffff;
 }
 
 .highlighted-question {
@@ -210,12 +292,116 @@ html {
     position: relative;
 }
 
+.project-overview-section .insights-list li {
+    color: #ffffff;
+}
+
 .insights-list li::before {
     content: '—';
     position: absolute;
     left: 0;
     color: #313C98;
     opacity: 0.5;
+}
+
+.project-overview-section .insights-list li::before {
+    color: #ffffff;
+    opacity: 0.6;
+}
+
+/* Problems Card Styling */
+.problems-card-container {
+    max-width: 800px;
+    margin: 4rem auto 0;
+    margin-bottom: 6rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.problems-card {
+    background: #F5F5F5;
+    border: 1px solid rgba(49, 60, 152, 0.2);
+    border-radius: 12px;
+    padding: 3rem 2.5rem;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(49, 60, 152, 0.15), 0 2px 8px rgba(49, 60, 152, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.problems-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(49, 60, 152, 0.2), 0 4px 12px rgba(49, 60, 152, 0.15);
+}
+
+.problems-tag {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: #F5F5F5;
+    border: 1.5px solid #313C98;
+    border-radius: 4px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #313C98;
+    text-transform: lowercase;
+    letter-spacing: normal;
+    font-family: 'Switzer', sans-serif;
+}
+
+.problems-label {
+    background: #313C98;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 0.5rem 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-family: 'Switzer', sans-serif;
+}
+
+.problems-label-bullet {
+    font-size: 0.9rem;
+}
+
+.problems-content {
+    margin-top: 1.5rem;
+}
+
+.problems-card:not(:has(.problems-label)) .problems-content {
+    margin-top: 0;
+}
+
+.problems-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 1.8rem;
+    letter-spacing: normal;
+    font-weight: 300;
+    color: #1a1a1a;
+    font-family: 'Switzer', sans-serif;
+}
+
+.problems-text:last-child {
+    margin-bottom: 0;
+}
+
+.problems-card .problems-text:last-child {
+    margin-bottom: 0;
+}
+
+.problems-text em {
+    font-style: italic;
+    font-weight: 400;
+    color: #313C98;
 }
 
 .wireframes-container {
@@ -303,7 +489,7 @@ html {
     flex: 0 0 65%;
     font-size: 1.6rem;
     line-height: 1.3;
-    margin-bottom: 1rem;
+    margin-bottom: 10rem;
     letter-spacing: normal;
     font-weight: lighter;
     color: #0f1a2e;
@@ -334,6 +520,29 @@ html {
         font-size: 1.6rem;
         line-height: 1.5;
         letter-spacing: normal;
+    }
+    
+    .problems-card {
+        padding: 2.5rem 1.8rem;
+    }
+    
+    .problems-tag {
+        top: 1.2rem;
+        left: 1.2rem;
+        font-size: 0.7rem;
+        padding: 0.35rem 0.7rem;
+    }
+    
+    .problems-label {
+        font-size: 0.8rem;
+        padding: 0.45rem 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .problems-text {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
     }
     
     .final-iterations-subsection {
