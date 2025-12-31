@@ -6,11 +6,21 @@
     <title>ECHOSPHERE - Tiffany Lee</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Switzer:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Switzer:wght@100;200;300;400;500;600;700;800;900&family=Instrument+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/echosphere.css">
 </head>
 <body>
+    <!-- Floating Bubbles Background -->
+    <div class="floating-bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    
     <!-- Hero Section -->
     <div id="hero-section" class="hero-section fade-in-section">
         <!-- Shared Navigation -->
@@ -126,6 +136,147 @@
         <div class="content-container">
             <div class="section fade-in-section">
                 <h2 class="section-title">03: The Research</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Interviews + Surveys</h3>
+                    <p class="insights-text">
+                        To understand how people discover and engage with music, we conducted interviews and surveys in September 2024. We received 40 survey responses and conducted 6 in-depth interviews with Georgia Tech students ages 18-24 who regularly use streaming platforms. The insights from these conversations revealed patterns in music discovery habits, emotional responses to recommendations, and social sharing behaviors that shaped our design direction.
+                    </p>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Applying Research</h3>
+                    
+                    <h4 class="persona-section-title">Uncovering Themes</h4>
+                    <p class="insights-text">
+                        To systematically organize insights from our interviews, we applied thematic analysis using coding and affinity mapping. We transcribed interviews in Taguette, tagged recurring patterns, and grouped similar codes in FigJam to identify broader themes. This process helped us move from individual observations to actionable design insights.
+                    </p>
+                    <p class="insights-text" style="margin-bottom: 2rem;">
+                        <a href="#" class="theme-link">Click to view full coding process</a>
+                    </p>
+                    
+                    <h4 class="persona-section-title" style="margin-top: 3rem;">Key Themes</h4>
+                    <p class="insights-text" style="margin-bottom: 2rem;">
+                        From our analysis, three central themes emerged that shaped our design direction:
+                    </p>
+                    
+                    <div class="themes-table-container">
+                        <table class="themes-table">
+                            <thead>
+                                <tr>
+                                    <th>Theme</th>
+                                    <th>What We Heard</th>
+                                    <th>Design Implication</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Boredom with Familiar Songs</strong></td>
+                                    <td>Users reported getting tired of the same recommendations and craved novelty and freshness in their listening experience.</td>
+                                    <td>Design for serendipity and anti-repetition mechanics</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Algorithm Reliance vs. Active Exploration</strong></td>
+                                    <td>While many users depend on algorithmic suggestions, some actively seek new artists and genres as an intentional, enjoyable activity.</td>
+                                    <td>Balance passive discovery with exploratory tools that give users agency</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Context Matters</strong></td>
+                                    <td>Users differentiate between casual background listening and focused engagement. Platforms ignore mood, environment, and social setting.</td>
+                                    <td>Build context-aware features that adapt to how users actually listen</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h4 class="persona-section-title" style="margin-top: 3rem;">Supporting Codes</h4>
+                    <p class="insights-text" style="margin-bottom: 1.5rem;">
+                        Additional patterns validated our initial problem space and revealed unexpected needs:
+                    </p>
+                    <ul class="supporting-codes-list">
+                        <li><strong>Immersive Triggers:</strong> Live experiences (concerts, Spotify DJ) create memorable emotional connections</li>
+                        <li><strong>Music as Escape:</strong> Users seek music to "fill their mind" and find peace from daily stress</li>
+                        <li><strong>Trending Sound Exposure:</strong> Viral sounds on social media drive familiarity but contribute to over-standardization</li>
+                        <li><strong>Emotional Disconnect:</strong> Discovery lacks storytelling, artist context, and personal meaning</li>
+                    </ul>
+                    
+                    <h4 class="persona-section-title" style="margin-top: 3rem;">User Personas</h4>
+                    <p class="insights-text" style="margin-bottom: 3rem;">
+                        From our interviews and surveys, we developed two personas that reflected our core user groups.
+                    </p>
+                    
+                    <div class="persona-cards-container">
+                        <div class="persona-card">
+                            <div class="persona-header">
+                                <div class="persona-avatar">AR</div>
+                                <div class="persona-info">
+                                    <h3 class="persona-name">Arjun Reddy</h3>
+                                    <p class="persona-details">19 | Computer Science Student | Atlanta, GA</p>
+                                </div>
+                            </div>
+                            <div class="persona-content">
+                                <div class="persona-section">
+                                    <h4 class="persona-label">About</h4>
+                                    <p class="persona-text">Arjun relies on Spotify's algorithm and social media trends to discover music. He uses music to regulate focus and mood throughout his day: studying, commuting, working out. He rarely searches manually. Like most participants in our survey, his playlists are shaped entirely by what platforms recommend to him.</p>
+                                </div>
+                                <div class="persona-section">
+                                    <h4 class="persona-label">Goals</h4>
+                                    <ul class="persona-list">
+                                        <li>Find music that matches his mood or activity without thinking about it</li>
+                                        <li>Stay up-to-date with trending songs effortlessly</li>
+                                        <li>Spend less time choosing and more time listening</li>
+                                    </ul>
+                                </div>
+                                <div class="persona-section">
+                                    <h4 class="persona-label">Pain Points</h4>
+                                    <ul class="persona-list">
+                                        <li><strong>Algorithmic repetition:</strong> After a few weeks, recommendations start to sound the same and he gets bored</li>
+                                        <li><strong>Fragmented discovery:</strong> Finds snippets on TikTok and Reels, but full tracks often don't match the vibe he expected</li>
+                                        <li><strong>Low transparency:</strong> Doesn't understand why Spotify suggests certain songs and wants more control</li>
+                                    </ul>
+                                </div>
+                                <div class="persona-quote">
+                                    "I just want music that fits my mood without having to think about it, but I'm tired of hearing the same sound over and over."
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="persona-card">
+                            <div class="persona-header">
+                                <div class="persona-avatar">JR</div>
+                                <div class="persona-info">
+                                    <h3 class="persona-name">Jordan Reyes</h3>
+                                    <p class="persona-details">22 | New Grad & Part-Time DJ | Austin, TX</p>
+                                </div>
+                            </div>
+                            <div class="persona-content">
+                                <div class="persona-section">
+                                    <h4 class="persona-label">About</h4>
+                                    <p class="persona-text">Jordan actively searches for new artists to expand his musical palette. As a part-time DJ, he curates playlists intentionally and seeks out underground tracks that inspire creativity. Three out of six interview participants described similar exploratory behavior: actively digging for music that matches their mood or helps them "feel something different."</p>
+                                </div>
+                                <div class="persona-section">
+                                    <h4 class="persona-label">Goals</h4>
+                                    <ul class="persona-list">
+                                        <li>Discover non-mainstream artists and cultural sounds to broaden his DJ sets</li>
+                                        <li>Find music that inspires deep focus and creativity while working</li>
+                                        <li>Share music authentically with friends in meaningful ways</li>
+                                    </ul>
+                                </div>
+                                <div class="persona-section">
+                                    <h4 class="persona-label">Pain Points</h4>
+                                    <ul class="persona-list">
+                                        <li><strong>Mainstream bias:</strong> Algorithms favor trending sounds, making it hard to find underground or culturally diverse tracks</li>
+                                        <li><strong>Lack of context:</strong> Streaming platforms don't tell the story behind the music (its meaning, origins, or journey)</li>
+                                        <li><strong>Limited organization:</strong> Can't organize music by emotion or memory, only by genre labels</li>
+                                    </ul>
+                                </div>
+                                <div class="persona-quote">
+                                    "I want to discover artists who actually move me, not just what's popular. But platforms make it so hard to find anything outside the algorithm."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -137,30 +288,55 @@
         </div>
     </div>
 
-    <!-- Design Process Section -->
+    <!-- User Needs Section -->
     <div class="next-section">
         <div class="content-container">
-            <!-- Section 03: Design Process -->
+            <!-- Section 04: User Needs -->
             <div class="section fade-in-section">
-                <h2 class="section-title">03: Design Process</h2>
+                <h2 class="section-title">04: User Needs</h2>
                 
                 <div class="subsection">
-                    <h3 class="subsection-title">Research Analysis: Affinity Mapping</h3>
+                    <h3 class="subsection-title">Validating the Problem Space</h3>
                     <p class="insights-text">
-                        Through user interviews and affinity mapping, we identified key themes in how users discover and connect with music. Our analysis revealed patterns around emotional connection, discovery and curation, contextual and emotional music preferences, social aspects of music sharing, artist-listener relationships, and the limitations of algorithmic recommendations.
+                        Through coding and thematic analysis, we confirmed that users actively seek new music but face distinct challenges in how they discover it. Codes related to boredom, mood-driven listening, and artist exploration appeared an average of 3 times per participant, validating our initial problem space.
                     </p>
                 </div>
                 
                 <div class="subsection">
-                    <h3 class="subsection-title">Design Goals</h3>
+                    <h3 class="subsection-title">A Need for Music Novelty</h3>
                     <p class="insights-text">
-                        Our user research revealed a clear pattern: current music platforms are failing to create meaningful, emotional, and socially rich discovery experiences. To address these gaps, our design goals focus on three core areas:
+                        Many participants reported getting bored of familiar songs, wanting music to match their changing moods, and seeking new songs as a way to refresh their playlists and maintain engagement.
                     </p>
-                    <ul class="insights-list">
-                        <li>Enable Human-Centered, Non-Algorithmic Social Discovery</li>
-                        <li>Deepen Artist-Listener Relationships</li>
-                        <li>Create Emotionally Intelligent Music Discovery</li>
+                    <p class="insights-text" style="margin-top: 1.5rem;">
+                        The desire to listen to new music manifested in two distinct approaches:
+                    </p>
+                    <ul class="insights-list" style="margin-top: 1.5rem;">
+                        <li><strong>Algorithm-Reliant Listeners:</strong> Users who primarily depend on algorithmic recommendations or passive discovery through social media and friends.</li>
+                        <li><strong>Active Explorers:</strong> Users who dedicate time to actively searching for new artists and songs, treating the process as an enjoyable, intentional activity.</li>
                     </ul>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">A Need for Immersive Listening</h3>
+                    <p class="insights-text">
+                        Participants value moments of <strong>deep, uninterrupted engagement with music</strong>. Immersion was often described as a state where the listener is <strong>"pulled out of their thoughts"</strong> and fully absorbed in the sound.
+                    </p>
+                    <p class="insights-text" style="margin-top: 1.5rem;">
+                        Concerts and live performances were highlighted as strong triggers of immersion, offering lasting and memorable connections to songs and artists. Participants suggested that such immersive experiences counterbalance the fast-paced, disposable nature of trending sounds, creating opportunities for more meaningful and enduring relationships with music.
+                    </p>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Social Media's Influence</h3>
+                    <p class="insights-text">
+                        We found that users' listening choices are strongly shaped by external influences, both algorithmic (social media posts/Spotify-generated algorithm) and contextual.
+                    </p>
+                    <p class="insights-text" style="margin-top: 1.5rem;">
+                        These algorithms were described as convenient entry points for discovery, though they can create limitations by reinforcing familiar patterns. Participants also noted the <strong>frequency bias</strong>, where repeated exposure to a song (through social media's trending reels) increased its likability over time.
+                    </p>
+                    <p class="insights-text" style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(91, 123, 184, 0.15); border-left: 4px solid #7b9bd8; border-radius: 8px;">
+                        <strong>Key insight:</strong> Over 75% of participants listened to music while walking alone, exercising, or studying. This revealed that music serves different purposes—some use it to shift focus or break from tasks, while others use it to concentrate and enhance work engagement.
+                    </p>
                 </div>
             </div>
         </div>
@@ -311,6 +487,56 @@
             setTimeout(() => {
                 document.body.classList.add('loaded');
             }, 100);
+        });
+        
+        // Interactive Bubble Effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create interactive cursor bubble effect
+            let cursorBubble = document.createElement('div');
+            cursorBubble.className = 'cursor-bubble';
+            document.body.appendChild(cursorBubble);
+            
+            // Track mouse movement for bubble effect
+            document.addEventListener('mousemove', (e) => {
+                cursorBubble.style.left = e.clientX + 'px';
+                cursorBubble.style.top = e.clientY + 'px';
+            });
+            
+            // Add ripple effect to cards on click
+            const cards = document.querySelectorAll('.problems-card, .persona-card');
+            cards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    const ripple = document.createElement('div');
+                    ripple.className = 'ripple-effect';
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+                
+                // Add subtle magnetic effect on hover
+                card.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    const moveX = x * 0.05;
+                    const moveY = y * 0.05;
+                    
+                    this.style.transform = `translate(${moveX}px, ${moveY}px) translateY(-10px) scale(1.02)`;
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            });
         });
     </script>
 </body>
