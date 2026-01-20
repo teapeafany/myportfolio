@@ -106,6 +106,33 @@ body.loaded {
     pointer-events: none;
 }
 
+/* Social Links */
+.social-links {
+    position: fixed;
+    top: 6%;
+    right: 6%;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    z-index: 30;
+}
+
+.social-link {
+    color: #FEC307;
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: normal;
+    transition: opacity 0.3s ease;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.social-link:hover {
+    opacity: 0.7;
+}
+
 /* Scroll Snap Sections */
 .scroll-section {
     height: 100vh;
@@ -360,6 +387,16 @@ body.loaded {
         font-size: 1.4rem;
     }
     
+    .social-links {
+        right: 5%;
+        top: 5%;
+        gap: 0.75rem;
+    }
+    
+    .social-link {
+        font-size: 1.4rem;
+    }
+    
     .logo {
         max-width: 80%;
         margin-bottom: 1.5em;
@@ -407,6 +444,16 @@ body.loaded {
     }
     
     .nav-item {
+        font-size: 1.2rem;
+    }
+    
+    .social-links {
+        right: 4%;
+        top: 4%;
+        gap: 0.5rem;
+    }
+    
+    .social-link {
         font-size: 1.2rem;
     }
     
