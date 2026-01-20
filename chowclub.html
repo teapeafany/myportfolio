@@ -11,6 +11,31 @@
     <link rel="stylesheet" href="css/chowclub.css">
 </head>
 <body>
+    <!-- Progress Bar -->
+    <div class="chowclub-progress-bar" id="chowclub-progress-bar">
+        <div class="progress-line"></div>
+        <div class="progress-item" data-section="problem">
+            <div class="progress-circle"></div>
+            <span class="progress-label">00: Problem</span>
+        </div>
+        <div class="progress-item" data-section="insights">
+            <div class="progress-circle"></div>
+            <span class="progress-label">01: Insights</span>
+        </div>
+        <div class="progress-item" data-section="ideation">
+            <div class="progress-circle"></div>
+            <span class="progress-label">02: Ideation</span>
+        </div>
+        <div class="progress-item" data-section="iterations">
+            <div class="progress-circle"></div>
+            <span class="progress-label">03: Iterations</span>
+        </div>
+        <div class="progress-item" data-section="prototype">
+            <div class="progress-circle"></div>
+            <span class="progress-label">04: Prototype</span>
+        </div>
+    </div>
+    
     <!-- Hero Section -->
     <div id="hero-section" class="hero-section fade-in-section">
         <!-- Shared Navigation -->
@@ -23,40 +48,45 @@
     </div>
 
     <!-- Next Section -->
-    <div id="next-section" class="next-section">
+    <div id="problem-section" class="next-section">
         <div class="content-container">
             <!-- Section 00: Defining the Problem -->
             <div class="section fade-in-section">
                 <h2 class="section-title">00: Defining the Problem</h2>
                 
-                <div class="subsection">
-                    <h3 class="subsection-title">Context</h3>
-                    <p class="context-text">
-                        It started with a simple question:<br>
-                        <span class="highlighted-question">why do so many of our peers struggle to cook for themselves?</span> <br> 
-                   
-                       During the transition into college life, we noticed how cooking, something that should feel comforting, often became intimidating or forgotten. Together with fellow designer Anieka, we set out to understand that gap.
+                <div class="po-gradient-box po-box-light">
+                    <h3 class="po-box-title">Context</h3>
+                    <p class="po-box-text">
+                        It started with a simple question: <strong>why do so many of our peers struggle to cook for themselves?</strong>
+                    </p>
+                    <p class="po-box-text">
+                        During the transition into college life, we noticed how cooking, something that should feel comforting, often became intimidating or forgotten. Together with fellow designer Anieka, we set out to understand that gap.
                     </p>
                 </div>
                 
-                <div class="subsection">
-                    <h3 class="subsection-title">Project Overview</h3>
-                    <p class="overview-text">
+                <div class="po-gradient-box po-box-dark">
+                    <h3 class="po-box-title">Project Overview</h3>
+                    <p class="po-box-text">
                         Chow Club grew from those conversations. It is a gamified social platform designed to make cooking approachable, playful, and confidence-building for young adults. By turning everyday meals into moments of creativity and connection, we aimed to reframe cooking not as a chore but as a story worth savoring.
                     </p>
                 </div>
             </div>
-            
+        </div>
+    </div>
+    
+    <!-- Insights Section -->
+    <div id="insights-section" class="next-section">
+        <div class="content-container">
             <!-- Section 01: Gathering Insights -->
             <div class="section fade-in-section">
                 <h2 class="section-title">01: Gathering Insights</h2>
                 
-                <div class="subsection">
-                    <h3 class="subsection-title">Insights</h3>
-                    <p class="insights-text">
+                <div class="po-gradient-box po-box-light">
+                    <h3 class="po-box-title">Insights</h3>
+                    <p class="po-box-text">
                         From user interviews and peer discussions, we discovered that most students:
                     </p>
-                    <ul class="insights-list">
+                    <ul class="po-box-list">
                         <li>Struggle to find motivation to cook for one.</li>
                         <li>Feel overwhelmed by recipes with complex steps.</li>
                         <li>Miss the sense of community around cooking.</li>
@@ -75,85 +105,97 @@
     </div>
 
     <!-- Design Ideation Section -->
-    <div class="next-section">
+    <div id="ideation-section" class="next-section">
         <div class="content-container">
             <!-- Section 02: Design Ideation -->
             <div class="section fade-in-section">
                 <h2 class="section-title">02: Design Ideation</h2>
                 
-                <div class="subsection">
-                    <h3 class="subsection-title">Direction</h3>
-                    <p class="insights-text">
+                <div class="po-gradient-box po-box-light">
+                    <h3 class="po-box-title">Direction</h3>
+                    <p class="po-box-text">
                         We wanted to make cooking feel more like a game, encouraging progress through small, achievable steps. This meant introducing challenges, rewards, and community interaction.
                     </p>
                 </div>
                 
-                <div class="subsection">
-                    <h3 class="subsection-title">Ideation</h3>
-                    <p class="insights-text">
+                <div class="po-gradient-box po-box-dark">
+                    <h3 class="po-box-title">Ideation</h3>
+                    <p class="po-box-text">
                         We began by sketching out low-fidelity wireframes inspired by mobile gaming interfaces, focusing on bright visuals, progress tracking, and minimal friction in onboarding.
                     </p>
                 </div>
                 
-                <div class="subsection">
-                    <h3 class="subsection-title">Wireframes (low-fidelity)</h3>
-                    <div class="wireframes-container">
-                        <img src="film/wireframeschow.svg" alt="Low-fidelity wireframes" class="wireframes-image">
-                    </div>
+                <div class="wireframes-container">
+                    <img src="film/wireframeschow.svg" alt="Low-fidelity wireframes" class="wireframes-image">
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Section 03: Final Iterations -->
-    <div class="next-section">
+    <div id="iterations-section" class="next-section">
         <div class="content-container">
             <div class="section fade-in-section">
                 <h2 class="section-title">03: Final Iterations</h2>
                 
-                <div class="subsection final-iterations-subsection">
-                    <h3 class="subsection-title">Minor Gamification</h3>
-                    <p class="insights-text">
+                <div class="po-gradient-box po-box-light">
+                    <h3 class="po-box-title">Minor Gamification</h3>
+                    <p class="po-box-text">
                         Keeping it simple, the user can complete recipes to level up and unlock more recipes. This way, gamification is meant to act as motivation rather than be the central goal.
-                    </p> <br>
-                    
-                    <img src="film/wireframes2chow.svg" alt="Low-fidelity wireframes" class="wireframes-image">
-
+                    </p>
+                    <div class="wireframes-container">
+                        <img src="film/wireframes2chow.svg" alt="Gamification wireframes" class="wireframes-image">
+                    </div>
                 </div>
                 
-                <div class="subsection final-iterations-subsection">
-                    <h3 class="subsection-title">Step-By-Step User Guide</h3>
-                    <p class="insights-text">
+                <div class="po-gradient-box po-box-dark">
+                    <h3 class="po-box-title">Step-By-Step User Guide</h3>
+                    <p class="po-box-text">
                         Users can interact while cooking without a need to read through a long recipe list.
-                    </p> <br>
-                    <img src="film/stepbystepwireframe.svg" alt="Low-fidelity wireframes" class="wireframes-image">
-
+                    </p>
+                    <div class="wireframes-container">
+                        <img src="film/stepbystepwireframe.svg" alt="Step-by-step wireframes" class="wireframes-image">
+                    </div>
                 </div>
                 
-                <div class="subsection final-iterations-subsection">
-                    <h3 class="subsection-title">Social Motivation</h3>
-                    <p class="insights-text">
+                <div class="po-gradient-box po-box-light">
+                    <h3 class="po-box-title">Social Motivation</h3>
+                    <p class="po-box-text">
                         Most users find motivation through social interaction and friends. Now, friends can learn recipes together and share their completed dishes in their profile as well as on other social media platforms.
-                    </p><br>
-                    <img src="film/socialmotivwireframe.svg" alt="Low-fidelity wireframes" class="wireframes-image">
+                    </p>
+                    <div class="wireframes-container">
+                        <img src="film/socialmotivwireframe.svg" alt="Social motivation wireframes" class="wireframes-image">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Final Prototype Section -->
+    <!-- Question Section -->
     <div class="question-section fade-in-section">
         <div class="question-container">
-            <h2 class="question-text">04: Final Prototype</h2>
-            <div class="prototype-container">
-                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/4Z0dCm2P1scv26WsHGrR2x/tiffany---anieka?page-id=1%3A3&node-id=8243-6662&viewport=263%2C413%2C0.04&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8243%3A6662&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>
+            <h2 class="question-text">How might we motivate struggling<br>college students to build healthy<br>and responsible eating habits?</h2>
+        </div>
+        <img src="film/bunny.png" alt="Bunny" class="bunny-image">
+    </div>
+
+    <!-- Final Prototype Section -->
+    <div id="prototype-section" class="next-section">
+        <div class="content-container">
+            <div class="section fade-in-section">
+                <h2 class="section-title">04: Final Prototype</h2>
+                <div class="prototype-container">
+                    <iframe src="https://embed.figma.com/proto/4Z0dCm2P1scv26WsHGrR2x/tiffany---anieka?page-id=1%3A3&node-id=8243-6662&viewport=263%2C413%2C0.04&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8243%3A6662&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
         
         <!-- Back to Top Arrow -->
-        <a href="#hero-section">
-            <img src="film/downarrow.svg" alt="Back to Top" class="up-arrow">
-        </a>
+        <div class="back-to-top-section">
+            <a href="#hero-section">
+                <img src="film/downarrow.svg" alt="Back to Top" class="up-arrow">
+            </a>
+        </div>
     </div>
 
 <script>
@@ -237,6 +279,121 @@
             setTimeout(() => {
                 document.body.classList.add('loaded');
             }, 100);
+        });
+        
+        // Progress Bar Functionality
+        let sectionTitles = [];
+        
+        function findSectionTitles() {
+            const numbers = ['00', '01', '02', '03', '04'];
+            sectionTitles = [];
+            
+            numbers.forEach((number) => {
+                const titleElement = Array.from(document.querySelectorAll('h2')).find(h2 => {
+                    return h2.textContent.trim().startsWith(number + ':');
+                });
+                
+                if (titleElement) {
+                    sectionTitles.push(titleElement);
+                }
+            });
+        }
+        
+        function updateProgressBar() {
+            if (sectionTitles.length === 0) {
+                findSectionTitles();
+            }
+            
+            const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const viewportCenter = scrollY + windowHeight / 2;
+            let activeIndex = 0;
+            let minDistance = Infinity;
+            
+            // Find which section title is closest to viewport center
+            sectionTitles.forEach((titleElement, index) => {
+                const rect = titleElement.getBoundingClientRect();
+                const elementTop = scrollY + rect.top;
+                const elementCenter = elementTop + rect.height / 2;
+                const distance = Math.abs(viewportCenter - elementCenter);
+                
+                // Check if element is in viewport
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        activeIndex = index;
+                    }
+                }
+            });
+            
+            // If we're at the bottom, make the last section active
+            if (scrollY + windowHeight >= document.documentElement.scrollHeight - 50) {
+                activeIndex = sectionTitles.length - 1;
+            }
+            
+            // Update progress items
+            const progressItems = document.querySelectorAll('.progress-item');
+            progressItems.forEach((item, index) => {
+                const circle = item.querySelector('.progress-circle');
+                if (circle) {
+                    circle.classList.remove('active', 'completed');
+                    item.classList.remove('active');
+                    
+                    if (index < activeIndex) {
+                        circle.classList.add('completed');
+                    } else if (index === activeIndex) {
+                        circle.classList.add('active');
+                        item.classList.add('active');
+                    }
+                }
+            });
+        }
+        
+        // Scroll event listener
+        let ticking = false;
+        function onScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    updateProgressBar();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', onScroll, { passive: true });
+        
+        // Click handlers for progress items
+        document.addEventListener('DOMContentLoaded', function() {
+            findSectionTitles();
+            
+            document.querySelectorAll('.progress-item').forEach((item, index) => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    if (sectionTitles[index]) {
+                        const titleElement = sectionTitles[index];
+                        const rect = titleElement.getBoundingClientRect();
+                        const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+                        const offsetTop = scrollY + rect.top - 100;
+                        
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Initial update
+            updateProgressBar();
+        });
+        
+        // Also update after page fully loads
+        window.addEventListener('load', function() {
+            findSectionTitles();
+            updateProgressBar();
         });
     </script>
 </body>

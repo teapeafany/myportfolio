@@ -3,6 +3,106 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Chow Club Progress Bar */
+.chowclub-progress-bar {
+    position: fixed;
+    right: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    z-index: 999;
+    opacity: 1;
+    pointer-events: auto;
+    width: 2px;
+    min-height: 400px;
+}
+
+.progress-line {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: rgba(237, 220, 192, 0.2);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.progress-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 1.5rem 0;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.progress-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(237, 220, 192, 0.2);
+    border: 2px solid rgba(237, 220, 192, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+.progress-item:hover .progress-circle:not(.active) {
+    transform: scale(1.4);
+    background: rgba(237, 220, 192, 0.5);
+    border-color: rgba(237, 220, 192, 0.5);
+}
+
+.progress-circle.active {
+    width: 14px;
+    height: 14px;
+    background: #EDDCC0;
+    border-color: #EDDCC0;
+    box-shadow: 0 0 15px rgba(237, 220, 192, 0.8), 0 0 30px rgba(237, 220, 192, 0.4);
+    transform: scale(1);
+}
+
+.progress-circle.completed {
+    background: rgba(237, 220, 192, 0.4);
+    border-color: rgba(237, 220, 192, 0.4);
+}
+
+.progress-label {
+    position: absolute;
+    right: 25px;
+    font-family: 'Switzer', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #EDDCC0;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.progress-item.active .progress-label {
+    opacity: 1;
+    transform: translateX(0);
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.progress-item:hover .progress-label {
+    opacity: 0.7;
+    transform: translateX(0);
+}
+
 body {
     background: #587002;
     margin: 0;
@@ -11,6 +111,8 @@ body {
     letter-spacing: normal;
     overflow-x: hidden;
     overflow-y: auto;
+    position: relative;
+    color: #2F3D00;
 }
 
 /* Scroll Snap Animation Classes */
@@ -55,11 +157,18 @@ html {
     justify-content: center;
     scroll-snap-align: start;
     scroll-snap-stop: always;
+    position: relative;
+    background: #587002;
+    overflow: hidden;
 }
+
 .down-arrow {
-    margin-top: 8rem;
+    margin-top: 4rem;
     cursor: pointer;
     transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+    filter: brightness(0) invert(1);
 }
 
 .down-arrow:hover {
@@ -73,11 +182,21 @@ html {
     margin-bottom: 3rem;
     left: 50%; 
     transform: translateX(-50%), translateY(-5px);
+    filter: brightness(0) invert(1);
 }
+
+.back-to-top-section {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
 .project-title {
     width: 60%;
     height: auto;
     max-width: 90vw;
+    position: relative;
+    z-index: 1;
 }
 
 
@@ -123,6 +242,119 @@ html {
     padding-top: 0;
     color: #587002;
     width: 100%;
+}
+
+/* Gradient Boxes */
+.po-gradient-box {
+    border-radius: 30px;
+    padding: 3rem 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    border: 2px solid rgba(237, 220, 192, 0.2);
+    box-shadow: 0 8px 30px rgba(47, 61, 0, 0.2), 0 2px 8px rgba(88, 112, 2, 0.15);
+}
+
+/* Light gradient boxes */
+.po-box-light {
+    background: radial-gradient(circle at top left, rgba(237, 220, 192, 0.25) 0%, rgba(220, 200, 180, 0.2) 50%, transparent 100%);
+}
+
+.po-box-light::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    background: radial-gradient(circle at bottom right, rgba(200, 180, 160, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Dark gradient boxes */
+.po-box-dark {
+    background: radial-gradient(circle at top left, rgba(200, 180, 160, 0.3) 0%, rgba(180, 160, 140, 0.25) 50%, transparent 100%);
+}
+
+.po-box-dark::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    background: radial-gradient(circle at bottom right, rgba(88, 112, 2, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.po-box-title {
+    font-family: 'Switzer', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #587002;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.po-icon {
+    font-size: 1.5rem;
+    display: inline-block;
+}
+
+.po-box-text {
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #2F3D00;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.po-box-text:last-child {
+    margin-bottom: 0;
+}
+
+.po-box-text strong {
+    font-weight: 500;
+    color: #587002;
+}
+
+.po-box-list {
+    margin-left: 0;
+    margin-top: 1.5rem;
+    list-style: none;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.po-box-list li {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    letter-spacing: normal;
+    font-weight: 300;
+    color: #2F3D00;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.po-box-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #587002;
+    opacity: 0.5;
 }
 
 .subsection {
@@ -186,15 +418,15 @@ html {
 
 .wireframes-container {
     text-align: center;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 0;
 }
 
 .wireframes-image {
     max-width: 100%;
     height: auto;
-    border-radius: 4px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(47, 61, 0, 0.2), 0 2px 8px rgba(88, 112, 2, 0.15);
 }
 
 /* Fixed Navigation for ChowClub */
