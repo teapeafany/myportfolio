@@ -170,6 +170,23 @@ body {
     filter: brightness(25%);
 }
 
+.project-item[data-project="echosphere"] .project-thumb {
+    filter: brightness(100%);
+    opacity: 1;
+}
+
+.default-placeholder {
+    color: #FEC307;
+    font-family: 'Switzer', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+    text-align: center;
+    padding: 2rem;
+}
+
 .project-status {
     position: absolute;
     top: 50%;

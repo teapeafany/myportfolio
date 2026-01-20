@@ -26,14 +26,15 @@
         
         <!-- Subtitle -->
         
-            <div class="headspacesubtitle subtitle-1">Journaling is a part of my daily routine. Stories, scripts, sketches, scenes, you name it.</div>
-            <div class="headspacesubtitle subtitle-2">Whether it be my late night ten cents, or a screenplay for a new film, I jot everything on fresh leuchtturm1917.</div>
-            <div class="headspacesubtitle subtitle-3">I heard from a little birdie you're interested in my story. Well, where do I begin?</div>
+            <div class="headspacesubtitle subtitle-1">here are some recent pages in my book.</div>
+            <div class="headspacesubtitle subtitle-2">it's messy, it's chaotic, but that's the creative process.</div>
         
         <!-- Personal Journal Image -->
         <div class="personal-journal">
             <div class="journal-container">
                 <img src="film/myjournal.png" alt="Personal Journal" class="journal-background">
+                <img src="film/page1.jpg" alt="Page 1" class="journal-page1-overlay">
+                <img src="film/page2.jpeg" alt="Page 2" class="journal-page2-overlay">
                 
                 <!-- Navigation Buttons -->
                 <button class="journal-nav-button journal-back-button" onclick="previousPage()">
@@ -109,15 +110,54 @@
         });
         
         // Journal navigation functions
+        let currentPage = 1;
+        const totalPages = 2;
+        
+        function updatePageVisibility() {
+            const page1 = document.querySelector('.journal-page1-overlay');
+            const page2 = document.querySelector('.journal-page2-overlay');
+            const backButton = document.querySelector('.journal-back-button');
+            const nextButton = document.querySelector('.journal-next-button');
+            
+            if (currentPage === 1) {
+                page1.classList.remove('hidden');
+                page2.classList.remove('active');
+                backButton.style.opacity = '0.3';
+                backButton.style.pointerEvents = 'none';
+            } else if (currentPage === 2) {
+                page1.classList.add('hidden');
+                page2.classList.add('active');
+                backButton.style.opacity = '1';
+                backButton.style.pointerEvents = 'auto';
+            }
+            
+            if (currentPage === totalPages) {
+                nextButton.style.opacity = '0.3';
+                nextButton.style.pointerEvents = 'none';
+            } else {
+                nextButton.style.opacity = '1';
+                nextButton.style.pointerEvents = 'auto';
+            }
+        }
+        
         function previousPage() {
-            // Add your previous page logic here
-            console.log('Previous page clicked');
+            if (currentPage > 1) {
+                currentPage--;
+                updatePageVisibility();
+            }
         }
         
         function nextPage() {
-            // Add your next page logic here
-            console.log('Next page clicked');
+            if (currentPage < totalPages) {
+                currentPage++;
+                updatePageVisibility();
+            }
         }
+        
+        // Initialize page visibility on load
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePageVisibility();
+        });
     </script>
     
     <script src="js/headspace.js"></script>

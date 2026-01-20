@@ -38,7 +38,6 @@
                 <div class="placeholder-image">
                 <img src="film/echospherelogo.svg" alt="ECHOSPHERE logo" class="project-thumb">
                 </div>
-                <div class="project-status">IN PROGRESS</div>
             </div>
                 <div class="project-title">
                     <span class="title-text">ECHOSPHERE</span>
@@ -70,7 +69,42 @@
                 </div>
             </div>
             
-            <!-- Project 2: CHOW CLUB -->
+            <!-- Project 2: VOYMEMO -->
+            <div class="project-item" data-project="voymemo" data-category="explorations">
+                <div class="project-image">
+                    <div class="placeholder-image">
+                    </div>
+                    <div class="project-status">IN PROGRESS</div>
+                </div>
+                <div class="project-title">
+                    <span class="title-text">VOYMEMO</span>
+                    <div class="action-container">
+                        <span class="action-text">PROTOTYPE</span>
+                    </div>
+                </div>
+                <!-- Side Panel -->
+                <div class="side-panel">
+                    <div class="panel-header">
+                        <div class="panel-date">Fall 2025</div>
+                        <div class="panel-tags">
+                            <span class="tag ux">PHYSICAL</span>
+                            <span class="tag ui">RESEARCH</span>
+                            <span class="tag digital">FILM</span>
+                        </div>
+                    </div>
+                    <div class="panel-description">
+                        Coming soon.
+                    </div>
+                    <div class="panel-tools">
+                        <span class="tool-label">Tools:</span>
+                        <div class="tool-tags">
+                            <span class="tool-tag">TBD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3: CHOW CLUB -->
             <div class="project-item" data-project="chowclub" data-category="ux-ui">
                 <div class="project-image">
                     <div class="placeholder-image">
@@ -108,7 +142,7 @@
                 </div>
             </div>
             
-            <!-- Project 3: SCIOLY PAGE -->
+            <!-- Project 4: SCIOLY PAGE -->
             <div class="project-item" data-project="scioly" data-category="ux-ui">
                 <div class="project-image">
                     <div class="placeholder-image">
@@ -188,11 +222,14 @@
                     case 'scioly':
                         targetPage = 'scioly.html';
                         break;
+                    case 'voymemo':
+                        targetPage = ''; // No page yet
+                        break;
                 }
                 
                 // Add click handler to project item
                 item.addEventListener('click', function(e) {
-                    if (targetPage) {
+                    if (targetPage && targetPage !== '') {
                         window.location.href = targetPage;
                     }
                 });

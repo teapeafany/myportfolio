@@ -162,6 +162,51 @@ body::after {
     width: 100%;
     height: auto;
     border-radius: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.journal-page1-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-53%, -54%);
+    max-width: 82%;
+    width: 82%;
+    height: auto;
+    border-radius: 8px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.journal-page2-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-53%, -54%);
+    max-width: 80%;
+    width: 80%;
+    height: auto;
+    border-radius: 8px;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.journal-page2-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.journal-page1-overlay {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.journal-page1-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .journal-content {
@@ -174,6 +219,7 @@ body::after {
     align-items: flex-start;
     padding: 2rem;
     box-sizing: border-box;
+    z-index: 3;
 }
 
 .journal-left-column {
@@ -364,18 +410,146 @@ body::after {
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .personal-journal {
+        margin-left: 3rem;
+    }
+    
+    .journal-container {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .personal-journal {
+        margin-left: 2rem;
+    }
+    
+    .journal-container {
+        max-width: 95%;
+    }
+    
+    .journal-page1-overlay,
+    .journal-page2-overlay {
+        max-width: 85%;
+        width: 85%;
+    }
+}
+
 @media (max-width: 768px) {
     .headspace-container {
         padding: 1rem;
     }
     
-    .journal-image {
+    .hslogo {
+        max-width: 90%;
+        margin-bottom: 1.5rem;
+    }
+    
+    .headspacesubtitle {
+        font-size: 1.2rem;
+        margin-top: -2rem;
+        margin-bottom: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .personal-journal {
+        margin-left: 0;
+        width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .journal-container {
         max-width: 100%;
+    }
+    
+    .journal-background {
+        width: 100%;
+    }
+    
+    .journal-page1-overlay,
+    .journal-page2-overlay {
+        max-width: 90%;
+        width: 90%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .journal-content {
+        padding: 1rem;
+    }
+    
+    .journal-left-column,
+    .journal-right-column {
+        width: 100%;
+        padding: 0.5rem;
+    }
+    
+    .journal-nav-button {
+        top: calc(50% - 2rem);
+    }
+    
+    .journal-back-button {
+        left: 1rem;
+    }
+    
+    .journal-next-button {
+        right: 1rem;
+    }
+    
+    .nav-button-icon {
+        width: 30px;
     }
 }
 
 @media (max-width: 480px) {
-    .journal-image {
-        max-width: 100%;
+    .hslogo {
+        max-width: 85%;
+        margin-bottom: 1rem;
+    }
+    
+    .headspacesubtitle {
+        font-size: 1rem;
+        margin-top: -1.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+    }
+    
+    .personal-journal {
+        padding: 0 0.5rem;
+    }
+    
+    .journal-page1-overlay,
+    .journal-page2-overlay {
+        max-width: 95%;
+        width: 95%;
+    }
+    
+    .journal-content {
+        padding: 0.5rem;
+    }
+    
+    .journal-nav-button {
+        top: calc(50% - 1.5rem);
+    }
+    
+    .journal-back-button {
+        left: 0.5rem;
+    }
+    
+    .journal-next-button {
+        right: 0.5rem;
+    }
+    
+    .nav-button-icon {
+        width: 25px;
+    }
+    
+    .nav-menu {
+        left: 3%;
+        top: 4%;
+    }
+    
+    .nav-item {
+        font-size: 1.2rem;
     }
 }
