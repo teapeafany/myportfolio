@@ -1,0 +1,1040 @@
+/* VOYMEMO Page Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Voymemo Progress Bar */
+.voymemo-progress-bar {
+    position: fixed;
+    right: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    z-index: 999;
+    opacity: 1;
+    pointer-events: auto;
+    width: 2px;
+    min-height: 400px;
+}
+
+.progress-line {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: rgba(100, 100, 180, 0.3);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.progress-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 1.5rem 0;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.progress-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(100, 100, 180, 0.3);
+    border: 2px solid rgba(100, 100, 180, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+.progress-item:hover .progress-circle:not(.active) {
+    transform: scale(1.4);
+    background: rgba(100, 100, 180, 0.6);
+    border-color: rgba(100, 100, 180, 0.6);
+}
+
+.progress-circle.active {
+    width: 14px;
+    height: 14px;
+    background: #6464B4;
+    border-color: #6464B4;
+    box-shadow: 0 0 15px rgba(100, 100, 180, 0.8), 0 0 30px rgba(100, 100, 180, 0.4);
+    transform: scale(1);
+}
+
+.progress-circle.completed {
+    background: rgba(100, 100, 180, 0.5);
+    border-color: rgba(100, 100, 180, 0.5);
+}
+
+.progress-label {
+    position: absolute;
+    right: 25px;
+    font-family: 'Switzer', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #6464B4;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.progress-item.active .progress-label {
+    opacity: 1;
+    transform: translateX(0);
+    color: #2D2D5A;
+    font-weight: 500;
+}
+
+.progress-item:hover .progress-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+body {
+    background: #E4E4FF;
+    margin: 0;
+    padding: 0;
+    font-family: 'Switzer', sans-serif;
+    letter-spacing: normal;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    color: #2D2D5A;
+}
+
+/* Scroll Snap Animation Classes */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Text animations (engaging, high usability) --- */
+/* Respect user preference: no animation for reduced-motion */
+@media (prefers-reduced-motion: no-preference) {
+    /* Staggered text reveal when section becomes visible */
+    .fade-in-section .section-title,
+    .fade-in-section .section-subtitle,
+    .fade-in-section .section-heading,
+    .fade-in-section .section-text {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in-section.is-visible .section-title {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0ms;
+    }
+
+    .fade-in-section.is-visible .section-subtitle {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 100ms;
+    }
+
+    .fade-in-section.is-visible .section-heading {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 120ms;
+    }
+
+    .fade-in-section.is-visible .section-text {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 180ms;
+    }
+
+    /* Stagger multiple .section-text and .section-heading for natural flow */
+    .fade-in-section.is-visible .section-text:nth-of-type(2) { transition-delay: 260ms; }
+    .fade-in-section.is-visible .section-text:nth-of-type(3) { transition-delay: 340ms; }
+    .fade-in-section.is-visible .section-text:nth-of-type(4) { transition-delay: 420ms; }
+    .fade-in-section.is-visible .section-heading:nth-of-type(2) { transition-delay: 220ms; }
+    .fade-in-section.is-visible .section-heading:nth-of-type(3) { transition-delay: 320ms; }
+
+    /* Hero: gentle title and arrow entrance */
+    .hero-section .project-title {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+        transition: opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s;
+    }
+
+    .hero-section.is-visible .project-title {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    .hero-section .down-arrow {
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.5s ease 0.4s, transform 0.5s ease 0.4s;
+    }
+
+    .hero-section.is-visible .down-arrow {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Supporting content (diagram, video) fades in after text */
+    .fade-in-section .frameworks-diagram,
+    .fade-in-section .video-embed-container {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in-section.is-visible .frameworks-diagram,
+    .fade-in-section.is-visible .video-embed-container {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 280ms;
+    }
+}
+
+/* Reduced motion: show all content immediately */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-section .section-title,
+    .fade-in-section .section-subtitle,
+    .fade-in-section .section-heading,
+    .fade-in-section .section-text {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .hero-section .project-title,
+    .hero-section .down-arrow {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .fade-in-section .frameworks-diagram,
+    .fade-in-section .video-embed-container {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* Scroll Snap Container */
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+/* Ensure navigation is not affected by scroll-snap */
+#navigation-container {
+    position: fixed !important;
+    top: 6%;
+    left: 6%;
+    z-index: 1000;
+    scroll-snap-align: none;
+}
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
+    background: #E4E4FF;
+    overflow: hidden;
+}
+
+.project-title {
+    width: 60%;
+    height: auto;
+    max-width: 90vw;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 2rem;
+}
+
+.project-subtitle {
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #2D2D5A;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+    padding: 0 2rem;
+}
+
+.project-details {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detail-label {
+    font-family: 'Switzer', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6464B4;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.detail-value {
+    font-family: 'Switzer', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #2D2D5A;
+}
+
+.down-arrow {
+    margin-top: 4rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+    filter: brightness(0) saturate(100%) invert(18%) sepia(25%) saturate(2000%) hue-rotate(220deg) brightness(90%) contrast(90%);
+}
+
+.down-arrow:hover {
+    transform: translateY(5px);
+}
+
+/* Up Arrow (Back to Top) - Fixed Position */
+.up-arrow {
+    margin-top: 5rem;
+    rotate: 180deg;
+    margin-bottom: 3rem;
+    left: 50%; 
+    transform: translateX(-50%), translateY(-5px);
+    filter: brightness(0) saturate(100%) invert(18%) sepia(25%) saturate(2000%) hue-rotate(220deg) brightness(90%) contrast(90%);
+}
+
+.next-section {
+    background: #E4E4FF;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    color: #2D2D5A;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
+    z-index: 2;
+}
+
+.content-container {
+    max-width: 1000px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 6rem 2rem 2rem 2rem;
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 2;
+}
+
+/* Vertically center content only for minimal-text sections */
+.next-section.centered-content .content-container {
+    justify-content: center;
+}
+
+.section {
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    padding: 0;
+    text-align: center;
+}
+
+.section:first-child {
+    margin-top: 0;
+}
+
+.section-title {
+    font-family: 'Switzer', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-style: normal;
+    color: #1a1a4a;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 3rem;
+    padding-top: 0;
+    line-height: 1.2;
+}
+
+.section-heading {
+    font-family: 'Switzer', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    font-style: normal;
+    color: #1a1a4a;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.section-subtitle {
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: normal;
+    color: #4a4a6a;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+}
+
+.section-text {
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: #4a4a6a;
+    line-height: auto;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 100%;
+}
+
+.section-text:last-child {
+    margin-bottom: 0;
+}
+
+.section-text strong {
+    font-weight: 700;
+    color: #4a4a6a;
+}
+
+/* Discoveries: interactive diagram — three nodes, one shared detail panel */
+.discovery-intro {
+    margin-bottom: 2.5rem;
+}
+
+.discovery-diagram {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto 3rem;
+}
+
+.discovery-nodes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.discovery-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 1.25rem 1.5rem;
+    min-width: 0;
+    max-width: 220px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(100, 100, 180, 0.25);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    font-family: 'Switzer', sans-serif;
+    text-align: center;
+}
+
+.discovery-node:hover {
+    border-color: rgba(100, 100, 180, 0.5);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 20px rgba(100, 100, 180, 0.15);
+}
+
+.discovery-node.active {
+    border-color: #6464B4;
+    background: #fff;
+    box-shadow: 0 6px 24px rgba(100, 100, 180, 0.2);
+    transform: scale(1.03);
+}
+
+.discovery-node:focus-visible {
+    outline: 2px solid #6464B4;
+    outline-offset: 3px;
+}
+
+.discovery-node-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1a4a;
+    line-height: 1.25;
+}
+
+.discovery-node-teaser {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #4a4a6a;
+    line-height: 1.3;
+}
+
+.discovery-node.active .discovery-node-title {
+    color: #1a1a4a;
+}
+
+.discovery-connector {
+    flex: 0 0 24px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(100, 100, 180, 0.2), rgba(100, 100, 180, 0.35));
+    margin: 0 4px;
+}
+
+.discovery-detail {
+    position: relative;
+    min-height: 180px;
+    padding: 2rem 2.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid rgba(100, 100, 180, 0.2);
+    border-radius: 16px;
+}
+
+.discovery-detail-pane {
+    position: absolute;
+    left: 2rem;
+    right: 2rem;
+    top: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+}
+
+.discovery-detail-pane.active {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.discovery-detail-pane .section-text {
+    margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .discovery-node,
+    .discovery-detail-pane {
+        transition: none;
+    }
+    .discovery-node.active {
+        transform: none;
+    }
+}
+
+.video-embed-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+.section-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 3rem 0;
+    text-align: center;
+}
+
+.section-list li {
+    font-family: 'Switzer', sans-serif;
+    font-size: 50px;
+    font-weight: 400;
+    color: #4a4a6a;
+    line-height: auto;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.8rem;
+    padding-left: 0;
+    position: relative;
+}
+
+.section-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Interactive Frameworks Diagram */
+.frameworks-diagram {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin: 4rem 0;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.diagram-title {
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a1a4a;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Maslow's Hierarchy */
+.maslow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.maslow-pyramid {
+    width: 100%;
+    max-width: 800px;
+    height: 700px;
+    margin: 0 auto;
+    position: relative;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    background: #1a1a4a;
+}
+
+.pyramid-tier {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: #1a1a4a;
+    border-bottom: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 2.5rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.pyramid-tier::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.pyramid-tier:hover::before {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.pyramid-tier.highlighted::before {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.pyramid-tier.active::before {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.pyramid-tier[data-tier="1"] {
+    bottom: 0;
+    height: 20%;
+    clip-path: polygon(0 100%, 100% 100%, 50% 0);
+}
+
+.pyramid-tier[data-tier="2"] {
+    bottom: 20%;
+    height: 20%;
+    clip-path: polygon(0 100%, 100% 100%, 50% 0);
+}
+
+.pyramid-tier[data-tier="3"] {
+    bottom: 40%;
+    height: 20%;
+    clip-path: polygon(0 100%, 100% 100%, 50% 0);
+}
+
+.pyramid-tier[data-tier="4"] {
+    bottom: 60%;
+    height: 20%;
+    clip-path: polygon(0 100%, 100% 100%, 50% 0);
+}
+
+.pyramid-tier[data-tier="5"] {
+    bottom: 80%;
+    height: 20%;
+    clip-path: polygon(0 100%, 100% 100%, 50% 0);
+}
+
+.tier-label {
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+}
+
+.tier-description {
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #e8e8f0;
+    line-height: 1.5;
+}
+
+/* Need Progression */
+.progression-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progression-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.progression-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 150px;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.progression-item:hover {
+    transform: scale(1.02);
+}
+
+.progression-item:hover .progression-box {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(100, 100, 180, 0.6);
+    box-shadow: 0 4px 15px rgba(100, 100, 180, 0.2);
+}
+
+.progression-item.active .progression-box {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #6464B4;
+    border-width: 3px;
+    box-shadow: 0 6px 20px rgba(100, 100, 180, 0.3);
+}
+
+.progression-item.active .progression-label {
+    color: #1a1a4a;
+    font-weight: 700;
+}
+
+.progression-item.active .progression-explanation {
+    color: #1a1a4a;
+    font-weight: 500;
+}
+
+.progression-label {
+    font-family: 'Switzer', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6464B4;
+    text-align: right;
+}
+
+.progression-box {
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(100, 100, 180, 0.3);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.progression-statement {
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a4a;
+    text-align: center;
+}
+
+.progression-explanation {
+    font-family: 'Switzer', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #4a4a6a;
+    text-align: left;
+}
+
+.progression-arrow {
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #6464B4;
+    margin: 0.5rem 0;
+}
+
+.progression-summary {
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a4a;
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+}
+
+/* Responsive adjustments for frameworks diagram */
+@media (max-width: 968px) {
+    .frameworks-diagram {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .progression-item {
+        grid-template-columns: 60px 1fr 120px;
+        gap: 0.8rem;
+    }
+    
+    .progression-label {
+        font-size: 0.8rem;
+    }
+    
+    .progression-statement {
+        font-size: 1rem;
+    }
+    
+    .progression-explanation {
+        font-size: 0.85rem;
+    }
+    
+    .tier-label {
+        font-size: 1.1rem;
+    }
+    
+    .tier-description {
+        font-size: 0.9rem;
+    }
+}
+
+
+.back-to-top-section {
+    text-align: center;
+    padding: 3rem 0;
+    position: relative;
+    z-index: 10;
+}
+
+.back-to-top-section .up-arrow {
+    width: 50px;
+    height: auto;
+    transform: rotate(180deg);
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    filter: brightness(0) saturate(100%) invert(18%) sepia(25%) saturate(2000%) hue-rotate(220deg) brightness(90%) contrast(90%);
+}
+
+.back-to-top-section .up-arrow:hover {
+    opacity: 1;
+    transform: rotate(180deg) translateY(-5px);
+}
+
+/* Fixed Navigation for Voymemo */
+#navigation-container {
+    position: fixed !important;
+    top: 6%;
+    left: 6%;
+    z-index: 1000;
+    pointer-events: auto;
+}
+
+#navigation-container .nav-menu {
+    position: static !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    pointer-events: auto;
+}
+
+#navigation-container .nav-item {
+    pointer-events: auto;
+}
+
+/* Navigation styling - dark text for light background */
+.nav-item {
+    color: #2D2D5A !important;
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    color: rgba(45, 45, 90, 0.6) !important;
+}
+
+.nav-item.active {
+    color: rgba(45, 45, 90, 0.4) !important;
+}
+
+.back-button-icon {
+    width: 40px;
+    height: auto;
+    filter: brightness(0) saturate(100%) invert(18%) sepia(25%) saturate(2000%) hue-rotate(220deg) brightness(90%) contrast(90%) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+    transform: rotate(180deg);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.back-button-icon:hover {
+    opacity: 1;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .voymemo-progress-bar {
+        display: none;
+    }
+    
+    .content-container {
+        padding: 3rem 1rem 2rem 1rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .section-heading {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-text {
+        font-size: 32px;
+        line-height: auto;
+        letter-spacing: -0.02em;
+    }
+    
+    .section-list li {
+        font-size: 32px;
+        line-height: auto;
+        letter-spacing: -0.02em;
+    }
+    
+    .project-subtitle {
+        font-size: 1.2rem;
+        padding: 0 1rem;
+    }
+    
+    .project-details {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .project-title {
+        width: 80%;
+    }
+    
+    .discovery-nodes {
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+    }
+    
+    .discovery-connector {
+        width: 2px;
+        height: 16px;
+        flex: 0 0 16px;
+        margin: 0;
+        background: linear-gradient(180deg, rgba(100, 100, 180, 0.2), rgba(100, 100, 180, 0.35));
+    }
+    
+    .discovery-node {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .discovery-detail {
+        padding: 1.5rem 1.25rem;
+        min-height: 160px;
+    }
+    
+    .discovery-detail-pane {
+        left: 1.25rem;
+        right: 1.25rem;
+        top: 1.5rem;
+    }
+    
+    .discovery-detail-pane.active {
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+}
+

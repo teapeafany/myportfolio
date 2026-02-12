@@ -133,6 +133,65 @@ body {
     transform: translateY(0);
 }
 
+/* Staggered text reveal (Voymemo-style, colors unchanged) */
+@media (prefers-reduced-motion: no-preference) {
+    .fade-in-section .section-title {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-in-section.is-visible .section-title {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0ms;
+    }
+    .fade-in-section .po-gradient-box,
+    .fade-in-section .wireframes-grid {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-in-section.is-visible .po-gradient-box,
+    .fade-in-section.is-visible .wireframes-grid {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 180ms;
+    }
+    .hero-section .project-title {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+        transition: opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s;
+    }
+    .hero-section.is-visible .project-title {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    .hero-section .down-arrow {
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.5s ease 0.4s, transform 0.5s ease 0.4s;
+    }
+    .hero-section.is-visible .down-arrow {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-section .section-title,
+    .fade-in-section .po-gradient-box,
+    .fade-in-section .wireframes-grid {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .hero-section .project-title,
+    .hero-section .down-arrow {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
 /* Scroll Snap Container */
 html {
     scroll-snap-type: y mandatory;
@@ -197,8 +256,8 @@ html {
     max-width: 90vw;
     position: relative;
     z-index: 1;
+    margin-bottom: 2rem;
 }
-
 
 .next-section {
     background: #EDDCC0;
@@ -215,28 +274,41 @@ html {
 }
 
 .content-container {
-    max-width: 900px;
+    max-width: 1000px;
     width: 100%;
-    margin: 0 auto;
-    padding: 4rem 2rem 2rem 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 6rem 2rem 2rem 2rem;
     box-sizing: border-box;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    position: relative;
+    z-index: 2;
 }
 
 .section {
     width: 100%;
-    margin: 0;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
     padding: 0;
+    text-align: center;
+}
+
+.section:first-child {
+    margin-top: 0;
 }
 
 .section-title {
+    font-family: 'Switzer', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.2;
     text-align: center;
-    font-size: 2.2rem;
-    font-weight: 300;
-    letter-spacing: normal;
     margin-top: 0;
     margin-bottom: 3rem;
     padding-top: 0;
@@ -244,64 +316,47 @@ html {
     width: 100%;
 }
 
-/* Gradient Boxes */
+/* Content blocks — plain text flow, no card/box look */
 .po-gradient-box {
-    border-radius: 30px;
-    padding: 3rem 2.5rem;
-    margin-bottom: 3rem;
+    padding: 0;
+    margin-bottom: 2rem;
     position: relative;
-    border: 2px solid rgba(237, 220, 192, 0.2);
-    box-shadow: 0 8px 30px rgba(47, 61, 0, 0.2), 0 2px 8px rgba(88, 112, 2, 0.15);
+    text-align: center;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
 }
 
-/* Light gradient boxes */
-.po-box-light {
-    background: radial-gradient(circle at top left, rgba(237, 220, 192, 0.25) 0%, rgba(220, 200, 180, 0.2) 50%, transparent 100%);
+.po-gradient-box:last-child {
+    margin-bottom: 0;
 }
 
-.po-box-light::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 30px;
-    background: radial-gradient(circle at bottom right, rgba(200, 180, 160, 0.15) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Dark gradient boxes */
+.po-box-light,
 .po-box-dark {
-    background: radial-gradient(circle at top left, rgba(200, 180, 160, 0.3) 0%, rgba(180, 160, 140, 0.25) 50%, transparent 100%);
+    background: transparent;
 }
 
+.po-box-light::before,
 .po-box-dark::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 30px;
-    background: radial-gradient(circle at bottom right, rgba(88, 112, 2, 0.2) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
+    display: none;
 }
 
+/* Subtle label, not a box header */
 .po-box-title {
     font-family: 'Switzer', sans-serif;
-    font-size: 2rem;
-    font-weight: 400;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: #587002;
+    opacity: 0.85;
     margin-top: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     position: relative;
     z-index: 1;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    display: block;
+    text-align: center;
 }
 
 .po-icon {
@@ -311,11 +366,16 @@ html {
 
 .po-box-text {
     font-family: 'Switzer', sans-serif;
-    font-size: 1.25rem;
-    font-weight: 300;
-    line-height: 1.8;
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.5;
     color: #2F3D00;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 100%;
     position: relative;
     z-index: 1;
 }
@@ -325,7 +385,7 @@ html {
 }
 
 .po-box-text strong {
-    font-weight: 500;
+    font-weight: 700;
     color: #587002;
 }
 
@@ -339,14 +399,16 @@ html {
 }
 
 .po-box-list li {
-    font-size: 1.25rem;
-    line-height: 1.8;
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.5;
     margin-bottom: 1.2rem;
-    letter-spacing: normal;
-    font-weight: 300;
     color: #2F3D00;
     padding-left: 1.5rem;
     position: relative;
+    text-align: left;
 }
 
 .po-box-list li::before {
@@ -377,12 +439,14 @@ html {
 }
 
 .context-text, .overview-text, .insights-text {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    letter-spacing: normal;
-    font-weight: 300;
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.5;
+    margin-bottom: 2rem;
     color: #2F3D00;
+    text-align: center;
 }
 
 .highlighted-question {
@@ -398,11 +462,12 @@ html {
 }
 
 .insights-list li {
-    font-size: 1.25rem;
-    line-height: 1.8;
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.5;
     margin-bottom: 1.2rem;
-    letter-spacing: normal;
-    font-weight: 300;
     color: #2F3D00;
     padding-left: 1.5rem;
     position: relative;
@@ -425,7 +490,7 @@ html {
 .wireframes-image {
     max-width: 100%;
     height: auto;
-    border-radius: 20px;
+    border-radius: 12px;
     box-shadow: 0 8px 30px rgba(47, 61, 0, 0.2), 0 2px 8px rgba(88, 112, 2, 0.15);
 }
 
@@ -542,31 +607,37 @@ html {
     margin-right: auto;
 }
 
-/* Responsive adjustments for smaller screens */
+/* Responsive adjustments (Voymemo-style scaling) */
 @media (max-width: 768px) {
     .content-container {
-        padding: 3rem 1.5rem 2rem 1.5rem;
+        padding: 4rem 1.5rem 2rem 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .po-box-text,
+    .context-text, .overview-text, .insights-text {
+        font-size: 1.3rem;
+        line-height: 1.5;
+        letter-spacing: -0.02em;
+    }
+    
+    .po-box-list li,
+    .insights-list li {
+        font-size: 1.3rem;
     }
     
     .question-section {
         padding: 3rem 1.5rem;
     }
     
-    .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
-    }
-    
-    .context-text, .overview-text, .insights-text {
-        font-size: 1rem;
-        line-height: 1.7;
-        letter-spacing: normal;
-    }
-    
     .question-text {
         font-size: 1.6rem;
         line-height: 1.5;
-        letter-spacing: normal;
+        letter-spacing: -0.02em;
     }
     
     .final-iterations-subsection {
@@ -585,8 +656,8 @@ html {
         letter-spacing: normal;
     }
     .final-iterations-subsection .insights-text {
-        font-size: 1rem;
-        letter-spacing: normal;
+        font-size: 1.3rem;
+        letter-spacing: -0.02em;
     }
 }
 .bunny-image {

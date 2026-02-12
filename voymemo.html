@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOYMEMO - Tiffany Lee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Switzer:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/voymemo.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="voymemo-progress-bar" id="voymemo-progress-bar">
+        <div class="progress-line"></div>
+        <div class="progress-item" data-section="process">
+            <div class="progress-circle"></div>
+            <span class="progress-label">00: Process</span>
+        </div>
+        <div class="progress-item" data-section="approach">
+            <div class="progress-circle"></div>
+            <span class="progress-label">01: Approach</span>
+        </div>
+        <div class="progress-item" data-section="mapping">
+            <div class="progress-circle"></div>
+            <span class="progress-label">02: Mapping</span>
+        </div>
+        <div class="progress-item" data-section="presentation">
+            <div class="progress-circle"></div>
+            <span class="progress-label">03: Presentation</span>
+        </div>
+        <div class="progress-item" data-section="discoveries">
+            <div class="progress-circle"></div>
+            <span class="progress-label">04: Discoveries</span>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <div id="hero-section" class="hero-section fade-in-section">
+        <!-- Shared Navigation -->
+        <div id="navigation-container"></div>
+        
+        <img src="film/voymemo.svg" alt="VOYMEMO" class="project-title">
+        
+
+        <a href="#next-section">
+            <img src="film/downarrow.svg" alt="Down Arrow" class="down-arrow">
+        </a>
+    </div>
+
+    <!-- Section 1: A Research-Based Design Process -->
+    <div id="process-section" class="next-section centered-content">
+        <div class="content-container">
+            <div class="section fade-in-section">
+                <h2 class="section-title">A Research-Based Design Process</h2>
+                
+                <h3 class="section-subtitle">How do you design for lives you don't live?</h3>
+                
+                <p class="section-text">
+                    Our client wanted to understand interactions between <strong>teens with chronic medical conditions</strong>, their <strong>caregivers</strong>, and <strong>healthcare systems</strong>. But we had a more fundamental question: <strong>how could we responsibly create solutions without first understanding the people we were designing for?</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: The Approach -->
+    <div id="approach-section" class="next-section centered-content">
+        <div class="content-container">
+            <div class="section fade-in-section">
+                <h2 class="section-title">The Approach</h2>
+                
+                <h1 class="section-heading">Listen First, Design Later</h1>
+                
+                <p class="section-text">
+                    Before sketching a single idea, we committed to <strong>understanding</strong>. Through in-depth interviews with teens living with chronic conditions, we gathered stories that revealed how they navigate <strong>identity, independence, and care</strong>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Map the Full Picture -->
+    <div id="mapping-section" class="next-section">
+        <div class="content-container">
+            <div class="section fade-in-section">
+                <h1 class="section-heading">Map the Full Picture</h1>
+                
+                <p class="section-text">
+                    We used two frameworks to make sense of what we heard:
+                </p>
+                
+                <!-- Interactive Frameworks Diagram -->
+                <div class="frameworks-diagram">
+                    <!-- Maslow's Hierarchy -->
+                    <div class="maslow-container">
+                        <h3 class="diagram-title">Maslow's Hierarchy</h3>
+                        <div class="maslow-pyramid">
+                            <div class="pyramid-tier" data-tier="5">
+                                <div class="tier-label">Self Actualization</div>
+                                <div class="tier-description">Not letting their illness define them</div>
+                            </div>
+                            <div class="pyramid-tier" data-tier="4">
+                                <div class="tier-label">Esteem</div>
+                                <div class="tier-description">Wanting to be seen as a normal teen outside of their illness</div>
+                            </div>
+                            <div class="pyramid-tier" data-tier="3">
+                                <div class="tier-label">Social</div>
+                                <div class="tier-description">Friends, community, involvement in extracurriculars/hobbies</div>
+                            </div>
+                            <div class="pyramid-tier" data-tier="2">
+                                <div class="tier-label">Safety</div>
+                                <div class="tier-description">Consistent and reliable healthcare</div>
+                            </div>
+                            <div class="pyramid-tier" data-tier="1">
+                                <div class="tier-label">Physiological</div>
+                                <div class="tier-description">Stable and good health with condition</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Need Progression -->
+                    <div class="progression-container">
+                        <h3 class="diagram-title">Frameworks</h3>
+                        <div class="progression-flow">
+                            <div class="progression-item" data-level="common">
+                                <div class="progression-label">Common</div>
+                                <div class="progression-box">
+                                    <div class="progression-statement">Need to fit in</div>
+                                </div>
+                                <div class="progression-explanation">Social standards</div>
+                            </div>
+                            <div class="progression-arrow">↓</div>
+                            <div class="progression-item" data-level="context">
+                                <div class="progression-label">Context</div>
+                                <div class="progression-box">
+                                    <div class="progression-statement">Need to make friends</div>
+                                </div>
+                                <div class="progression-explanation">Personal Connections</div>
+                            </div>
+                            <div class="progression-arrow">↓</div>
+                            <div class="progression-item" data-level="activity">
+                                <div class="progression-label">Activity</div>
+                                <div class="progression-box">
+                                    <div class="progression-statement">Need to join a community</div>
+                                </div>
+                                <div class="progression-explanation">Shared spaces</div>
+                            </div>
+                            <div class="progression-arrow">↓</div>
+                            <div class="progression-item" data-level="qualifier">
+                                <div class="progression-label">Qualifier</div>
+                                <div class="progression-box">
+                                    <div class="progression-statement">Need to be a part of a sports team</div>
+                                </div>
+                                <div class="progression-explanation">Standardized Youth Organizations</div>
+                            </div>
+                        </div>
+                        <div class="progression-summary">Common to Qualifier</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: The Presentation -->
+    <div id="presentation-section" class="next-section centered-content">
+        <div class="content-container">
+            <div class="section fade-in-section">
+                <h2 class="section-title">The Presentation</h2>
+                
+                <h1 class="section-heading">Preserve Their Voices</h1>
+                
+                <p class="section-text">
+                    I created an ethnographic film from interview footage, capturing tone, emotion, and nuance that <strong>written notes couldn't</strong>. It kept our team anchored in real experiences throughout design.
+                </p>
+                
+                <div class="video-embed-container">
+                    <iframe src="https://www.youtube.com/embed/k9Mp_2dbieo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5: What We Discovered -->
+    <div id="discoveries-section" class="next-section">
+        <div class="content-container">
+            <div class="section fade-in-section">
+                <h2 class="section-title">What We Discovered</h2>
+                
+                <p class="section-text discovery-intro">
+                    Three powerful tensions emerged from interviews:
+                </p>
+                
+                <div class="discovery-diagram">
+                    <div class="discovery-nodes">
+                        <button type="button" class="discovery-node active" data-discovery="0" aria-pressed="true" aria-label="The Paradox of Visibility — click to read">
+                            <span class="discovery-node-title">The Paradox of Visibility</span>
+                            <span class="discovery-node-teaser">Identity, disclosure, and being seen</span>
+                        </button>
+                        <span class="discovery-connector" aria-hidden="true"></span>
+                        <button type="button" class="discovery-node" data-discovery="1" aria-pressed="false" aria-label="The Friendship Gap — click to read">
+                            <span class="discovery-node-title">The Friendship Gap</span>
+                            <span class="discovery-node-teaser">Connection when it matters most</span>
+                        </button>
+                        <span class="discovery-connector" aria-hidden="true"></span>
+                        <button type="button" class="discovery-node" data-discovery="2" aria-pressed="false" aria-label="The Care Tension — click to read">
+                            <span class="discovery-node-title">The Care Tension</span>
+                            <span class="discovery-node-teaser">Autonomy and being cared for</span>
+                        </button>
+                    </div>
+                    <div class="discovery-detail">
+                        <div class="discovery-detail-pane active" data-discovery="0">
+                            <p class="section-text">Teens didn't want their conditions to define them, yet weren't embarrassed either. As one participant put it: "I don't tell most people...I just want them to <strong>treat me like a normal person</strong>." Another said: "I'm definitely not embarrassed to have it...<strong>but my asthma is not who I am</strong>." They wanted control over disclosure, explaining on their terms, when relevant, without becoming "the sick kid."</p>
+                        </div>
+                        <div class="discovery-detail-pane" data-discovery="1">
+                            <p class="section-text">Friends were described as essential sources of <strong>comfort and connection</strong>. Yet during flare-ups, the moments when support mattered most, teens were <strong>isolated</strong>. They spent difficult days alone or with <strong>parents</strong>, not wanting to <strong>burden friends or seem different</strong>. One teen stayed connected through constant texting and FaceTime, receiving photos of events she couldn't attend. <strong>Connection mattered, but genuine involvement felt out of reach.</strong></p>
+                        </div>
+                        <div class="discovery-detail-pane" data-discovery="2">
+                            <p class="section-text">Teens valued autonomy but relied <strong>heavily on parents during health crises</strong>. They wanted to feel cared for without being infantilized, to manage their health <strong>without it becoming their entire identity</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Back to Top Arrow -->
+        <div class="back-to-top-section">
+            <a href="#hero-section">
+                <img src="film/downarrow.svg" alt="Back to Top" class="up-arrow">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Include back button only
+        function includeNavigation() {
+            const navHTML = `
+                <nav class="nav-menu">
+                    <a href="work.html" class="nav-item nav-back" id="nav-back" aria-label="Back to Work">
+                        <img src="film/nextpagebutton.svg" alt="Back" class="back-button-icon">
+                    </a>
+                </nav>
+            `;
+            document.getElementById('navigation-container').innerHTML = navHTML;
+        }
+        
+        // Load navigation when page loads
+        document.addEventListener('DOMContentLoaded', includeNavigation);
+        
+        // Scroll Snap Animation - Show sections as they snap into view
+        function handleScrollAnimation() {
+            const sections = document.querySelectorAll('.fade-in-section');
+            
+            sections.forEach((section, index) => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionHeight = section.getBoundingClientRect().height;
+                const windowHeight = window.innerHeight;
+                
+                // More lenient detection - show section when it's mostly in view
+                const isInView = sectionTop <= windowHeight * 0.3 && sectionTop >= -sectionHeight * 0.7;
+                
+                if (isInView) {
+                    section.classList.add('is-visible');
+                }
+            });
+        }
+        
+        // Add scroll event listener with faster response
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            scrollTimeout = setTimeout(handleScrollAnimation, 10);
+        });
+        
+        // Initialize hero section immediately and run detection
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.fade-in-section');
+            // Show hero section (first section) immediately
+            if (sections[0]) {
+                sections[0].classList.add('is-visible');
+            }
+            // Run detection immediately
+            handleScrollAnimation();
+        });
+        
+        // Add keyboard navigation for scroll snap
+        document.addEventListener('keydown', (e) => {
+            const sections = document.querySelectorAll('.fade-in-section');
+            const currentScroll = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const currentSection = Math.round(currentScroll / windowHeight);
+            
+            if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: (currentSection + 1) * windowHeight,
+                    behavior: 'smooth'
+                });
+            } else if (e.key === 'ArrowUp' && currentSection > 0) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: (currentSection - 1) * windowHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
+        
+        // Add smooth fade-in
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+        
+        // Progress Bar Functionality
+        let sectionTitles = [];
+        
+        function findSectionTitles() {
+            sectionTitles = Array.from(document.querySelectorAll('h2.section-title'));
+        }
+        
+        function updateProgressBar() {
+            if (sectionTitles.length === 0) {
+                findSectionTitles();
+            }
+            
+            const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const viewportCenter = scrollY + windowHeight / 2;
+            let activeIndex = 0;
+            let minDistance = Infinity;
+            
+            // Find which section title is closest to viewport center
+            sectionTitles.forEach((titleElement, index) => {
+                const rect = titleElement.getBoundingClientRect();
+                const elementTop = scrollY + rect.top;
+                const elementCenter = elementTop + rect.height / 2;
+                const distance = Math.abs(viewportCenter - elementCenter);
+                
+                // Check if element is in viewport
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        activeIndex = index;
+                    }
+                }
+            });
+            
+            // If we're at the bottom, make the last section active
+            if (scrollY + windowHeight >= document.documentElement.scrollHeight - 50) {
+                activeIndex = sectionTitles.length - 1;
+            }
+            
+            // Update progress items
+            const progressItems = document.querySelectorAll('.progress-item');
+            progressItems.forEach((item, index) => {
+                const circle = item.querySelector('.progress-circle');
+                if (circle) {
+                    circle.classList.remove('active', 'completed');
+                    item.classList.remove('active');
+                    
+                    if (index < activeIndex) {
+                        circle.classList.add('completed');
+                    } else if (index === activeIndex) {
+                        circle.classList.add('active');
+                        item.classList.add('active');
+                    }
+                }
+            });
+        }
+        
+        // Scroll event listener
+        let ticking = false;
+        function onScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    updateProgressBar();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', onScroll, { passive: true });
+        
+        // Click handlers for progress items
+        document.addEventListener('DOMContentLoaded', function() {
+            findSectionTitles();
+            
+            document.querySelectorAll('.progress-item').forEach((item, index) => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    if (sectionTitles[index]) {
+                        const titleElement = sectionTitles[index];
+                        const rect = titleElement.getBoundingClientRect();
+                        const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+                        const offsetTop = scrollY + rect.top - 100;
+                        
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Initial update
+            updateProgressBar();
+        });
+        
+        // Also update after page fully loads
+        window.addEventListener('load', function() {
+            findSectionTitles();
+            updateProgressBar();
+        });
+        
+        // Interactive Diagram Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Maslow's Hierarchy - Add click interactions
+            const pyramidTiers = document.querySelectorAll('.pyramid-tier');
+            pyramidTiers.forEach((tier, index) => {
+                tier.addEventListener('click', function() {
+                    // Remove active class from all tiers
+                    pyramidTiers.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tier
+                    this.classList.add('active');
+                });
+                
+                // Add hover effect with delay
+                tier.addEventListener('mouseenter', function() {
+                    // Highlight this tier and all tiers below it
+                    const tierLevel = parseInt(this.getAttribute('data-tier'));
+                    pyramidTiers.forEach(t => {
+                        const tLevel = parseInt(t.getAttribute('data-tier'));
+                        if (tLevel <= tierLevel) {
+                            t.classList.add('highlighted');
+                        }
+                    });
+                });
+                
+                tier.addEventListener('mouseleave', function() {
+                    pyramidTiers.forEach(t => t.classList.remove('highlighted'));
+                });
+            });
+            
+            // Need Progression - Add click interactions
+            const progressionItems = document.querySelectorAll('.progression-item');
+            progressionItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all items
+                    progressionItems.forEach(i => i.classList.remove('active'));
+                    // Add active class to clicked item and all items above it
+                    const clickedIndex = Array.from(progressionItems).indexOf(this);
+                    progressionItems.forEach((i, idx) => {
+                        if (idx <= clickedIndex) {
+                            i.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Animate diagram on scroll into view
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const diagramObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                        // Stagger animation for pyramid tiers
+                        const tiers = entry.target.querySelectorAll('.pyramid-tier');
+                        tiers.forEach((tier, index) => {
+                            setTimeout(() => {
+                                tier.style.opacity = '1';
+                                tier.style.transform = 'translateX(0)';
+                            }, index * 100);
+                        });
+                        // Stagger animation for progression items
+                        const items = entry.target.querySelectorAll('.progression-item');
+                        items.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, index * 150);
+                        });
+                    }
+                });
+            }, observerOptions);
+            
+            const frameworksDiagram = document.querySelector('.frameworks-diagram');
+            if (frameworksDiagram) {
+                // Set initial state for animation
+                pyramidTiers.forEach(tier => {
+                    tier.style.opacity = '0';
+                    tier.style.transform = 'translateX(-20px)';
+                    tier.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                });
+                progressionItems.forEach(item => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(-20px)';
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                });
+                
+                diagramObserver.observe(frameworksDiagram);
+            }
+        });
+        
+        // Discoveries: interactive diagram — click or hover a node to show its content
+        document.addEventListener('DOMContentLoaded', function() {
+            const nodes = document.querySelectorAll('.discovery-node');
+            const panes = document.querySelectorAll('.discovery-detail-pane');
+            
+            function setActive(index) {
+                const i = Math.max(0, Math.min(index, nodes.length - 1));
+                nodes.forEach(function(n, idx) {
+                    n.classList.toggle('active', idx === i);
+                    n.setAttribute('aria-pressed', idx === i ? 'true' : 'false');
+                });
+                panes.forEach(function(p, idx) {
+                    p.classList.toggle('active', idx === i);
+                });
+            }
+            
+            nodes.forEach(function(node) {
+                node.addEventListener('click', function() {
+                    setActive(parseInt(this.getAttribute('data-discovery'), 10));
+                });
+                node.addEventListener('mouseenter', function() {
+                    setActive(parseInt(this.getAttribute('data-discovery'), 10));
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

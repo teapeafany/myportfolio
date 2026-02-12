@@ -175,6 +175,11 @@ body {
     opacity: 1;
 }
 
+.project-item[data-project="voymemo"] .project-thumb {
+    filter: brightness(100%);
+    opacity: 1;
+}
+
 .default-placeholder {
     color: #FEC307;
     font-family: 'Switzer', sans-serif;

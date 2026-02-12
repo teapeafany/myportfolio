@@ -27,7 +27,7 @@
         <a href="https://www.instagram.com/t._.lee/" target="_blank" rel="noopener noreferrer" class="social-link" id="instagram-link">
             <img src="film/insta.svg" alt="Instagram" class="social-icon">
         </a>
-        <a href="https://drive.google.com/file/d/19-QpUML39XKgmb6vITHpdXuYa7F-C5OUmThkyjTBkP0/view" target="_blank" rel="noopener noreferrer" class="social-link" id="resume-link">
+        <a href="#" class="social-link" id="resume-link" aria-label="View resume">
             <img src="film/resumeicon.svg" alt="Resume" class="social-icon">
         </a>
     </div>
@@ -85,6 +85,15 @@
         </div>
     </section>
 
+    <!-- Resume PDF Overlay -->
+    <div id="resume-overlay" class="resume-overlay" aria-hidden="true">
+        <div class="resume-overlay-backdrop"></div>
+        <div class="resume-overlay-content">
+            <button type="button" class="resume-overlay-close" aria-label="Close resume">&times;</button>
+            <iframe src="resume/TIFFANY_LEE_RESUME.pdf" title="Tiffany Lee Resume" class="resume-pdf-iframe"></iframe>
+        </div>
+    </div>
+
     <script>
         // Include shared navigation
         function includeNavigation() {
@@ -101,6 +110,35 @@
         
         // Load navigation when page loads
         document.addEventListener('DOMContentLoaded', includeNavigation);
+
+        // Resume overlay: open on resume link click, close on button or backdrop
+        document.addEventListener('DOMContentLoaded', function() {
+            const overlay = document.getElementById('resume-overlay');
+            const resumeLink = document.getElementById('resume-link');
+            const closeBtn = overlay && overlay.querySelector('.resume-overlay-close');
+            const backdrop = overlay && overlay.querySelector('.resume-overlay-backdrop');
+            function openResume(e) {
+                e.preventDefault();
+                if (overlay) {
+                    overlay.classList.add('resume-overlay-open');
+                    overlay.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+            function closeResume() {
+                if (overlay) {
+                    overlay.classList.remove('resume-overlay-open');
+                    overlay.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                }
+            }
+            if (resumeLink) resumeLink.addEventListener('click', openResume);
+            if (closeBtn) closeBtn.addEventListener('click', closeResume);
+            if (backdrop) backdrop.addEventListener('click', closeResume);
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && overlay && overlay.classList.contains('resume-overlay-open')) closeResume();
+            });
+        });
         
         // Prevent flash and add smooth fade-in
         document.addEventListener('DOMContentLoaded', function() {
