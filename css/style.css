@@ -525,7 +525,14 @@ body.loaded {
 /* Resume PDF Overlay */
 .resume-overlay {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    min-height: 100dvh;
     z-index: 9999;
     display: flex;
     align-items: center;
@@ -543,7 +550,10 @@ body.loaded {
 
 .resume-overlay-backdrop {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: rgba(0, 3, 0, 0.85);
     cursor: pointer;
 }
@@ -552,13 +562,18 @@ body.loaded {
     position: relative;
     width: 100%;
     max-width: 900px;
-    max-height: 95vh;
+    max-height: min(95vh, 95dvh);
     background: #1a1a1a;
     border-radius: 8px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    /* Center in viewport (robust with zoom) */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .resume-overlay-close {
