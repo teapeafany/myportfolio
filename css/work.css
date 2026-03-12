@@ -180,6 +180,37 @@ body {
     opacity: 1;
 }
 
+.project-item[data-project="daybreak"] .project-thumb {
+    filter: brightness(100%);
+    opacity: 1;
+}
+
+.project-item[data-project="laserharp"] .project-thumb {
+    filter: brightness(100%);
+    opacity: 1;
+}
+
+/* Placeholder label when thumbnail image is missing (e.g. Daybreak UX/UI) */
+.placeholder-image .placeholder-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Switzer', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #FEC307;
+    opacity: 0.85;
+    z-index: 0;
+}
+
+.placeholder-image .placeholder-label.hidden {
+    display: none;
+}
+
 .default-placeholder {
     color: #FEC307;
     font-family: 'Switzer', sans-serif;
