@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAYBREAK - Tiffany Lee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Switzer:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/daybreak.css">
+</head>
+<body>
+    <div id="navigation-container"></div>
+
+    <main class="daybreak-deck" id="deck">
+        <div class="deck-slides" id="deck-slides">
+            <section class="deck-slide" data-slide="1"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-1.png" alt="Slide 1"></div></section>
+            <section class="deck-slide" data-slide="2"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-2.png" alt="Slide 2"></div></section>
+            <section class="deck-slide" data-slide="3"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-3.png" alt="Slide 3"></div></section>
+            <section class="deck-slide" data-slide="4"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-4.png" alt="Slide 4"></div></section>
+            <section class="deck-slide" data-slide="5"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-5.png" alt="Slide 5"></div></section>
+            <section class="deck-slide" data-slide="6"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-6.png" alt="Slide 6"></div></section>
+            <section class="deck-slide" data-slide="7"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-7.png" alt="Slide 7"></div></section>
+            <section class="deck-slide" data-slide="8"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-8.png" alt="Slide 8"></div></section>
+            <section class="deck-slide" data-slide="9"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-9.png" alt="Slide 9"></div></section>
+            <section class="deck-slide" data-slide="10"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-10.png" alt="Slide 10"></div></section>
+            <section class="deck-slide deck-slide--prototype" data-slide="11">
+                <div class="deck-slide-inner deck-prototype-inner">
+                    <h2 class="deck-prototype-title">Try our prototype</h2>
+                    <div class="deck-prototype-frames">
+                        <div class="deck-prototype-frame">
+                            <iframe src="https://embed.figma.com/proto/fjvEDYcupLwrco302ntjRS/daybreak-design?node-id=505-2511&starting-point-node-id=505%3A2511&scaling=contain&content-scaling=fixed&show-proto-sidebar=0&embed-host=share" allowfullscreen title="Daybreak prototype 1"></iframe>
+                        </div>
+                        <div class="deck-prototype-frame">
+                            <iframe src="https://embed.figma.com/proto/fjvEDYcupLwrco302ntjRS/daybreak-design?node-id=508-2799&starting-point-node-id=508%3A2799&scaling=contain&content-scaling=fixed&show-proto-sidebar=0&embed-host=share" allowfullscreen title="Daybreak prototype 2"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="deck-slide" data-slide="12"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-12.png" alt="Slide 12"></div></section>
+            <section class="deck-slide" data-slide="13"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-13.png" alt="Slide 13"></div></section>
+            <section class="deck-slide" data-slide="14"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-14.png" alt="Slide 14"></div></section>
+            <section class="deck-slide" data-slide="15"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-15.png" alt="Slide 15"></div></section>
+            <section class="deck-slide" data-slide="16"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-16.png" alt="Slide 16"></div></section>
+            <section class="deck-slide" data-slide="17"><div class="deck-slide-inner"><img src="film/daybreak-slides/slide-17.png" alt="Slide 17"></div></section>
+        </div>
+        <div class="deck-dots" id="deck-dots" aria-hidden="true"></div>
+        <div class="deck-hint" id="deck-hint">Scroll or use ↑↓</div>
+    </main>
+
+    <script>
+        function includeNavigation() {
+            const navHTML = `
+                <nav class="nav-menu">
+                    <a href="work.html" class="nav-item nav-back" id="nav-back" aria-label="Back to Work">
+                        <img src="film/nextpagebutton.svg" alt="Back" class="back-button-icon">
+                    </a>
+                </nav>
+            `;
+            document.getElementById('navigation-container').innerHTML = navHTML;
+        }
+        document.addEventListener('DOMContentLoaded', includeNavigation);
+
+        (function() {
+            const deck = document.getElementById('deck');
+            const slidesEl = document.getElementById('deck-slides');
+            const dotsEl = document.getElementById('deck-dots');
+            const hintEl = document.getElementById('deck-hint');
+            const slides = slidesEl.querySelectorAll('.deck-slide');
+
+            slides.forEach(function(_, i) {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'deck-dot';
+                dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                dot.setAttribute('data-slide', i + 1);
+                dotsEl.appendChild(dot);
+            });
+
+            dotsEl.querySelectorAll('.deck-dot').forEach(function(btn, idx) {
+                btn.addEventListener('click', function() {
+                    const s = slides[idx];
+                    if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+
+            deck.addEventListener('scroll', function() {
+                const scrollTop = deck.scrollTop;
+                const vh = window.innerHeight;
+                let active = 0;
+                slides.forEach(function(s, i) {
+                    if (s.offsetTop <= scrollTop + vh / 2) active = i;
+                });
+                dotsEl.querySelectorAll('.deck-dot').forEach(function(d, i) {
+                    d.classList.toggle('active', i === active);
+                });
+                if (scrollTop > 80) hintEl.classList.add('hidden');
+            }, { passive: true });
+
+            window.addEventListener('keydown', function(e) {
+                if (slides.length === 0) return;
+                const scrollTop = deck.scrollTop;
+                const vh = window.innerHeight;
+                let current = 0;
+                slides.forEach(function(s, i) {
+                    if (s.offsetTop <= scrollTop + vh / 2) current = i;
+                });
+                if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+                    e.preventDefault();
+                    if (current < slides.length - 1) slides[current + 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+                    e.preventDefault();
+                    if (current > 0) slides[current - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+
+            dotsEl.querySelector('.deck-dot').classList.add('active');
+        })();
+    </script>
+</body>
+</html>

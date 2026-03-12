@@ -32,7 +32,78 @@
 
         <!-- Projects List -->
         <div class="projects-list">
-            <!-- Project 1: ECHOSPHERE -->
+            <!-- Project 1: DAYBREAK (most recent – scroll slidedeck) -->
+            <div class="project-item" data-project="daybreak" data-category="ux-ui">
+                <div class="project-image">
+                    <div class="placeholder-image">
+                        <img src="film/daybreak-thumb.png" alt="DAYBREAK" class="project-thumb">
+                    </div>
+                </div>
+                <div class="project-title">
+                    <span class="title-text">DAYBREAK</span>
+                    <div class="action-container">
+                        <span class="action-text">CASE STUDY</span>
+                    </div>
+                </div>
+                <div class="side-panel">
+                    <div class="panel-header">
+                        <div class="panel-date">Mar 2026</div>
+                        <div class="panel-tags">
+                            <span class="tag ux">UX</span>
+                            <span class="tag ui">UI</span>
+                            <span class="tag digital">DIGITAL</span>
+                        </div>
+                    </div>
+                    <div class="panel-description">
+                        Make each day feel new again. An app that reframes daily interactions through a gentle, reflective lens. <strong>Scroll through the slidedeck</strong> to see the full case study.
+                    </div>
+                    <div class="panel-tools">
+                        <span class="tool-label">Tools:</span>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Figma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HEAVENLY LYRE (Design Explorations – Arduino project, full write-up blog) -->
+            <div class="project-item" data-project="laserharp" data-category="explorations">
+                <div class="project-image">
+                    <div class="placeholder-image">
+                        <img src="film/laserharp-thumb.png" alt="Heavenly Lyre" class="project-thumb" onerror="this.style.display='none'; this.nextElementSibling?.classList.remove('hidden');">
+                        <span class="placeholder-label hidden">HEAVENLY LYRE</span>
+                    </div>
+                </div>
+                <div class="project-title">
+                    <span class="title-text">HEAVENLY LYRE</span>
+                    <div class="action-container">
+                        <span class="action-text">ARDUINO PROJECT</span>
+                    </div>
+                </div>
+                <div class="side-panel">
+                    <div class="panel-header">
+                        <div class="panel-date">Mar 2026</div>
+                        <div class="panel-tags">
+                            <span class="tag ux">MAKER</span>
+                            <span class="tag ui">ARDUINO</span>
+                            <span class="tag digital">3D PRINT</span>
+                        </div>
+                    </div>
+                    <div class="panel-description">
+                        One of the coolest artifacts I've made: Heavenly Lyre—invisible strings (lasers + photoresistors), MIDI via Arduino and Python, 3D-printed lyre (Genshin-inspired). CAD in Fusion, soldering, and air-dry clay wings. <strong>Full write-up on the blog.</strong>
+                    </div>
+                    <div class="panel-tools">
+                        <span class="tool-label">Tools:</span>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Arduino</span>
+                            <span class="tool-tag">Fusion 360</span>
+                            <span class="tool-tag">Python / MIDI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: ECHOSPHERE -->
             <div class="project-item" data-project="echosphere" data-category="ux-ui">
             <div class="project-image">
                 <div class="placeholder-image">
@@ -69,7 +140,7 @@
                 </div>
             </div>
             
-            <!-- Project 2: VOYMEMO -->
+            <!-- Project 3: VOYMEMO -->
             <div class="project-item" data-project="voymemo" data-category="explorations">
                 <div class="project-image">
                     <div class="placeholder-image">
@@ -105,8 +176,7 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Project 3: CHOW CLUB -->
+            <!-- Project 4: CHOW CLUB -->
             <div class="project-item" data-project="chowclub" data-category="ux-ui">
                 <div class="project-image">
                     <div class="placeholder-image">
@@ -144,7 +214,7 @@
                 </div>
             </div>
             
-            <!-- Project 4: SCIOLY PAGE -->
+            <!-- Project 5: SCIOLY PAGE -->
             <div class="project-item" data-project="scioly" data-category="ux-ui">
                 <div class="project-image">
                     <div class="placeholder-image">
@@ -212,27 +282,42 @@
             
             projectItems.forEach(item => {
                 const projectName = item.getAttribute('data-project');
+                const externalUrl = item.getAttribute('data-external-url');
                 let targetPage = '';
                 
-                switch(projectName) {
-                    case 'echosphere':
-                        targetPage = 'echosphere.html';
-                        break;
-                    case 'chowclub':
-                        targetPage = 'chowclub.html';
-                        break;
-                    case 'scioly':
-                        targetPage = 'scioly.html';
-                        break;
-                    case 'voymemo':
-                        targetPage = 'voymemo.html';
-                        break;
+                if (externalUrl) {
+                    targetPage = externalUrl;
+                } else {
+                    switch(projectName) {
+                        case 'echosphere':
+                            targetPage = 'echosphere.html';
+                            break;
+                        case 'chowclub':
+                            targetPage = 'chowclub.html';
+                            break;
+                        case 'scioly':
+                            targetPage = 'scioly.html';
+                            break;
+                        case 'voymemo':
+                            targetPage = 'voymemo.html';
+                            break;
+                        case 'daybreak':
+                            targetPage = 'daybreak.html';
+                            break;
+                        case 'laserharp':
+                            targetPage = 'laserharp.html';
+                            break;
+                    }
                 }
                 
                 // Add click handler to project item
                 item.addEventListener('click', function(e) {
                     if (targetPage && targetPage !== '') {
-                        window.location.href = targetPage;
+                        if (externalUrl) {
+                            window.open(targetPage, '_blank');
+                        } else {
+                            window.location.href = targetPage;
+                        }
                     }
                 });
             });
