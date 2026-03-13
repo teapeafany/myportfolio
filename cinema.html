@@ -32,8 +32,11 @@
             <div class="black-screen" id="black-screen"></div>
         </div>
         
-        <!-- Next Page Button -->
-        <button class="next-page-btn" id="next-video-btn">
+        <!-- Previous / Next Page Buttons -->
+        <button class="prev-page-btn" id="prev-video-btn" aria-label="Previous video">
+            <img src="film/nextpagebutton.svg" alt="Previous Video" />
+        </button>
+        <button class="next-page-btn" id="next-video-btn" aria-label="Next video">
             <img src="film/nextpagebutton.svg" alt="Next Video" />
         </button>
     </main>
@@ -78,12 +81,14 @@
         // Video switching functionality
         document.addEventListener('DOMContentLoaded', function() {
             const nextBtn = document.getElementById('next-video-btn');
+            const prevBtn = document.getElementById('prev-video-btn');
             const videoIframe = document.getElementById('video-iframe');
             const blackScreen = document.getElementById('black-screen');
             let currentVideo = 1;
             
             const videos = [
                 'https://www.youtube.com/embed/7XPD9Hph7YE?start=3&autoplay=0&mute=0&controls=1&rel=0',
+                'https://www.youtube.com/embed/kSA3ce_mrag?autoplay=0&mute=0&controls=1&rel=0',
                 'https://www.youtube.com/embed/KknuJHiBBr8?autoplay=0&mute=0&controls=1&rel=0',
                 'https://www.youtube.com/embed/okb1mJCpJkc?autoplay=0&mute=0&controls=1&rel=0'
             ];
@@ -153,23 +158,23 @@
             // Initialize video state monitoring
             handleVideoStateChange();
             
-            nextBtn.addEventListener('click', function() {
-                // Show black screen
+            function switchToVideo(index) {
                 blackScreen.classList.add('active');
-                
                 setTimeout(() => {
-                    // Switch video source (cycle through all videos)
-                    currentVideo = (currentVideo % videos.length) + 1;
+                    currentVideo = index;
                     videoIframe.src = videos[currentVideo - 1];
-                    
-                    // Reset video playing state when switching
                     document.body.classList.remove('video-playing');
-                    
-                    // Hide black screen
-                    setTimeout(() => {
-                        blackScreen.classList.remove('active');
-                    }, 500);
+                    setTimeout(() => blackScreen.classList.remove('active'), 500);
                 }, 1000);
+            }
+            
+            nextBtn.addEventListener('click', function() {
+                const nextIndex = (currentVideo % videos.length) + 1;
+                switchToVideo(nextIndex);
+            });
+            prevBtn.addEventListener('click', function() {
+                const prevIndex = currentVideo === 1 ? videos.length : currentVideo - 1;
+                switchToVideo(prevIndex);
             });
         });
     </script>
