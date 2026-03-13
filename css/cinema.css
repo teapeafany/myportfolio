@@ -101,9 +101,9 @@ body.video-playing::before {
     height: 500px;
 }
 
+.prev-page-btn,
 .next-page-btn {
     position: absolute;
-    right: 11rem;
     top: 40%;
     transform: translateY(-50%);
     background: none;
@@ -115,12 +115,30 @@ body.video-playing::before {
     z-index: 20;
 }
 
+.prev-page-btn {
+    left: 11rem;
+}
+
+.prev-page-btn img {
+    transform: scaleX(-1);
+}
+
+.next-page-btn {
+    right: 11rem;
+}
+
+.prev-page-btn:hover,
 .next-page-btn:hover {
     transform: translateY(-50%) scale(1.1);
     opacity: 1;
 }
 
-.next-page-btn img {
+.prev-page-btn:hover img {
+    transform: scaleX(-1);
+}
+
+.next-page-btn img,
+.prev-page-btn img {
     width: 60px;
     height: 60px;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
@@ -218,11 +236,16 @@ body.video-playing .subtitle-2 {
         height: 300px;
     }
     
+.prev-page-btn {
+        left: 10px;
+    }
+
     .next-page-btn {
         right: 10px;
     }
-    
-    .next-page-btn img {
+
+    .next-page-btn img,
+    .prev-page-btn img {
         width: 50px;
         height: 50px;
     }
@@ -239,11 +262,16 @@ body.video-playing .subtitle-2 {
         height: 225px;
     }
     
+.prev-page-btn {
+        left: 5px;
+    }
+
     .next-page-btn {
         right: 5px;
     }
-    
-    .next-page-btn img {
+
+    .next-page-btn img,
+    .prev-page-btn img {
         width: 40px;
         height: 40px;
     }
