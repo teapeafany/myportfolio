@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work - Tiffany Lee</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Switzer:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/work.css">
 </head>
 <body>
+    <script src="js/paper-ink-filter.js"></script>
     <!-- Shared Navigation -->
     <div id="navigation-container"></div>
     
@@ -25,24 +23,35 @@
 
         <!-- Filter Buttons -->
         <div class="filter-container">
-            <button class="filter-btn active" data-filter="all">ALL</button>
-            <button class="filter-btn" data-filter="ux-ui">UX/UI</button>
-            <button class="filter-btn" data-filter="explorations">DESIGN EXPLORATIONS</button>
+            <button class="filter-btn active" data-filter="all"><span class="filter-btn-label">ALL</span></button>
+            <button class="filter-btn" data-filter="ux-ui"><span class="filter-btn-label">UX/UI</span></button>
+            <button class="filter-btn" data-filter="making"><span class="filter-btn-label">MAKING</span></button>
+            <button class="filter-btn" data-filter="speculative"><span class="filter-btn-label">SPECULATIVE</span></button>
         </div>
 
-        <!-- Projects List -->
+        <!-- Projects — cinematic grid; hover for detail -->
         <div class="projects-list">
-            <!-- Project 1: DAYBREAK (most recent – scroll slidedeck) -->
-            <div class="project-item" data-project="daybreak" data-category="ux-ui">
-                <div class="project-image">
-                    <div class="placeholder-image">
-                        <img src="film/daybreak-thumb.png" alt="DAYBREAK" class="project-thumb">
+            <!-- DAYBREAK -->
+            <div class="project-item" data-project="daybreak" data-category="ux-ui speculative" tabindex="0" role="link" aria-label="DAYBREAK case study, Spring 2026">
+                <div class="project-tile">
+                    <div class="project-media">
+                        <div class="placeholder-image">
+                            <img src="film/daybreak-thumb.png" alt="" class="project-thumb">
+                        </div>
                     </div>
-                </div>
-                <div class="project-title">
-                    <span class="title-text">DAYBREAK</span>
-                    <div class="action-container">
-                        <span class="action-text">CASE STUDY</span>
+                    <div class="project-montage" data-montage="Daily rhythm|Gentle reflection|Morning light|Calm UX|Mood|Stillness" aria-hidden="true">
+                        <span class="project-montage-line slot-tl" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-tr" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-ct" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-bl" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-br" aria-hidden="true"></span>
+                    </div>
+                    <div class="project-tile-overlay" aria-hidden="true">
+                        <div class="project-tile-copy">
+                            <h2 class="project-tile-title">Daybreak</h2>
+                            <p class="project-tile-meta">Case study · Spring 2026</p>
+                            <p class="project-tile-blurb">An app that reframes daily interactions through a gentle, reflective lens—scroll the slidedeck for the full case study.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="side-panel">
@@ -55,29 +64,37 @@
                         </div>
                     </div>
                     <div class="panel-description">
-                        Make each day feel new again. An app that reframes daily interactions through a gentle, reflective lens. <strong>Scroll through the slidedeck</strong> to see the full case study.
+                        Make each day feel new again. An app that reframes daily interactions through a gentle, reflective lens. Scroll through the slidedeck to see the full case study.
                     </div>
                     <div class="panel-tools">
                         <span class="tool-label">Tools:</span>
-                        <div class="tool-tags">
-                            <span class="tool-tag">Figma</span>
-                        </div>
+                        <div class="tool-tags"><span class="tool-tag">Figma</span></div>
                     </div>
                 </div>
             </div>
 
-            <!-- HEAVENLY LYRE (Design Explorations – Arduino project, full write-up blog) -->
-            <div class="project-item" data-project="laserharp" data-category="explorations">
-                <div class="project-image">
-                    <div class="placeholder-image">
-                        <img src="film/laserharp-thumb.png" alt="Heavenly Lyre" class="project-thumb" onerror="this.style.display='none'; this.nextElementSibling?.classList.remove('hidden');">
-                        <span class="placeholder-label hidden">HEAVENLY LYRE</span>
+            <!-- HEAVENLY LYRE -->
+            <div class="project-item" data-project="laserharp" data-category="making" tabindex="0" role="link" aria-label="Heavenly Lyre Arduino project, Spring 2026">
+                <div class="project-tile">
+                    <div class="project-media">
+                        <div class="placeholder-image">
+                            <img src="film/laserharp-thumb.png" alt="" class="project-thumb" onerror="this.style.display='none'; this.nextElementSibling?.classList.remove('hidden');">
+                            <span class="placeholder-label hidden">HEAVENLY LYRE</span>
+                        </div>
                     </div>
-                </div>
-                <div class="project-title">
-                    <span class="title-text">HEAVENLY LYRE</span>
-                    <div class="action-container">
-                        <span class="action-text">ARDUINO PROJECT</span>
+                    <div class="project-montage" data-montage="Laser strings|MIDI|Arduino|3D printed|Music|Invisible play" aria-hidden="true">
+                        <span class="project-montage-line slot-tl" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-tr" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-ct" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-bl" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-br" aria-hidden="true"></span>
+                    </div>
+                    <div class="project-tile-overlay" aria-hidden="true">
+                        <div class="project-tile-copy">
+                            <h2 class="project-tile-title">Heavenly Lyre</h2>
+                            <p class="project-tile-meta">Arduino · Spring 2026</p>
+                            <p class="project-tile-blurb">Lasers, photoresistors, MIDI, and a 3D-printed lyre—full write-up on the blog.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="side-panel">
@@ -90,7 +107,7 @@
                         </div>
                     </div>
                     <div class="panel-description">
-                        One of the coolest artifacts I've made: Heavenly Lyre—invisible strings (lasers + photoresistors), MIDI via Arduino and Python, 3D-printed lyre (Genshin-inspired). CAD in Fusion, soldering, and air-dry clay wings. <strong>Full write-up on the blog.</strong>
+                        Heavenly Lyre—invisible strings, MIDI via Arduino and Python, Genshin-inspired build. CAD, soldering, and air-dry clay wings.
                     </div>
                     <div class="panel-tools">
                         <span class="tool-label">Tools:</span>
@@ -103,20 +120,29 @@
                 </div>
             </div>
 
-            <!-- Project 2: ECHOSPHERE -->
-            <div class="project-item" data-project="echosphere" data-category="ux-ui">
-            <div class="project-image">
-                <div class="placeholder-image">
-                <img src="film/echospherelogo.svg" alt="ECHOSPHERE logo" class="project-thumb">
-                </div>
-            </div>
-                <div class="project-title">
-                    <span class="title-text">ECHOSPHERE</span>
-                    <div class="action-container">
-                        <span class="action-text">CASE STUDY</span>
+            <!-- ECHOSPHERE -->
+            <div class="project-item" data-project="echosphere" data-category="ux-ui" tabindex="0" role="link" aria-label="ECHOSPHERE case study, Fall 2025">
+                <div class="project-tile">
+                    <div class="project-media">
+                        <div class="placeholder-image">
+                            <img src="film/echospherelogo.svg" alt="" class="project-thumb">
+                        </div>
+                    </div>
+                    <div class="project-montage" data-montage="Sound|Discovery|Listen|Artists|Connect|Experience" aria-hidden="true">
+                        <span class="project-montage-line slot-tl" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-tr" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-ct" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-bl" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-br" aria-hidden="true"></span>
+                    </div>
+                    <div class="project-tile-overlay" aria-hidden="true">
+                        <div class="project-tile-copy">
+                            <h2 class="project-tile-title">EchoSphere</h2>
+                            <p class="project-tile-meta">Case study · Fall 2025</p>
+                            <p class="project-tile-blurb">Music discovery that connects artists and listeners through immersive audio experiences.</p>
+                        </div>
                     </div>
                 </div>
-                <!-- Side Panel -->
                 <div class="side-panel">
                     <div class="panel-header">
                         <div class="panel-date">Fall 2025</div>
@@ -127,7 +153,7 @@
                         </div>
                     </div>
                     <div class="panel-description">
-                        A music discovery platform that connects artists and listeners through <strong>innovative audio experiences.</strong> EchoSphere transforms how we discover, share, and <strong>connect</strong> through music in the digital age.
+                        A music discovery platform that connects artists and listeners through innovative audio experiences.
                     </div>
                     <div class="panel-tools">
                         <span class="tool-label">Tools:</span>
@@ -139,24 +165,33 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Project 3: VOYMEMO -->
-            <div class="project-item" data-project="voymemo" data-category="explorations">
-                <div class="project-image">
-                    <div class="placeholder-image">
-                    <img src="film/voymemologo.svg" alt="VOYMEMO logo" class="project-thumb">
+
+            <!-- VOYMEMO -->
+            <div class="project-item" data-project="voymemo" data-category="speculative" tabindex="0" role="link" aria-label="Voymemo case study, Fall 2025">
+                <div class="project-tile">
+                    <div class="project-media">
+                        <div class="placeholder-image">
+                            <img src="film/voymemologo.svg" alt="" class="project-thumb">
+                        </div>
+                    </div>
+                    <div class="project-montage" data-montage="Film|Care|Comfort|Research|Stories|Healing" aria-hidden="true">
+                        <span class="project-montage-line slot-tl" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-tr" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-ct" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-bl" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-br" aria-hidden="true"></span>
+                    </div>
+                    <div class="project-tile-overlay" aria-hidden="true">
+                        <div class="project-tile-copy">
+                            <h2 class="project-tile-title">Voymemo</h2>
+                            <p class="project-tile-meta">Case study · Fall 2025</p>
+                            <p class="project-tile-blurb">Research and film exploring comfort for children overcoming medical trauma.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="project-title">
-                    <span class="title-text">VOYMEMO</span>
-                    <div class="action-container">
-                        <span class="action-text">CASE STUDY</span>
-                    </div>
-                </div>
-                <!-- Side Panel -->
                 <div class="side-panel">
                     <div class="panel-header">
-                        <div class="panel-date"> Fall 2025</div>
+                        <div class="panel-date">Fall 2025</div>
                         <div class="panel-tags">
                             <span class="tag ux">UX</span>
                             <span class="tag ui">PRODUCT DESIGN</span>
@@ -164,7 +199,7 @@
                         </div>
                     </div>
                     <div class="panel-description">
-                        A research-based design process exploring how to provide <strong>personalized comfort</strong> to children overcoming medical-based trauma. </strong>
+                        A research-based design process exploring personalized comfort for children overcoming medical-based trauma.
                     </div>
                     <div class="panel-tools">
                         <span class="tool-label">Tools:</span>
@@ -176,20 +211,30 @@
                     </div>
                 </div>
             </div>
-            <!-- Project 4: CHOW CLUB -->
-            <div class="project-item" data-project="chowclub" data-category="ux-ui">
-                <div class="project-image">
-                    <div class="placeholder-image">
-                    <img src="film/chowclublogo.svg" alt="CHOWCLUB logo" class="placeholder-image">
+
+            <!-- CHOW CLUB -->
+            <div class="project-item" data-project="chowclub" data-category="ux-ui" tabindex="0" role="link" aria-label="Chow Club case study, Fall 2024">
+                <div class="project-tile">
+                    <div class="project-media">
+                        <div class="placeholder-image">
+                            <img src="film/chowclublogo.svg" alt="" class="project-thumb">
+                        </div>
+                    </div>
+                    <div class="project-montage" data-montage="Cooking|Play|Flavor|Adventure|Gamify|One meal" aria-hidden="true">
+                        <span class="project-montage-line slot-tl" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-tr" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-ct" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-bl" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-br" aria-hidden="true"></span>
+                    </div>
+                    <div class="project-tile-overlay" aria-hidden="true">
+                        <div class="project-tile-copy">
+                            <h2 class="project-tile-title">Chow Club</h2>
+                            <p class="project-tile-meta">Case study · Fall 2024</p>
+                            <p class="project-tile-blurb">Cooking as adventure—a gamified journey to experiment and savor, one meal at a time.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="project-title">
-                    <span class="title-text">CHOW CLUB</span>
-                    <div class="action-container">
-                        <span class="action-text">CASE STUDY</span>
-                    </div>
-                </div>
-                <!-- Side Panel -->
                 <div class="side-panel">
                     <div class="panel-header">
                         <div class="panel-date">Fall 2024</div>
@@ -200,7 +245,7 @@
                         </div>
                     </div>
                     <div class="panel-description">
-                        This personal project, Chow Club, turns cooking into <strong>an adventure.</strong> A gamified journey designed to inspire the next generation to create, <strong>experiment,</strong> and <strong>savor</strong> the process. <strong>One meal at a time.</strong>
+                        Chow Club turns cooking into an adventure for the next generation.
                     </div>
                     <div class="panel-tools">
                         <span class="tool-label">Tools:</span>
@@ -213,22 +258,30 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Project 5: SCIOLY PAGE -->
-            <div class="project-item" data-project="scioly" data-category="ux-ui">
-                <div class="project-image">
-                    <div class="placeholder-image">
-                    <img src="film/scioly logo.svg" alt="SCIOLY logo" class="placeholder-image">
-                     
+
+            <!-- SCIOLY -->
+            <div class="project-item" data-project="scioly" data-category="ux-ui" tabindex="0" role="link" aria-label="Science Olympiad at Georgia Tech design feature, Spring 2025">
+                <div class="project-tile">
+                    <div class="project-media">
+                        <div class="placeholder-image">
+                            <img src="film/scioly logo.svg" alt="" class="project-thumb">
+                        </div>
+                    </div>
+                    <div class="project-montage" data-montage="Organization|Teams|Coaches|Admin|Georgia Tech|Coordination" aria-hidden="true">
+                        <span class="project-montage-line slot-tl" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-tr" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-ct" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-bl" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-br" aria-hidden="true"></span>
+                    </div>
+                    <div class="project-tile-overlay" aria-hidden="true">
+                        <div class="project-tile-copy">
+                            <h2 class="project-tile-title">SciOly @ GT</h2>
+                            <p class="project-tile-meta">Design feature · Spring 2025</p>
+                            <p class="project-tile-blurb">Features that bring order to coordination for admins and coaches.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="project-title">
-                    <span class="title-text">SCIOLY @GT</span>
-                    <div class="action-container">
-                        <span class="action-text">DESIGN FEATURE</span>
-                    </div>
-                </div>
-                <!-- Side Panel -->
                 <div class="side-panel">
                     <div class="panel-header">
                         <div class="panel-date">Spring 2025</div>
@@ -239,7 +292,8 @@
                         </div>
                     </div>
                     <div class="panel-description">
-                    For this client project, I worked with Georgia Tech's Science Olympiad team to design features that bring order to the chaos, making coordination seamless for admins and coaches alike.                    </div>
+                        Client work with Georgia Tech Science Olympiad—seamless coordination for admins and coaches.
+                    </div>
                     <div class="panel-tools">
                         <span class="tool-label">Tools:</span>
                         <div class="tool-tags">
@@ -253,6 +307,14 @@
         
         
     </main>
+
+    <!-- Edge rail: same star as home; linear scroll on this page -->
+    <div class="about-progress-bar home-scroll-rail" id="about-progress-bar" aria-hidden="true">
+        <div class="home-scroll-track" id="home-scroll-track"></div>
+        <div class="home-scroll-thumb" id="home-scroll-thumb" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Scroll the page">
+            <img src="film/home-scroll-star.png" alt="" width="88" height="88" draggable="false">
+        </div>
+    </div>
     
     <script>
         // Include shared navigation
@@ -348,13 +410,14 @@
                     
                     const filterValue = this.getAttribute('data-filter');
                     
-                    // Filter projects
+                    // Filter projects (data-category may be space-separated: "ux-ui speculative")
                     projectItems.forEach(item => {
-                        const category = item.getAttribute('data-category');
-                        
+                        const raw = item.getAttribute('data-category') || '';
+                        const categories = raw.split(/\s+/).filter(Boolean);
+
                         if (filterValue === 'all') {
                             item.classList.remove('hidden');
-                        } else if (filterValue === category) {
+                        } else if (categories.includes(filterValue)) {
                             item.classList.remove('hidden');
                         } else {
                             item.classList.add('hidden');
@@ -364,5 +427,6 @@
             });
         });
     </script>
+    <script src="js/page-scroll-star.js"></script>
 </body>
 </html>

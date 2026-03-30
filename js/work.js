@@ -1,102 +1,195 @@
-// Work Page JavaScript
+// Work Page — full-tile editorial montage (five anchors; cycles on hover)
 
-document.addEventListener('DOMContentLoaded', function() {
-    const projectItems = document.querySelectorAll('.project-item');
-    
-    // Add hover effects and interactions
-    projectItems.forEach(item => {
-        const sidePanel = item.querySelector('.side-panel');
-        
-        // Add hover effects for projects with side panels
-        if (sidePanel) {
-            item.addEventListener('mouseenter', function() {
-                this.classList.add('hovered');
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.classList.remove('hovered');
-            });
-        }
-        
-        // Add click functionality for projects without side panels (like ECHOSPHERE)
-        if (!sidePanel) {
-            item.addEventListener('click', function() {
-                const projectName = this.getAttribute('data-project');
-                showProjectModal(projectName);
-            });
-        }
-    });
-    
-    // Show project modal for projects without side panels
-    function showProjectModal(projectName) {
-        const projectData = {
-            echosphere: {
-                title: 'ECHOSPHERE',
-                status: 'IN PROGRESS',
-                subtitle: '[one day I will understand]',
-                description: 'This project is currently in development. More details will be available soon.'
-            }
-        };
-        
-        const project = projectData[projectName];
-        if (!project) return;
-        
-        // Create modal
-        const modal = document.createElement('div');
-        modal.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        `;
-        
-        const content = document.createElement('div');
-        content.style.cssText = `
-            background: rgba(20, 20, 20, 0.95);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(254, 195, 7, 0.3);
-            max-width: 500px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        `;
-        
-        content.innerHTML = `
-            <h2 style="color: #FEC307; font-family: 'Arial'; font-size: 1.5rem; margin-bottom: 1rem;">${project.title}</h2>
-            <div style="color: #FEC307; font-family: 'Arial'; font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">${project.status}</div>
-            <div style="color: #ccc; font-family: 'Arial'; font-size: 0.9rem; font-style: italic; margin-bottom: 1.5rem;">${project.subtitle}</div>
-            <p style="color: #f0f0f0; font-family: 'Arial'; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">${project.description}</p>
-            <button onclick="this.closest('.modal').remove()" style="background: #FEC307; color: #0a0a0a; border: none; padding: 0.8rem 1.5rem; border-radius: 5px; font-family: 'Arial'; font-weight: 600; cursor: pointer;">Close</button>
-        `;
-        
-        modal.appendChild(content);
-        modal.className = 'modal';
-        document.body.appendChild(modal);
-        
-        // Close on click outside
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.remove();
-            }
+(function () {
+    const STYLE_CYCLE = [
+        'montage--xl',
+        'montage--bold',
+        'montage--italic',
+        'montage--big',
+        'montage--wide',
+        'montage--boldItalic',
+    ];
+
+    const SLOT_ORDER = ['slot-tl', 'slot-tr', 'slot-ct', 'slot-bl', 'slot-br'];
+
+    function parseWords(item) {
+        const raw = item.querySelector('.project-montage')?.dataset.montage;
+        if (!raw) return [];
+        return raw
+            .split('|')
+            .map((s) => s.trim())
+            .filter(Boolean);
+    }
+
+    function clearLines(item) {
+        const lines = item.querySelectorAll('.project-montage-line');
+        lines.forEach((line, j) => {
+            line.textContent = '';
+            line.className = 'project-montage-line ' + (SLOT_ORDER[j] || 'slot-tl');
         });
     }
-    
-    // Add staggered animation on page load
-    projectItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        
-        setTimeout(() => {
-            item.style.transition = 'all 0.5s ease';
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-        }, index * 200);
+
+    function stopMontage(item) {
+        if (item._montageTimer) {
+            clearInterval(item._montageTimer);
+            item._montageTimer = null;
+        }
+        clearLines(item);
+        item._montageIndex = 0;
+    }
+
+    function tickMontage(item) {
+        const words = item._montageWords;
+        const lines = item.querySelectorAll('.project-montage-line');
+        if (!words?.length || !lines.length) return;
+
+        const i = item._montageIndex++;
+
+        lines.forEach((line, j) => {
+            const w = words[(i + j) % words.length];
+            const style = STYLE_CYCLE[(i + j) % STYLE_CYCLE.length];
+            const slotClass = SLOT_ORDER[j] || 'slot-tl';
+
+            line.classList.remove('montage--cut');
+            line.offsetWidth;
+            line.className =
+                'project-montage-line ' + slotClass + ' montage--cut ' + style;
+            line.textContent = w;
+        });
+    }
+
+    function startMontage(item, intervalMs) {
+        const words = parseWords(item);
+        if (!words.length) return;
+
+        item._montageWords = words;
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const lines = item.querySelectorAll('.project-montage-line');
+            lines.forEach((line, j) => {
+                line.textContent = words[j % words.length];
+                line.className =
+                    'project-montage-line ' +
+                    (SLOT_ORDER[j] || 'slot-tl') +
+                    ' montage--xl';
+            });
+            return;
+        }
+
+        if (item._montageTimer) return;
+
+        item._montageIndex = 0;
+        tickMontage(item);
+
+        const ms =
+            typeof intervalMs === 'number'
+                ? intervalMs
+                : 720 + Math.floor(Math.random() * 200);
+        item._montageTimer = setInterval(() => tickMontage(item), ms);
+    }
+
+    function shouldUseTouchMontage() {
+        return (
+            window.matchMedia('(hover: none)').matches &&
+            window.matchMedia('(pointer: coarse)').matches
+        );
+    }
+
+    function initTouchMontage(projectItems) {
+        if (!shouldUseTouchMontage()) return;
+
+        projectItems.forEach((item) => {
+            const words = parseWords(item);
+            const lines = item.querySelectorAll('.project-montage-line');
+            if (!words.length || !lines.length) return;
+
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                lines.forEach((line, j) => {
+                    line.textContent = words[j % words.length];
+                    line.className =
+                        'project-montage-line ' +
+                        (SLOT_ORDER[j] || 'slot-tl') +
+                        ' montage--xl';
+                });
+                return;
+            }
+
+            lines.forEach((line, j) => {
+                line.textContent = words[j % words.length];
+                line.className =
+                    'project-montage-line ' +
+                    (SLOT_ORDER[j] || 'slot-tl') +
+                    ' montage--xl';
+            });
+
+            const io = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting && entry.intersectionRatio > 0.25) {
+                            stopMontage(item);
+                            startMontage(item, 1450);
+                        } else {
+                            stopMontage(item);
+                            lines.forEach((line, j) => {
+                                line.textContent = words[j % words.length];
+                                line.className =
+                                    'project-montage-line ' +
+                                    (SLOT_ORDER[j] || 'slot-tl') +
+                                    ' montage--xl';
+                            });
+                        }
+                    });
+                },
+                { threshold: [0, 0.25, 0.5] }
+            );
+            io.observe(item);
+            item._montageIo = io;
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const projectItems = document.querySelectorAll('.project-item');
+
+        projectItems.forEach((item) => {
+            item.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    item.click();
+                }
+            });
+
+            if (shouldUseTouchMontage()) return;
+
+            item.addEventListener('mouseenter', function () {
+                startMontage(item);
+            });
+
+            item.addEventListener('mouseleave', function () {
+                requestAnimationFrame(function () {
+                    if (document.activeElement !== item) stopMontage(item);
+                });
+            });
+
+            item.addEventListener('focusin', function () {
+                startMontage(item);
+            });
+
+            item.addEventListener('focusout', function (e) {
+                if (!item.contains(e.relatedTarget)) stopMontage(item);
+            });
+        });
+
+        initTouchMontage(projectItems);
+
+        projectItems.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(16px)';
+
+            setTimeout(() => {
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            }, index * 90);
+        });
     });
-});
+})();

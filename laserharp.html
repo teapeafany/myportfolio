@@ -6,60 +6,92 @@
     <title>Heavenly Lyre - Tiffany Lee</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Switzer:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/laserharp.css">
 </head>
 <body class="laserharp-page">
+    <script src="js/paper-ink-filter.js"></script>
     <div id="navigation-container"></div>
 
     <header class="laserharp-hero">
-        <h1 class="laserharp-title">Heavenly Lyre</h1>
-        <p class="laserharp-subtitle">An Arduino MIDI lyre with invisible strings</p>
+        <div class="laserharp-hero-visual" aria-hidden="true">
+            <div class="laserharp-hero-bg"></div>
+            <div class="laserharp-hero-lasers"></div>
+            <div class="laserharp-hero-vignette"></div>
+            <div class="laserharp-hero-grain"></div>
+        </div>
+        <div class="laserharp-hero-content">
+            <p class="laserharp-eyebrow">Physical computing · Arduino · MIDI</p>
+            <h1 class="laserharp-title"><span class="laserharp-title-line">Heavenly</span> <span class="laserharp-title-line laserharp-title-line--accent">Lyre</span></h1>
+            <p class="laserharp-hero-dek">MIDI lyre · laser strings · photoresistors</p>
+            <p class="laserharp-hero-dek">Break a beam to play a note—serial, Python, IAC, GarageBand</p>
+        </div>
+        <div class="laserharp-hero-edge" aria-hidden="true"></div>
     </header>
 
     <main class="laserharp-main">
-        <article class="laserharp-article">
-            <p class="laserharp-lead">
-                This project is probably one of the coolest artifacts I have ever made by far. I came across the concept of a laser harp while surfing online, and, while it wasn't the most common creation, the creator I was looking at had confirmed in the comments that she used a MIDI connection and Arduino, so I knew it could be done. I wanted to create this musical instrument for myself. The lack of strings on the instrument seemed magical and I thought it would be a perfect prop for Harry Potter, as they have enchanted instruments, and I can certainly envision it being used on set. Because of a harp's asymmetrical shape and the fact that I wasn't entirely familiar with using a harp (I have only ever played the oboe and piano) I figured I wanted something simple and symmetrical (easy to CAD) for my instrument. I immediately thought of a lyre—inspired by the game Genshin, funny enough.
+        <article class="laserharp-article laserharp-journal">
+            <header class="laserharp-journal-mast laserharp-reveal">
+                <p class="laserharp-journal-frag">[ Build log · Spring 2026 ]</p>
+                <p class="laserharp-journal-dek">Field notes from the build.</p>
+            </header>
+            <p class="laserharp-lead laserharp-reveal">
+                This project is probably one of the coolest artifacts I have ever made by far. I came across the concept of a laser harp while surfing online, and, while it wasn’t the most common creation, the creator I was looking at had confirmed in the comments that she used a MIDI connection and Arduino, so I knew it could be done. I wanted to build that instrument for myself. The lack of strings seemed magical, and I could picture it as a prop in something like <em>Harry Potter</em>—enchanted instruments on set. A traditional harp’s asymmetry intimidated me, and I’m not a harpist (oboe and piano are more my background), so I wanted something simple and symmetrical—easier to CAD and to reason about. I landed on a lyre, inspired by the game <em>Genshin</em>, funny enough. Lasers as invisible strings, photoresistors catching the light, and software turning breaks in the beam into notes—that was the picture I held the whole way through.
             </p>
 
-            <section class="laserharp-section">
-                <h2>The Research & Testing</h2>
-                <p>The concept was simple: lasers would act as invisible strings, beaming down on photoresistors, which would detect some light value. Once the player blocks a beam, the light value will decrease, and I would need to somehow send this indication to the digital music software on my computer. I did a lot of research and the following article helped a lot in this understanding.</p>
-                <p><strong>My reference for understanding circuitry:</strong></p>
-                <p><a href="https://www.instructables.com/Arduino-Laser-Harp-1/" target="_blank" rel="noopener">https://www.instructables.com/Arduino-Laser-Harp-1/</a></p>
-                <p>While the parts and schematics were quite different for me, the concepts were the same.</p>
-                <p>I knew this would be an incredibly multidimensional assignment needing several parts, so I made sure to start early. I first got my hands on the lasers and photoresistors (thanks to Chase and Professor Nitsche!) and tested them out. Once I got those working, I knew I could proceed with this idea.</p>
+            <div class="laserharp-gallery laserharp-reveal" aria-label="Project photos">
+                <figure class="laserharp-gallery-item">
+                    <img src="film/laserharp-IMG_1601.jpg" alt="Lyre body and wiring detail" loading="lazy" width="800" height="600">
+                </figure>
+                <figure class="laserharp-gallery-item">
+                    <img src="film/laserharp-IMG_1598.jpg" alt="Lyre from another angle" loading="lazy" width="800" height="600">
+                </figure>
+                <figure class="laserharp-gallery-item">
+                    <img src="film/laserharp-IMG_1574.jpg" alt="Build process or assembled lyre" loading="lazy" width="1200" height="675">
+                </figure>
+                <figure class="laserharp-gallery-item">
+                    <img src="film/laserharp-IMG_1595.jpg" alt="Lyre detail" loading="lazy" width="800" height="600">
+                </figure>
+                <figure class="laserharp-gallery-item">
+                    <img src="film/laserharp-IMG_6675.jpg" alt="Heavenly Lyre with laser beams visible in low light" loading="lazy" width="800" height="1200">
+                </figure>
+            </div>
+
+            <section class="laserharp-section laserharp-reveal">
+                <h2 class="laserharp-section-heading"><span class="laserharp-entry-num" aria-hidden="true">01</span><span class="laserharp-section-title-text">Research &amp; testing</span></h2>
+                <p>The concept was simple: lasers would act as invisible strings, beaming down on photoresistors, which would read light levels. When the player blocks a beam, the value drops, and that change has to reach the music software on my computer somehow. I read a lot of threads and build logs to sanity-check the idea.</p>
+                <p>This <a href="https://www.instructables.com/Arduino-Laser-Harp-1/" target="_blank" rel="noopener">Instructables Arduino laser harp</a> helped me connect the dots on circuitry—my parts and schematic ended up quite different, but the underlying logic matched what I needed.</p>
+                <p>I knew the project would pull in printing, soldering, firmware, and software bridges, so I started early. Chase and Professor Nitsche helped me get lasers and photoresistors in hand; I tested them on a breadboard until the readings looked stable. Once those behaved, I let myself believe the rest of the build was actually possible.</p>
             </section>
 
-            <section class="laserharp-section">
-                <h2>3D Modeling</h2>
-                <p>I then got started on the CAD as I knew printing would take a while. There were many models of Venti's lyre online, but after deliberation and a lot of struggle to edit the mesh body model, I decided to create my own model, as I would need certain elements to hide my Arduino and accommodate for wiring and holes. As I had never used Fusion before, I had to learn a lot to CAD my model this time. It really wouldn't be as simple as the table in my previous project. From using reference images, spline, extruding, I had to get the crash course from a friend (thanks Tanmay!). We tried different models and measurements and sent the STL to another friend of mine who had a 3D printer. Since HIVE tends to have long queues, it was extremely helpful to have an outside printer source.</p>
-                <p>Our first CAD model came with a base—14 inches tall and 1.5 inches thick. I was hit with my first limitation: I was told it was too big for the available printer and had to be much thinner. I ended up deciding that making the protoboard and Arduino all fit inside was but a pipe dream and I would have to keep things moderately external. Which was workable.</p>
-                <p>I made adjustments and the final dimensions ended up being:</p>
+            <section class="laserharp-section laserharp-reveal">
+                <h2 class="laserharp-section-heading"><span class="laserharp-entry-num" aria-hidden="true">02</span><span class="laserharp-section-title-text">3D modeling</span></h2>
+                <p>I started CAD knowing the print queue would eat time. There are plenty of Venti-style lyre meshes online, but editing someone else’s body was fighting the tool more than designing—so I modeled my own shell in Fusion, with room to hide the Arduino (or try to), routes for wiring, and clean holes for lasers and sensors. I had never really used Fusion before; splines, extrudes, and reference images turned into a crash course from a patient friend (thanks, Tanmay). We iterated on proportions, exported an STL, and sent it to another friend with a printer when the campus HIVE line looked endless.</p>
+                <p>Our first version had a base about fourteen inches tall and an inch and a half thick—too big for the printer we had access to, and it had to get thinner anyway. Fitting the protoboard and Arduino entirely inside started to feel like a pipe dream; I accepted a more external harness and moved on.</p>
+                <p>After another pass, the final dimensions settled to:</p>
                 <ul class="laserharp-list">
-                    <li><strong>Top holes</strong> (for lasers with 6mm diameter): 6.3mm (for tolerance)</li>
-                    <li><strong>Bottom holes</strong> (for lasers to not fall through): 4.7mm</li>
+                    <li><strong>Top holes</strong> (6mm lasers): 6.3mm for tolerance</li>
+                    <li><strong>Bottom holes</strong> (so lasers don’t fall through): 4.7mm</li>
                     <li><strong>Height of lyre:</strong> 10 inches</li>
-                    <li><strong>Bottom holes for photoresistors:</strong> around 5mm</li>
+                    <li><strong>Bottom holes for photoresistors:</strong> about 5mm</li>
                 </ul>
-                <p>The bottom of the lyre was hollow for the photoresistor wiring. Finally the model was done and I sent it off to be printed (took a whooping 8 hours).</p>
+                <p>The bottom of the lyre stayed hollow to feed photoresistor wiring up cleanly. When the mesh finally felt right, I sent it off to print—about eight hours on the clock, and a long wait to see if reality matched the screen.</p>
             </section>
 
-            <section class="laserharp-section">
-                <h2>MIDI Bridge and Code</h2>
-                <p>This took me a day to just figure out. I was looking for Hairless MIDI Bridge to connect the Arduino to GarageBand and found out the one everyone kept recommending isn't compatible with the new Mac software. I had to find an alternative.</p>
-                <h3>Summary of the journey</h3>
+            <section class="laserharp-section laserharp-reveal">
+                <h2 class="laserharp-section-heading"><span class="laserharp-entry-num" aria-hidden="true">03</span><span class="laserharp-section-title-text">MIDI bridge &amp; code</span></h2>
+                <p>This layer took almost a full day of head-scratching. I went looking for Hairless MIDI Bridge to pipe the Arduino into GarageBand and learned the build everyone recommended doesn’t play nicely with newer Mac OS. I needed another path.</p>
+                <h3>What actually happened</h3>
                 <ol class="laserharp-list">
-                    <li><strong>Started with Serial-MIDI Bridge</strong> — Downloaded SerialMidiBridge app, bypassed Mac security warning, set port to <code>/dev/cu.usbmodem101</code>, baud rate 9600, IAC Driver Bus 1. Clicked Start but GarageBand never received any notes.</li>
-                    <li><strong>Checked everything</strong> — Verified IAC Driver was online in Audio MIDI Setup, confirmed Bus 1 port existed, GarageBand showed "1 MIDI Input detected," MIDI Monitor showed IAC Driver Bus 1 was active. But blocking the laser triggered nothing in GarageBand.</li>
-                    <li><strong>Found the real problem</strong> — Opened Serial Monitor while blocking laser, saw garbage characters (Arduino was sending bytes). But MIDI Monitor showed nothing arriving. Conclusion: Serial-MIDI Bridge wasn't converting the data properly.</li>
-                    <li><strong>Tried alternatives</strong> — Hairless MIDI site was down. MIDIUSB library didn't work (Arduino Uno doesn't support USB MIDI). Serial-MIDI Bridge baud rate didn't support 31250 (true MIDI rate).</li>
-                    <li><strong>Pivoted to Python</strong> — Set threshold at 600, block laser → NOTE ON, unblock → NOTE OFF. Installed pyserial and python-rtmidi. Wrote a Python script to read serial data and send MIDI directly to IAC Driver. First attempt sent raw bytes as MIDI, got garbage. Switched to reading LDR values as text numbers. And Python worked!</li>
+                    <li><strong>Serial-MIDI Bridge first.</strong> I installed SerialMidiBridge, worked through the Mac security warning, pointed it at <code>/dev/cu.usbmodem101</code>, baud 9600, IAC Driver Bus 1, hit Start—and GarageBand stayed silent.</li>
+                    <li><strong>Checking the obvious.</strong> IAC was online in Audio MIDI Setup, Bus 1 existed, GarageBand reported a MIDI input, MIDI Monitor showed the bus alive. Blocking a laser still produced nothing in the DAW.</li>
+                    <li><strong>Serial told the truth.</strong> With Serial Monitor open I could see the Arduino shouting values when I broke beams, but MIDI Monitor never saw translated notes. The bridge wasn’t turning my stream into reliable MIDI.</li>
+                    <li><strong>Dead ends.</strong> Hairless’s site was down when I looked. MIDIUSB wasn’t an option on my Uno. Cranking Serial-MIDI Bridge toward true MIDI baud didn’t save it.</li>
+                    <li><strong>Python.</strong> I set a threshold at 600—beam blocked sends NOTE ON, clear sends NOTE OFF—installed <strong>pyserial</strong> and <strong>python-rtmidi</strong>, and wrote a small script to read the comma-separated analog values as text and emit MIDI straight to the IAC driver. First pass tried to treat raw bytes as MIDI and sounded like chaos; parsing integers fixed it. After that, GarageBand finally listened.</li>
                 </ol>
-                <p>To run: <code>python3 ~/serial_midi.py</code>. The script auto-reconnects to the Arduino since I kept having disconnect issues.</p>
-                <p><strong>Python script:</strong></p>
+                <p>To run it: <code>python3 ~/serial_midi.py</code>. The script auto-reconnects when the cable gets fussy. <em>You have to close the Arduino IDE before Python owns the serial port—and the other way around—or they step on each other.</em> The listings below are for four lasers and four photoresistors.</p>
+                <h3>Python bridge</h3>
                 <pre class="laserharp-code"><code>import serial
 import rtmidi
 import time
@@ -145,7 +177,7 @@ while True:
         print("Disconnected! Reconnecting...")
         time.sleep(1)
         ser = connect()</code></pre>
-                <p><strong>Arduino code:</strong></p>
+                <h3>Arduino · four LDRs, 9600 baud</h3>
                 <pre class="laserharp-code"><code>void setup() {
   Serial.begin(9600);
 }
@@ -163,58 +195,83 @@ void loop() {
   
   delay(50);
 }</code></pre>
-                <p><em>Note: You have to close Arduino before running Python, and vice versa. This code works for four lasers and photoresistors!</em></p>
             </section>
 
-            <section class="laserharp-section">
-                <h2>Circuits and Soldering</h2>
-                <p>I then needed to put together the rest of the lyre strings and solder it to the protoboard. This took a bit of planning, but since it wasn't my first time, I was comfortable with soldering and prepared a lot to solder efficiently. When I got my hands on the 3D model, I immediately tested all the parts together. And when it fit right, I began soldering.</p>
-                <p>I made sure to prepare all the wire lengths and strip them before I began to organize things well. Then I soldered all the photoresistors, resistors, and AX pins to the board, along with ground and 5V pins.</p>
-                <p><strong>Note:</strong> Do not solder the legs of the photoresistors before putting them through the holes—because I forgot this I had to solder even more wire to connect them to the board. Not the worst, but did take a bit of time.</p>
-                <p>Then began the soldering of the lasers… This was honestly more of a struggle than it should've been. I was trying to solder all the lasers to two wires, one positive one negative, and I had to solder and desolder a few times. The wire ended up being too short after I had to cut and redo it a few times, which made it kind of stick out in the final, when I had intended on taping it to the sides of the lyre.</p>
-                <p>When I got all four working properly, I knew I was approaching the end. I secured everything with hot glue (to make sure the lasers don't move and stay right above the photoresistors). It was also useful to hot glue any parts that accidentally fell off the protoboard when I handled it too hard (which is something I wish I knew about for the cat project).</p>
+            <section class="laserharp-section laserharp-reveal">
+                <h2 class="laserharp-section-heading"><span class="laserharp-entry-num" aria-hidden="true">04</span><span class="laserharp-section-title-text">Circuits &amp; soldering</span></h2>
+                <p>With the shell in hand, I wired the “strings”: photoresistors into dividers on A0–A3, lasers sharing positive and negative busses, grounds and 5V where they belonged. I’m not brand-new to soldering, so I pre-cut and stripped wire, dry-fit everything, and only then started locking joints down.</p>
+                <p><strong>Don’t do what I did once:</strong> soldering photoresistor legs before threading them through the body means extra jumpers and extra time. Thread first, solder second.</p>
+                <p>The laser harness was fussier than it should have been—bussing four emitters to two rails meant solder, desolder, shorten, lengthen, repeat until the bundle cooperated. I’d meant to tuck the wiring along the lyre’s edges; the final length is a little proud instead.</p>
+                <p>When all four beams lined up with their sensors, the project finally felt like it had a finish line. Hot glue keeps the lasers from drifting off their photoresistors, and it also saved a few parts that popped loose when I handled the board too roughly—a lesson I wish I’d already internalized on the cat project.</p>
             </section>
 
-            <section class="laserharp-section">
-                <h2>Decorating</h2>
-                <p>I wanted it to be a whole experience when you see this lyre, and I still had to hide the Arduino and parts. Interestingly, I recently got the idea to use air dry clay due to one of my classes holding a guest lecture, an experiment about artistic emotional expression (in which Supratim was a part of—what are the chances, I know). He handed me air dry clay and I happened to make a bird for his experiment. I knew I could use this for my harp.</p>
-                <p>After ordering some air dry clay, I created the wings and more embellishments.</p>
-                <p>I also made the base out of cardboard and the remaining stuffing from the cat project. It looked like it was floating on clouds, which I would say is a success.</p>
+            <section class="laserharp-section laserharp-reveal">
+                <h2 class="laserharp-section-heading"><span class="laserharp-entry-num" aria-hidden="true">05</span><span class="laserharp-section-title-text">Decorating</span></h2>
+                <p>I still wanted the object to feel like an instrument on a shelf, not a bare dev board with lasers. Air-dry clay entered the picture after a guest lecture in another class—an exercise about emotional expression where Supratim handed out clay; I ended up sculpting a small bird for it and realized the material could hide hardware and add wings.</p>
+                <p>I ordered more clay, shaped wings and small embellishments, and built the stand from cardboard plus leftover stuffing from an earlier project. The base reads a little like a cloud holding the lyre up—which was exactly the mood I was chasing.</p>
             </section>
 
-            <section class="laserharp-section">
-                <h2>Final Demo</h2>
+            <section class="laserharp-section laserharp-reveal">
+                <h2 class="laserharp-section-heading"><span class="laserharp-entry-num" aria-hidden="true">06</span><span class="laserharp-section-title-text">Final demo</span></h2>
                 <div class="laserharp-videos">
-                    <div class="laserharp-video-wrap">
-                        <iframe src="https://www.youtube.com/embed/J74geotIhL8" title="Heavenly Lyre demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="laserharp-video-block">
+                        <div class="laserharp-video-wrap">
+                            <iframe src="https://www.youtube.com/embed/J74geotIhL8" title="Heavenly Lyre demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                         <p class="laserharp-video-caption">Full demo</p>
                     </div>
-                    <div class="laserharp-video-wrap">
-                        <iframe src="https://www.youtube.com/embed/Pg94yKDsQyw" title="Heavenly Lyre shorts" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="laserharp-video-block">
+                        <div class="laserharp-video-wrap">
+                            <iframe src="https://www.youtube.com/embed/Pg94yKDsQyw" title="Heavenly Lyre shorts" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                         <p class="laserharp-video-caption">Shorts</p>
                     </div>
                 </div>
             </section>
 
-            <section class="laserharp-section laserharp-reflection">
-                <h2>Reflection</h2>
-                <p>I think this project really just showed me that with the help of people who have mastered so many different disciplines, you can really create something cool. So many ECE students would come up to me at HIVE, wonder what I'm making and offer their help, which was pretty awesome. I'm a lot more comfortable soldering and I've picked up a lot of techniques for it and I'll probably be using Fusion in the near future, but there's still more to learn.</p>
+            <section class="laserharp-section laserharp-reveal">
+                <h2 class="laserharp-section-heading"><span class="laserharp-entry-num" aria-hidden="true">07</span><span class="laserharp-section-title-text">Reflection</span></h2>
+                <p>This build reminded me how much faster you move when people who’ve already fought the same battles lean in. ECE students at the HIVE kept stopping to ask what I was making and offering tricks for cleaner joints or saner routing—that community piece mattered as much as any datasheet.</p>
+                <p>I’m far more comfortable at the soldering iron now, and Fusion feels like a tool I’ll open again instead of dreading. There’s still more to learn (there always is), but the lyre actually plays—and that’s the line I wanted to end on.</p>
             </section>
         </article>
     </main>
+
+    <div class="about-progress-bar home-scroll-rail" id="about-progress-bar" aria-hidden="true">
+        <div class="home-scroll-track" id="home-scroll-track"></div>
+        <div class="home-scroll-thumb" id="home-scroll-thumb" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Scroll the page">
+            <img src="film/home-scroll-star.png" alt="" width="88" height="88" draggable="false">
+        </div>
+    </div>
 
     <script>
         function includeNavigation() {
             const navHTML = `
                 <nav class="nav-menu">
                     <a href="work.html" class="nav-item nav-back" id="nav-back" aria-label="Back to Work">
-                        <img src="film/nextpagebutton.svg" alt="Back" class="back-button-icon">
+                        <span class="back-button-label" aria-hidden="true">&lt;</span>
                     </a>
                 </nav>
             `;
             document.getElementById('navigation-container').innerHTML = navHTML;
         }
         document.addEventListener('DOMContentLoaded', includeNavigation);
+
+        document.querySelectorAll('.laserharp-reveal').forEach(function (el) {
+            var io = new IntersectionObserver(
+                function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) {
+                            e.target.classList.add('is-visible');
+                            io.unobserve(e.target);
+                        }
+                    });
+                },
+                { rootMargin: '0px 0px -6% 0px', threshold: 0.06 }
+            );
+            io.observe(el);
+        });
     </script>
+    <script src="js/page-scroll-star.js"></script>
 </body>
 </html>

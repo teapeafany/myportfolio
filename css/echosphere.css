@@ -18,7 +18,11 @@ html {
     opacity: 1;
     pointer-events: auto;
     width: 2px;
-    min-height: 400px;
+    min-height: 100px;
+}
+
+.echosphere-progress-bar .progress-item {
+    margin: 0.75rem 0;
 }
 
 .progress-line {
@@ -80,9 +84,10 @@ html {
 .progress-label {
     position: absolute;
     right: 25px;
-    font-family: 'Switzer', sans-serif;
-    font-size: 0.85rem;
+    font-family: var(--font-nhg-text);
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
     font-weight: 400;
+    letter-spacing: 0.01em;
     color: #b8d4f0;
     white-space: nowrap;
     opacity: 0;
@@ -95,7 +100,7 @@ html {
     opacity: 1;
     transform: translateX(0);
     color: #ffffff;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .progress-item:hover .progress-label {
@@ -107,12 +112,36 @@ body {
     background: #313C98;
     margin: 0;
     padding: 0;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     letter-spacing: normal;
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
     color: #e8f0fe;
+}
+
+/* Film grain noise (above bubbles, below page sections & nav) */
+.echosphere-film-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.32;
+    background-image: url('../film/texture.png');
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    background-position: 0 0;
+    mix-blend-mode: overlay;
+    animation: grain 10s steps(12) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .echosphere-film-grain {
+        animation: none;
+    }
 }
 
 /* Floating Bubbles Background */
@@ -130,24 +159,32 @@ body {
 .bubble {
     position: absolute;
     border-radius: 50%;
-    background: rgba(91, 123, 184, 0.3);
-    backdrop-filter: blur(20px);
-    animation: float 20s infinite ease-in-out;
-    opacity: 0.7;
-    box-shadow: 0 8px 32px rgba(74, 106, 168, 0.3);
+    width: var(--size, 160px);
+    height: var(--size, 160px);
+    left: var(--left, 50%);
+    top: var(--top, 50%);
+    background: var(--grad, radial-gradient(circle at 30% 30%, rgba(210, 205, 235, 0.4), rgba(195, 195, 225, 0.15) 70%, transparent 100%));
+    backdrop-filter: blur(18px);
+    animation: floatAround var(--duration, 20s) ease-in-out var(--delay, 0s) infinite;
+    opacity: var(--o0, 0.75);
+    filter: blur(var(--blur, 18px));
+    box-shadow: 0 8px 40px rgba(195, 192, 220, 0.2);
+    z-index: var(--z, 1);
+    transform-origin: center;
+    will-change: transform, opacity;
 }
 
-/* Cloud-like bubbles */
+/* Cloud-like bubbles (same gradient, different soft “layers”) */
 .bubble::before {
     content: '';
     position: absolute;
     width: 60%;
     height: 60%;
     border-radius: 50%;
-    background: rgba(107, 139, 200, 0.25);
+    background: var(--grad, transparent);
     top: 20%;
     left: 10%;
-    filter: blur(10px);
+    opacity: 0.55;
 }
 
 .bubble::after {
@@ -156,72 +193,36 @@ body {
     width: 50%;
     height: 50%;
     border-radius: 50%;
-    background: rgba(123, 155, 216, 0.2);
+    background: var(--grad, transparent);
     bottom: 10%;
     right: 15%;
-    filter: blur(8px);
+    opacity: 0.35;
 }
 
-.bubble:nth-child(1) {
-    width: 80px;
-    height: 80px;
-    left: 10%;
-    animation-delay: 0s;
-    animation-duration: 15s;
-}
-
-.bubble:nth-child(2) {
-    width: 120px;
-    height: 120px;
-    left: 20%;
-    animation-delay: 2s;
-    animation-duration: 18s;
-}
-
-.bubble:nth-child(3) {
-    width: 60px;
-    height: 60px;
-    left: 35%;
-    animation-delay: 4s;
-    animation-duration: 12s;
-}
-
-.bubble:nth-child(4) {
-    width: 100px;
-    height: 100px;
-    left: 50%;
-    animation-delay: 1s;
-    animation-duration: 16s;
-}
-
-.bubble:nth-child(5) {
-    width: 90px;
-    height: 90px;
-    left: 65%;
-    animation-delay: 3s;
-    animation-duration: 14s;
-}
-
-.bubble:nth-child(6) {
-    width: 70px;
-    height: 70px;
-    left: 80%;
-    animation-delay: 5s;
-    animation-duration: 17s;
-}
-
-@keyframes float {
+@keyframes floatAround {
+    /* Keep the loop boundary continuous (0% == 100%). */
     0%, 100% {
-        transform: translateY(100vh) translateX(0) scale(1);
+        transform: translate3d(var(--x3, 10px), var(--y3, 18px), 0) rotate(var(--r3, 4deg)) scale(var(--s3, 1));
+        opacity: var(--o3, 0.7);
     }
     25% {
-        transform: translateY(75vh) translateX(20px) scale(1.1);
+        transform: translate3d(var(--x1, 18px), var(--y1, -40px), 0) rotate(var(--r1, 6deg)) scale(var(--s1, 1.05));
+        opacity: var(--o1, 0.6);
     }
-    50% {
-        transform: translateY(50vh) translateX(-15px) scale(0.9);
+    55% {
+        transform: translate3d(var(--x2, -10px), var(--y2, 10px), 0) rotate(var(--r2, -4deg)) scale(var(--s2, 0.98));
+        opacity: var(--o2, 0.65);
     }
-    75% {
-        transform: translateY(25vh) translateX(10px) scale(1.05);
+    80% {
+        transform: translate3d(var(--x3, 10px), var(--y3, 18px), 0) rotate(var(--r3, 4deg)) scale(var(--s3, 1));
+        opacity: var(--o3, 0.7);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bubble {
+        /* Keep subtle background motion even when reduced motion is enabled. */
+        animation: floatAround calc(var(--duration, 20s) * 2) linear var(--delay, 0s) infinite;
     }
 }
 
@@ -321,18 +322,19 @@ html {
     scroll-snap-align: start;
     scroll-snap-stop: always;
     position: relative;
-    background: #313C98;
+    z-index: 2;
+    background: #ffffff;
     overflow: hidden;
 }
 
-/* Soft cloud-like overlay decorations */
+/* Soft cloud-like overlay decorations (pale lavender for white bg) */
 .hero-section::before {
     content: '';
     position: absolute;
     width: 500px;
     height: 300px;
     border-radius: 250px;
-    background: rgba(74, 106, 168, 0.25);
+    background: rgba(200, 195, 230, 0.2);
     top: -100px;
     right: -150px;
     z-index: 0;
@@ -346,7 +348,7 @@ html {
     width: 400px;
     height: 250px;
     border-radius: 200px;
-    background: rgba(91, 123, 184, 0.2);
+    background: rgba(190, 200, 235, 0.15);
     bottom: -80px;
     left: -100px;
     z-index: 0;
@@ -363,25 +365,103 @@ html {
     }
 }
 
+/* Hero text block - centered, layered in front of bubbles */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 90vw;
+}
+
+.hero-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(3.5rem, 12vw, 6.5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: #1e2a5e;
+    margin: 0 0 0.35em;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    font-family: var(--font-nhg-text);
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    font-weight: 400;
+    color: #1e2a5e;
+    margin: 0 0 2.5rem;
+    letter-spacing: 0.02em;
+    word-spacing: 0.02em;
+    line-height: 1.2;
+}
+
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem 3rem;
+}
+
+.hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.hero-meta-label {
+    font-family: var(--font-nhg-text);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #1e2a5e;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+}
+
+.hero-meta-value {
+    font-family: var(--font-nhg-text);
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #1e2a5e;
+}
+
+.down-arrow-link {
+    position: relative;
+    z-index: 1;
+    margin-top: 4rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.down-arrow-link:hover {
+    transform: translateY(5px);
+}
+
+.down-arrow {
+    display: block;
+    width: 32px;
+    height: auto;
+    cursor: pointer;
+    filter: none;
+    opacity: 0.7;
+}
+
+.hero-section .down-arrow {
+    filter: brightness(0) saturate(100%);
+}
+
+.down-arrow-link:hover .down-arrow {
+    opacity: 1;
+}
+
+/* Legacy class if project-title img is used elsewhere */
 .project-title {
     width: 60%;
     height: auto;
     max-width: 90vw;
     position: relative;
     z-index: 1;
-}
-
-.down-arrow {
-    margin-top: 4rem;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    position: relative;
-    z-index: 1;
-    filter: brightness(0) invert(1);
-}
-
-.down-arrow:hover {
-    transform: translateY(5px);
 }
 
 /* Up Arrow (Back to Top) - Fixed Position */
@@ -494,7 +574,7 @@ html {
 }
 
 .po-box-text {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.25rem;
     font-weight: 300;
     color: #ffffff;
@@ -522,7 +602,7 @@ html {
 }
 
 .po-box-list li {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.25rem;
     font-weight: 300;
     color: #ffffff;
@@ -668,7 +748,7 @@ html {
 }
 
 .research-text-box-content {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.25rem;
     font-weight: 300;
     color: #ffffff;
@@ -774,7 +854,7 @@ html {
 }
 
 .research-process-text {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.25rem;
     font-weight: 300;
     color: #ffffff;
@@ -843,7 +923,7 @@ html {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1rem;
 }
 
@@ -866,7 +946,7 @@ html {
 }
 
 .coding-reliability {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 0.9rem;
     font-weight: 300;
     color: #ffffff;
@@ -904,7 +984,7 @@ html {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     white-space: normal;
     word-wrap: break-word;
 }
@@ -938,7 +1018,7 @@ html {
     line-height: 1.4;
     color: #e8f0fe;
     font-weight: 300;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     vertical-align: top;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -1042,7 +1122,7 @@ html {
     border: 2px solid rgba(184, 212, 240, 0.3);
     border-radius: 15px;
     padding: 1.5rem 2rem;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1rem;
     font-weight: 400;
     color: #ffffff;
@@ -1220,7 +1300,7 @@ html {
 }
 
 .mind-map-title {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1rem;
     font-weight: 700;
     color: #4a6ba8;
@@ -1244,7 +1324,7 @@ html {
 }
 
 .mind-map-theme strong {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1rem;
     font-weight: 600;
     color: #9bb5e8;
@@ -1260,7 +1340,7 @@ html {
 }
 
 .mind-map-theme li {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 0.9rem;
     color: #e8f0fe;
     font-weight: 300;
@@ -1454,7 +1534,7 @@ html {
 }
 
 .quote-text {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.25rem;
     font-weight: 300;
     color: #ffffff;
@@ -1533,20 +1613,24 @@ html {
 }
 
 .intro-subtitle {
-    font-family: 'Switzer', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-family: var(--font-nhg-text);
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    font-weight: 400;
+    letter-spacing: 0.015em;
+    word-spacing: 0.025em;
     color: #ffffff;
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    margin: 0 0 2rem;
+    line-height: 1.35;
 }
 
 .intro-body-text {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.25rem;
-    font-weight: 300;
-    color: #ffffff;
-    line-height: 1.8;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    word-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.94);
+    line-height: 1.5;
     margin-bottom: 1.5rem;
 }
 
@@ -1745,7 +1829,7 @@ html {
 }
 
 .insight-text {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.5rem;
     font-weight: 300;
     color: #e8f0fe;
@@ -1991,7 +2075,7 @@ html {
     color: #b8d4f0;
     text-transform: lowercase;
     letter-spacing: normal;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
 }
 
 .problems-label {
@@ -2008,7 +2092,7 @@ html {
     margin-bottom: 2rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
 }
 
 .problems-label-bullet {
@@ -2023,7 +2107,7 @@ html {
     letter-spacing: normal;
     font-weight: 300;
     color: #e8f0fe;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     position: relative;
     z-index: 1;
 }
@@ -2425,18 +2509,6 @@ html {
     color: rgba(255, 255, 255, 0.4) !important;
 }
 
-.back-button-icon {
-    width: 40px;
-    height: auto;
-    filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-    transform: rotate(180deg);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.back-button-icon:hover {
-    opacity: 0.8;
-}
-
 /* Final Iterations Two-Column Layout */
 .final-iterations-subsection {
     display: flex;
@@ -2488,13 +2560,14 @@ html {
     }
     
     .intro-subtitle {
-        font-size: 1.2rem;
+        font-size: clamp(0.95rem, 3.5vw, 1.25rem);
+        line-height: 1.32;
         margin-bottom: 1.5rem;
     }
     
     .intro-body-text {
         font-size: 1rem;
-        line-height: 1.7;
+        line-height: 1.5;
     }
     
     .intro-illustration {

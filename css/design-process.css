@@ -18,7 +18,7 @@ body {
 
 .page-title {
     color: #FEC307;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 2.5rem;
     font-weight: 300;
     text-transform: uppercase;
@@ -66,7 +66,7 @@ body {
 
 .tab-text {
     color: #FEC307;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 0.7rem;
     font-weight: 300;
     text-transform: uppercase;
@@ -90,7 +90,7 @@ body {
 
 .folder-label {
     color: #FEC307;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 0.8rem;
     font-weight: 300;
     margin-bottom: 0.5rem;
@@ -99,7 +99,7 @@ body {
 
 .folder-code {
     color: #FEC307;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 0.7rem;
     margin-bottom: 1rem;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
@@ -200,7 +200,7 @@ body {
 
 .project-header h2 {
     color: #FEC307;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.8rem;
     font-weight: 300;
     text-transform: uppercase;
@@ -211,7 +211,7 @@ body {
 
 .project-code {
     color: #FEC307;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 0.9rem;
     opacity: 0.8;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
@@ -223,7 +223,7 @@ body {
 
 .project-description p {
     color: #f0f0f0;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1rem;
     line-height: 1.6;
     margin: 0;
@@ -246,7 +246,7 @@ body {
 
 .detail-label {
     color: #FEC307;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 0.8rem;
     font-weight: 300;
     text-transform: uppercase;
@@ -256,7 +256,7 @@ body {
 
 .detail-value {
     color: #f0f0f0;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 0.9rem;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
@@ -265,16 +265,21 @@ body {
 .folder.active {
     transform: scale(1.1) rotate(0deg) !important;
     z-index: 25 !important;
-    box-shadow: 0 8px 25px rgba(254, 195, 7, 0.3);
+    filter: drop-shadow(0 0 28px rgba(254, 195, 7, 0.28))
+        drop-shadow(0 16px 48px rgba(0, 0, 0, 0.85));
 }
 
 .folder.active .folder-body {
-    border: 2px solid rgba(254, 195, 7, 0.5);
+    border: none;
+    box-shadow: var(--cine-inner-top, inset 0 1px 0 rgba(255, 230, 160, 0.14)),
+        var(--cine-inner-vignette, inset 0 0 20px rgba(0, 0, 0, 0.4)),
+        0 0 0 1px rgba(254, 195, 7, 0.52),
+        0 10px 36px rgba(0, 0, 0, 0.75), 0 0 40px rgba(254, 195, 7, 0.18);
 }
 
 .project-placeholder {
     color: #FEC307;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.1rem;
     text-align: center;
     opacity: 0.7;

@@ -1,5 +1,4 @@
-/* Import Switzer Font */
-@import url('Switzer_Complete/Fonts/WEB/css/switzer.css');
+/* UI sans: Neue Haas Grotesk Text via css/style.css */
 
 /* Custom Font */
 @font-face {
@@ -15,7 +14,7 @@ body {
     background: #000;
     margin: 0;
     padding: 0;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-weight: 300;
     position: relative;
     overflow: auto !important;
@@ -92,7 +91,7 @@ body::after {
 
 .loading-content p {
     color: #FEC307;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1rem;
     font-weight: 300;
     letter-spacing: normal;
@@ -358,44 +357,25 @@ body::after {
 }
 
 
-.headspacesubtitle {
-    color: #FEC307;
-    font-family: 'Switzer', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 300;
-    font-style: normal;
-    letter-spacing: normal;
-    line-height: 1.8;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.9);
-    opacity: 0;
+/* Home subtitle look (from style.css); in-flow placement; two-line cycle timing */
+.headspace-container .headspace-subtitle-container.subtitle-container {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
     width: 100%;
-    text-align: center;
+    max-width: 960px;
     margin-top: -3rem;
     margin-bottom: 2rem;
+    overflow: hidden;
 }
 
-.subtitle-1 {
+.headspace-container .headspace-subtitle-container .subtitle-1 {
     animation: cycleSubtitles 20s infinite;
 }
 
-.subtitle-2 {
+.headspace-container .headspace-subtitle-container .subtitle-2 {
     animation: cycleSubtitles 20s infinite 4s;
-}
-
-.subtitle-3 {
-    animation: cycleSubtitles 20s infinite 8s;
-}
-
-@keyframes cycleSubtitles {
-    0%, 15% {
-        opacity: 0;
-    }
-    15%, 20% {
-        opacity: 1;
-    }
-    20%, 100% {
-        opacity: 0;
-    }
 }
 
 @keyframes magicalWrite {
@@ -446,11 +426,15 @@ body::after {
         margin-bottom: 1.5rem;
     }
     
-    .headspacesubtitle {
-        font-size: 1.2rem;
+    .headspace-container .headspace-subtitle-container.subtitle-container {
         margin-top: -2rem;
         margin-bottom: 1.5rem;
         padding: 0 1rem;
+    }
+
+    .headspace-container .headspace-subtitle-container .subtitle {
+        font-size: clamp(1rem, 3.75vw, 1.28rem);
+        line-height: 1.3;
     }
     
     .personal-journal {
@@ -507,10 +491,13 @@ body::after {
         margin-bottom: 1rem;
     }
     
-    .headspacesubtitle {
-        font-size: 1rem;
+    .headspace-container .headspace-subtitle-container.subtitle-container {
         margin-top: -1.5rem;
         margin-bottom: 1rem;
+    }
+
+    .headspace-container .headspace-subtitle-container .subtitle {
+        font-size: clamp(0.95rem, 3.5vw, 1.15rem);
         line-height: 1.5;
     }
     

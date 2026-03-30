@@ -80,7 +80,7 @@ html {
 .progress-label {
     position: absolute;
     right: 25px;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 0.85rem;
     font-weight: 400;
     color: #6464B4;
@@ -107,7 +107,7 @@ body {
     background: #E4E4FF;
     margin: 0;
     padding: 0;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     letter-spacing: normal;
     overflow-x: hidden;
     overflow-y: auto;
@@ -278,7 +278,7 @@ html {
 }
 
 .project-subtitle {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.5rem;
     font-weight: 400;
     color: #2D2D5A;
@@ -307,7 +307,7 @@ html {
 }
 
 .detail-label {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 0.9rem;
     font-weight: 600;
     color: #6464B4;
@@ -316,7 +316,7 @@ html {
 }
 
 .detail-value {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1rem;
     font-weight: 400;
     color: #2D2D5A;
@@ -396,7 +396,7 @@ html {
 }
 
 .section-title {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 3.5rem;
     font-weight: 700;
     font-style: normal;
@@ -409,7 +409,7 @@ html {
 }
 
 .section-heading {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 4.5rem;
     font-weight: 700;
     font-style: normal;
@@ -421,7 +421,7 @@ html {
 }
 
 .section-subtitle {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.5rem;
     font-weight: 400;
     font-style: normal;
@@ -433,7 +433,7 @@ html {
 }
 
 .section-text {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.7rem;
     font-weight: 400;
     color: #4a4a6a;
@@ -489,7 +489,7 @@ html {
     border-radius: 12px;
     cursor: pointer;
     transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     text-align: center;
 }
 
@@ -607,7 +607,7 @@ html {
 }
 
 .section-list li {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 50px;
     font-weight: 400;
     color: #4a4a6a;
@@ -633,7 +633,7 @@ html {
 }
 
 .diagram-title {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.8rem;
     font-weight: 700;
     color: #1a1a4a;
@@ -729,7 +729,7 @@ html {
 }
 
 .tier-label {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.8rem;
     font-weight: 700;
     color: #ffffff;
@@ -737,7 +737,7 @@ html {
 }
 
 .tier-description {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.2rem;
     font-weight: 400;
     color: #e8e8f0;
@@ -797,7 +797,7 @@ html {
 }
 
 .progression-label {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 0.9rem;
     font-weight: 600;
     color: #6464B4;
@@ -813,7 +813,7 @@ html {
 }
 
 .progression-statement {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.1rem;
     font-weight: 700;
     color: #1a1a4a;
@@ -821,7 +821,7 @@ html {
 }
 
 .progression-explanation {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 0.95rem;
     font-weight: 400;
     color: #4a4a6a;
@@ -829,7 +829,7 @@ html {
 }
 
 .progression-arrow {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.5rem;
     font-weight: 400;
     color: #6464B4;
@@ -837,7 +837,7 @@ html {
 }
 
 .progression-summary {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.5rem;
     font-weight: 700;
     color: #1a1a4a;
@@ -936,18 +936,6 @@ html {
 
 .nav-item.active {
     color: rgba(45, 45, 90, 0.4) !important;
-}
-
-.back-button-icon {
-    width: 40px;
-    height: auto;
-    filter: brightness(0) saturate(100%) invert(18%) sepia(25%) saturate(2000%) hue-rotate(220deg) brightness(90%) contrast(90%) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
-    transform: rotate(180deg);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.back-button-icon:hover {
-    opacity: 1;
 }
 
 /* Responsive adjustments for smaller screens */

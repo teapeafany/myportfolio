@@ -6,20 +6,16 @@
     <title>ECHOSPHERE - Tiffany Lee</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Switzer:wght@100;200;300;400;500;600;700;800;900&family=Instrument+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/echosphere.css">
 </head>
 <body>
+    <script src="js/paper-ink-filter.js"></script>
     <!-- Floating Bubbles Background -->
-    <div class="floating-bubbles">
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-    </div>
+    <div class="floating-bubbles" id="floating-bubbles"></div>
+
+    <div class="echosphere-film-grain" aria-hidden="true"></div>
     
     <!-- Progress Bar -->
     <div class="echosphere-progress-bar" id="echosphere-progress-bar">
@@ -59,10 +55,27 @@
         <!-- Shared Navigation -->
         <div id="navigation-container"></div>
         
-        <img src="film/echosphere.svg" alt="ECHOSPHERE" class="project-title">
+        <div class="hero-content">
+            <h1 class="hero-title">EchoSphere</h1>
+            <p class="hero-subtitle">A Music Discovery Experience</p>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">Timeline</span>
+                    <span class="hero-meta-value">Sep 2025 – Nov 2025</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">Role</span>
+                    <span class="hero-meta-value">UX/UI Designer</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">Team</span>
+                    <span class="hero-meta-value">1 UX/UI Designer, 2 UX Researchers</span>
+                </div>
+            </div>
+        </div>
 
-        <a href="#next-section">
-            <img src="film/downarrow.svg" alt="Down Arrow" class="down-arrow">
+        <a href="#next-section" class="down-arrow-link" aria-label="Scroll to content">
+            <img src="film/downarrow.svg" alt="" class="down-arrow">
         </a>
     </div>
 
@@ -814,7 +827,7 @@
             const navHTML = `
                 <nav class="nav-menu">
                     <a href="work.html" class="nav-item nav-back" id="nav-back" aria-label="Back to Work">
-                        <img src="film/nextpagebutton.svg" alt="Back" class="back-button-icon">
+                        <span class="back-button-label" aria-hidden="true">&lt;</span>
                     </a>
                 </nav>
             `;
@@ -823,6 +836,208 @@
         
         // Load navigation when page loads
         document.addEventListener('DOMContentLoaded', includeNavigation);
+
+        // Floating bubbles background (recreated from your Figma bubble set).
+        // Uses CSS variables so each bubble gets its own drift path/delay/duration.
+        function mulberry32(seed) {
+            let a = seed >>> 0;
+            return function () {
+                a |= 0;
+                a = a + 0x6D2B79F5 | 0;
+                let t = Math.imul(a ^ a >>> 15, 1 | a);
+                t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+                return ((t ^ t >>> 14) >>> 0) / 4294967296;
+            };
+        }
+
+        (function initFloatingBubbles() {
+            const container = document.getElementById('floating-bubbles');
+            if (!container) return;
+
+            container.innerHTML = '';
+
+            /* Periwinkle / blue / lavender bubbles (colored, not white-on-white) */
+            const bubbles = [
+                {
+                    id: 1,
+                    size: 300,
+                    left: "2%",
+                    top: "12%",
+                    delay: 0,
+                    duration: 20,
+                    gradient: "radial-gradient(circle at 30% 30%, rgba(150, 190, 255, 0.55), rgba(175, 135, 255, 0.25) 55%, rgba(150, 190, 255, 0.12) 72%, transparent 100%)"
+                },
+                {
+                    id: 2,
+                    size: 360,
+                    left: "88%",
+                    top: "6%",
+                    delay: 2,
+                    duration: 28,
+                    gradient: "radial-gradient(circle at 40% 40%, rgba(140, 170, 255, 0.52), rgba(190, 155, 255, 0.22) 58%, rgba(150, 200, 255, 0.12) 74%, transparent 100%)"
+                },
+                {
+                    id: 3,
+                    size: 200,
+                    left: "10%",
+                    top: "48%",
+                    delay: 4,
+                    duration: 18,
+                    gradient: "radial-gradient(circle at 35% 35%, rgba(165, 200, 255, 0.48), rgba(185, 150, 255, 0.2) 60%, rgba(170, 190, 255, 0.1) 76%, transparent 100%)"
+                },
+                {
+                    id: 4,
+                    size: 300,
+                    left: "78%",
+                    top: "32%",
+                    delay: 1,
+                    duration: 25,
+                    gradient: "radial-gradient(circle at 30% 30%, rgba(155, 210, 255, 0.46), rgba(175, 155, 255, 0.18) 58%, rgba(155, 210, 255, 0.1) 74%, transparent 100%)"
+                },
+                {
+                    id: 5,
+                    size: 230,
+                    left: "22%",
+                    top: "18%",
+                    delay: 3,
+                    duration: 20,
+                    gradient: "radial-gradient(circle at 40% 40%, rgba(160, 215, 255, 0.42), rgba(190, 160, 255, 0.16) 62%, rgba(160, 215, 255, 0.09) 76%, transparent 100%)"
+                },
+                {
+                    id: 6,
+                    size: 320,
+                    left: "92%",
+                    top: "60%",
+                    delay: 5,
+                    duration: 24,
+                    gradient: "radial-gradient(circle at 35% 35%, rgba(150, 185, 255, 0.46), rgba(190, 140, 255, 0.2) 58%, rgba(165, 205, 255, 0.1) 75%, transparent 100%)"
+                },
+                {
+                    id: 7,
+                    size: 210,
+                    left: "6%",
+                    top: "78%",
+                    delay: 2.5,
+                    duration: 18,
+                    gradient: "radial-gradient(circle at 30% 30%, rgba(165, 200, 255, 0.38), rgba(185, 150, 255, 0.14) 62%, rgba(165, 205, 255, 0.08) 78%, transparent 100%)"
+                },
+                {
+                    id: 8,
+                    size: 280,
+                    left: "64%",
+                    top: "72%",
+                    delay: 1.5,
+                    duration: 22,
+                    gradient: "radial-gradient(circle at 40% 40%, rgba(170, 205, 255, 0.44), rgba(190, 160, 255, 0.18) 60%, rgba(170, 205, 255, 0.1) 76%, transparent 100%)"
+                },
+                {
+                    id: 9,
+                    size: 260,
+                    left: "20%",
+                    top: "58%",
+                    delay: 4.5,
+                    duration: 20,
+                    gradient: "radial-gradient(circle at 35% 35%, rgba(155, 190, 255, 0.40), rgba(190, 155, 255, 0.14) 62%, rgba(170, 200, 255, 0.08) 78%, transparent 100%)"
+                },
+                {
+                    id: 10,
+                    size: 260,
+                    left: "95%",
+                    top: "20%",
+                    delay: 3.5,
+                    duration: 18,
+                    gradient: "radial-gradient(circle at 30% 30%, rgba(175, 210, 255, 0.34), rgba(205, 170, 255, 0.12) 62%, rgba(175, 210, 255, 0.07) 80%, transparent 100%)"
+                }
+            ];
+
+            for (const b of bubbles) {
+                const el = document.createElement('div');
+                el.className = 'bubble';
+
+                // Base positioning & styling
+                el.style.setProperty('--size', `${b.size}px`);
+                el.style.setProperty('--left', b.left);
+                el.style.setProperty('--top', b.top);
+                el.style.setProperty('--delay', `${b.delay}s`);
+                el.style.setProperty('--duration', `${b.duration}s`);
+                el.style.setProperty('--grad', b.gradient);
+
+                // Drift path (stable per bubble id, so it doesn't "shuffle" on reload).
+                const rand = mulberry32(b.id * 99991);
+                const dxRange = 18 + (b.size / 320) * 28; // ~18-46px
+                const dyRange = 28 + (b.size / 320) * 55; // ~28-82px
+
+                const x1 = (rand() * 2 - 1) * dxRange;
+                const y1 = -(0.35 + rand() * 0.65) * dyRange;
+
+                const x2 = (rand() * 2 - 1) * dxRange * 0.85;
+                const y2 = (rand() * 2 - 1) * dyRange * 0.45;
+
+                const x3 = (rand() * 2 - 1) * dxRange * 0.95;
+                const y3 = (0.15 + rand() * 0.85) * dyRange * 0.35;
+
+                const s0 = 1 + rand() * 0.12;
+                const s1 = 1 + rand() * 0.15;
+                const s2 = 1 - rand() * 0.10;
+                const s3 = 1 + rand() * 0.10;
+
+                const r1 = (rand() * 2 - 1) * 7;
+                const r2 = (rand() * 2 - 1) * 5;
+                const r3 = (rand() * 2 - 1) * 6;
+
+                // Normalize size so big bubbles don't become too crisp.
+                const sizeNorm = Math.min(1, b.size / 360);
+
+                // Higher opacity for larger bubbles (and for a few "front" ids we keep sharper).
+                const o0 = Math.min(0.95, 0.38 + sizeNorm * 0.42 + rand() * 0.10);
+                const o1 = Math.max(0.18, o0 - (0.06 + rand() * 0.08));
+                const o2 = Math.min(0.95, o0 + (rand() * 0.10 - 0.03));
+                const o3 = Math.max(0.18, o0 - (0.05 + rand() * 0.06));
+
+                // Mix blurred + unblurred in front:
+                // - select a few bubbles to be "front" (sharper, less blur)
+                // - keep the rest as the dreamy blurred background layer
+                const isFront = b.id === 2 || b.id === 4 || b.id === 6 || b.id === 10;
+                const blur = isFront
+                    ? Math.max(3.5, (8 + rand() * 6) - sizeNorm * 5.5)   // ~3.5-13px
+                    : Math.max(14, (24 + rand() * 14) - sizeNorm * 9);  // ~14-38px
+
+                // Front bubbles also pop a bit more.
+                if (isFront) {
+                    el.style.setProperty('--o0', `${Math.min(0.98, o0 + 0.08).toFixed(3)}`);
+                    el.style.setProperty('--o1', `${Math.min(0.98, o1 + 0.06).toFixed(3)}`);
+                    el.style.setProperty('--o2', `${Math.min(0.98, o2 + 0.06).toFixed(3)}`);
+                    el.style.setProperty('--o3', `${Math.min(0.98, o3 + 0.05).toFixed(3)}`);
+                }
+
+                el.style.setProperty('--blur', `${blur}px`);
+
+                el.style.setProperty('--x1', `${x1.toFixed(1)}px`);
+                el.style.setProperty('--y1', `${y1.toFixed(1)}px`);
+                el.style.setProperty('--x2', `${x2.toFixed(1)}px`);
+                el.style.setProperty('--y2', `${y2.toFixed(1)}px`);
+                el.style.setProperty('--x3', `${x3.toFixed(1)}px`);
+                el.style.setProperty('--y3', `${y3.toFixed(1)}px`);
+
+                el.style.setProperty('--s0', `${s0.toFixed(3)}`);
+                el.style.setProperty('--s1', `${s1.toFixed(3)}`);
+                el.style.setProperty('--s2', `${s2.toFixed(3)}`);
+                el.style.setProperty('--s3', `${s3.toFixed(3)}`);
+
+                el.style.setProperty('--r1', `${r1.toFixed(2)}deg`);
+                el.style.setProperty('--r2', `${r2.toFixed(2)}deg`);
+                el.style.setProperty('--r3', `${r3.toFixed(2)}deg`);
+
+                el.style.setProperty('--o0', `${o0.toFixed(3)}`);
+                el.style.setProperty('--o1', `${o1.toFixed(3)}`);
+                el.style.setProperty('--o2', `${o2.toFixed(3)}`);
+                el.style.setProperty('--o3', `${o3.toFixed(3)}`);
+
+                // Stronger z-index bump per bubble size so larger spheres always sit above smaller ones.
+                el.style.setProperty('--z', `${1000 + Math.round(b.size)}`);
+                container.appendChild(el);
+            }
+        })();
         
         // Scroll Snap Animation - Show sections as they snap into view
         function handleScrollAnimation() {

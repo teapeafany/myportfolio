@@ -6,10 +6,11 @@
     <title>Tiffany Lee - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Switzer:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <script src="js/paper-ink-filter.js"></script>
     <!-- Video Background -->
     <video class="video-bg" autoplay muted loop>
         <source src="film/noaudioedited.mov" type="video/mp4">
@@ -40,48 +41,50 @@
         
         <!-- Subtitle Container -->
         <div class="subtitle-container">
-            <p class="subtitle subtitle-1">[This portfolio is a collection of fragments: ]</p>
-            <p class="subtitle subtitle-2">[my design work, my short films, ]</p>
-            <p class="subtitle subtitle-3">[and pieces of my headspace stitched together like a scrapbook. ]</p>
-            <p class="subtitle subtitle-4">[Each project carries a bit of who I am: ]</p>
-            <p class="subtitle subtitle-5">[a student designer learning to translate the unseen into design. ]</p>
+            <p class="subtitle subtitle-1 subtitle-line subtitle-line--lead">[This portfolio is a collection of fragments: ]</p>
+            <p class="subtitle subtitle-2 subtitle-line subtitle-line--whisper">[my design work, my short films, ]</p>
+            <p class="subtitle subtitle-3 subtitle-line subtitle-line--verse">[and pieces of my headspace stitched together like a scrapbook. ]</p>
+            <p class="subtitle subtitle-4 subtitle-line subtitle-line--lead">[Each project carries a bit of who I am: ]</p>
+            <p class="subtitle subtitle-5 subtitle-line subtitle-line--verse">[a student designer learning to translate the unseen into design. ]</p>
         </div>
     </section>
     
-    <!-- Second Section - About Text -->
-    <section class="scroll-section">
+    <!-- Second Section - About Text (bottom-left “letter” layout) -->
+    <section class="scroll-section about-scroll-section">
         <div class="about-content">
+            <div class="about-carousel-viewport" aria-live="polite">
+            <div class="about-carousel-track" id="about-carousel-track">
             <div class="text-group" data-group="1">
-                <p class="about-text">Hi, nice to meet you.</p>
-                <p class="about-text">If you're reading this, I guess you want to know more about me.</p>
+                <p class="about-text about-text--drop about-text--letter-left">Hi, nice to meet you.</p>
+                <p class="about-text about-text--muted about-text--letter-left">If you're reading this, I guess you want to know more about me.</p>
             </div>
             
             <div class="text-group" data-group="2">
-                <p class="about-text">For one, I am a designer. I design experiences connecting humans with technology and creative media, both in the digital and physical realm.</p>
-                <p class="about-text">My philosophy is human-centered and rooted in immersion, creating spaces where users can truly resonate.</p>
+                <p class="about-text about-text--letter-right">For one, I am a <span class="about-serif-em">designer</span>. I design experiences connecting humans with technology and creative media, both in the digital and physical realm.</p>
+                <p class="about-text about-text--letter-right">My philosophy is <span class="about-serif-em">human-centered</span> and rooted in immersion, creating spaces where users can truly resonate.</p>
             </div>
             
             <div class="text-group" data-group="3">
-                <p class="about-text">To me, design doesn't just solve problems, it tells stories, evokes emotion, and leaves an impression long after the screen turns off.</p>
+                <p class="about-text about-text--letter-left">To me, design doesn't just solve problems, it tells <span class="about-serif-em">stories</span>, evokes <span class="about-serif-em">emotion</span>, and leaves an impression long after the screen turns off.</p>
             </div>
             
             <div class="text-group" data-group="4">
-                <p class="about-text">I hope you enjoy this experience...</p>
+                <p class="about-text about-text--whisper about-text--letter-left">I hope you enjoy this experience...</p>
             </div>
             
             <div class="text-group" data-group="5">
-                <p class="about-text">(And in case I don't see ya, good afternoon, good evening, and good night!)</p>
+                <p class="about-text about-text--aside about-text--letter-right">(And in case I don't see ya, good afternoon, good evening, and good night!)</p>
+            </div>
+            </div>
             </div>
         </div>
         
-        <!-- Progress Bar -->
-        <div class="about-progress-bar" id="about-progress-bar">
-            <div class="progress-line"></div>
-            <div class="progress-circle" data-group="1"></div>
-            <div class="progress-circle" data-group="2"></div>
-            <div class="progress-circle" data-group="3"></div>
-            <div class="progress-circle" data-group="4"></div>
-            <div class="progress-circle" data-group="5"></div>
+        <!-- Edge rail: star follows scroll; drag star or click track to scroll -->
+        <div class="about-progress-bar home-scroll-rail" id="about-progress-bar" aria-hidden="true">
+            <div class="home-scroll-track" id="home-scroll-track"></div>
+            <div class="home-scroll-thumb" id="home-scroll-thumb" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Scroll the page">
+                <img src="film/home-scroll-star.png" alt="" width="88" height="88" draggable="false">
+            </div>
         </div>
     </section>
 
@@ -158,287 +161,7 @@
             }
         });
         
-        // Scroll-triggered text animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const textGroups = document.querySelectorAll('.text-group');
-            const progressBar = document.getElementById('about-progress-bar');
-            const progressCircles = document.querySelectorAll('.progress-circle');
-            let animationTimeouts = [];
-            let isInAboutSection = false;
-            let windowHeight = window.innerHeight;
-            let maxScroll = windowHeight * 2; // Two sections, each 100vh
-            let lastScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-            let scrollDirection = 'down'; // Track scroll direction
-            let visibleGroups = new Set(); // Track which groups are visible
-            
-            // Function to recalculate max scroll
-            function recalculateMaxScroll() {
-                windowHeight = window.innerHeight;
-                maxScroll = windowHeight * 2;
-            }
-            
-            // Initially hide all groups
-            textGroups.forEach(group => {
-                group.style.opacity = '0';
-                group.style.transform = 'translateY(0)';
-            });
-            
-            function calculateWordCount(group) {
-                const text = group.textContent || group.innerText;
-                return text.trim().split(/\s+/).length;
-            }
-            
-            function clearAllAnimations() {
-                // Clear all pending timeouts
-                animationTimeouts.forEach(timeout => clearTimeout(timeout));
-                animationTimeouts = [];
-                
-                // Hide all text groups immediately
-                textGroups.forEach((group, index) => {
-                    group.style.opacity = '0';
-                    visibleGroups.delete(index); // Remove from visible set
-                });
-            }
-            
-            function updateProgressBar() {
-                // Show progress bar when text starts appearing (first text section "Hi...")
-                const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-                const aboutSectionThreshold = windowHeight * 0.3;
-                
-                // Show when text animation starts (at aboutSectionThreshold) through max scroll
-                if (scrollY >= aboutSectionThreshold && scrollY <= maxScroll) {
-                    progressBar.classList.add('visible');
-                } else {
-                    progressBar.classList.remove('visible');
-                }
-                
-                // Update circle states based on visible text groups
-                // Find the highest index of visible text groups - that's the active one
-                let activeIndex = -1;
-                visibleGroups.forEach(index => {
-                    if (index > activeIndex) {
-                        activeIndex = index; // Track the highest visible index
-                    }
-                });
-                
-                // Update each circle based on its relationship to the active index
-                textGroups.forEach((group, index) => {
-                    const circle = progressCircles[index];
-                    if (!circle) return;
-                    
-                    circle.classList.remove('active', 'completed');
-                    
-                    if (activeIndex >= 0) {
-                        if (index < activeIndex) {
-                            // Groups before active are completed
-                            circle.classList.add('completed');
-                        } else if (index === activeIndex) {
-                            // Current group is active
-                            circle.classList.add('active');
-                        }
-                        // Groups after active remain inactive (no class added)
-                    }
-                });
-            }
-            
-            function skipToGroup(groupIndex) {
-                // Clear all animations
-                clearAllAnimations();
-                
-                // Show all groups up to and including the clicked group
-                textGroups.forEach((group, index) => {
-                    if (index <= groupIndex) {
-                        group.style.opacity = '1';
-                        visibleGroups.add(index); // Add to visible set
-                    }
-                });
-                
-                // Update progress bar immediately
-                updateProgressBar();
-                
-                // Mark as in about section
-                isInAboutSection = true;
-            }
-            
-            // Add click handlers to progress circles
-            progressCircles.forEach((circle, index) => {
-                circle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    skipToGroup(index);
-                });
-            });
-            
-            function preventScrollPastMax() {
-                const scrollY = window.scrollY;
-                
-                // Prevent scrolling past the second section
-                if (scrollY > maxScroll) {
-                    window.scrollTo({
-                        top: maxScroll,
-                        behavior: 'auto'
-                    });
-                    return true; // Indicate scroll was prevented
-                }
-                return false;
-            }
-            
-            function checkScrollPosition() {
-                let scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-                
-                // Determine scroll direction
-                if (scrollY > lastScrollY) {
-                    scrollDirection = 'down';
-                } else if (scrollY < lastScrollY) {
-                    scrollDirection = 'up';
-                }
-                lastScrollY = scrollY;
-                
-                // FIRST: Prevent scrolling past max and get corrected scroll position
-                if (scrollY > maxScroll) {
-                    window.scrollTo({
-                        top: maxScroll,
-                        behavior: 'auto'
-                    });
-                    scrollY = maxScroll; // Use corrected scroll position
-                }
-                
-                const aboutSectionThreshold = windowHeight * 0.3;
-                
-                // If scrolling up anywhere, hide text immediately
-                if (scrollDirection === 'up') {
-                    clearAllAnimations();
-                    isInAboutSection = false;
-                    updateProgressBar(); // Update progress bar before returning
-                    return; // Don't proceed with showing text
-                }
-                
-                // Check if we're at max scroll - reveal all text immediately (when scrolling down or reaching it)
-                if (scrollY >= maxScroll) {
-                    // Clear any pending animations
-                    clearAllAnimations();
-                    isInAboutSection = true;
-                    
-                    // Reveal all text groups immediately
-                    textGroups.forEach((group, index) => {
-                        group.style.opacity = '1';
-                        visibleGroups.add(index); // Track that all groups are visible
-                    });
-                    updateProgressBar(); // Update progress bar
-                }
-                // Check if we're in the about text section (but not at max scroll yet)
-                else if (scrollY >= aboutSectionThreshold && scrollY < maxScroll) {
-                    // Only start animation if scrolling down and we weren't already in this section
-                    if (scrollDirection === 'down' && !isInAboutSection) {
-                        isInAboutSection = true;
-                        clearAllAnimations();
-                        updateProgressBar(); // Update progress bar when entering section
-                        
-                        let cumulativeDelay = 0;
-                        
-                        textGroups.forEach((group, index) => {
-                            const wordCount = calculateWordCount(group);
-                            // Base delay of 1 second + 100ms per word
-                            const baseDelay = 1000 + (wordCount * 100);
-                            
-                            const timeout = setTimeout(() => {
-                                group.style.opacity = '1';
-                                visibleGroups.add(index); // Track that this group is now visible
-                                updateProgressBar(); // Update progress bar as each group appears
-                            }, cumulativeDelay);
-                            
-                            animationTimeouts.push(timeout);
-                            cumulativeDelay += baseDelay;
-                        });
-                    }
-                } else {
-                    // We're in the logo section - reset everything
-                    if (isInAboutSection) {
-                        isInAboutSection = false;
-                        clearAllAnimations();
-                    }
-                    // Update progress bar (will hide it since we're not in about section)
-                    updateProgressBar();
-                }
-            }
-            
-            // Aggressive scroll prevention - check immediately on every scroll
-            function enforceScrollLimit() {
-                const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-                
-                if (scrollY > maxScroll) {
-                    // Force scroll position back immediately
-                    window.scrollTo(0, maxScroll);
-                    document.documentElement.scrollTop = maxScroll;
-                    document.body.scrollTop = maxScroll;
-                    return true;
-                }
-                return false;
-            }
-            
-            // Throttling variable for scroll position checking
-            let ticking = false;
-            
-            // Immediate scroll prevention without throttling
-            window.addEventListener('scroll', function(e) {
-                // Always enforce scroll limit immediately (no throttling)
-                if (enforceScrollLimit()) {
-                    return;
-                }
-                
-                // Throttle the checkScrollPosition call only
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        checkScrollPosition();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }, { passive: false });
-            
-            // Prevent wheel scrolling past max
-            window.addEventListener('wheel', function(e) {
-                const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-                
-                // If at max and trying to scroll down, prevent it
-                if (scrollY >= maxScroll && e.deltaY > 0) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    enforceScrollLimit();
-                }
-            }, { passive: false });
-            
-            // Prevent touch scrolling past max (for mobile)
-            let lastTouchY = 0;
-            window.addEventListener('touchmove', function(e) {
-                const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-                const touchY = e.touches[0].clientY;
-                
-                // If at max and swiping down, prevent it
-                if (scrollY >= maxScroll && touchY < lastTouchY) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    enforceScrollLimit();
-                }
-                
-                lastTouchY = touchY;
-            }, { passive: false });
-            
-            // Also check on resize to ensure max scroll is still correct
-            window.addEventListener('resize', function() {
-                recalculateMaxScroll();
-                if (window.scrollY > maxScroll) {
-                    window.scrollTo(0, maxScroll);
-                }
-                // Recheck scroll position after resize
-                checkScrollPosition();
-            });
-            
-            // Check initial position
-            checkScrollPosition();
-            updateProgressBar(); // Initial progress bar update
-        });
-        
     </script>
+    <script src="js/page-scroll-star.js"></script>
 </body>
 </html>

@@ -80,7 +80,7 @@ html {
 .progress-label {
     position: absolute;
     right: 25px;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 0.85rem;
     font-weight: 400;
     color: #EDDCC0;
@@ -107,7 +107,7 @@ body {
     background: #587002;
     margin: 0;
     padding: 0;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     letter-spacing: normal;
     overflow-x: hidden;
     overflow-y: auto;
@@ -303,7 +303,7 @@ html {
 }
 
 .section-title {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 3.5rem;
     font-weight: 700;
     font-style: normal;
@@ -344,7 +344,7 @@ html {
 
 /* Subtle label, not a box header */
 .po-box-title {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 0.9rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -365,7 +365,7 @@ html {
 }
 
 .po-box-text {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.7rem;
     font-weight: 400;
     letter-spacing: -0.02em;
@@ -399,7 +399,7 @@ html {
 }
 
 .po-box-list li {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.7rem;
     font-weight: 400;
     letter-spacing: -0.02em;
@@ -439,7 +439,7 @@ html {
 }
 
 .context-text, .overview-text, .insights-text {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.7rem;
     font-weight: 400;
     letter-spacing: -0.02em;
@@ -462,7 +462,7 @@ html {
 }
 
 .insights-list li {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.7rem;
     font-weight: 400;
     letter-spacing: -0.02em;
@@ -527,18 +527,6 @@ html {
 
 .nav-item.active {
     color: rgba(0, 0, 0, 0.43) !important;
-}
-
-.back-button-icon {
-    width: 40px;
-    height: auto;
-    filter: brightness(0) invert(1) sepia(1) saturate(0.5) hue-rotate(15deg) brightness(1.1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-    transform: rotate(180deg);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.back-button-icon:hover {
-    opacity: 0.8;
 }
 
 /* Final Iterations Two-Column Layout */

@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Headspace - Tiffany Lee</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Switzer:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/headspace.css">
 </head>
 <body>
+    <script src="js/paper-ink-filter.js"></script>
     <div id="loading-screen" class="loading-screen" role="status" aria-live="polite">
         <div class="loading-content">
             <div class="loading-spinner" aria-hidden="true"></div>
@@ -24,11 +22,12 @@
     <main class="headspace-container">
         <img src="film/thoughts.png" alt="thoughts" class="hslogo">
         
-        <!-- Subtitle -->
-        
-            <div class="headspacesubtitle subtitle-1">here are some recent pages in my book.</div>
-            <div class="headspacesubtitle subtitle-2">it's messy, it's chaotic, but that's the creative process.</div>
-        
+        <!-- Subtitle (home styling, page copy) -->
+        <div class="subtitle-container headspace-subtitle-container">
+            <p class="subtitle subtitle-1 subtitle-line subtitle-line--lead">here are some recent pages in my book.</p>
+            <p class="subtitle subtitle-2 subtitle-line subtitle-line--whisper">it's messy, it's chaotic, but that's the creative process.</p>
+        </div>
+
         <!-- Personal Journal Image -->
         <div class="personal-journal">
             <div class="journal-container">

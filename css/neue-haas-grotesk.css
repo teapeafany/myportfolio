@@ -1,0 +1,108 @@
+/*
+ * ==========================================================================
+ * Neue Haas Grotesk Text — style guide (dark / “bg” UI)
+ * ==========================================================================
+ *
+ * Weights in use: Thin (100), Roman (400), Bold (700).
+ * Thin uses Neue Haas Grotesk *Display* 35 Thin (Text has no thin in this trial set).
+ *
+ * -- Thin (100)
+ *   Large display lines where you want air: work tile titles, filter chips (idle),
+ *   uppercase meta. Slightly wider tracking helps legibility.
+ *
+ * -- Roman (400)
+ *   Body copy, blurbs, active filter state, navigation when not emphasizing.
+ *
+ * -- Bold (700)
+ *   <strong>, rare emphasis only—not default for headings.
+ *
+ * -- Color pairing (with your existing gold accent)
+ *   Primary accent:   #fec307 (nav, links, meta caps)
+ *   Headline on image: #faf8f5 (tile titles over photography)
+ *   Muted copy:        rgba(255, 255, 255, 0.82) (blurbs on overlays)
+ *
+ * -- Suggested scale on dark bg (reference)
+ *   Nav / social:      clamp(1.25rem, 2vw, 1.7rem)  · 400
+ *   Body / about:      1.5rem                         · 400
+ *   Tile title:        clamp(1.65rem, 4vw, 2.35rem)  · 100 (thin)
+ *   Meta (caps):       0.7–0.75rem, +0.12–0.14em tracking · 100
+ *   Blurb:             0.88–0.95rem, line-height 1.5–1.6    · 400
+ *
+ * Font files: Text (55 Roman, 75 Bold); Display 35 Thin for weight 100 only.
+ * ==========================================================================
+ */
+
+@font-face {
+    font-family: 'Neue Haas Grotesk Text';
+    src: url('fonts/neue-haas-grotesk/neuehaasgrotdisp-35thin-trial.otf')
+        format('opentype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk Text';
+    src: url('fonts/neue-haas-grotesk/neuehaasgrottext-55roman-trial.otf')
+        format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk Text';
+    src: url('fonts/neue-haas-grotesk/neuehaasgrottext-75bold-trial.otf')
+        format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --font-nhg-text: 'Neue Haas Grotesk Text', 'Helvetica Neue', Helvetica,
+        Arial, sans-serif;
+    --font-weight-thin: 100;
+    --font-weight-roman: 400;
+    --font-weight-bold: 700;
+    /* Semantic tokens for dark-background copy */
+    --text-on-dark-accent: #fec307;
+    --text-on-dark-headline: #faf8f5;
+    --text-on-dark-muted: rgba(255, 255, 255, 0.82);
+
+    /* Cinematic gold panels — letterboxed rim light, dark glass, soft bloom */
+    --cine-gold: #fec307;
+    --cine-gold-bright: #ffe8a8;
+    --cine-gold-dim: rgba(254, 195, 7, 0.45);
+    --cine-gold-glow: rgba(254, 195, 7, 0.22);
+    --cine-panel-rest: linear-gradient(
+        165deg,
+        rgba(6, 5, 0, 0.94) 0%,
+        rgba(14, 11, 1, 0.9) 45%,
+        rgba(4, 3, 0, 0.97) 100%
+    );
+    --cine-panel-hover: linear-gradient(
+        165deg,
+        rgba(18, 14, 2, 0.92) 0%,
+        rgba(28, 22, 4, 0.88) 55%,
+        rgba(8, 6, 0, 0.95) 100%
+    );
+    --cine-panel-active: linear-gradient(
+        180deg,
+        rgba(254, 195, 7, 0.2) 0%,
+        rgba(18, 14, 2, 0.88) 48%,
+        rgba(5, 4, 0, 0.96) 100%
+    );
+    --cine-rim: 0 0 0 1px rgba(254, 195, 7, 0.38);
+    --cine-rim-strong: 0 0 0 1px rgba(254, 195, 7, 0.65);
+    --cine-inner-top: inset 0 1px 0 rgba(255, 230, 160, 0.14);
+    --cine-inner-vignette: inset 0 0 24px rgba(0, 0, 0, 0.45);
+    --cine-drop: 0 10px 36px rgba(0, 0, 0, 0.72);
+    --cine-bloom: 0 0 32px rgba(254, 195, 7, 0.12);
+    --cine-bloom-strong: 0 0 48px rgba(254, 195, 7, 0.28);
+}
+
+body {
+    font-family: var(--font-nhg-text);
+    font-weight: var(--font-weight-roman);
+}

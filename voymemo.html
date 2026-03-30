@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VOYMEMO - Tiffany Lee</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Switzer:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/voymemo.css">
 </head>
 <body>
+    <script src="js/paper-ink-filter.js"></script>
     <!-- Progress Bar -->
     <div class="voymemo-progress-bar" id="voymemo-progress-bar">
         <div class="progress-line"></div>
@@ -236,7 +234,7 @@
             const navHTML = `
                 <nav class="nav-menu">
                     <a href="work.html" class="nav-item nav-back" id="nav-back" aria-label="Back to Work">
-                        <img src="film/nextpagebutton.svg" alt="Back" class="back-button-icon">
+                        <span class="back-button-label" aria-hidden="true">&lt;</span>
                     </a>
                 </nav>
             `;
