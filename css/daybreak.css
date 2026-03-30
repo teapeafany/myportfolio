@@ -64,7 +64,7 @@ body {
 }
 
 .deck-prototype-title {
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.25rem;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.95);
@@ -165,7 +165,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     color: rgba(255, 255, 255, 0.5);
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 0.8rem;
     z-index: 10;
     transition: opacity 0.4s;
@@ -182,15 +182,6 @@ body {
     left: 0;
     z-index: 100;
     padding: 1.5rem;
-}
-
-#navigation-container .nav-back .back-button-icon {
-    filter: brightness(0) invert(1);
-    opacity: 0.9;
-}
-
-#navigation-container .nav-back:hover .back-button-icon {
-    opacity: 1;
 }
 
 .hidden {

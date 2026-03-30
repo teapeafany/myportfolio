@@ -1,15 +1,29 @@
-/* Import Switzer Font */
-@import url('Switzer_Complete/Fonts/WEB/css/switzer.css');
+/* Fonts: Neue Haas Grotesk Text via css/style.css → neue-haas-grotesk.css */
 
-/* Work Page Styles */
+/* Work Page — cinematic grid tiles */
 body {
-    background: #000300;
+    background: #000000;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
 
-/* Background Video */
+/* Extra darken layer over video (content stays above at z-index 10) */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: radial-gradient(
+            ellipse 120% 80% at 50% 40%,
+            rgba(0, 0, 0, 0.35) 0%,
+            rgba(0, 0, 0, 0.72) 100%
+        ),
+        rgba(0, 0, 0, 0.45);
+}
+
+/* Background Video — subtle so tiles read as “cinema” */
 .background-video {
     position: fixed;
     top: -10%;
@@ -18,10 +32,11 @@ body {
     height: 150vh;
     object-fit: cover;
     z-index: 1;
-    opacity: 0.4;
+    opacity: 0.05;
     border: none;
     outline: none;
     transform: translateX(-50%);
+    filter: saturate(0.75) contrast(1.08) brightness(0.55);
 }
 
 .work-container {
@@ -32,33 +47,33 @@ body {
     flex-direction: column;
     align-items: center;
     z-index: 10;
-    max-height: 100vh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding-bottom: 4rem;
 }
 
 .work-logo {
-    max-width: 300px;
+    max-width: 320px;
     width: 100%;
     height: auto;
-    margin-top: 10rem;
-    margin-bottom: 6rem;
-    filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.5)) 
-            drop-shadow(0 0 30px rgba(255, 120, 0, 0.3))
-            drop-shadow(0 0 45px rgba(255, 100, 0, 0.2));
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+    filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.5))
+        drop-shadow(0 0 30px rgba(255, 120, 0, 0.3))
+        drop-shadow(0 0 45px rgba(255, 100, 0, 0.2));
     animation: logoGlow 3s ease-in-out infinite alternate;
 }
 
 @keyframes logoGlow {
     0% {
-        filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.5)) 
-                drop-shadow(0 0 30px rgba(255, 120, 0, 0.3))
-                drop-shadow(0 0 45px rgba(255, 100, 0, 0.2));
+        filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.5))
+            drop-shadow(0 0 30px rgba(255, 120, 0, 0.3))
+            drop-shadow(0 0 45px rgba(255, 100, 0, 0.2));
     }
     100% {
-        filter: drop-shadow(0 0 20px rgba(255, 160, 20, 0.6)) 
-                drop-shadow(0 0 35px rgba(255, 140, 10, 0.4))
-                drop-shadow(0 0 50px rgba(255, 120, 0, 0.3));
+        filter: drop-shadow(0 0 20px rgba(255, 160, 20, 0.6))
+            drop-shadow(0 0 35px rgba(255, 140, 10, 0.4))
+            drop-shadow(0 0 50px rgba(255, 120, 0, 0.3));
     }
 }
 
@@ -66,96 +81,273 @@ body {
 .filter-container {
     display: flex;
     gap: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .filter-btn {
-    background: transparent;
-    color: #FEC307;
-    border: 1px solid #FEC307;
-    padding: 0.5rem 1.5rem;
-    font-family: 'Switzer', sans-serif;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: none;
+    background: var(--cine-panel-rest);
+    padding: 0.55rem 1.65rem;
+    font-family: var(--font-nhg-text);
     font-size: 0.9rem;
-    font-weight: 300;
-    letter-spacing: normal;
+    font-weight: var(--font-weight-thin);
+    letter-spacing: -0.01em;
+    word-spacing: 0.02em;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 1px;
+    border-radius: 3px;
+    box-shadow: var(--cine-inner-top), var(--cine-inner-vignette), var(--cine-rim),
+        var(--cine-drop), var(--cine-bloom);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        background 0.4s ease, transform 0.35s ease, font-weight 0.2s ease;
+}
+
+/* Category labels — same ink + paper distort as home letter / project montage (filter on text only). */
+.filter-btn-label {
+    --filter-btn-ink-read: 0 2px 12px rgba(0, 0, 0, 0.55);
+
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    color: rgba(254, 195, 7, 0.88);
+    text-shadow:
+        0 0 1px rgba(254, 195, 7, 0.42),
+        0 0 2px rgba(254, 195, 7, 0.24),
+        0.4px 0 0 rgba(0, 0, 0, 0.12),
+        -0.4px 0 0 rgba(255, 230, 160, 0.06),
+        0 1px 0 rgba(0, 0, 0, 0.28),
+        0 0 14px rgba(255, 215, 0, 0.12),
+        0 0 22px rgba(255, 215, 0, 0.07),
+        0 2px 7px rgba(0, 0, 0, 0.65),
+        var(--filter-btn-ink-read);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    filter: url(#paper-ink-distort);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        118deg,
+        rgba(255, 230, 150, 0.12) 0%,
+        transparent 38%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 0;
 }
 
 .filter-btn:hover {
-    background: rgba(254, 195, 7, 0.1);
+    background: var(--cine-panel-hover);
+    box-shadow: var(--cine-inner-top), var(--cine-inner-vignette), var(--cine-rim-strong),
+        var(--cine-drop), 0 0 44px var(--cine-gold-glow);
+    transform: translateY(-1px);
+}
+
+.filter-btn:hover .filter-btn-label {
+    color: rgba(255, 236, 196, 0.92);
+    text-shadow:
+        0 0 1px rgba(255, 236, 196, 0.4),
+        0 1px 0 rgba(0, 0, 0, 0.22),
+        0 0 14px rgba(255, 215, 0, 0.1),
+        0 2px 10px rgba(0, 0, 0, 0.55),
+        var(--filter-btn-ink-read);
 }
 
 .filter-btn.active {
-    background: rgba(254, 195, 7, 0.2);
-    border-color: #FEC307;
+    background: var(--cine-panel-active);
+    font-weight: var(--font-weight-roman);
+    box-shadow: var(--cine-inner-top), inset 0 0 0 1px rgba(0, 0, 0, 0.35),
+        var(--cine-rim-strong), var(--cine-drop), var(--cine-bloom-strong);
+    transform: translateY(-1px);
 }
 
-/* Projects List */
+.filter-btn.active .filter-btn-label {
+    color: rgba(255, 236, 196, 0.92);
+    text-shadow:
+        0 0 1px rgba(255, 236, 196, 0.4),
+        0 1px 0 rgba(0, 0, 0, 0.22),
+        0 0 14px rgba(255, 215, 0, 0.12),
+        0 2px 10px rgba(0, 0, 0, 0.55),
+        var(--filter-btn-ink-read);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .filter-btn:hover,
+    .filter-btn.active {
+        transform: none;
+    }
+
+    .filter-btn-label {
+        filter: none;
+    }
+}
+
+/* Projects — 2×n grid */
 .projects-list {
     width: 100%;
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    margin-top: 0;
-    margin-bottom: 4rem;
-    align-items: center;
+    max-width: 1200px;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 2rem;
+    margin-bottom: 2rem;
 }
 
+/*
+ * Tiles: bright at rest → on hover/focus the *active* card gets a darker scrim + dimmer
+ * image so gold montage type reads. Siblings dim (spotlight) on hover-capable devices;
+ * keyboard uses :focus-within when nothing is hovered.
+ */
 .project-item {
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.38s ease,
+        filter 0.38s ease;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    background: #030303;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.75);
 }
 
 .project-item.hidden {
     display: none;
 }
 
-.project-item {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+.project-item:focus-visible {
+    outline: 2px solid #fec307;
+    outline-offset: 4px;
 }
 
-.project-item[data-project="echosphere"] {
-    cursor: default;
+/* Featured glow: gold ring + inset wash + stacked halos (tight → wide, ~56px max) */
+@keyframes projectGoldPulse {
+    0%,
+    100% {
+        box-shadow:
+            0 24px 48px rgba(0, 0, 0, 0.82),
+            inset 0 0 32px rgba(254, 195, 7, 0.14),
+            inset 0 0 0 1px rgba(254, 195, 7, 0.35),
+            0 0 0 2px #fec307,
+            0 0 16px rgba(254, 195, 7, 0.58),
+            0 0 32px rgba(254, 195, 7, 0.35),
+            0 0 56px rgba(254, 195, 7, 0.18);
+    }
+    50% {
+        box-shadow:
+            0 24px 48px rgba(0, 0, 0, 0.82),
+            inset 0 0 40px rgba(254, 195, 7, 0.2),
+            inset 0 0 0 1px rgba(254, 195, 7, 0.5),
+            0 0 0 3px #fec307,
+            0 0 22px rgba(254, 195, 7, 0.72),
+            0 0 40px rgba(254, 195, 7, 0.42),
+            0 0 56px rgba(254, 195, 7, 0.26);
+    }
 }
 
-.project-item.hovered {
-    transform: translateX(-250px) !important;
+/* Featured tiles — strong gold pulse (EchoSphere, Daybreak, Heavenly Lyre / Arduino) */
+.project-item[data-project='echosphere'],
+.project-item[data-project='daybreak'],
+.project-item[data-project='laserharp'] {
+    z-index: 1;
+    animation: projectGoldPulse 2.8s ease-in-out infinite;
 }
 
-.project-item:hover {
-    transform: translateX(-250px) !important;
-    transition: transform 0.4s ease;
+@media (prefers-reduced-motion: reduce) {
+    .project-item[data-project='echosphere'],
+    .project-item[data-project='daybreak'],
+    .project-item[data-project='laserharp'] {
+        animation: none;
+        box-shadow:
+            0 24px 48px rgba(0, 0, 0, 0.82),
+            inset 0 0 36px rgba(254, 195, 7, 0.17),
+            inset 0 0 0 1px rgba(254, 195, 7, 0.42),
+            0 0 0 3px #fec307,
+            0 0 20px rgba(254, 195, 7, 0.65),
+            0 0 36px rgba(254, 195, 7, 0.38),
+            0 0 56px rgba(254, 195, 7, 0.2);
+    }
 }
 
-.project-image {
-    position: relative;
-    width: 500px;
-    height: 250px;
-    margin-bottom: 0;
-}
-
-.placeholder-image {
+/* Tile inner stack */
+.project-tile {
     position: relative;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+}
+
+.project-media {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.project-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* Rest: light scrim so artwork reads bright */
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.08) 0%,
+        rgba(0, 0, 0, 0.14) 50%,
+        rgba(0, 0, 0, 0.32) 100%
+    );
+    opacity: 0.5;
+    transition: opacity 0.4s ease, background 0.4s ease;
+    pointer-events: none;
+}
+
+/* Active card: heavy scrim so yellow montage type pops */
+.project-item:hover .project-media::after,
+.project-item:focus-within .project-media::after {
+    opacity: 1;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.45) 0%,
+        rgba(0, 0, 0, 0.65) 45%,
+        rgba(0, 0, 0, 0.92) 100%
+    );
+}
+
+/* Mouse: spotlight — other tiles recede */
+@media (hover: hover) {
+    .projects-list:has(.project-item:hover) .project-item:not(:hover) {
+        opacity: 0.34;
+        filter: brightness(0.62);
+    }
+}
+
+/* Keyboard: same idea when nothing is hovered */
+.projects-list:has(.project-item:focus-within):not(:has(.project-item:hover))
+    .project-item:not(:focus-within) {
+    opacity: 0.34;
+    filter: brightness(0.62);
+}
+
+.placeholder-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #0c0c0c 0%, #020202 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 1px;
     overflow: hidden;
-    z-index: 1;
 }
 
 .placeholder-image img {
@@ -163,264 +355,289 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
-    z-index: 1;
+    transform: scale(1.02);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.45s ease;
 }
 
+.project-item:hover .placeholder-image img {
+    transform: scale(1.04);
+}
+
+/* Rest: brighter thumbnails */
 .project-thumb {
-    filter: brightness(25%);
+    filter: brightness(0.96) contrast(1.04) saturate(0.94);
 }
 
-.project-item[data-project="echosphere"] .project-thumb {
-    filter: brightness(100%);
-    opacity: 1;
+.project-item[data-project='echosphere'] .project-thumb,
+.project-item[data-project='voymemo'] .project-thumb,
+.project-item[data-project='daybreak'] .project-thumb,
+.project-item[data-project='laserharp'] .project-thumb {
+    filter: brightness(1) contrast(1.04) saturate(0.95);
 }
 
-.project-item[data-project="voymemo"] .project-thumb {
-    filter: brightness(100%);
-    opacity: 1;
+/* Active card only: pull image down so gold type wins */
+.project-item:hover .project-thumb,
+.project-item:focus-within .project-thumb {
+    filter: brightness(0.5) contrast(1.1) saturate(0.88) !important;
 }
 
-.project-item[data-project="daybreak"] .project-thumb {
-    filter: brightness(100%);
-    opacity: 1;
-}
-
-.project-item[data-project="laserharp"] .project-thumb {
-    filter: brightness(100%);
-    opacity: 1;
-}
-
-/* Placeholder label when thumbnail image is missing (e.g. Daybreak UX/UI) */
 .placeholder-image .placeholder-label {
     position: absolute;
     inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: var(--font-weight-thin);
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: #FEC307;
+    color: #fec307;
     opacity: 0.85;
-    z-index: 0;
+    z-index: 1;
 }
 
 .placeholder-image .placeholder-label.hidden {
     display: none;
 }
 
-.default-placeholder {
-    color: #FEC307;
-    font-family: 'Switzer', sans-serif;
-    font-size: 2rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    opacity: 0.6;
-    text-align: center;
-    padding: 2rem;
+/*
+ * Editorial montage — NYT-style five-anchor spread (work.js).
+ * Typography + paper-ink distortion match home letter (style.css .about-text,
+ * .about-carousel-track): NHG Text, ink shadows, #paper-ink-distort per strip,
+ * slight rotations like .about-text--letter-left / --letter-right.
+ */
+.project-montage {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
 }
 
-.project-status {
+.project-item:hover .project-montage,
+.project-item:focus-within .project-montage {
+    opacity: 1;
+}
+
+.project-montage-line {
+    --montage-ink-read: 0 2px 14px rgba(0, 0, 0, 0.5);
+
     position: absolute;
+    z-index: 1;
+    font-family: var(--font-nhg-text);
+    font-style: normal;
+    font-weight: 400;
+    color: rgba(254, 195, 7, 0.88);
+    line-height: var(--about-letter-lh, 1.1);
+    letter-spacing: -0.01em;
+    word-spacing: 0.02em;
+    text-shadow:
+        0 0 1px rgba(254, 195, 7, 0.42),
+        0 0 2px rgba(254, 195, 7, 0.24),
+        0.4px 0 0 rgba(0, 0, 0, 0.12),
+        -0.4px 0 0 rgba(255, 230, 160, 0.06),
+        0 1px 0 rgba(0, 0, 0, 0.28),
+        0 0 14px rgba(255, 215, 0, 0.12),
+        0 0 22px rgba(255, 215, 0, 0.07),
+        0 2px 7px rgba(0, 0, 0, 0.65),
+        var(--montage-ink-read);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: opacity 0.06s ease;
+    filter: url(#paper-ink-distort);
+}
+
+.project-montage-line.slot-ct {
+    z-index: 2;
+}
+
+/* Corners + center — headline spread across the whole tile */
+.project-montage-line.slot-tl {
+    top: clamp(0.35rem, 1.5vw, 1rem);
+    left: clamp(0.35rem, 1.5vw, 1rem);
+    right: auto;
+    max-width: min(48%, 22rem);
+    text-align: left;
+    transform: translateX(-0.2rem) rotate(-0.4deg);
+    transform-origin: left top;
+}
+
+.project-montage-line.slot-tr {
+    top: clamp(0.35rem, 1.5vw, 1rem);
+    right: clamp(0.35rem, 1.5vw, 1rem);
+    left: auto;
+    max-width: min(48%, 22rem);
+    text-align: right;
+    transform: translateX(0.25rem) rotate(0.45deg);
+    transform-origin: right top;
+}
+
+.project-montage-line.slot-ct {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    color: #FEC307;
-    font-family: 'Switzer', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 300;
-    font-style: normal;
+    width: 94%;
+    max-width: 36rem;
+    text-align: center;
+    transform: translate(-50%, -50%) rotate(-0.2deg);
+    transform-origin: center center;
+}
+
+.project-montage-line.slot-bl {
+    bottom: clamp(0.6rem, 2vw, 1.35rem);
+    left: clamp(0.35rem, 1.5vw, 1rem);
+    right: auto;
+    max-width: min(48%, 22rem);
+    text-align: left;
+    transform: translateX(-0.2rem) rotate(-0.45deg);
+    transform-origin: left bottom;
+}
+
+.project-montage-line.slot-br {
+    bottom: clamp(0.6rem, 2vw, 1.35rem);
+    right: clamp(0.35rem, 1.5vw, 1rem);
+    left: auto;
+    max-width: min(48%, 22rem);
+    text-align: right;
+    transform: translateX(0.25rem) rotate(0.4deg);
+    transform-origin: right bottom;
+}
+
+.project-montage-line.montage--cut {
+    animation: montageFlicker 0.12s ease-out;
+}
+
+@keyframes montageFlicker {
+    0% {
+        opacity: 0.25;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-montage-line.montage--cut {
+        animation: none;
+    }
+}
+
+/* Style variants — larger than before; center slot is the “banner” line */
+.project-montage-line.montage--big {
+    font-size: clamp(1.85rem, 4.8vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+.project-montage-line.montage--xl {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+}
+
+.project-montage-line.montage--bold {
+    font-size: clamp(1.65rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    word-spacing: 0.01em;
+    color: rgba(255, 236, 196, 0.92);
+    text-shadow:
+        0 0 1px rgba(255, 236, 196, 0.4),
+        0 1px 0 rgba(0, 0, 0, 0.22),
+        0 0 14px rgba(255, 215, 0, 0.1),
+        0 2px 10px rgba(0, 0, 0, 0.55),
+        var(--montage-ink-read);
+}
+
+.project-montage-line.montage--italic {
+    font-size: clamp(1.75rem, 4.2vw, 3.2rem);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.01em;
+}
+
+.project-montage-line.montage--boldItalic {
+    font-size: clamp(1.6rem, 2.5vw, 2.75rem);
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    word-spacing: 0.01em;
+    color: rgba(255, 236, 196, 0.92);
+    text-shadow:
+        0 0 1px rgba(255, 236, 196, 0.4),
+        0 1px 0 rgba(0, 0, 0, 0.22),
+        0 0 14px rgba(255, 215, 0, 0.1),
+        0 2px 10px rgba(0, 0, 0, 0.55),
+        var(--montage-ink-read);
+}
+
+.project-montage-line.montage--wide {
+    font-size: clamp(1.4rem, 3.2vw, 2.4rem);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    word-spacing: 0.06em;
     text-transform: uppercase;
-    letter-spacing: normal;
-    margin-bottom: 0.2rem;
-    z-index: 4;
-    pointer-events: auto;
 }
 
-.project-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: .8rem .8rem;
-    border: 1px solid #FEC307;
-    border-radius: 1px;
-    background: transparent;
-    transition: all 0.3s ease;
-    width: 500px;
-    box-sizing: border-box;
-    align-self: center;
+/* Hero line — center only; dominates the spread */
+.project-montage-line.slot-ct.montage--big {
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
 }
 
-.project-title:hover {
-    background: rgba(254, 195, 7, 0.05);
-    transition: background 0.3s ease;
+.project-montage-line.slot-ct.montage--xl {
+    font-size: clamp(3rem, 10vw, 6.5rem);
 }
 
-.title-text {
-    color: #FEC307;
-    font-family: 'Switzer', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: normal;
+.project-montage-line.slot-ct.montage--bold {
+    font-size: clamp(2.25rem, 7vw, 5rem);
 }
 
-.action-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+.project-montage-line.slot-ct.montage--italic {
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
 }
 
-.action-text {
-    color: #FEC307;
-    font-family: 'Switzer', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: normal;
+.project-montage-line.slot-ct.montage--boldItalic {
+    font-size: clamp(2rem, 6vw, 4.25rem);
 }
 
-/* Side Panel */
+.project-montage-line.slot-ct.montage--wide {
+    font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+}
+
+/* Title strip removed — context stays in aria-label + screen-reader panel */
+.project-tile-overlay {
+    display: none !important;
+}
+
+/* Screen-reader / structured detail (not visually shown) */
 .side-panel {
     position: absolute;
-    top: 0;
-    left: 100%;
-    width: 500px;
-    height: 100%;
-    background: #FFFDE8;
-    border-radius: 1px;
-    padding: 2rem 1.5rem;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transform: translateX(0);
-    transition: all 0.3s ease;
-    pointer-events: none;
-    z-index: 20;
-    box-sizing: border-box;
-}
-
-.project-item:hover .side-panel {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: auto;
-}
-
-.panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.panel-tags {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.tag {
-    padding: 0.3rem 0.8rem;
-    border-radius: 3px;
-    font-size: 1rem;
-    font-weight: 300;
-    letter-spacing: normal;
-    font-style: normal;
-    border: 2px solid;
-    font-family: 'Switzer', sans-serif;
-}
-
-.tag.ux {
-    background: rgba(254, 195, 7, 0.3);
-    color: #FEC307;
-    border-color: #FEC307;
-}
-
-.tag.ui {
-    background: rgba(76, 175, 80, 0.3);
-    color: #4CAF50;
-    border-color: #4CAF50;
-}
-
-.tag.digital {
-    background: rgba(244, 67, 54, 0.3);
-    color: #f44336;
-    border-color: #f44336;
-}
-
-.panel-date {
-    color: #021502;
-    font-family: 'Switzer', sans-serif;
-    font-size: 1rem;
-    font-weight: 300;
-    letter-spacing: normal;
-    font-style: normal;
-}
-
-.panel-description {
-    color: #021502;
-    font-family: 'Switzer', sans-serif;
-    font-size: 1.15rem;
-    font-weight: 300;
-    letter-spacing: normal;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    text-align: right;
-}
-
-.panel-tools {
-    margin-top: auto;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.tool-label {
-    color: #021502;
-    font-family: 'Switzer', sans-serif;
-    font-size: 1rem;
-    font-weight: 300;
-    letter-spacing: normal;
-    font-style: normal;
-    display: inline;
-}
-
-.tool-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.tool-tag {
-    background: transparent;
-    color: #021502;
-    padding: 0.3rem 0.8rem;
-    border: 1px solid #021502;
-    border-radius: 3px;
-    font-family: 'Switzer', sans-serif;
-    font-size: 1rem;
-    font-weight: 300;
-    letter-spacing: normal;
-    font-style: normal;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 /* Footer */
 .work-footer {
     text-align: center;
-    font-family: 'Switzer', sans-serif;
+    font-family: var(--font-nhg-text);
     font-size: 1.5rem;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: normal;
     margin-bottom: 5rem;
 }
 
 .work-footer p {
-    color: #FEC307;
-    font-family: 'Switzer', sans-serif;
+    color: #fec307;
+    font-family: var(--font-nhg-text);
     font-size: 1.5rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.8;
     font-style: normal;
     letter-spacing: normal;
@@ -429,79 +646,95 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Responsive Design */
+@media (max-width: 900px) {
+    .projects-list {
+        grid-template-columns: 1fr;
+        max-width: 556px;
+        gap: 1.75rem;
+    }
+
+    .project-item {
+        aspect-ratio: 16 / 10;
+        border-radius: 16px;
+    }
+}
+
 @media (max-width: 768px) {
     .work-container {
-        padding: 1rem;
+        padding: 0 0.75rem;
     }
-    
+
     .work-logo {
-        max-width: 250px;
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-    }
-    
-    .filter-container {
+        max-width: 268px;
+        margin-top: 5rem;
         margin-bottom: 2rem;
+    }
+
+    .filter-container {
+        margin-bottom: 1.75rem;
         gap: 0.75rem;
     }
-    
+
     .filter-btn {
         font-size: 0.8rem;
         padding: 0.4rem 1.2rem;
     }
-    
-    .projects-list {
-        gap: 2rem;
-        margin-top: 0;
-    }
-    
-    .project-image {
-        height: 200px;
-    }
-    
-    .title-text {
-        font-size: 1.6rem;
-        letter-spacing: normal;
-    }
-    
-    .action-text {
-        font-size: 0.7rem;
-    }
-    
-    .side-panel {
-        position: fixed;
-        top: 50%;
-        left: 0%;
-        transform: translate(-50%, -50%);
-        width: 70%;
-        max-width: 500px;
-        max-height: 80vh;
-        overflow-y: auto;
-    }
-    
-    .project-item:hover .side-panel {
-        transform: translate(-50%, -50%);
+
+    .project-tile-title {
+        font-size: clamp(1.45rem, 6vw, 1.9rem);
     }
 }
 
 @media (max-width: 480px) {
     .work-logo {
-        max-width: 300px;
+        max-width: 236px;
     }
-    
-    .project-image {
-        height: 150px;
+
+    .project-item {
+        border-radius: 14px;
     }
-    
-    .project-title {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
+}
+
+/* Touch: always show montage layer (animated by work.js when in view) */
+@media (hover: none) and (pointer: coarse) {
+    .project-montage {
+        opacity: 1;
     }
-    
-    .side-panel {
-        width: 95%;
-        padding: 1.5rem;
+
+    .project-item:hover .placeholder-image img {
+        transform: scale(1.02);
+        filter: brightness(0.88) contrast(1.05) saturate(0.92);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-item,
+    .placeholder-image img,
+    .project-media::after {
+        transition: none;
+    }
+
+    .project-montage {
+        transition: none;
+    }
+
+    .project-montage-line {
+        filter: none;
+    }
+
+    .project-montage-line.slot-tl,
+    .project-montage-line.slot-tr,
+    .project-montage-line.slot-ct,
+    .project-montage-line.slot-bl,
+    .project-montage-line.slot-br {
+        transform: none;
+    }
+
+    .project-montage-line.slot-ct {
+        transform: translate(-50%, -50%);
+    }
+
+    .project-item:hover .placeholder-image img {
+        transform: scale(1.02);
     }
 }
