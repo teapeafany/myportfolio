@@ -1,6 +1,11 @@
 /* Neue Haas Grotesk Text (roman + bold) — see neue-haas-grotesk.css */
 @import url('neue-haas-grotesk.css');
 
+/* Custom cursor art — swap film/cursor-star.png if you drop in a new PNG (keep ~28×25 or update hotspot below). */
+:root {
+    --portfolio-cursor-image: url('../film/cursor-star.png');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +15,8 @@
 html {
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
+    /* Explicit url+hotspot (inherit on buttons/links was unreliable cross-page). */
+    cursor: var(--portfolio-cursor-image) 14 12, auto;
 }
 
 body {
@@ -17,6 +24,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    cursor: inherit;
 }
 
 body.loaded {
@@ -32,6 +40,8 @@ body.loaded {
     height: 100%;
     object-fit: cover;
     z-index: -2;
+    /* Don’t capture hover: WebKit often shows the default cursor over video until scroll/reflow; custom cursor lives on html. */
+    pointer-events: none;
     background: #000300;
     /* darken the video without affecting transparency of children */
     filter: brightness(55%);
@@ -135,6 +145,22 @@ body.body--letter-dim .film-grain {
     box-sizing: border-box;
 }
 
+/*
+ * Case-study pages: lone “back to work” chevron — align start (page CSS used center !important).
+ */
+#navigation-container:has(.nav-menu > a.nav-back:only-child) {
+    justify-content: flex-start !important;
+}
+
+#navigation-container:has(.nav-menu > a.nav-back:only-child) .nav-menu {
+    justify-content: flex-start !important;
+    max-width: none !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding-left: clamp(0.5rem, 3.5vw, 1.5rem);
+    padding-right: clamp(0.5rem, 2vw, 1rem);
+}
+
 .nav-item {
     color: rgba(246, 243, 236, 0.92);
     font-family: var(--font-nhg-text);
@@ -163,7 +189,7 @@ body.body--letter-dim .film-grain {
 
 .nav-item.active {
     opacity: 0.5;
-    cursor: default;
+    cursor: default !important;
     pointer-events: none;
 }
 
@@ -521,7 +547,6 @@ body.body--letter-dim .film-grain {
     bottom: 16px;
     border-radius: 0;
     background: transparent;
-    cursor: pointer;
     pointer-events: auto;
     touch-action: none;
 }
@@ -906,7 +931,6 @@ body.body--letter-dim .film-grain {
     right: 0;
     bottom: 0;
     background: rgba(0, 3, 0, 0.85);
-    cursor: pointer;
 }
 
 .resume-overlay-content {
@@ -939,7 +963,6 @@ body.body--letter-dim .film-grain {
     color: #fff;
     font-size: 1.75rem;
     line-height: 1;
-    cursor: pointer;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -957,4 +980,24 @@ body.body--letter-dim .film-grain {
     min-height: 500px;
     border: none;
     display: block;
+}
+
+/*
+ * Same star as html — explicit value, not inherit (inherit broke on work/cinema buttons & role=link divs).
+ */
+a:any-link {
+    cursor: var(--portfolio-cursor-image) 14 12, pointer !important;
+}
+
+button:not(:disabled):not(.home-scroll-thumb) {
+    cursor: var(--portfolio-cursor-image) 14 12, pointer !important;
+}
+
+[role='link']:not(a):not(button) {
+    cursor: var(--portfolio-cursor-image) 14 12, pointer !important;
+}
+
+button:disabled,
+button[disabled] {
+    cursor: not-allowed !important;
 }

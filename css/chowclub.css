@@ -39,7 +39,6 @@ html {
     justify-content: center;
     width: 100%;
     margin: 1.5rem 0;
-    cursor: pointer;
     z-index: 1;
     transition: all 0.3s ease;
 }
@@ -50,7 +49,6 @@ html {
     border-radius: 50%;
     background: rgba(237, 220, 192, 0.2);
     border: 2px solid rgba(237, 220, 192, 0.2);
-    cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
     z-index: 2;
@@ -229,7 +227,6 @@ html {
 
 .down-arrow {
     margin-top: 4rem;
-    cursor: pointer;
     transition: transform 0.3s ease;
     position: relative;
     z-index: 1;

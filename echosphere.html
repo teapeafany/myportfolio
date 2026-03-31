@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="film/cursor-star.png" type="image/png">
     <title>ECHOSPHERE - Tiffany Lee</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1114,10 +1115,41 @@
             cursorBubble.className = 'cursor-bubble';
             document.body.appendChild(cursorBubble);
             
-            // Track mouse movement for bubble effect
             document.addEventListener('mousemove', (e) => {
                 cursorBubble.style.left = e.clientX + 'px';
                 cursorBubble.style.top = e.clientY + 'px';
+            });
+
+            // mouseover/mouseout (capture): follows real event targets (elementFromPoint often misses <a>
+            // under fixed UI). Include progress rail + buttons + accordions — not only <a href>.
+            const CURSOR_HOT_SEL =
+                'a[href], button:not([disabled]), .progress-item, .quote-header, .coding-chart-button, .problems-card, .persona-card, .taguette-visual-image, .mindmap-visual-image, .down-arrow';
+
+            function hotRegionRoot(t) {
+                return t && typeof t.closest === 'function' ? t.closest(CURSOR_HOT_SEL) : null;
+            }
+
+            document.addEventListener(
+                'mouseover',
+                (e) => {
+                    if (hotRegionRoot(e.target)) cursorBubble.classList.add('is-over-interactive');
+                },
+                true
+            );
+
+            document.addEventListener(
+                'mouseout',
+                (e) => {
+                    const root = hotRegionRoot(e.target);
+                    if (!root) return;
+                    const to = e.relatedTarget;
+                    if (!to || !root.contains(to)) cursorBubble.classList.remove('is-over-interactive');
+                },
+                true
+            );
+
+            document.body.addEventListener('mouseleave', () => {
+                cursorBubble.classList.remove('is-over-interactive');
             });
             
             // Add ripple effect to cards on click

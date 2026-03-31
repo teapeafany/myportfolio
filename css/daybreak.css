@@ -142,7 +142,6 @@ body {
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.4);
     background: transparent;
-    cursor: pointer;
     padding: 0;
     transition: background 0.2s, border-color 0.2s, transform 0.2s;
 }

@@ -321,7 +321,6 @@ body::after {
     transform: translateY(-50%);
     background: none;
     border: none;
-    cursor: pointer;
     z-index: 10;
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
