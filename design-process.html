@@ -9,6 +9,7 @@
 </head>
 <body>
     <script src="js/paper-ink-filter.js"></script>
+    <script src="js/nav-scroll.js" defer></script>
     <!-- Shared Navigation -->
     <div id="navigation-container"></div>
     
@@ -98,10 +99,10 @@
         function includeNavigation() {
             const navHTML = `
                 <nav class="nav-menu">
-                    <a href="index.html" class="nav-item" id="nav-home">HOME</a>
-                    <a href="work.html" class="nav-item" id="nav-design">DESIGN PROCESS</a>
-                    <a href="headspace.html" class="nav-item" id="nav-headspace">HEADSPACE</a>
-                    <a href="#" class="nav-item" id="nav-cinema">THE CINEMA</a>
+                    <a href="index.html" class="nav-item" id="nav-home">home</a>
+                    <a href="work.html" class="nav-item" id="nav-design">design process</a>
+                    <a href="headspace.html" class="nav-item" id="nav-headspace">headspace</a>
+                    <a href="#" class="nav-item" id="nav-cinema">the cinema</a>
                 </nav>
             `;
             document.getElementById('navigation-container').innerHTML = navHTML;

@@ -11,9 +11,9 @@
     --lyre-panel: rgba(22, 20, 32, 0.75);
     --lyre-rim: rgba(190, 165, 95, 0.16);
 
-    /* Body copy — warm stone (readable; avoids saturated yellow) */
-    --lyre-text: rgba(226, 221, 208, 0.96);
-    --lyre-text-muted: rgba(184, 176, 158, 0.9);
+    /* Body + subtitle lines — site off-white (hero title stays gold via --lyre-hero-title-gold) */
+    --lyre-text: rgba(246, 243, 236, 0.94);
+    --lyre-text-muted: rgba(220, 216, 206, 0.9);
     --lyre-text-dim: rgba(148, 142, 128, 0.82);
 
     /* Accents — muted amber for links, labels, inline code */

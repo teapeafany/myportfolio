@@ -84,36 +84,71 @@ body.body--letter-dim .film-grain {
     90% { transform: translate(-10%, 10%); }
 }
 
-/* Navigation Menu — same ink voice as letter / subtitles */
-.nav-menu {
+/* Navigation — top-centered row, off-white lowercase */
+#navigation-container {
     position: fixed;
-    top: 6%;
-    left: 6%;
-    display: flex;
-    flex-direction: column;
-    gap: .75rem;
+    top: clamp(0.75rem, 3.5vw, 1.65rem);
+    left: 0;
+    right: 0;
     z-index: 30;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    pointer-events: none;
+    transform: translateY(0);
+    opacity: 1;
+    transition:
+        transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.32s ease;
+    will-change: transform;
+}
+
+#navigation-container.nav-scroll-hidden {
+    transform: translateY(calc(-100% - 1.25rem));
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #navigation-container {
+        transition: none;
+    }
+
+    #navigation-container.nav-scroll-hidden {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.nav-menu {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.55rem, 2.2vw, 1.65rem);
+    max-width: min(96vw, 48rem);
+    padding: 0 clamp(0.5rem, 2vw, 1rem);
+    margin: 0;
+    pointer-events: auto;
+    box-sizing: border-box;
 }
 
 .nav-item {
-    color: #FEC307;
+    color: rgba(246, 243, 236, 0.92);
     font-family: var(--font-nhg-text);
-    font-size: 1.7rem;
+    font-size: clamp(0.95rem, 2.1vw, 1.45rem);
     font-weight: 400;
-    text-transform: uppercase;
+    text-transform: lowercase;
     text-decoration: none;
-    letter-spacing: -0.01em;
-    word-spacing: 0.02em;
-    transition: opacity 0.3s ease;
+    letter-spacing: -0.02em;
+    word-spacing: 0.04em;
+    transition: opacity 0.3s ease, color 0.25s ease;
     text-shadow:
-        0 0 1px rgba(254, 195, 7, 0.4),
-        0 0 2px rgba(254, 195, 7, 0.22),
-        0.4px 0 0 rgba(0, 0, 0, 0.14),
-        -0.4px 0 0 rgba(255, 230, 160, 0.07),
-        0 1px 0 rgba(0, 0, 0, 0.32),
-        0 0 14px rgba(255, 215, 0, 0.14),
-        0 0 22px rgba(255, 215, 0, 0.08),
-        0 2px 7px rgba(0, 0, 0, 0.72);
+        0 0 1px rgba(255, 252, 245, 0.35),
+        0 1px 0 rgba(0, 0, 0, 0.42),
+        0 2px 12px rgba(0, 0, 0, 0.45);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -127,7 +162,7 @@ body.body--letter-dim .film-grain {
 }
 
 .nav-item.active {
-    opacity: 0.4;
+    opacity: 0.5;
     cursor: default;
     pointer-events: none;
 }
@@ -152,16 +187,11 @@ body.body--letter-dim .film-grain {
     font-family: var(--font-nhg-text);
     font-weight: 400;
     font-style: normal;
-    color: rgba(254, 195, 7, 0.9);
+    color: rgba(246, 243, 236, 0.94);
     text-shadow:
-        0 0 1px rgba(254, 195, 7, 0.42),
-        0 0 2px rgba(254, 195, 7, 0.24),
-        0.4px 0 0 rgba(0, 0, 0, 0.12),
-        -0.4px 0 0 rgba(255, 230, 160, 0.06),
-        0 1px 0 rgba(0, 0, 0, 0.32),
-        0 0 14px rgba(255, 215, 0, 0.14),
-        0 0 22px rgba(255, 215, 0, 0.08),
-        0 2px 7px rgba(0, 0, 0, 0.72),
+        0 0 1px rgba(255, 252, 245, 0.35),
+        0 1px 0 rgba(0, 0, 0, 0.38),
+        0 2px 14px rgba(0, 0, 0, 0.5),
         var(--back-btn-ink-read);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -170,15 +200,11 @@ body.body--letter-dim .film-grain {
 }
 
 .nav-item.nav-back:hover .back-button-label {
-    color: rgba(255, 236, 196, 0.95);
+    color: rgba(255, 252, 245, 0.98);
     text-shadow:
-        0 0 1px rgba(255, 236, 196, 0.45),
-        0 0 2px rgba(255, 236, 196, 0.22),
-        0.4px 0 0 rgba(0, 0, 0, 0.1),
-        -0.4px 0 0 rgba(255, 244, 210, 0.08),
-        0 1px 0 rgba(0, 0, 0, 0.26),
-        0 0 16px rgba(255, 215, 0, 0.16),
-        0 0 24px rgba(255, 215, 0, 0.09),
+        0 0 1px rgba(255, 252, 245, 0.5),
+        0 1px 0 rgba(0, 0, 0, 0.32),
+        0 2px 16px rgba(0, 0, 0, 0.48),
         0 2px 8px rgba(0, 0, 0, 0.68),
         var(--back-btn-ink-read);
 }
@@ -568,8 +594,9 @@ body.body--letter-dim .film-grain {
     filter: url(#paper-ink-distort);
 }
 
+/* Subtitles: warm off-white (titles / display stay gold elsewhere) */
 .subtitle {
-    color: rgba(254, 195, 7, 0.9);
+    color: rgba(246, 243, 236, 0.93);
     font-family: var(--font-nhg-text);
     font-size: clamp(1.05rem, 2.2vw, 1.45rem);
     font-weight: 400;
@@ -578,14 +605,10 @@ body.body--letter-dim .film-grain {
     word-spacing: 0.02em;
     line-height: 1.28;
     text-shadow:
-        0 0 1px rgba(254, 195, 7, 0.4),
-        0 0 2px rgba(254, 195, 7, 0.22),
-        0.4px 0 0 rgba(0, 0, 0, 0.12),
-        -0.4px 0 0 rgba(255, 230, 160, 0.06),
-        0 1px 0 rgba(0, 0, 0, 0.35),
-        0 0 12px rgba(255, 215, 0, 0.14),
-        0 0 20px rgba(255, 215, 0, 0.08),
-        0 2px 7px rgba(0, 0, 0, 0.72);
+        0 0 1px rgba(255, 252, 245, 0.35),
+        0 1px 0 rgba(0, 0, 0, 0.4),
+        0 2px 14px rgba(0, 0, 0, 0.5),
+        0 0 22px rgba(0, 0, 0, 0.22);
     opacity: 0;
     position: absolute;
     width: 100%;
@@ -674,14 +697,17 @@ body.body--letter-dim .film-grain {
 }
 
 @media (max-width: 768px) {
+    #navigation-container {
+        top: clamp(0.55rem, 2.5vw, 1.1rem);
+    }
+
     .nav-menu {
-        left: 5%;
-        top: 5%;
-        gap: 0.75rem;
+        gap: clamp(0.45rem, 1.8vw, 1.1rem);
+        padding: 0 0.45rem;
     }
     
     .nav-item {
-        font-size: 1.4rem;
+        font-size: clamp(0.88rem, 3.1vw, 1.22rem);
     }
     
     .social-links {
@@ -760,14 +786,17 @@ body.body--letter-dim .film-grain {
 }
 
 @media (max-width: 480px) {
+    #navigation-container {
+        top: 0.45rem;
+    }
+
     .nav-menu {
-        left: 4%;
-        top: 4%;
-        gap: 0.5rem;
+        gap: 0.4rem 0.65rem;
+        row-gap: 0.35rem;
     }
     
     .nav-item {
-        font-size: 1.2rem;
+        font-size: clamp(0.82rem, 3.5vw, 1.05rem);
     }
     
     .social-links {

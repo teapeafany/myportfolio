@@ -532,11 +532,10 @@ body::after {
     }
     
     .nav-menu {
-        left: 3%;
-        top: 4%;
+        gap: 0.4rem 0.55rem;
     }
     
     .nav-item {
-        font-size: 1.2rem;
+        font-size: clamp(0.82rem, 3.5vw, 1.05rem);
     }
 }
