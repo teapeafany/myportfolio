@@ -142,7 +142,6 @@ body {
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.4);
     background: transparent;
-    cursor: pointer;
     padding: 0;
     transition: background 0.2s, border-color 0.2s, transform 0.2s;
 }
@@ -180,8 +179,19 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    width: 100%;
     z-index: 100;
-    padding: 1.5rem;
+    padding: clamp(0.75rem, 3vw, 1.25rem) 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+#navigation-container .nav-menu {
+    pointer-events: auto;
 }
 
 .hidden {

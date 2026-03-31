@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="film/cursor-star.png" type="image/png">
     <title>Tiffany Lee - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,6 +12,7 @@
 </head>
 <body>
     <script src="js/paper-ink-filter.js"></script>
+    <script src="js/nav-scroll.js" defer></script>
     <!-- Video Background -->
     <video class="video-bg" autoplay muted loop>
         <source src="film/noaudioedited.mov" type="video/mp4">
@@ -80,7 +82,7 @@
         </div>
         
         <!-- Edge rail: star follows scroll; drag star or click track to scroll -->
-        <div class="about-progress-bar home-scroll-rail" id="about-progress-bar" aria-hidden="true">
+        <div class="about-progress-bar home-scroll-rail visible" id="about-progress-bar" aria-hidden="false">
             <div class="home-scroll-track" id="home-scroll-track"></div>
             <div class="home-scroll-thumb" id="home-scroll-thumb" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Scroll the page">
                 <img src="film/home-scroll-star.png" alt="" width="88" height="88" draggable="false">
@@ -102,10 +104,10 @@
         function includeNavigation() {
             const navHTML = `
                 <nav class="nav-menu">
-                    <a href="index.html" class="nav-item active">Home</a>
-                    <a href="work.html" class="nav-item">Work</a>
-                    <a href="headspace.html" class="nav-item">Headspace</a>
-                    <a href="cinema.html" class="nav-item">The Cinema</a>
+                    <a href="index.html" class="nav-item active">home</a>
+                    <a href="work.html" class="nav-item">work</a>
+                    <a href="headspace.html" class="nav-item">headspace</a>
+                    <a href="cinema.html" class="nav-item">the cinema</a>
                 </nav>
             `;
             document.getElementById('navigation-container').innerHTML = navHTML;

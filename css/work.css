@@ -32,6 +32,7 @@ body::before {
     height: 150vh;
     object-fit: cover;
     z-index: 1;
+    pointer-events: none;
     opacity: 0.05;
     border: none;
     outline: none;
@@ -100,7 +101,6 @@ body::before {
     letter-spacing: -0.01em;
     word-spacing: 0.02em;
     text-transform: uppercase;
-    cursor: pointer;
     border-radius: 3px;
     box-shadow: var(--cine-inner-top), var(--cine-inner-vignette), var(--cine-rim),
         var(--cine-drop), var(--cine-bloom);
@@ -110,23 +110,18 @@ body::before {
         background 0.4s ease, transform 0.35s ease, font-weight 0.2s ease;
 }
 
-/* Category labels — same ink + paper distort as home letter / project montage (filter on text only). */
+/* Category labels — off-white (tile montage words stay gold). */
 .filter-btn-label {
     --filter-btn-ink-read: 0 2px 12px rgba(0, 0, 0, 0.55);
 
     position: relative;
     z-index: 1;
     display: inline-block;
-    color: rgba(254, 195, 7, 0.88);
+    color: rgba(246, 243, 236, 0.92);
     text-shadow:
-        0 0 1px rgba(254, 195, 7, 0.42),
-        0 0 2px rgba(254, 195, 7, 0.24),
-        0.4px 0 0 rgba(0, 0, 0, 0.12),
-        -0.4px 0 0 rgba(255, 230, 160, 0.06),
-        0 1px 0 rgba(0, 0, 0, 0.28),
-        0 0 14px rgba(255, 215, 0, 0.12),
-        0 0 22px rgba(255, 215, 0, 0.07),
-        0 2px 7px rgba(0, 0, 0, 0.65),
+        0 0 1px rgba(255, 252, 245, 0.3),
+        0 1px 0 rgba(0, 0, 0, 0.35),
+        0 2px 12px rgba(0, 0, 0, 0.45),
         var(--filter-btn-ink-read);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -157,12 +152,11 @@ body::before {
 }
 
 .filter-btn:hover .filter-btn-label {
-    color: rgba(255, 236, 196, 0.92);
+    color: rgba(255, 252, 245, 0.98);
     text-shadow:
-        0 0 1px rgba(255, 236, 196, 0.4),
-        0 1px 0 rgba(0, 0, 0, 0.22),
-        0 0 14px rgba(255, 215, 0, 0.1),
-        0 2px 10px rgba(0, 0, 0, 0.55),
+        0 0 1px rgba(255, 252, 245, 0.45),
+        0 1px 0 rgba(0, 0, 0, 0.3),
+        0 2px 12px rgba(0, 0, 0, 0.5),
         var(--filter-btn-ink-read);
 }
 
@@ -175,12 +169,11 @@ body::before {
 }
 
 .filter-btn.active .filter-btn-label {
-    color: rgba(255, 236, 196, 0.92);
+    color: rgba(255, 252, 245, 0.98);
     text-shadow:
-        0 0 1px rgba(255, 236, 196, 0.4),
-        0 1px 0 rgba(0, 0, 0, 0.22),
-        0 0 14px rgba(255, 215, 0, 0.12),
-        0 2px 10px rgba(0, 0, 0, 0.55),
+        0 0 1px rgba(255, 252, 245, 0.45),
+        0 1px 0 rgba(0, 0, 0, 0.3),
+        0 2px 12px rgba(0, 0, 0, 0.5),
         var(--filter-btn-ink-read);
 }
 
@@ -214,7 +207,6 @@ body::before {
  */
 .project-item {
     position: relative;
-    cursor: pointer;
     transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.38s ease,
         filter 0.38s ease;
     border-radius: 20px;
@@ -392,8 +384,8 @@ body::before {
     font-weight: var(--font-weight-thin);
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: #fec307;
-    opacity: 0.85;
+    color: rgba(246, 243, 236, 0.88);
+    opacity: 0.9;
     z-index: 1;
 }
 
@@ -634,7 +626,7 @@ body::before {
 }
 
 .work-footer p {
-    color: #fec307;
+    color: rgba(246, 243, 236, 0.9);
     font-family: var(--font-nhg-text);
     font-size: 1.5rem;
     font-weight: 400;
@@ -642,6 +634,7 @@ body::before {
     font-style: normal;
     letter-spacing: normal;
     margin: 0;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35), 0 2px 14px rgba(0, 0, 0, 0.35);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

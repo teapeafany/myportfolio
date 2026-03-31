@@ -1,6 +1,7 @@
 /* ECHOSPHERE Page Styles */
 html {
     scroll-behavior: smooth;
+    cursor: var(--portfolio-cursor-image) 14 12, auto;
 }
 
 /* Echosphere Progress Bar */
@@ -43,7 +44,6 @@ html {
     justify-content: center;
     width: 100%;
     margin: 1.5rem 0;
-    cursor: pointer;
     z-index: 1;
     transition: all 0.3s ease;
 }
@@ -54,7 +54,6 @@ html {
     border-radius: 50%;
     background: rgba(184, 212, 240, 0.2);
     border: 2px solid rgba(184, 212, 240, 0.2);
-    cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
     z-index: 2;
@@ -118,6 +117,7 @@ body {
     overflow-y: auto;
     position: relative;
     color: #e8f0fe;
+    cursor: inherit;
 }
 
 /* Film grain noise (above bubbles, below page sections & nav) */
@@ -235,18 +235,49 @@ body {
     }
 }
 
-/* Cursor Bubble Effect */
+/* Cursor follower: star — above modals; soft glow always, stronger on interactives */
 .cursor-bubble {
     position: fixed;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: rgba(91, 123, 184, 0.5);
+    width: 24px;
+    height: 21px;
+    border-radius: 0;
+    background: var(--portfolio-cursor-image) center / contain no-repeat;
     pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-    z-index: 9999;
-    mix-blend-mode: screen;
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: center center;
+    transition:
+        transform 0.28s cubic-bezier(0.34, 1.45, 0.64, 1),
+        filter 0.28s ease,
+        opacity 0.28s ease;
+    z-index: 100003;
+    mix-blend-mode: normal;
+    opacity: 0.96;
+    filter:
+        drop-shadow(0 0 4px rgba(255, 255, 255, 0.65))
+        drop-shadow(0 0 10px rgba(184, 212, 240, 0.55))
+        drop-shadow(0 0 18px rgba(130, 170, 255, 0.35));
+}
+
+/* Brighter bloom + larger star over links, buttons, rail, cards, etc. */
+.cursor-bubble.is-over-interactive {
+    transform: translate(-50%, -50%) scale(3.1);
+    opacity: 1;
+    filter:
+        drop-shadow(0 0 6px rgba(255, 255, 255, 1))
+        drop-shadow(0 0 14px rgba(220, 235, 255, 0.95))
+        drop-shadow(0 0 28px rgba(184, 212, 240, 1))
+        drop-shadow(0 0 48px rgba(130, 170, 255, 0.9))
+        drop-shadow(0 0 72px rgba(100, 140, 255, 0.55));
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cursor-bubble {
+        transition-duration: 0.05s;
+    }
+
+    .cursor-bubble.is-over-interactive {
+        transform: translate(-50%, -50%) scale(1.65);
+    }
 }
 
 /* Ripple Effect */
@@ -307,9 +338,15 @@ html {
 /* Ensure navigation is not affected by scroll-snap */
 #navigation-container {
     position: fixed !important;
-    top: 6%;
-    left: 6%;
+    top: clamp(0.75rem, 3.5vw, 1.65rem) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     z-index: 1000;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    pointer-events: none !important;
     scroll-snap-align: none;
 }
 
@@ -442,7 +479,6 @@ html {
     display: block;
     width: 32px;
     height: auto;
-    cursor: pointer;
     filter: none;
     opacity: 0.7;
 }
@@ -889,7 +925,6 @@ html {
     height: auto;
     border-radius: 20px;
     box-shadow: 0 8px 30px rgba(45, 58, 95, 0.3), 0 2px 8px rgba(74, 106, 168, 0.2);
-    cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -922,7 +957,6 @@ html {
     box-shadow: 0 4px 15px rgba(74, 106, 168, 0.4);
     position: relative;
     overflow: hidden;
-    cursor: pointer;
     font-family: var(--font-nhg-text);
     font-size: 1rem;
 }
@@ -1055,7 +1089,6 @@ html {
     height: auto;
     border-radius: 20px;
     box-shadow: 0 8px 30px rgba(45, 58, 95, 0.3), 0 2px 8px rgba(74, 106, 168, 0.2);
-    cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1097,7 +1130,6 @@ html {
     font-size: 3rem;
     font-weight: 300;
     color: #ffffff;
-    cursor: pointer;
     line-height: 1;
     transition: color 0.3s ease;
     z-index: 10001;
@@ -1424,7 +1456,6 @@ html {
     background: radial-gradient(circle at top left, rgba(184, 212, 240, 0.2) 0%, rgba(212, 197, 232, 0.15) 50%, transparent 100%);
     border-radius: 30px;
     padding: 2rem 2.5rem;
-    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -1618,9 +1649,13 @@ html {
     font-weight: 400;
     letter-spacing: 0.015em;
     word-spacing: 0.025em;
-    color: #ffffff;
+    color: rgba(246, 243, 236, 0.94);
     margin: 0 0 2rem;
     line-height: 1.35;
+    text-shadow:
+        0 0 1px rgba(255, 252, 245, 0.25),
+        0 1px 0 rgba(0, 0, 0, 0.35),
+        0 2px 12px rgba(0, 0, 0, 0.4);
 }
 
 .intro-body-text {
@@ -1990,7 +2025,6 @@ html {
     position: relative;
     box-shadow: 0 8px 30px rgba(45, 58, 95, 0.3), 0 2px 8px rgba(74, 106, 168, 0.2);
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    cursor: pointer;
     overflow: hidden;
 }
 
@@ -2168,7 +2202,6 @@ html {
     padding: 2.5rem;
     box-shadow: 0 8px 30px rgba(45, 58, 95, 0.3), 0 2px 8px rgba(74, 106, 168, 0.2);
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    cursor: pointer;
     position: relative;
     overflow: hidden;
 }
@@ -2474,39 +2507,27 @@ html {
     border: 2px solid rgba(91, 123, 184, 0.3);
 }
 
-/* Fixed Navigation for EchoSphere */
-#navigation-container {
-    position: fixed !important;
-    top: 6%;
-    left: 6%;
-    z-index: 1000;
-    pointer-events: auto;
-}
-
+/* Fixed Navigation for EchoSphere — top-centered row (inherits layout from style.css) */
 #navigation-container .nav-menu {
-    position: static !important;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    pointer-events: auto;
+    pointer-events: auto !important;
 }
 
 #navigation-container .nav-item {
     pointer-events: auto;
 }
 
-/* Navigation styling - white text for blue background */
+/* Navigation — off-white on blue */
 .nav-item {
-    color: #ffffff !important;
-    transition: color 0.3s ease;
+    color: rgba(246, 243, 236, 0.94) !important;
+    transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 .nav-item:hover {
-    color: rgba(255, 255, 255, 0.6) !important;
+    color: rgba(246, 243, 236, 0.65) !important;
 }
 
 .nav-item.active {
-    color: rgba(255, 255, 255, 0.4) !important;
+    color: rgba(246, 243, 236, 0.45) !important;
 }
 
 /* Final Iterations Two-Column Layout */
@@ -3055,4 +3076,3 @@ html {
     opacity: 1;
     transform: rotate(180deg) translateY(-5px);
 }
-

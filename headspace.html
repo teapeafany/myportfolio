@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="film/cursor-star.png" type="image/png">
     <title>Headspace - Tiffany Lee</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/headspace.css">
 </head>
 <body>
     <script src="js/paper-ink-filter.js"></script>
+    <script src="js/nav-scroll.js" defer></script>
     <div id="loading-screen" class="loading-screen" role="status" aria-live="polite">
         <div class="loading-content">
             <div class="loading-spinner" aria-hidden="true"></div>
@@ -68,10 +70,10 @@
         function includeNavigation() {
             const navHTML = `
                 <nav class="nav-menu">
-                    <a href="index.html" class="nav-item" id="nav-home">HOME</a>
-                    <a href="work.html" class="nav-item" id="nav-design">WORK</a>
-                    <a href="headspace.html" class="nav-item" id="nav-headspace">HEADSPACE</a>
-                    <a href="cinema.html" class="nav-item" id="nav-cinema">THE CINEMA</a>
+                    <a href="index.html" class="nav-item" id="nav-home">home</a>
+                    <a href="work.html" class="nav-item" id="nav-design">work</a>
+                    <a href="headspace.html" class="nav-item" id="nav-headspace">headspace</a>
+                    <a href="cinema.html" class="nav-item" id="nav-cinema">the cinema</a>
                 </nav>
             `;
             document.getElementById('navigation-container').innerHTML = navHTML;
