@@ -250,9 +250,8 @@ body::before {
     }
 }
 
-/* Featured tiles — strong gold pulse (EchoSphere, Daybreak, Heavenly Lyre / Arduino) */
+/* Featured tiles — strong gold pulse (EchoSphere, Heavenly Lyre / Arduino) */
 .project-item[data-project='echosphere'],
-.project-item[data-project='daybreak'],
 .project-item[data-project='laserharp'] {
     z-index: 1;
     animation: projectGoldPulse 2.8s ease-in-out infinite;
@@ -260,7 +259,6 @@ body::before {
 
 @media (prefers-reduced-motion: reduce) {
     .project-item[data-project='echosphere'],
-    .project-item[data-project='daybreak'],
     .project-item[data-project='laserharp'] {
         animation: none;
         box-shadow:
@@ -351,8 +349,28 @@ body::before {
     transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.45s ease;
 }
 
+/* EchoSphere poster — cream field; contain + scale zooms lockup to fill tile */
+.project-item[data-project='echosphere'] .placeholder-image {
+    background: #f7f2ee; /* matches film/echosphere-poster.svg */
+}
+
+/* Intrinsic width/height so the img box matches the poster (no full-width letterbox strip) */
+.project-item[data-project='echosphere'] .placeholder-image img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transform: scale(1.42);
+    transform-origin: center center;
+}
+
 .project-item:hover .placeholder-image img {
     transform: scale(1.04);
+}
+
+.project-item[data-project='echosphere']:hover .placeholder-image img {
+    transform: scale(1.52);
 }
 
 /* Rest: brighter thumbnails */
@@ -362,7 +380,6 @@ body::before {
 
 .project-item[data-project='echosphere'] .project-thumb,
 .project-item[data-project='voymemo'] .project-thumb,
-.project-item[data-project='daybreak'] .project-thumb,
 .project-item[data-project='laserharp'] .project-thumb {
     filter: brightness(1) contrast(1.04) saturate(0.95);
 }
@@ -698,6 +715,15 @@ body::before {
         transform: scale(1.02);
         filter: brightness(0.88) contrast(1.05) saturate(0.92);
     }
+
+    .project-item[data-project='echosphere'] .placeholder-image img {
+        transform: scale(1.42);
+    }
+
+    .project-item[data-project='echosphere']:hover .placeholder-image img {
+        transform: scale(1.42);
+        filter: brightness(0.88) contrast(1.05) saturate(0.92);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -729,5 +755,13 @@ body::before {
 
     .project-item:hover .placeholder-image img {
         transform: scale(1.02);
+    }
+
+    .project-item[data-project='echosphere'] .placeholder-image img {
+        transform: scale(1.42);
+    }
+
+    .project-item[data-project='echosphere']:hover .placeholder-image img {
+        transform: scale(1.42);
     }
 }

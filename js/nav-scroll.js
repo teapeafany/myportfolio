@@ -6,7 +6,8 @@
     var lastY = window.scrollY || document.documentElement.scrollTop || 0;
     var ticking = false;
     var TOP_REVEAL = 56;
-    var DELTA = 5;
+    /* Hiding needs a threshold so tiny jitter doesn’t flash the bar. */
+    var DELTA_HIDE = 6;
 
     function apply() {
         var y = window.scrollY || document.documentElement.scrollTop || 0;
@@ -15,10 +16,11 @@
 
         if (y < TOP_REVEAL) {
             nav.classList.remove('nav-scroll-hidden');
-        } else if (dy > DELTA) {
-            nav.classList.add('nav-scroll-hidden');
-        } else if (dy < -DELTA) {
+        } else if (dy < 0) {
+            /* Any upward movement brings the nav back (trackpads often use small steps). */
             nav.classList.remove('nav-scroll-hidden');
+        } else if (dy > DELTA_HIDE) {
+            nav.classList.add('nav-scroll-hidden');
         }
         ticking = false;
     }
