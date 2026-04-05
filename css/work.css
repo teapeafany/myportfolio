@@ -328,7 +328,7 @@ body::before {
     filter: brightness(0.62);
 }
 
-.placeholder-image {
+.work-tile-media {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -340,7 +340,7 @@ body::before {
     overflow: hidden;
 }
 
-.placeholder-image img {
+.work-tile-media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -350,12 +350,12 @@ body::before {
 }
 
 /* EchoSphere poster — cream field; contain + scale zooms lockup to fill tile */
-.project-item[data-project='echosphere'] .placeholder-image {
+.project-item[data-project='echosphere'] .work-tile-media {
     background: #f7f2ee; /* matches film/echosphere-poster.svg */
 }
 
 /* Intrinsic width/height so the img box matches the poster (no full-width letterbox strip) */
-.project-item[data-project='echosphere'] .placeholder-image img {
+.project-item[data-project='echosphere'] .work-tile-media img {
     width: auto;
     height: auto;
     max-width: 100%;
@@ -365,11 +365,11 @@ body::before {
     transform-origin: center center;
 }
 
-.project-item:hover .placeholder-image img {
+.project-item:hover .work-tile-media img {
     transform: scale(1.04);
 }
 
-.project-item[data-project='echosphere']:hover .placeholder-image img {
+.project-item[data-project='echosphere']:hover .work-tile-media img {
     transform: scale(1.52);
 }
 
@@ -390,7 +390,7 @@ body::before {
     filter: brightness(0.5) contrast(1.1) saturate(0.88) !important;
 }
 
-.placeholder-image .placeholder-label {
+.work-tile-media .placeholder-label {
     position: absolute;
     inset: 0;
     display: flex;
@@ -406,7 +406,7 @@ body::before {
     z-index: 1;
 }
 
-.placeholder-image .placeholder-label.hidden {
+.work-tile-media .placeholder-label.hidden {
     display: none;
 }
 
@@ -711,16 +711,16 @@ body::before {
         opacity: 1;
     }
 
-    .project-item:hover .placeholder-image img {
+    .project-item:hover .work-tile-media img {
         transform: scale(1.02);
         filter: brightness(0.88) contrast(1.05) saturate(0.92);
     }
 
-    .project-item[data-project='echosphere'] .placeholder-image img {
+    .project-item[data-project='echosphere'] .work-tile-media img {
         transform: scale(1.42);
     }
 
-    .project-item[data-project='echosphere']:hover .placeholder-image img {
+    .project-item[data-project='echosphere']:hover .work-tile-media img {
         transform: scale(1.42);
         filter: brightness(0.88) contrast(1.05) saturate(0.92);
     }
@@ -728,7 +728,7 @@ body::before {
 
 @media (prefers-reduced-motion: reduce) {
     .project-item,
-    .placeholder-image img,
+    .work-tile-media img,
     .project-media::after {
         transition: none;
     }
@@ -753,15 +753,15 @@ body::before {
         transform: translate(-50%, -50%);
     }
 
-    .project-item:hover .placeholder-image img {
+    .project-item:hover .work-tile-media img {
         transform: scale(1.02);
     }
 
-    .project-item[data-project='echosphere'] .placeholder-image img {
+    .project-item[data-project='echosphere'] .work-tile-media img {
         transform: scale(1.42);
     }
 
-    .project-item[data-project='echosphere']:hover .placeholder-image img {
+    .project-item[data-project='echosphere']:hover .work-tile-media img {
         transform: scale(1.42);
     }
 }
