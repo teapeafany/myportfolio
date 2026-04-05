@@ -1,0 +1,11 @@
+/* Voymemo accents on EchoSphere shell */
+body.case-study-voymemo .echosphere-scroll-rail .home-scroll-thumb img {
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.12))
+        drop-shadow(0 0 14px rgba(100, 100, 180, 0.35));
+}
+
+body.case-study-voymemo .case-study-media-placeholder,
+body.case-study-voymemo .case-study-cinema-placeholder {
+    background: linear-gradient(145deg, #e8e8f4 0%, #dcdcf0 50%, #d0d0ea 100%);
+    color: rgba(60, 50, 100, 0.65);
+}

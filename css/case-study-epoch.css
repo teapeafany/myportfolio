@@ -1,0 +1,11 @@
+/* Epoch speculative — cool neutral on EchoSphere shell */
+body.case-study-epoch .echosphere-scroll-rail .home-scroll-thumb img {
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15))
+        drop-shadow(0 0 12px rgba(120, 200, 190, 0.25));
+}
+
+body.case-study-epoch .case-study-media-placeholder,
+body.case-study-epoch .case-study-cinema-placeholder {
+    background: linear-gradient(145deg, #e8f2f0 0%, #dcecea 50%, #cfe0dd 100%);
+    color: rgba(30, 60, 58, 0.55);
+}

@@ -47,7 +47,7 @@
                         disablepictureinpicture
                         aria-label="EchoSphere product introduction"
                     >
-                        <source src="film/echosphere-intro.mp4" type="video/mp4" />
+                        <source src="film/echosphere/echosphere-intro.mp4" type="video/mp4" />
                     </video>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                     disablepictureinpicture
                     aria-label="Background video for research insight about music streaming platforms"
                 >
-                    <source src="film/echosphere-you-told-us.mp4" type="video/mp4" />
+                    <source src="film/echosphere/echosphere-you-told-us.mp4" type="video/mp4" />
                 </video>
                 <div class="echosphere-hero-you-told-us-overlay">
                     <div class="echosphere-you-told-us-scrim" aria-hidden="true"></div>
@@ -203,7 +203,7 @@
                     disablepictureinpicture
                     aria-hidden="true"
                 >
-                    <source src="film/echosphere-insights-bg.mp4" type="video/mp4" />
+                    <source src="film/echosphere/echosphere-insights-bg.mp4" type="video/mp4" />
                 </video>
                 <div class="echosphere-insights-cinema-scrim" aria-hidden="true"></div>
                 <div class="echosphere-insights-cinema-content">
@@ -281,7 +281,7 @@
                                     preload="metadata"
                                     aria-label="Screen recording of interview tagging in Taguette"
                                 >
-                                    <source src="film/interview tagging (echosphere).mp4" type="video/mp4" />
+                                    <source src="film/echosphere/interview tagging (echosphere).mp4" type="video/mp4" />
                                 </video>
                             </div>
                             <div class="echosphere-analysis-card-copy">
@@ -296,7 +296,7 @@
                         <article class="echosphere-analysis-card">
                             <div class="echosphere-analysis-card-media">
                                 <img
-                                    src="film/taguettecoding.png"
+                                    src="film/echosphere/taguettecoding.png"
                                     alt="Taguette coding view used to compare independent tags across researchers"
                                     class="echosphere-analysis-card-img mindmap-visual-image"
                                     onclick="enlargeImage(this)"
@@ -315,7 +315,7 @@
                         <article class="echosphere-analysis-card">
                             <div class="echosphere-analysis-card-media">
                                 <img
-                                    src="film/affinity mapping.png"
+                                    src="film/echosphere/affinity mapping.png"
                                     alt="FigJam affinity map grouping interview codes into clusters"
                                     class="echosphere-analysis-card-img mindmap-visual-image"
                                     onclick="enlargeImage(this)"
@@ -333,7 +333,7 @@
                         <article class="echosphere-analysis-card">
                             <div class="echosphere-analysis-card-media">
                                 <img
-                                    src="film/mindmapecho.png"
+                                    src="film/echosphere/mindmapecho.png"
                                     alt="FigJam mind map connecting research codes to themes"
                                     class="echosphere-analysis-card-img mindmap-visual-image"
                                     onclick="enlargeImage(this)"
@@ -569,9 +569,11 @@
                         <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
                         <div class="echosphere-analysis-carousel-track">
                             <article class="echosphere-analysis-card">
-                                <div class="echosphere-analysis-card-media">
+                                <div
+                                    class="echosphere-analysis-card-media echosphere-building-prototype-media--contain"
+                                >
                                     <img
-                                        src="film/echosphere-prototype-lofi.png"
+                                        src="film/echosphere/echosphere-prototype-lofi.png"
                                         alt="EchoSphere lo-fi mobile mockups on a blue graphic background: Discover with overlapping artist bubbles, mood and vibe spheres, and Laufey artist bubble profile with Enter Bubble"
                                         class="echosphere-analysis-card-img mindmap-visual-image"
                                         onclick="enlargeImage(this)"
@@ -596,7 +598,7 @@
                                         preload="metadata"
                                         aria-label="Screen recording: EchoSphere mid-fi structure and interaction"
                                     >
-                                        <source src="film/echosphere-prototype-midfi.mp4" type="video/mp4" />
+                                        <source src="film/echosphere/echosphere-prototype-midfi.mp4" type="video/mp4" />
                                     </video>
                                 </div>
                                 <div class="echosphere-analysis-card-copy">
@@ -610,7 +612,7 @@
                             <article class="echosphere-analysis-card">
                                 <div class="echosphere-analysis-card-media">
                                     <img
-                                        src="film/echosphere-prototype-hifi.png"
+                                        src="film/echosphere/echosphere-prototype-hifi.png"
                                         alt="EchoSphere hi-fi Figma prototype: discover bubble flows and mood setup flows with iPhone frames, overlays, and music player screens"
                                         class="echosphere-analysis-card-img mindmap-visual-image"
                                         onclick="enlargeImage(this)"
@@ -625,14 +627,27 @@
                                 </div>
                             </article>
                             <article class="echosphere-analysis-card">
-                                <div class="echosphere-analysis-card-media">
-                                    <div class="echosphere-prototype-media-slot" aria-hidden="true"></div>
+                                <div
+                                    class="echosphere-analysis-card-media echosphere-building-prototype-media--contain"
+                                >
+                                    <video
+                                        class="echosphere-analysis-card-video"
+                                        autoplay
+                                        muted
+                                        loop
+                                        playsinline
+                                        preload="metadata"
+                                        aria-label="Screen recording: help documentation and in-app guidance explored after user testing"
+                                    >
+                                        <source src="film/echosphere/helpdocumentation.mp4" type="video/mp4" />
+                                    </video>
                                 </div>
                                 <div class="echosphere-analysis-card-copy">
                                     <h3 class="echosphere-analysis-card-title">Testing &amp; iteration</h3>
                                     <p class="echosphere-analysis-card-text">
-                                        Sessions and critiques that surfaced what to keep, fix, or rethink before the
-                                        next pass.
+                                        User testing with new participants showed that some novel interactions were not
+                                        immediately obvious. We responded by exploring guides and lightweight
+                                        documentation so people could learn unfamiliar flows without friction.
                                     </p>
                                 </div>
                             </article>
@@ -656,17 +671,67 @@
                     </div>
 
                     <div class="echosphere-design-features-deck">
-                        <article class="echosphere-design-features-slide">
+                        <article
+                            class="echosphere-design-features-slide echosphere-design-features-slide--spotlight"
+                        >
                             <div class="echosphere-design-features-slide__mark" aria-hidden="true">🌐</div>
                             <p class="echosphere-design-features-slide__label">Feature</p>
                             <h3 class="echosphere-design-features-slide__title">Community Discovery Spaces</h3>
-                            <div class="echosphere-design-features-slide__media">
-                                <div class="echosphere-analysis-card-media">
-                                    <!-- Replace slot with: <video class="echosphere-analysis-card-video" autoplay muted loop playsinline preload="metadata" …> -->
-                                    <div
-                                        class="echosphere-prototype-media-slot echosphere-design-features-video-slot"
-                                        aria-hidden="true"
-                                    ></div>
+                            <div
+                                class="echosphere-design-features-slide__media echosphere-design-features-slide__media--spotlight"
+                            >
+                                <div
+                                    class="echosphere-analysis-carousel echosphere-design-features-carousel"
+                                    role="region"
+                                    aria-roledescription="carousel"
+                                    aria-label="Community Discovery Spaces: media"
+                                >
+                                    <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                                    <div class="echosphere-analysis-carousel-track">
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <video
+                                                    class="echosphere-analysis-card-video"
+                                                    autoplay
+                                                    muted
+                                                    loop
+                                                    playsinline
+                                                    preload="metadata"
+                                                    disablepictureinpicture
+                                                    aria-label="EchoSphere location discovery flow"
+                                                >
+                                                    <source
+                                                        src="film/echosphere/location%20discovery%20flow.mp4"
+                                                        type="video/mp4"
+                                                    />
+                                                </video>
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">Location discovery flow</h3>
+                                                <p class="echosphere-analysis-card-text">
+                                                    Screen recording of map- and place-based discovery in the prototype.
+                                                </p>
+                                            </div>
+                                        </article>
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <img
+                                                    src="film/echosphere/echosphere-community-discovery-figjam-flow.png"
+                                                    alt="User flow for Community Discovery: filters, priorities, interactions, outcomes, and loop back to explore more"
+                                                    class="echosphere-analysis-card-img echosphere-community-discovery-flow-chart mindmap-visual-image"
+                                                    onclick="enlargeImage(this)"
+                                                />
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">FigJam user flow</h3>
+                                                <p class="echosphere-analysis-card-text">
+                                                    End-to-end journey from Community Discovery Spaces through filter and
+                                                    priority choices, interactions, and outcomes—with a loop when listeners
+                                                    keep exploring.
+                                                </p>
+                                            </div>
+                                        </article>
+                                    </div>
                                 </div>
                             </div>
                             <p class="echosphere-design-features-slide__body">
@@ -681,16 +746,68 @@
                             </p>
                         </article>
 
-                        <article class="echosphere-design-features-slide">
+                        <article
+                            class="echosphere-design-features-slide echosphere-design-features-slide--spotlight"
+                        >
                             <div class="echosphere-design-features-slide__mark" aria-hidden="true">✨</div>
                             <p class="echosphere-design-features-slide__label">Feature</p>
                             <h3 class="echosphere-design-features-slide__title">User Spheres</h3>
-                            <div class="echosphere-design-features-slide__media">
-                                <div class="echosphere-analysis-card-media">
-                                    <div
-                                        class="echosphere-prototype-media-slot echosphere-design-features-video-slot"
-                                        aria-hidden="true"
-                                    ></div>
+                            <div
+                                class="echosphere-design-features-slide__media echosphere-design-features-slide__media--spotlight"
+                            >
+                                <div
+                                    class="echosphere-analysis-carousel echosphere-design-features-carousel"
+                                    role="region"
+                                    aria-roledescription="carousel"
+                                    aria-label="User Spheres: diagrams and media"
+                                >
+                                    <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                                    <div class="echosphere-analysis-carousel-track">
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <video
+                                                    class="echosphere-analysis-card-video"
+                                                    autoplay
+                                                    muted
+                                                    loop
+                                                    playsinline
+                                                    preload="metadata"
+                                                    disablepictureinpicture
+                                                    aria-label="EchoSphere social and profile flow"
+                                                >
+                                                    <source
+                                                        src="film/echosphere/social%20and%20profile%20flow.mp4"
+                                                        type="video/mp4"
+                                                    />
+                                                </video>
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">Social and profile flow</h3>
+                                                <p class="echosphere-analysis-card-text">
+                                                    Screen recording of artist profile, follow, and listening context in
+                                                    the prototype.
+                                                </p>
+                                            </div>
+                                        </article>
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <img
+                                                    src="film/echosphere/userflow%20user%20sphere.png"
+                                                    alt="User flow for User Spheres: entering a sphere, behind-the-scenes content, sharing bubbles, and listener engagement paths"
+                                                    class="echosphere-analysis-card-img echosphere-user-sphere-flow-chart mindmap-visual-image"
+                                                    onclick="enlargeImage(this)"
+                                                />
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">User flow</h3>
+                                                <p class="echosphere-analysis-card-text">
+                                                    Diagram of how listeners move through artist and friend spheres—from
+                                                    discovery through immersive content, bubble sharing, and ongoing
+                                                    connection.
+                                                </p>
+                                            </div>
+                                        </article>
+                                    </div>
                                 </div>
                             </div>
                             <p class="echosphere-design-features-slide__body">
@@ -705,16 +822,66 @@
                             </p>
                         </article>
 
-                        <article class="echosphere-design-features-slide">
+                        <article
+                            class="echosphere-design-features-slide echosphere-design-features-slide--spotlight"
+                        >
                             <div class="echosphere-design-features-slide__mark" aria-hidden="true">🌙</div>
                             <p class="echosphere-design-features-slide__label">Feature</p>
                             <h3 class="echosphere-design-features-slide__title">Mood &amp; Environment Spheres</h3>
-                            <div class="echosphere-design-features-slide__media">
-                                <div class="echosphere-analysis-card-media">
-                                    <div
-                                        class="echosphere-prototype-media-slot echosphere-design-features-video-slot"
-                                        aria-hidden="true"
-                                    ></div>
+                            <div
+                                class="echosphere-design-features-slide__media echosphere-design-features-slide__media--spotlight"
+                            >
+                                <div
+                                    class="echosphere-analysis-carousel echosphere-design-features-carousel"
+                                    role="region"
+                                    aria-roledescription="carousel"
+                                    aria-label="Mood and Environment Spheres: prototypes and media"
+                                >
+                                    <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                                    <div class="echosphere-analysis-carousel-track">
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <video
+                                                    class="echosphere-analysis-card-video"
+                                                    autoplay
+                                                    muted
+                                                    loop
+                                                    playsinline
+                                                    preload="metadata"
+                                                    disablepictureinpicture
+                                                    aria-label="EchoSphere mood discovery flow"
+                                                >
+                                                    <source
+                                                        src="film/echosphere/mood%20discovery%20flow.mp4"
+                                                        type="video/mp4"
+                                                    />
+                                                </video>
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">Mood discovery flow</h3>
+                                                <p class="echosphere-analysis-card-text">
+                                                    Screen capture of mood and environment discovery in the prototype.
+                                                </p>
+                                            </div>
+                                        </article>
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <img
+                                                    src="film/echosphere/userflowmooddiscovery.png"
+                                                    alt="User flow for Mood and Environment Spheres: context cues, vibe checks, mood-based discovery, and how exploration adapts"
+                                                    class="echosphere-analysis-card-img echosphere-mood-flow-chart mindmap-visual-image"
+                                                    onclick="enlargeImage(this)"
+                                                />
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">User flow</h3>
+                                                <p class="echosphere-analysis-card-text">
+                                                    Diagram of the mood and environment journey—from contextual signals and
+                                                    vibe checks through personalized discovery paths.
+                                                </p>
+                                            </div>
+                                        </article>
+                                    </div>
                                 </div>
                             </div>
                             <p class="echosphere-design-features-slide__body">

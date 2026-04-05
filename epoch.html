@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="film/cursor-star.png" type="image/png">
+    <title>EPOCH - Tiffany Lee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/echosphere.css">
+    <link rel="stylesheet" href="css/case-study-shell.css">
+    <link rel="stylesheet" href="css/case-study-epoch.css">
+</head>
+<body class="echosphere-page case-study-epoch">
+    <script src="js/paper-ink-filter.js"></script>
+    <script src="js/nav-scroll.js" defer></script>
+    <div class="floating-bubbles" id="floating-bubbles"></div>
+    <div class="echosphere-film-grain" aria-hidden="true"></div>
+    <div class="about-progress-bar home-scroll-rail visible echosphere-scroll-rail" id="about-progress-bar" aria-hidden="false">
+        <div class="home-scroll-track" id="home-scroll-track"></div>
+        <div class="home-scroll-thumb" id="home-scroll-thumb" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Scroll the case study">
+            <img src="film/home-scroll-star.png" alt="" width="88" height="88" draggable="false">
+        </div>
+    </div>
+
+    <div id="hero-section" class="hero-section fade-in-section">
+        <div id="navigation-container"></div>
+        <div class="echosphere-hero-montage">
+            <h1 class="echosphere-sr-only">Epoch</h1>
+            <div class="echosphere-hero-intro echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t0" aria-label="Epoch hero">
+                <div class="echosphere-hero-intro-frame">
+                    <img src="film/epoch-mark.svg" alt="" class="echosphere-hero-intro-video case-study-hero-media" width="500" height="500" />
+                </div>
+            </div>
+        </div>
+
+        <div id="next-section" class="echosphere-post-hero" aria-label="Project context">
+            <div class="echosphere-post-hero-inner">
+                <h2 id="echosphere-post-hero-heading" class="echosphere-research-heading" aria-live="polite" aria-label="Project introduction">
+                    <div class="echosphere-research-letter" id="echosphere-research-letter"></div>
+                </h2>
+            </div>
+        </div>
+
+        <div id="you-told-us-section" class="echosphere-hero-intro echosphere-hero-you-told-us echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section" aria-labelledby="ep-context-heading">
+            <div class="echosphere-hero-intro-frame">
+                <div class="case-study-media-placeholder" role="img" aria-label="Placeholder">Teaser motion / key render — placeholder</div>
+            </div>
+            <div class="echosphere-you-told-us-below">
+                <div class="echosphere-you-told-us-bubbles echosphere-you-told-us-bubbles--spread">
+                    <div class="echosphere-you-told-us-bubbles-col echosphere-you-told-us-bubbles-col--left">
+                        <blockquote class="echosphere-you-told-us-bubble echosphere-you-told-us-bubble--in">
+                            <span class="echosphere-paper-ink-text">&ldquo;Placeholder insight quote one.&rdquo;</span>
+                        </blockquote>
+                    </div>
+                    <div class="echosphere-you-told-us-bubbles-col echosphere-you-told-us-bubbles-col--center">
+                        <blockquote class="echosphere-you-told-us-bubble echosphere-you-told-us-bubble--mid">
+                            <span class="echosphere-paper-ink-text">&ldquo;Placeholder insight quote two.&rdquo;</span>
+                        </blockquote>
+                    </div>
+                    <div class="echosphere-you-told-us-bubbles-col echosphere-you-told-us-bubbles-col--right">
+                        <blockquote class="echosphere-you-told-us-bubble echosphere-you-told-us-bubble--out">
+                            <span class="echosphere-paper-ink-text">&ldquo;Placeholder insight quote three.&rdquo;</span>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="echosphere-you-told-us-paper">
+                    <h2 id="ep-context-heading" class="echosphere-you-told-us-stack-heading">
+                        <span class="echosphere-sr-only">Overview</span>
+                        <span class="echosphere-you-told-us-kicker--below" aria-hidden="true">
+                            <span class="echosphere-you-told-us-kicker-text">
+                                <span id="echosphere-you-told-us-kicker-text"></span><span class="echosphere-you-told-us-kicker-caret" id="echosphere-you-told-us-kicker-caret" aria-hidden="true">|</span>
+                            </span>
+                        </span>
+                    </h2>
+                    <div class="echosphere-you-told-us-stack">
+                        <p class="echosphere-you-told-us-body-lead">
+                            Epoch is a speculative case study shell—same rhythm and components as EchoSphere, ready for narrative, research, and prototype media when you plug them in.
+                        </p>
+                        <p class="echosphere-you-told-us-body-tagline">
+                            Replace placeholders section by section; typography, scroll star, and ambient bands already match the portfolio system.
+                        </p>
+                    </div>
+                </div>
+                <div class="echosphere-research-scope" aria-labelledby="ep-scope-heading">
+                    <h3 id="ep-scope-heading" class="echosphere-sr-only">Scope placeholder</h3>
+                    <div class="echosphere-research-scope-stage">
+                        <p class="echosphere-research-scope-stat echosphere-research-scope-stat--survey">Methods TBD</p>
+                        <div class="echosphere-research-scope-stat echosphere-research-scope-stat--interviews">
+                            <p class="echosphere-research-scope-interview-line">Participants TBD</p>
+                            <p class="echosphere-research-scope-interview-sub">timeline and context — placeholder</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="echosphere-insights-cinema-section" class="echosphere-hero-intro echosphere-insights-cinema echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section" aria-labelledby="echosphere-insights-cinema-heading">
+            <div class="echosphere-hero-intro-frame echosphere-insights-cinema-frame">
+                <div class="case-study-cinema-placeholder" aria-hidden="true">Cinema / hero loop — placeholder</div>
+                <div class="echosphere-insights-cinema-scrim" aria-hidden="true"></div>
+                <div class="echosphere-insights-cinema-content">
+                    <h2 id="echosphere-insights-cinema-heading" class="echosphere-you-told-us-stack-heading">
+                        <span class="echosphere-sr-only">Insights</span>
+                        <span class="echosphere-you-told-us-kicker--below" aria-hidden="true">
+                            <span class="echosphere-you-told-us-kicker-text">
+                                <span id="echosphere-insights-kicker-text"></span><span class="echosphere-you-told-us-kicker-caret" id="echosphere-insights-kicker-caret" aria-hidden="true">|</span>
+                            </span>
+                        </span>
+                    </h2>
+                    <p class="echosphere-insights-cinema-headline">
+                        Headline pair for<br />key provocations — placeholder.
+                    </p>
+                    <div class="echosphere-insights-cinema-columns">
+                        <div class="echosphere-insights-cinema-item">
+                            <h3 class="echosphere-insights-cinema-item-title">Column A</h3>
+                            <p class="echosphere-insights-cinema-item-copy">Supporting copy for the first insight or scenario. Swap when the project brief is set.</p>
+                        </div>
+                        <div class="echosphere-insights-cinema-item">
+                            <h3 class="echosphere-insights-cinema-item-title">Column B</h3>
+                            <p class="echosphere-insights-cinema-item-copy">Supporting copy for the second insight or tension. Swap when the project brief is set.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="echosphere-understanding-research echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section" aria-labelledby="ep-paper-heading">
+            <div class="echosphere-understanding-research-paper">
+                <h2 id="ep-paper-heading" class="echosphere-understanding-research-heading">Research &amp; synthesis</h2>
+                <div class="echosphere-you-told-us-stack">
+                    <p class="echosphere-you-told-us-body-lead">Placeholder for how you moved from raw input to themes—interviews, probes, secondary research, or workshops.</p>
+                </div>
+                <div class="echosphere-analysis-carousel" role="region" aria-label="Artifacts">
+                    <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                    <div class="echosphere-analysis-carousel-track">
+                        <article class="echosphere-analysis-card case-study-placeholder-card">
+                            <div class="echosphere-analysis-card-media">Artifact 01 — image or video</div>
+                            <div class="echosphere-analysis-card-copy">
+                                <h3 class="echosphere-analysis-card-title">Placeholder card</h3>
+                                <p class="echosphere-analysis-card-text">Duplicate this slide pattern for boards, maps, or screen recordings.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <section class="echosphere-key-findings-section" aria-labelledby="ep-themes-heading">
+                    <h3 id="ep-themes-heading" class="echosphere-key-findings-heading">Themes</h3>
+                    <div class="echosphere-key-findings-panel echosphere-key-findings-paper">
+                        <div class="echosphere-findings-diagram__themes">
+                            <article class="echosphere-findings-theme">
+                                <div class="echosphere-findings-theme__header">
+                                    <span class="echosphere-findings-theme__icon" aria-hidden="true">①</span>
+                                    <h4 class="echosphere-findings-theme__title">Theme one</h4>
+                                </div>
+                                <div class="echosphere-findings-theme__block">
+                                    <p class="echosphere-findings-theme__text">Placeholder theme description and design implication.</p>
+                                </div>
+                            </article>
+                            <article class="echosphere-findings-theme">
+                                <div class="echosphere-findings-theme__header">
+                                    <span class="echosphere-findings-theme__icon" aria-hidden="true">②</span>
+                                    <h4 class="echosphere-findings-theme__title">Theme two</h4>
+                                </div>
+                                <div class="echosphere-findings-theme__block">
+                                    <p class="echosphere-findings-theme__text">Placeholder theme description and design implication.</p>
+                                </div>
+                            </article>
+                            <article class="echosphere-findings-theme">
+                                <div class="echosphere-findings-theme__header">
+                                    <span class="echosphere-findings-theme__icon" aria-hidden="true">③</span>
+                                    <h4 class="echosphere-findings-theme__title">Theme three</h4>
+                                </div>
+                                <div class="echosphere-findings-theme__block">
+                                    <p class="echosphere-findings-theme__text">Placeholder theme description and design implication.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="echosphere-understanding-design-direction-section" class="echosphere-insight-ambient-band echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1" aria-labelledby="ep-dir-heading echosphere-hmw-heading">
+                    <div class="echosphere-insight-ambient-slot echosphere-insight-ambient-slot--wide">
+                        <div class="echosphere-insight-ambient__frame">
+                            <div id="echosphere-insight-ambient-bubbles" class="echosphere-insight-ambient__bubbles" aria-hidden="true"></div>
+                            <div class="echosphere-insight-ambient__scrim" aria-hidden="true"></div>
+                            <div class="echosphere-insight-ambient__stack">
+                                <div class="echosphere-insight-ambient__content echosphere-insight-ambient__content--cinema">
+                                    <h2 id="ep-dir-heading" class="echosphere-insight-ambient__eyebrow">Design direction</h2>
+                                    <p class="echosphere-insight-ambient__lead">Placeholder for the strategic story between insights and the HMW.</p>
+                                    <p class="echosphere-insight-ambient__body">Swap this band for your own voice; bubbles and scrim stay on-brand.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="echosphere-insight-ambient__hmw echosphere-insight-ambient__hmw--on-light">
+                            <h3 id="echosphere-hmw-heading" class="echosphere-insight-ambient__hmw-text">
+                                <span class="echosphere-insight-ambient__hmw-kicker"><span class="echosphere-research-type-wrap">how might we</span></span>
+                                <span class="echosphere-insight-ambient__hmw-body"><span class="echosphere-research-type-wrap echosphere-insight-ambient__hmw-body-kicker-match">frame</span> a <span class="echosphere-research-type-wrap echosphere-insight-ambient__hmw-body-kicker-match">speculative future</span> that feels grounded in real human needs?</span>
+                            </h3>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="echosphere-concept-section" class="echosphere-insight-ambient-band echosphere-concept-ambient-band echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1" aria-labelledby="ep-concept-heading">
+                    <div class="echosphere-insight-ambient-slot echosphere-insight-ambient-slot--wide">
+                        <div class="echosphere-insight-ambient__frame">
+                            <div id="echosphere-concept-ambient-bubbles" class="echosphere-insight-ambient__bubbles" aria-hidden="true"></div>
+                            <div class="echosphere-insight-ambient__scrim" aria-hidden="true"></div>
+                            <div class="echosphere-insight-ambient__stack">
+                                <div class="echosphere-insight-ambient__content echosphere-insight-ambient__content--cinema">
+                                    <h2 id="ep-concept-heading" class="echosphere-insight-ambient__eyebrow">The concept</h2>
+                                    <p class="echosphere-insight-ambient__lead">One or two lines on the north-star idea—placeholder until the narrative exists.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="echosphere-final-prototype-section echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1" aria-labelledby="ep-proto-heading">
+                    <h2 id="ep-proto-heading" class="echosphere-understanding-research-heading">Prototype</h2>
+                    <div class="echosphere-you-told-us-stack">
+                        <p class="echosphere-you-told-us-body-lead">Embed Figma, video, or WebGL here when the build exists.</p>
+                    </div>
+                    <div class="echosphere-final-prototype-embed">
+                        <div class="case-study-placeholder-card echosphere-analysis-card case-study-proto-placeholder">
+                            <div class="echosphere-analysis-card-media">Interactive prototype — placeholder</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-to-top-section">
+        <a href="#hero-section"><img src="film/downarrow.svg" alt="Back to Top" class="up-arrow"></a>
+    </div>
+
+    <script>
+        window.CaseStudyShell = {
+            intro: {
+                main: 'Speculative design study — work in progress.',
+                date: '(TBD)',
+                goal: 'OUR GOAL: PLACEHOLDER UNTIL THE BRIEF IS FINAL',
+                typingAriaStart: 'Speculative design study — work in progress. (TBD)',
+                fullAria: 'Speculative design study — work in progress. (TBD). OUR GOAL: PLACEHOLDER UNTIL THE BRIEF IS FINAL'
+            },
+            kickerYouToldUs: 'OVERVIEW',
+            kickerInsights: 'INSIGHTS',
+            pageBubbles: [
+                { id: 1, size: 300, left: '4%', top: '10%', delay: 0, duration: 22, gradient: 'radial-gradient(circle at 30% 30%, rgba(140, 210, 200, 0.48), rgba(100, 180, 175, 0.22) 55%, rgba(120, 200, 195, 0.12) 72%, transparent 100%)' },
+                { id: 2, size: 340, left: '86%', top: '8%', delay: 1.5, duration: 26, gradient: 'radial-gradient(circle at 40% 40%, rgba(130, 200, 195, 0.45), rgba(90, 170, 168, 0.2) 58%, rgba(110, 190, 185, 0.1) 74%, transparent 100%)' },
+                { id: 3, size: 220, left: '12%', top: '52%', delay: 3, duration: 18, gradient: 'radial-gradient(circle at 35% 35%, rgba(150, 215, 205, 0.42), rgba(105, 175, 170, 0.18) 60%, rgba(125, 205, 198, 0.09) 76%, transparent 100%)' },
+                { id: 4, size: 280, left: '72%', top: '36%', delay: 0.8, duration: 24, gradient: 'radial-gradient(circle at 30% 30%, rgba(135, 205, 198, 0.4), rgba(95, 165, 162, 0.16) 58%, rgba(115, 195, 188, 0.09) 74%, transparent 100%)' },
+                { id: 5, size: 250, left: '24%', top: '22%', delay: 2.2, duration: 20, gradient: 'radial-gradient(circle at 40% 40%, rgba(145, 210, 200, 0.38), rgba(100, 172, 168, 0.15) 62%, rgba(120, 200, 192, 0.08) 76%, transparent 100%)' },
+                { id: 6, size: 300, left: '90%', top: '62%', delay: 4, duration: 23, gradient: 'radial-gradient(circle at 35% 35%, rgba(138, 208, 198, 0.41), rgba(92, 168, 164, 0.18) 58%, rgba(112, 198, 190, 0.1) 75%, transparent 100%)' },
+                { id: 7, size: 200, left: '8%', top: '78%', delay: 2.8, duration: 17, gradient: 'radial-gradient(circle at 30% 30%, rgba(148, 212, 202, 0.34), rgba(108, 178, 172, 0.12) 62%, rgba(128, 202, 194, 0.07) 78%, transparent 100%)' },
+                { id: 8, size: 260, left: '58%', top: '70%', delay: 1.2, duration: 21, gradient: 'radial-gradient(circle at 40% 40%, rgba(132, 202, 194, 0.38), rgba(98, 170, 165, 0.16) 60%, rgba(118, 198, 190, 0.09) 76%, transparent 100%)' }
+            ],
+            panelBubbles: [
+                { id: 1, size: 100, left: '6%', top: '10%', delay: 0, duration: 16, gradient: 'radial-gradient(circle at 30% 30%, rgba(140, 210, 200, 0.48), rgba(100, 180, 175, 0.22) 55%, rgba(120, 200, 195, 0.1) 72%, transparent 100%)' },
+                { id: 2, size: 130, left: '78%', top: '8%', delay: 1.2, duration: 20, gradient: 'radial-gradient(circle at 40% 40%, rgba(130, 200, 195, 0.45), rgba(90, 170, 168, 0.2) 58%, rgba(110, 190, 185, 0.1) 74%, transparent 100%)' },
+                { id: 3, size: 72, left: '12%', top: '58%', delay: 2, duration: 14, gradient: 'radial-gradient(circle at 35% 35%, rgba(150, 215, 205, 0.42), rgba(105, 175, 170, 0.18) 60%, rgba(125, 205, 198, 0.09) 76%, transparent 100%)' },
+                { id: 4, size: 110, left: '70%', top: '42%', delay: 0.6, duration: 18, gradient: 'radial-gradient(circle at 30% 30%, rgba(135, 205, 198, 0.4), rgba(95, 165, 162, 0.16) 58%, rgba(115, 195, 188, 0.09) 74%, transparent 100%)' },
+                { id: 5, size: 88, left: '38%', top: '18%', delay: 2.8, duration: 15, gradient: 'radial-gradient(circle at 40% 40%, rgba(145, 210, 200, 0.38), rgba(100, 172, 168, 0.15) 62%, rgba(120, 200, 192, 0.08) 76%, transparent 100%)' },
+                { id: 6, size: 95, left: '52%', top: '62%', delay: 1.8, duration: 17, gradient: 'radial-gradient(circle at 35% 35%, rgba(138, 208, 198, 0.41), rgba(92, 168, 164, 0.18) 58%, rgba(112, 198, 190, 0.09) 75%, transparent 100%)' },
+                { id: 7, size: 64, left: '4%', top: '38%', delay: 3.2, duration: 13, gradient: 'radial-gradient(circle at 30% 30%, rgba(148, 212, 202, 0.34), rgba(108, 178, 172, 0.12) 62%, rgba(128, 202, 194, 0.07) 78%, transparent 100%)' },
+                { id: 8, size: 118, left: '58%', top: '28%', delay: 0.4, duration: 19, gradient: 'radial-gradient(circle at 40% 40%, rgba(132, 202, 194, 0.38), rgba(98, 170, 165, 0.16) 60%, rgba(118, 198, 190, 0.09) 76%, transparent 100%)' }
+            ]
+        };
+    </script>
+    <script src="js/case-study-shell.js"></script>
+    <script src="js/page-scroll-star.js"></script>
+</body>
+</html>
