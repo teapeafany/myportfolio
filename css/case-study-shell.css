@@ -1,0 +1,88 @@
+/* Shared layout helpers for EchoSphere-templated case studies */
+.case-study-hero-media {
+    width: 100%;
+    height: auto;
+    max-height: min(85vh, 920px);
+    display: block;
+    object-fit: contain;
+    object-position: center;
+    background: var(--echosphere-canvas, #fbfbfd);
+}
+
+.case-study-media-placeholder,
+.case-study-cinema-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    font-family: var(--font-nhg-text);
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    font-weight: var(--font-weight-thin, 300);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--echosphere-ink-muted, rgba(29, 29, 31, 0.56));
+    background: linear-gradient(145deg, #ececef 0%, #e2e2e8 48%, #d8d8e0 100%);
+}
+
+.case-study-cinema-placeholder {
+    z-index: 0;
+}
+
+.case-study-youtube-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    margin: 2rem auto 0;
+    border-radius: var(--echosphere-card-radius, 24px);
+    overflow: hidden;
+    box-shadow: var(--echosphere-card-shadow);
+    border: var(--echosphere-card-border);
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.case-study-youtube-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.case-study-proto-placeholder {
+    max-width: 720px;
+    margin: 0 auto;
+    border-radius: var(--echosphere-card-radius, 24px);
+    overflow: hidden;
+    box-shadow: var(--echosphere-card-shadow);
+}
+
+.case-study-proto-placeholder .echosphere-analysis-card-media {
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #f0f0f4 0%, #e4e4ec 100%);
+    color: var(--echosphere-ink-muted);
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+
+.case-study-placeholder-card .echosphere-analysis-card-media {
+    min-height: 200px;
+    background: linear-gradient(160deg, #f0f0f4 0%, #e4e4ec 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--echosphere-ink-muted);
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+}

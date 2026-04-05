@@ -1,0 +1,11 @@
+/* Chow Club warm accents on EchoSphere shell */
+body.case-study-chowclub .echosphere-scroll-rail .home-scroll-thumb img {
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.12))
+        drop-shadow(0 0 14px rgba(237, 220, 192, 0.55));
+}
+
+body.case-study-chowclub .case-study-media-placeholder,
+body.case-study-chowclub .case-study-cinema-placeholder {
+    background: linear-gradient(145deg, #faf3e8 0%, #f0e4d4 50%, #e8d9c8 100%);
+    color: rgba(90, 60, 30, 0.55);
+}

@@ -3071,6 +3071,29 @@ body {
     width: 100%;
 }
 
+/* Lo-fi still + help-doc screen recording: show full frame (avoid cover crop) */
+.echosphere-building-prototype-carousel .echosphere-building-prototype-media--contain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    min-height: clamp(12rem, 28vw, 22rem);
+    background: #f5f5f7;
+}
+
+.echosphere-building-prototype-carousel .echosphere-building-prototype-media--contain .echosphere-analysis-card-img,
+.echosphere-building-prototype-carousel .echosphere-building-prototype-media--contain .echosphere-analysis-card-video {
+    width: auto;
+    height: auto;
+    max-width: min(88%, 36rem);
+    max-height: 88%;
+    min-height: 0;
+    aspect-ratio: unset;
+    object-fit: contain;
+    object-position: center;
+}
+
 /* Design features — keynote-style deck; one video frame per feature */
 .echosphere-design-features-section {
     margin-top: clamp(4rem, 10vh, 6.5rem);
@@ -3083,8 +3106,53 @@ body {
     background: linear-gradient(168deg, #1c2030 0%, #0c0e14 48%, #08090e 100%);
 }
 
-.echosphere-design-features-slide__media .echosphere-prototype-media-slot {
-    min-height: clamp(12.5rem, 32vh, 20rem);
+/* Design features carousels: identical 16:9 stage for video, image, and placeholders */
+.echosphere-design-features-section .echosphere-design-features-video-slot {
+    background: #f5f5f7;
+}
+
+.echosphere-design-features-section .echosphere-analysis-card-media {
+    background: #f5f5f7;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    min-height: clamp(16rem, 34vw, 34rem);
+}
+
+.echosphere-design-features-section .echosphere-analysis-card-media::after {
+    display: none;
+}
+
+.echosphere-design-features-section .echosphere-analysis-card-video,
+.echosphere-design-features-section .echosphere-analysis-card-img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 0;
+    aspect-ratio: unset;
+    object-fit: contain;
+    object-position: center;
+}
+
+.echosphere-design-features-section .echosphere-prototype-media-slot {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    flex: 1 1 auto;
+    align-self: stretch;
+    aspect-ratio: unset;
+    background: #f5f5f7;
+    box-shadow: none;
+}
+
+.echosphere-design-features-section .mindmap-visual-image,
+.echosphere-design-features-section .mindmap-visual-image:hover {
+    box-shadow: none;
 }
 
 .echosphere-design-features-deck {
@@ -3112,8 +3180,29 @@ body {
     max-width: min(64rem, 100%);
 }
 
+/* Design features: wide spotlight band (all three pillars; carousels use wide slides) */
+.echosphere-design-features-slide--spotlight {
+    max-width: min(92rem, 100%);
+}
+
+.echosphere-design-features-slide__media--spotlight {
+    max-width: min(80rem, min(88vw, 100%));
+    margin-bottom: clamp(1.75rem, 4.5vh, 2.75rem);
+}
+
+/* Spotlight + carousel: each slide nearly fills the wide band; small peek of the next card */
+.echosphere-design-features-slide__media--spotlight .echosphere-design-features-carousel .echosphere-analysis-card {
+    flex: 0 0 min(68rem, 92%);
+}
+
 .echosphere-design-features-slide__media .echosphere-analysis-card-media {
     margin: 0 auto;
+}
+
+/* Design feature rows — each media area is a horizontal carousel */
+.echosphere-design-features-slide__media .echosphere-design-features-carousel {
+    margin-top: 0;
+    text-align: left;
 }
 
 .echosphere-design-features-slide + .echosphere-design-features-slide {

@@ -5,388 +5,290 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="film/cursor-star.png" type="image/png">
     <title>CHOW CLUB - Tiffany Lee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/chowclub.css">
+    <link rel="stylesheet" href="css/echosphere.css">
+    <link rel="stylesheet" href="css/case-study-shell.css">
+    <link rel="stylesheet" href="css/case-study-chowclub.css">
 </head>
-<body>
+<body class="echosphere-page case-study-chowclub">
     <script src="js/paper-ink-filter.js"></script>
     <script src="js/nav-scroll.js" defer></script>
-    <!-- Progress Bar -->
-    <div class="chowclub-progress-bar" id="chowclub-progress-bar">
-        <div class="progress-line"></div>
-        <div class="progress-item" data-section="problem">
-            <div class="progress-circle"></div>
-            <span class="progress-label">00: Context</span>
-        </div>
-        <div class="progress-item" data-section="insights">
-            <div class="progress-circle"></div>
-            <span class="progress-label">01: Insights</span>
-        </div>
-        <div class="progress-item" data-section="ideation">
-            <div class="progress-circle"></div>
-            <span class="progress-label">02: Ideation</span>
-        </div>
-        <div class="progress-item" data-section="iterations">
-            <div class="progress-circle"></div>
-            <span class="progress-label">03: Iterations</span>
-        </div>
-        <div class="progress-item" data-section="prototype">
-            <div class="progress-circle"></div>
-            <span class="progress-label">04: Prototype</span>
+    <div class="floating-bubbles" id="floating-bubbles"></div>
+    <div class="echosphere-film-grain" aria-hidden="true"></div>
+    <div class="about-progress-bar home-scroll-rail visible echosphere-scroll-rail" id="about-progress-bar" aria-hidden="false">
+        <div class="home-scroll-track" id="home-scroll-track"></div>
+        <div class="home-scroll-thumb" id="home-scroll-thumb" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Scroll the case study">
+            <img src="film/home-scroll-star.png" alt="" width="88" height="88" draggable="false">
         </div>
     </div>
     
-    <!-- Hero Section -->
     <div id="hero-section" class="hero-section fade-in-section">
-        <!-- Shared Navigation -->
         <div id="navigation-container"></div>
-        <img src="film/chowintro.svg" alt="CHOW CLUB" class="project-title">
-
-        <a href="#next-section">
-            <img src="film/downarrow.svg" alt="Down Arrow" class="down-arrow">
-        </a>
-    </div>
-
-    <!-- Next Section -->
-    <div id="problem-section" class="next-section">
-        <div class="content-container">
-            <!-- Section 00: Defining the Problem -->
-            <div class="section fade-in-section">
-                <h2 class="section-title">00: Defining the Problem</h2>
-                
-                <div class="po-gradient-box po-box-light">
-                    <h3 class="po-box-title">Context</h3>
-                    <p class="po-box-text">
-                        It started with a simple question: <strong>why do so many of our peers struggle to cook for themselves?</strong>
-                    </p>
-                    <p class="po-box-text">
-                        During the transition into college life, we noticed how cooking, something that should feel comforting, often became intimidating or forgotten. Together with fellow designer Anieka, we set out to understand that gap.
-                    </p>
-                </div>
-                
-                <div class="po-gradient-box po-box-dark">
-                    <h3 class="po-box-title">Project Overview</h3>
-                    <p class="po-box-text">
-                        Chow Club grew from those conversations. It is a gamified social platform designed to make cooking approachable, playful, and confidence-building for young adults. By turning everyday meals into moments of creativity and connection, we aimed to reframe cooking not as a chore but as a story worth savoring.
-                    </p>
-                </div>
+        <div class="echosphere-hero-montage">
+            <h1 class="echosphere-sr-only">Chow Club</h1>
+            <div class="echosphere-hero-intro echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t0" aria-label="Chow Club hero">
+                <div class="echosphere-hero-intro-frame">
+                    <img src="film/chowintro.svg" alt="" class="echosphere-hero-intro-video case-study-hero-media" width="1200" height="800" />
             </div>
         </div>
     </div>
     
-    <!-- Insights Section -->
-    <div id="insights-section" class="next-section">
-        <div class="content-container">
-            <!-- Section 01: Gathering Insights -->
-            <div class="section fade-in-section">
-                <h2 class="section-title">01: Gathering Insights</h2>
-                
-                <div class="po-gradient-box po-box-light">
-                    <h3 class="po-box-title">Insights</h3>
-                    <p class="po-box-text">
-                        From user interviews and peer discussions, we discovered that most students:
-                    </p>
-                    <ul class="po-box-list">
-                        <li>Struggle to find motivation to cook for one.</li>
-                        <li>Feel overwhelmed by recipes with complex steps.</li>
-                        <li>Miss the sense of community around cooking.</li>
-                    </ul>
-                </div>
+        <div id="next-section" class="echosphere-post-hero" aria-label="Project context">
+            <div class="echosphere-post-hero-inner">
+                <h2 id="echosphere-post-hero-heading" class="echosphere-research-heading" aria-live="polite" aria-label="Project introduction">
+                    <div class="echosphere-research-letter" id="echosphere-research-letter"></div>
+                </h2>
             </div>
         </div>
-    </div>
 
-    <!-- Question Section -->
-    <div class="question-section fade-in-section">
-        <div class="question-container">
-            <h2 class="question-text">How might we motivate struggling<br>college students to build healthy<br>and responsible eating habits?</h2>
-        </div>
-        <img src="film/bunny.png" alt="Bunny" class="bunny-image">
-    </div>
-
-    <!-- Design Ideation Section -->
-    <div id="ideation-section" class="next-section">
-        <div class="content-container">
-            <!-- Section 02: Design Ideation -->
-            <div class="section fade-in-section">
-                <h2 class="section-title">02: Design Ideation</h2>
-                
-                <div class="po-gradient-box po-box-light">
-                    <h3 class="po-box-title">Direction</h3>
-                    <p class="po-box-text">
-                        We wanted to make cooking feel more like a game, encouraging progress through small, achievable steps. This meant introducing challenges, rewards, and community interaction.
-                    </p>
-                </div>
-                
-                <div class="po-gradient-box po-box-dark">
-                    <h3 class="po-box-title">Ideation</h3>
-                    <p class="po-box-text">
-                        We began by sketching out low-fidelity wireframes inspired by mobile gaming interfaces, focusing on bright visuals, progress tracking, and minimal friction in onboarding.
-                    </p>
-                </div>
-                
-                <div class="wireframes-container">
-                    <img src="film/wireframeschow.svg" alt="Low-fidelity wireframes" class="wireframes-image">
-                </div>
+        <div id="you-told-us-section" class="echosphere-hero-intro echosphere-hero-you-told-us echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section" aria-labelledby="cc-context-heading">
+            <div class="echosphere-hero-intro-frame">
+                <div class="case-study-media-placeholder" role="img" aria-label="Placeholder for hero motion or cook-along clip">App walkthrough &amp; social proof — placeholder</div>
             </div>
-        </div>
+            <div class="echosphere-you-told-us-below">
+                <div class="echosphere-you-told-us-bubbles echosphere-you-told-us-bubbles--spread" aria-label="Research notes">
+                    <div class="echosphere-you-told-us-bubbles-col echosphere-you-told-us-bubbles-col--left">
+                        <blockquote class="echosphere-you-told-us-bubble echosphere-you-told-us-bubble--in">
+                            <span class="echosphere-paper-ink-text">&ldquo;Cooking for one feels like too much work.&rdquo;</span>
+                        </blockquote>
     </div>
-
-    <!-- Section 03: Final Iterations -->
-    <div id="iterations-section" class="next-section">
-        <div class="content-container">
-            <div class="section fade-in-section">
-                <h2 class="section-title">03: Final Iterations</h2>
-                
-                <div class="po-gradient-box po-box-light">
-                    <h3 class="po-box-title">Minor Gamification</h3>
-                    <p class="po-box-text">
-                        Keeping it simple, the user can complete recipes to level up and unlock more recipes. This way, gamification is meant to act as motivation rather than be the central goal.
-                    </p>
-                    <div class="wireframes-container">
-                        <img src="film/wireframes2chow.svg" alt="Gamification wireframes" class="wireframes-image">
+                    <div class="echosphere-you-told-us-bubbles-col echosphere-you-told-us-bubbles-col--center">
+                        <blockquote class="echosphere-you-told-us-bubble echosphere-you-told-us-bubble--mid">
+                            <span class="echosphere-paper-ink-text">&ldquo;I miss cooking with people.&rdquo;</span>
+                        </blockquote>
+        </div>
+                    <div class="echosphere-you-told-us-bubbles-col echosphere-you-told-us-bubbles-col--right">
+                        <blockquote class="echosphere-you-told-us-bubble echosphere-you-told-us-bubble--out">
+                            <span class="echosphere-paper-ink-text">&ldquo;Recipes online are overwhelming.&rdquo;</span>
+                        </blockquote>
+    </div>
+                </div>
+                <div class="echosphere-you-told-us-paper">
+                    <h2 id="cc-context-heading" class="echosphere-you-told-us-stack-heading">
+                        <span class="echosphere-sr-only">Context</span>
+                        <span class="echosphere-you-told-us-kicker--below" aria-hidden="true">
+                            <span class="echosphere-you-told-us-kicker-text">
+                                <span id="echosphere-you-told-us-kicker-text"></span><span class="echosphere-you-told-us-kicker-caret" id="echosphere-you-told-us-kicker-caret" aria-hidden="true">|</span>
+                            </span>
+                        </span>
+                    </h2>
+                    <div class="echosphere-you-told-us-stack">
+                        <p class="echosphere-you-told-us-body-lead">
+                            Chow Club started from a simple observation: during the shift into college, cooking—something that should feel comforting—often became intimidating or forgotten.
+                        </p>
+                        <p class="echosphere-you-told-us-body-tagline">
+                            With designer Anieka, we explored how gamification and community could make cooking approachable again.
+                        </p>
                     </div>
                 </div>
-                
-                <div class="po-gradient-box po-box-dark">
-                    <h3 class="po-box-title">Step-By-Step User Guide</h3>
-                    <p class="po-box-text">
-                        Users can interact while cooking without a need to read through a long recipe list.
-                    </p>
-                    <div class="wireframes-container">
-                        <img src="film/stepbystepwireframe.svg" alt="Step-by-step wireframes" class="wireframes-image">
-                    </div>
-                </div>
-                
-                <div class="po-gradient-box po-box-light">
-                    <h3 class="po-box-title">Social Motivation</h3>
-                    <p class="po-box-text">
-                        Most users find motivation through social interaction and friends. Now, friends can learn recipes together and share their completed dishes in their profile as well as on other social media platforms.
-                    </p>
-                    <div class="wireframes-container">
-                        <img src="film/socialmotivwireframe.svg" alt="Social motivation wireframes" class="wireframes-image">
+                <div class="echosphere-research-scope" aria-labelledby="cc-scope-heading">
+                    <h3 id="cc-scope-heading" class="echosphere-sr-only">Methods</h3>
+                    <div class="echosphere-research-scope-stage">
+                        <p class="echosphere-research-scope-stat echosphere-research-scope-stat--survey">Peer interviews</p>
+                        <div class="echosphere-research-scope-stat echosphere-research-scope-stat--interviews">
+                            <p class="echosphere-research-scope-interview-line">Affinity themes</p>
+                            <p class="echosphere-research-scope-interview-sub">motivation, friction, community</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Final Prototype Section -->
-    <div id="prototype-section" class="next-section">
-        <div class="content-container">
-            <div class="section fade-in-section">
-                <h2 class="section-title">04: Final Prototype</h2>
-                <div class="prototype-container">
-                    <iframe src="https://embed.figma.com/proto/4Z0dCm2P1scv26WsHGrR2x/tiffany---anieka?page-id=1%3A3&node-id=8243-6662&viewport=263%2C413%2C0.04&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8243%3A6662&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>
+        <section id="echosphere-insights-cinema-section" class="echosphere-hero-intro echosphere-insights-cinema echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section" aria-labelledby="echosphere-insights-cinema-heading">
+            <div class="echosphere-hero-intro-frame echosphere-insights-cinema-frame">
+                <div class="case-study-cinema-placeholder" aria-hidden="true">Kitchen &amp; campus B-roll — placeholder</div>
+                <div class="echosphere-insights-cinema-scrim" aria-hidden="true"></div>
+                <div class="echosphere-insights-cinema-content">
+                    <h2 id="echosphere-insights-cinema-heading" class="echosphere-you-told-us-stack-heading">
+                        <span class="echosphere-sr-only">What we learned</span>
+                        <span class="echosphere-you-told-us-kicker--below" aria-hidden="true">
+                            <span class="echosphere-you-told-us-kicker-text">
+                                <span id="echosphere-insights-kicker-text"></span><span class="echosphere-you-told-us-kicker-caret" id="echosphere-insights-kicker-caret" aria-hidden="true">|</span>
+                            </span>
+                        </span>
+                    </h2>
+                    <p class="echosphere-insights-cinema-headline">
+                        Students want progress,<br />not another chore list.
+                    </p>
+                    <div class="echosphere-insights-cinema-columns">
+                        <div class="echosphere-insights-cinema-item">
+                            <h3 class="echosphere-insights-cinema-item-title">Friction</h3>
+                            <p class="echosphere-insights-cinema-item-copy">
+                                Long recipes and cooking solo killed momentum; small wins and clear steps mattered more than gourmet outcomes.
+                            </p>
+                        </div>
+                        <div class="echosphere-insights-cinema-item">
+                            <h3 class="echosphere-insights-cinema-item-title">Community</h3>
+                            <p class="echosphere-insights-cinema-item-copy">
+                                Shared meals and low-stakes challenges brought accountability—cooking felt less lonely when it felt like play.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="echosphere-understanding-research echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section" aria-labelledby="cc-research-heading">
+            <div class="echosphere-understanding-research-paper">
+                <h2 id="cc-research-heading" class="echosphere-understanding-research-heading">Ideation &amp; wireframes</h2>
+                <div class="echosphere-you-told-us-stack">
+                    <p class="echosphere-you-told-us-body-lead">
+                        We sketched game-like flows—bright onboarding, streaks, and recipe unlocks—then pressure-tested them in lo-fi before adding visual polish.
+                    </p>
+                </div>
+
+                <div class="echosphere-analysis-carousel" role="region" aria-roledescription="carousel" aria-label="Wireframes">
+                    <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                    <div class="echosphere-analysis-carousel-track">
+                        <article class="echosphere-analysis-card">
+                            <div class="echosphere-analysis-card-media">
+                                <img src="film/wireframeschow.svg" alt="Low-fidelity Chow Club wireframes" class="echosphere-analysis-card-img mindmap-visual-image" onclick="enlargeImage(this)" />
+                            </div>
+                            <div class="echosphere-analysis-card-copy">
+                                <h3 class="echosphere-analysis-card-title">Lo-fi exploration</h3>
+                                <p class="echosphere-analysis-card-text">Gaming-inspired layouts with progress, challenges, and gentle onboarding.</p>
+                            </div>
+                        </article>
+                        <article class="echosphere-analysis-card">
+                            <div class="echosphere-analysis-card-media">
+                                <img src="film/wireframes2chow.svg" alt="Gamification wireframes for Chow Club" class="echosphere-analysis-card-img mindmap-visual-image" onclick="enlargeImage(this)" />
+                            </div>
+                            <div class="echosphere-analysis-card-copy">
+                                <h3 class="echosphere-analysis-card-title">Minor gamification</h3>
+                                <p class="echosphere-analysis-card-text">Leveling up through completed recipes—motivation without turning meals into grind.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                
+                <section class="echosphere-key-findings-section" aria-labelledby="cc-pillars-heading">
+                    <h3 id="cc-pillars-heading" class="echosphere-key-findings-heading">Design pillars</h3>
+                    <div class="echosphere-key-findings-panel echosphere-key-findings-paper">
+                        <div class="echosphere-findings-diagram__themes">
+                            <article class="echosphere-findings-theme">
+                                <div class="echosphere-findings-theme__header">
+                                    <span class="echosphere-findings-theme__icon" aria-hidden="true">🍳</span>
+                                    <h4 class="echosphere-findings-theme__title">Approachable steps</h4>
+                                </div>
+                                <div class="echosphere-findings-theme__block">
+                                    <p class="echosphere-findings-theme__text">Break recipes into wins users can finish between classes—not marathon sessions.</p>
+                                </div>
+                            </article>
+                            <article class="echosphere-findings-theme">
+                                <div class="echosphere-findings-theme__header">
+                                    <span class="echosphere-findings-theme__icon" aria-hidden="true">🎮</span>
+                                    <h4 class="echosphere-findings-theme__title">Playful progression</h4>
+                                </div>
+                                <div class="echosphere-findings-theme__block">
+                                    <p class="echosphere-findings-theme__text">Light rewards and unlocks reinforce habit without punishing missed days.</p>
+                                </div>
+                            </article>
+                            <article class="echosphere-findings-theme">
+                                <div class="echosphere-findings-theme__header">
+                                    <span class="echosphere-findings-theme__icon" aria-hidden="true">👥</span>
+                                    <h4 class="echosphere-findings-theme__title">Social flavor</h4>
+                                </div>
+                                <div class="echosphere-findings-theme__block">
+                                    <p class="echosphere-findings-theme__text">Shared challenges bring the feeling of cooking with friends—even remotely.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="echosphere-understanding-design-direction-section" class="echosphere-insight-ambient-band echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1" aria-labelledby="cc-dir-heading echosphere-hmw-heading">
+                    <div class="echosphere-insight-ambient-slot echosphere-insight-ambient-slot--wide">
+                        <div class="echosphere-insight-ambient__frame">
+                            <div id="echosphere-insight-ambient-bubbles" class="echosphere-insight-ambient__bubbles" aria-hidden="true"></div>
+                            <div class="echosphere-insight-ambient__scrim" aria-hidden="true"></div>
+                            <div class="echosphere-insight-ambient__stack">
+                                <div class="echosphere-insight-ambient__content echosphere-insight-ambient__content--cinema">
+                                    <h2 id="cc-dir-heading" class="echosphere-insight-ambient__eyebrow">North star</h2>
+                                    <p class="echosphere-insight-ambient__lead">Reframe cooking as a story worth savoring—not a checklist for “adulting.”</p>
+                                    <p class="echosphere-insight-ambient__body">Prototype screens and motion studies — placeholder video slot above in future passes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="echosphere-insight-ambient__hmw echosphere-insight-ambient__hmw--on-light">
+                            <h3 id="echosphere-hmw-heading" class="echosphere-insight-ambient__hmw-text">
+                                <span class="echosphere-insight-ambient__hmw-kicker"><span class="echosphere-research-type-wrap">how might we</span></span>
+                                <span class="echosphere-insight-ambient__hmw-body">motivate struggling college students to build <span class="echosphere-research-type-wrap echosphere-insight-ambient__hmw-body-kicker-match">healthy</span>, <span class="echosphere-research-type-wrap echosphere-insight-ambient__hmw-body-kicker-match">responsible</span> eating habits through playful, social cooking?</span>
+                            </h3>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="echosphere-concept-section" class="echosphere-insight-ambient-band echosphere-concept-ambient-band echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1" aria-labelledby="cc-next-heading">
+                    <div class="echosphere-insight-ambient-slot echosphere-insight-ambient-slot--wide">
+                        <div class="echosphere-insight-ambient__frame">
+                            <div id="echosphere-concept-ambient-bubbles" class="echosphere-insight-ambient__bubbles" aria-hidden="true"></div>
+                            <div class="echosphere-insight-ambient__scrim" aria-hidden="true"></div>
+                            <div class="echosphere-insight-ambient__stack">
+                                <div class="echosphere-insight-ambient__content echosphere-insight-ambient__content--cinema">
+                                    <h2 id="cc-next-heading" class="echosphere-insight-ambient__eyebrow">Next on the stove</h2>
+                                    <p class="echosphere-insight-ambient__lead">Hi-fi UI, usability tests, and a clickable prototype—drop assets into this shell when ready.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+                </section>
+
+                <section class="echosphere-final-prototype-section echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1" aria-labelledby="cc-proto-heading">
+                    <h2 id="cc-proto-heading" class="echosphere-understanding-research-heading">Prototype</h2>
+                    <div class="echosphere-you-told-us-stack">
+                        <p class="echosphere-you-told-us-body-lead">Figma embed or device capture — placeholder below.</p>
+                    </div>
+                    <div class="echosphere-final-prototype-embed">
+                        <div class="case-study-placeholder-card echosphere-analysis-card case-study-proto-placeholder">
+                            <div class="echosphere-analysis-card-media">Interactive prototype — add Figma embed URL</div>
+                        </div>
+                    </div>
+                </section>
                 </div>
             </div>
         </div>
         
-        <!-- Back to Top Arrow -->
         <div class="back-to-top-section">
-            <a href="#hero-section">
-                <img src="film/downarrow.svg" alt="Back to Top" class="up-arrow">
-            </a>
-        </div>
+        <a href="#hero-section"><img src="film/downarrow.svg" alt="Back to Top" class="up-arrow"></a>
     </div>
 
 <script>
-        // Include back button only
-        function includeNavigation() {
-            const navHTML = `
-                <nav class="nav-menu">
-                    <a href="work.html" class="nav-item nav-back" id="nav-back" aria-label="Back to Work">
-                        <span class="back-button-label" aria-hidden="true">&lt;</span>
-                    </a>
-                </nav>
-            `;
-            document.getElementById('navigation-container').innerHTML = navHTML;
-        }
-        
-        // Load navigation when page loads
-        document.addEventListener('DOMContentLoaded', includeNavigation);
-        
-        // Scroll Snap Animation - Show sections as they snap into view
-        function handleScrollAnimation() {
-            const sections = document.querySelectorAll('.fade-in-section');
-            
-            sections.forEach((section, index) => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const sectionHeight = section.getBoundingClientRect().height;
-                const windowHeight = window.innerHeight;
-                
-                // More lenient detection - show section when it's mostly in view
-                const isInView = sectionTop <= windowHeight * 0.3 && sectionTop >= -sectionHeight * 0.7;
-                
-                if (isInView) {
-                    section.classList.add('is-visible');
-                }
-            });
-        }
-        
-        // Add scroll event listener with faster response
-        let scrollTimeout;
-        window.addEventListener('scroll', () => {
-            if (scrollTimeout) {
-                clearTimeout(scrollTimeout);
-            }
-            scrollTimeout = setTimeout(handleScrollAnimation, 10);
-        });
-        
-        // Initialize hero section immediately and run detection
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.fade-in-section');
-            // Show hero section (first section) immediately
-            if (sections[0]) {
-                sections[0].classList.add('is-visible');
-            }
-            // Run detection immediately
-            handleScrollAnimation();
-        });
-        
-        // Add keyboard navigation for scroll snap
-        document.addEventListener('keydown', (e) => {
-            const sections = document.querySelectorAll('.fade-in-section');
-            const currentScroll = window.pageYOffset;
-            const windowHeight = window.innerHeight;
-            const currentSection = Math.round(currentScroll / windowHeight);
-            
-            if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: (currentSection + 1) * windowHeight,
-                    behavior: 'smooth'
-                });
-            } else if (e.key === 'ArrowUp' && currentSection > 0) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: (currentSection - 1) * windowHeight,
-                    behavior: 'smooth'
-                });
-            }
-        });
-        
-        // Add smooth fade-in
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                document.body.classList.add('loaded');
-            }, 100);
-        });
-        
-        // Progress Bar Functionality
-        let sectionTitles = [];
-        
-        function findSectionTitles() {
-            const numbers = ['00', '01', '02', '03', '04'];
-            sectionTitles = [];
-            
-            numbers.forEach((number) => {
-                const titleElement = Array.from(document.querySelectorAll('h2')).find(h2 => {
-                    return h2.textContent.trim().startsWith(number + ':');
-                });
-                
-                if (titleElement) {
-                    sectionTitles.push(titleElement);
-                }
-            });
-        }
-        
-        function updateProgressBar() {
-            if (sectionTitles.length === 0) {
-                findSectionTitles();
-            }
-            
-            const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-            const windowHeight = window.innerHeight;
-            const viewportCenter = scrollY + windowHeight / 2;
-            let activeIndex = 0;
-            let minDistance = Infinity;
-            
-            // Find which section title is closest to viewport center
-            sectionTitles.forEach((titleElement, index) => {
-                const rect = titleElement.getBoundingClientRect();
-                const elementTop = scrollY + rect.top;
-                const elementCenter = elementTop + rect.height / 2;
-                const distance = Math.abs(viewportCenter - elementCenter);
-                
-                // Check if element is in viewport
-                if (rect.top < windowHeight && rect.bottom > 0) {
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        activeIndex = index;
-                    }
-                }
-            });
-            
-            // If we're at the bottom, make the last section active
-            if (scrollY + windowHeight >= document.documentElement.scrollHeight - 50) {
-                activeIndex = sectionTitles.length - 1;
-            }
-            
-            // Update progress items
-            const progressItems = document.querySelectorAll('.progress-item');
-            progressItems.forEach((item, index) => {
-                const circle = item.querySelector('.progress-circle');
-                if (circle) {
-                    circle.classList.remove('active', 'completed');
-                    item.classList.remove('active');
-                    
-                    if (index < activeIndex) {
-                        circle.classList.add('completed');
-                    } else if (index === activeIndex) {
-                        circle.classList.add('active');
-                        item.classList.add('active');
-                    }
-                }
-            });
-        }
-        
-        // Scroll event listener
-        let ticking = false;
-        function onScroll() {
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    updateProgressBar();
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }
-        
-        window.addEventListener('scroll', onScroll, { passive: true });
-        
-        // Click handlers for progress items
-        document.addEventListener('DOMContentLoaded', function() {
-            findSectionTitles();
-            
-            document.querySelectorAll('.progress-item').forEach((item, index) => {
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    if (sectionTitles[index]) {
-                        const titleElement = sectionTitles[index];
-                        const rect = titleElement.getBoundingClientRect();
-                        const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-                        const offsetTop = scrollY + rect.top - 100;
-                        
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Initial update
-            updateProgressBar();
-        });
-        
-        // Also update after page fully loads
-        window.addEventListener('load', function() {
-            findSectionTitles();
-            updateProgressBar();
-        });
+        window.CaseStudyShell = {
+            intro: {
+                main: 'UX case study · gamified cooking for young adults.',
+                date: '(FALL 2024)',
+                goal: 'OUR GOAL: MAKE COOKING FEEL LIKE ADVENTURE, NOT CHORE',
+                typingAriaStart: 'UX case study · gamified cooking for young adults. (FALL 2024)',
+                fullAria: 'UX case study · gamified cooking for young adults. (FALL 2024). OUR GOAL: MAKE COOKING FEEL LIKE ADVENTURE, NOT CHORE'
+            },
+            kickerYouToldUs: 'THE KITCHEN',
+            kickerInsights: 'WHAT WE LEARNED',
+            pageBubbles: [
+                { id: 1, size: 300, left: '5%', top: '11%', delay: 0, duration: 21, gradient: 'radial-gradient(circle at 30% 30%, rgba(255, 220, 180, 0.52), rgba(237, 200, 160, 0.26) 55%, rgba(255, 230, 200, 0.14) 72%, transparent 100%)' },
+                { id: 2, size: 340, left: '85%', top: '7%', delay: 1.4, duration: 27, gradient: 'radial-gradient(circle at 40% 40%, rgba(250, 210, 175, 0.48), rgba(230, 195, 150, 0.22) 58%, rgba(245, 215, 185, 0.12) 74%, transparent 100%)' },
+                { id: 3, size: 220, left: '14%', top: '50%', delay: 2.8, duration: 19, gradient: 'radial-gradient(circle at 35% 35%, rgba(255, 225, 190, 0.44), rgba(235, 205, 165, 0.18) 60%, rgba(250, 220, 185, 0.1) 76%, transparent 100%)' },
+                { id: 4, size: 290, left: '70%', top: '34%', delay: 0.7, duration: 24, gradient: 'radial-gradient(circle at 30% 30%, rgba(248, 215, 175, 0.42), rgba(225, 190, 155, 0.16) 58%, rgba(240, 210, 175, 0.09) 74%, transparent 100%)' },
+                { id: 5, size: 240, left: '22%', top: '20%', delay: 2, duration: 20, gradient: 'radial-gradient(circle at 40% 40%, rgba(252, 218, 182, 0.4), rgba(232, 200, 160, 0.15) 62%, rgba(248, 212, 178, 0.08) 76%, transparent 100%)' },
+                { id: 6, size: 310, left: '88%', top: '58%', delay: 3.5, duration: 23, gradient: 'radial-gradient(circle at 35% 35%, rgba(255, 222, 185, 0.43), rgba(230, 198, 158, 0.18) 58%, rgba(245, 215, 180, 0.1) 75%, transparent 100%)' },
+                { id: 7, size: 200, left: '7%', top: '76%', delay: 2.4, duration: 17, gradient: 'radial-gradient(circle at 30% 30%, rgba(250, 212, 178, 0.36), rgba(228, 195, 155, 0.12) 62%, rgba(242, 208, 172, 0.07) 78%, transparent 100%)' },
+                { id: 8, size: 270, left: '55%', top: '68%', delay: 1.1, duration: 22, gradient: 'radial-gradient(circle at 40% 40%, rgba(248, 216, 180, 0.4), rgba(233, 202, 162, 0.16) 60%, rgba(246, 214, 176, 0.09) 76%, transparent 100%)' }
+            ],
+            panelBubbles: [
+                { id: 1, size: 100, left: '6%', top: '10%', delay: 0, duration: 16, gradient: 'radial-gradient(circle at 30% 30%, rgba(255, 220, 185, 0.5), rgba(237, 200, 160, 0.22) 55%, rgba(250, 218, 188, 0.1) 72%, transparent 100%)' },
+                { id: 2, size: 130, left: '78%', top: '8%', delay: 1.2, duration: 20, gradient: 'radial-gradient(circle at 40% 40%, rgba(250, 210, 175, 0.48), rgba(230, 195, 155, 0.2) 58%, rgba(245, 215, 180, 0.1) 74%, transparent 100%)' },
+                { id: 3, size: 72, left: '12%', top: '58%', delay: 2, duration: 14, gradient: 'radial-gradient(circle at 35% 35%, rgba(255, 225, 190, 0.44), rgba(235, 205, 165, 0.18) 60%, rgba(250, 220, 185, 0.09) 76%, transparent 100%)' },
+                { id: 4, size: 110, left: '70%', top: '42%', delay: 0.6, duration: 18, gradient: 'radial-gradient(circle at 30% 30%, rgba(248, 215, 175, 0.42), rgba(225, 190, 155, 0.16) 58%, rgba(240, 210, 175, 0.09) 74%, transparent 100%)' },
+                { id: 5, size: 88, left: '38%', top: '18%', delay: 2.8, duration: 15, gradient: 'radial-gradient(circle at 40% 40%, rgba(252, 218, 182, 0.4), rgba(232, 200, 160, 0.15) 62%, rgba(248, 212, 178, 0.08) 76%, transparent 100%)' },
+                { id: 6, size: 95, left: '52%', top: '62%', delay: 1.8, duration: 17, gradient: 'radial-gradient(circle at 35% 35%, rgba(255, 222, 185, 0.42), rgba(230, 198, 158, 0.18) 58%, rgba(245, 215, 180, 0.09) 75%, transparent 100%)' },
+                { id: 7, size: 64, left: '4%', top: '38%', delay: 3.2, duration: 13, gradient: 'radial-gradient(circle at 30% 30%, rgba(250, 212, 178, 0.36), rgba(228, 195, 155, 0.12) 62%, rgba(242, 208, 172, 0.07) 78%, transparent 100%)' },
+                { id: 8, size: 118, left: '58%', top: '28%', delay: 0.4, duration: 19, gradient: 'radial-gradient(circle at 40% 40%, rgba(248, 216, 180, 0.4), rgba(233, 202, 162, 0.16) 60%, rgba(246, 214, 176, 0.09) 76%, transparent 100%)' }
+            ]
+        };
     </script>
+    <script src="js/case-study-shell.js"></script>
+    <script src="js/page-scroll-star.js"></script>
 </body>
 </html>

@@ -5,537 +5,311 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="film/cursor-star.png" type="image/png">
     <title>VOYMEMO - Tiffany Lee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/voymemo.css">
+    <link rel="stylesheet" href="css/echosphere.css">
+    <link rel="stylesheet" href="css/case-study-shell.css">
+    <link rel="stylesheet" href="css/case-study-voymemo.css">
 </head>
-<body>
+<body class="echosphere-page case-study-voymemo">
     <script src="js/paper-ink-filter.js"></script>
     <script src="js/nav-scroll.js" defer></script>
-    <!-- Progress Bar -->
-    <div class="voymemo-progress-bar" id="voymemo-progress-bar">
-        <div class="progress-line"></div>
-        <div class="progress-item" data-section="process">
-            <div class="progress-circle"></div>
-            <span class="progress-label">00: Process</span>
-        </div>
-        <div class="progress-item" data-section="approach">
-            <div class="progress-circle"></div>
-            <span class="progress-label">01: Approach</span>
-        </div>
-        <div class="progress-item" data-section="mapping">
-            <div class="progress-circle"></div>
-            <span class="progress-label">02: Mapping</span>
-        </div>
-        <div class="progress-item" data-section="presentation">
-            <div class="progress-circle"></div>
-            <span class="progress-label">03: Presentation</span>
-        </div>
-        <div class="progress-item" data-section="discoveries">
-            <div class="progress-circle"></div>
-            <span class="progress-label">04: Discoveries</span>
+    <div class="floating-bubbles" id="floating-bubbles"></div>
+    <div class="echosphere-film-grain" aria-hidden="true"></div>
+    <div class="about-progress-bar home-scroll-rail visible echosphere-scroll-rail" id="about-progress-bar" aria-hidden="false">
+        <div class="home-scroll-track" id="home-scroll-track"></div>
+        <div class="home-scroll-thumb" id="home-scroll-thumb" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Scroll the case study">
+            <img src="film/home-scroll-star.png" alt="" width="88" height="88" draggable="false">
         </div>
     </div>
     
-    <!-- Hero Section -->
     <div id="hero-section" class="hero-section fade-in-section">
-        <!-- Shared Navigation -->
         <div id="navigation-container"></div>
         
-        <img src="film/voymemo.svg" alt="VOYMEMO" class="project-title">
-        
-
-        <a href="#next-section">
-            <img src="film/downarrow.svg" alt="Down Arrow" class="down-arrow">
-        </a>
+        <div class="echosphere-hero-montage">
+            <h1 class="echosphere-sr-only">Voymemo</h1>
+            <div class="echosphere-hero-intro echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t0" aria-label="Voymemo hero">
+                <div class="echosphere-hero-intro-frame">
+                    <img src="film/voymemo.svg" alt="" class="echosphere-hero-intro-video case-study-hero-media" width="1200" height="800" />
     </div>
-
-    <!-- Section 1: A Research-Based Design Process -->
-    <div id="process-section" class="next-section centered-content">
-        <div class="content-container">
-            <div class="section fade-in-section">
-                <h2 class="section-title">A Research-Based Design Process</h2>
-                
-                <h3 class="section-subtitle">How do you design for lives you don't live?</h3>
-                
-                <p class="section-text">
-                    Our client wanted to understand interactions between <strong>teens with chronic medical conditions</strong>, their <strong>caregivers</strong>, and <strong>healthcare systems</strong>. But we had a more fundamental question: <strong>how could we responsibly create solutions without first understanding the people we were designing for?</strong>
-                </p>
             </div>
         </div>
-    </div>
 
-    <!-- Section 2: The Approach -->
-    <div id="approach-section" class="next-section centered-content">
-        <div class="content-container">
-            <div class="section fade-in-section">
-                <h2 class="section-title">The Approach</h2>
-                
-                <h1 class="section-heading">Listen First, Design Later</h1>
-                
-                <p class="section-text">
-                    Before sketching a single idea, we committed to <strong>understanding</strong>. Through in-depth interviews with teens living with chronic conditions, we gathered stories that revealed how they navigate <strong>identity, independence, and care</strong>.
-                </p>
+        <div id="next-section" class="echosphere-post-hero" aria-label="Project context">
+            <div class="echosphere-post-hero-inner">
+                <h2 id="echosphere-post-hero-heading" class="echosphere-research-heading" aria-live="polite" aria-label="Project introduction">
+                    <div class="echosphere-research-letter" id="echosphere-research-letter"></div>
+                </h2>
             </div>
         </div>
-    </div>
 
-    <!-- Section 3: Map the Full Picture -->
-    <div id="mapping-section" class="next-section">
-        <div class="content-container">
-            <div class="section fade-in-section">
-                <h1 class="section-heading">Map the Full Picture</h1>
-                
-                <p class="section-text">
-                    We used two frameworks to make sense of what we heard:
-                </p>
-                
-                <!-- Interactive Frameworks Diagram -->
-                <div class="frameworks-diagram">
-                    <!-- Maslow's Hierarchy -->
-                    <div class="maslow-container">
-                        <h3 class="diagram-title">Maslow's Hierarchy</h3>
-                        <div class="maslow-pyramid">
-                            <div class="pyramid-tier" data-tier="5">
-                                <div class="tier-label">Self Actualization</div>
-                                <div class="tier-description">Not letting their illness define them</div>
+        <div id="you-told-us-section" class="echosphere-hero-intro echosphere-hero-you-told-us echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section" aria-labelledby="vm-context-heading">
+            <div class="echosphere-hero-intro-frame">
+                <div class="case-study-media-placeholder" role="img" aria-label="Placeholder for process film">Process &amp; interview footage — placeholder</div>
                             </div>
-                            <div class="pyramid-tier" data-tier="4">
-                                <div class="tier-label">Esteem</div>
-                                <div class="tier-description">Wanting to be seen as a normal teen outside of their illness</div>
+            <div class="echosphere-you-told-us-below">
+                <div class="echosphere-you-told-us-bubbles echosphere-you-told-us-bubbles--spread" aria-label="Research themes">
+                    <div class="echosphere-you-told-us-bubbles-col echosphere-you-told-us-bubbles-col--left">
+                        <blockquote class="echosphere-you-told-us-bubble echosphere-you-told-us-bubble--in">
+                            <span class="echosphere-paper-ink-text">&ldquo;How do you design for lives you don&apos;t live?&rdquo;</span>
+                        </blockquote>
                             </div>
-                            <div class="pyramid-tier" data-tier="3">
-                                <div class="tier-label">Social</div>
-                                <div class="tier-description">Friends, community, involvement in extracurriculars/hobbies</div>
+                    <div class="echosphere-you-told-us-bubbles-col echosphere-you-told-us-bubbles-col--center">
+                        <blockquote class="echosphere-you-told-us-bubble echosphere-you-told-us-bubble--mid">
+                            <span class="echosphere-paper-ink-text">&ldquo;Listen first, design later.&rdquo;</span>
+                        </blockquote>
                             </div>
-                            <div class="pyramid-tier" data-tier="2">
-                                <div class="tier-label">Safety</div>
-                                <div class="tier-description">Consistent and reliable healthcare</div>
-                            </div>
-                            <div class="pyramid-tier" data-tier="1">
-                                <div class="tier-label">Physiological</div>
-                                <div class="tier-description">Stable and good health with condition</div>
+                    <div class="echosphere-you-told-us-bubbles-col echosphere-you-told-us-bubbles-col--right">
+                        <blockquote class="echosphere-you-told-us-bubble echosphere-you-told-us-bubble--out">
+                            <span class="echosphere-paper-ink-text">&ldquo;Teens, caregivers, and care systems—together.&rdquo;</span>
+                        </blockquote>
                             </div>
                         </div>
+                <div class="echosphere-you-told-us-paper">
+                    <h2 id="vm-context-heading" class="echosphere-you-told-us-stack-heading">
+                        <span class="echosphere-sr-only">Context</span>
+                        <span class="echosphere-you-told-us-kicker--below" aria-hidden="true">
+                            <span class="echosphere-you-told-us-kicker-text">
+                                <span id="echosphere-you-told-us-kicker-text"></span><span class="echosphere-you-told-us-kicker-caret" id="echosphere-you-told-us-kicker-caret" aria-hidden="true">|</span>
+                            </span>
+                        </span>
+                    </h2>
+                    <div class="echosphere-you-told-us-stack">
+                        <p class="echosphere-you-told-us-body-lead">
+                            Our client asked how teens with chronic conditions, caregivers, and healthcare systems interact—and how we could design responsibly without living those lives ourselves.
+                        </p>
+                        <p class="echosphere-you-told-us-body-tagline">
+                            We started with depth: interviews, frameworks, and film to keep real voices in the room.
+                        </p>
                     </div>
-                    
-                    <!-- Need Progression -->
-                    <div class="progression-container">
-                        <h3 class="diagram-title">Frameworks</h3>
-                        <div class="progression-flow">
-                            <div class="progression-item" data-level="common">
-                                <div class="progression-label">Common</div>
-                                <div class="progression-box">
-                                    <div class="progression-statement">Need to fit in</div>
                                 </div>
-                                <div class="progression-explanation">Social standards</div>
-                            </div>
-                            <div class="progression-arrow">↓</div>
-                            <div class="progression-item" data-level="context">
-                                <div class="progression-label">Context</div>
-                                <div class="progression-box">
-                                    <div class="progression-statement">Need to make friends</div>
-                                </div>
-                                <div class="progression-explanation">Personal Connections</div>
-                            </div>
-                            <div class="progression-arrow">↓</div>
-                            <div class="progression-item" data-level="activity">
-                                <div class="progression-label">Activity</div>
-                                <div class="progression-box">
-                                    <div class="progression-statement">Need to join a community</div>
-                                </div>
-                                <div class="progression-explanation">Shared spaces</div>
-                            </div>
-                            <div class="progression-arrow">↓</div>
-                            <div class="progression-item" data-level="qualifier">
-                                <div class="progression-label">Qualifier</div>
-                                <div class="progression-box">
-                                    <div class="progression-statement">Need to be a part of a sports team</div>
-                                </div>
-                                <div class="progression-explanation">Standardized Youth Organizations</div>
-                            </div>
-                        </div>
-                        <div class="progression-summary">Common to Qualifier</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section 4: The Presentation -->
-    <div id="presentation-section" class="next-section centered-content">
-        <div class="content-container">
-            <div class="section fade-in-section">
-                <h2 class="section-title">The Presentation</h2>
-                
-                <h1 class="section-heading">Preserve Their Voices</h1>
-                
-                <p class="section-text">
-                    I created an ethnographic film from interview footage, capturing tone, emotion, and nuance that <strong>written notes couldn't</strong>. It kept our team anchored in real experiences throughout design.
-                </p>
-                
-                <div class="video-embed-container">
-                    <iframe src="https://www.youtube.com/embed/k9Mp_2dbieo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section 5: What We Discovered -->
-    <div id="discoveries-section" class="next-section">
-        <div class="content-container">
-            <div class="section fade-in-section">
-                <h2 class="section-title">What We Discovered</h2>
-                
-                <p class="section-text discovery-intro">
-                    Three powerful tensions emerged from interviews:
-                </p>
-                
-                <div class="discovery-diagram">
-                    <div class="discovery-nodes">
-                        <button type="button" class="discovery-node active" data-discovery="0" aria-pressed="true" aria-label="The Paradox of Visibility — click to read">
-                            <span class="discovery-node-title">The Paradox of Visibility</span>
-                            <span class="discovery-node-teaser">Identity, disclosure, and being seen</span>
-                        </button>
-                        <span class="discovery-connector" aria-hidden="true"></span>
-                        <button type="button" class="discovery-node" data-discovery="1" aria-pressed="false" aria-label="The Friendship Gap — click to read">
-                            <span class="discovery-node-title">The Friendship Gap</span>
-                            <span class="discovery-node-teaser">Connection when it matters most</span>
-                        </button>
-                        <span class="discovery-connector" aria-hidden="true"></span>
-                        <button type="button" class="discovery-node" data-discovery="2" aria-pressed="false" aria-label="The Care Tension — click to read">
-                            <span class="discovery-node-title">The Care Tension</span>
-                            <span class="discovery-node-teaser">Autonomy and being cared for</span>
-                        </button>
-                    </div>
-                    <div class="discovery-detail">
-                        <div class="discovery-detail-pane active" data-discovery="0">
-                            <p class="section-text">Teens didn't want their conditions to define them, yet weren't embarrassed either. As one participant put it: "I don't tell most people...I just want them to <strong>treat me like a normal person</strong>." Another said: "I'm definitely not embarrassed to have it...<strong>but my asthma is not who I am</strong>." They wanted control over disclosure, explaining on their terms, when relevant, without becoming "the sick kid."</p>
-                        </div>
-                        <div class="discovery-detail-pane" data-discovery="1">
-                            <p class="section-text">Friends were described as essential sources of <strong>comfort and connection</strong>. Yet during flare-ups, the moments when support mattered most, teens were <strong>isolated</strong>. They spent difficult days alone or with <strong>parents</strong>, not wanting to <strong>burden friends or seem different</strong>. One teen stayed connected through constant texting and FaceTime, receiving photos of events she couldn't attend. <strong>Connection mattered, but genuine involvement felt out of reach.</strong></p>
-                        </div>
-                        <div class="discovery-detail-pane" data-discovery="2">
-                            <p class="section-text">Teens valued autonomy but relied <strong>heavily on parents during health crises</strong>. They wanted to feel cared for without being infantilized, to manage their health <strong>without it becoming their entire identity</strong>.</p>
+                <div class="echosphere-research-scope" aria-labelledby="vm-scope-heading">
+                    <h3 id="vm-scope-heading" class="echosphere-sr-only">Research scope</h3>
+                    <div class="echosphere-research-scope-stage">
+                        <p class="echosphere-research-scope-stat echosphere-research-scope-stat--survey">Ethnographic film</p>
+                        <div class="echosphere-research-scope-stat echosphere-research-scope-stat--interviews">
+                            <p class="echosphere-research-scope-interview-line">In-depth interviews</p>
+                            <p class="echosphere-research-scope-interview-sub">with teens living with chronic conditions</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Back to Top Arrow -->
-        <div class="back-to-top-section">
-            <a href="#hero-section">
-                <img src="film/downarrow.svg" alt="Back to Top" class="up-arrow">
-            </a>
+
+        <section id="echosphere-insights-cinema-section" class="echosphere-hero-intro echosphere-insights-cinema echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section" aria-labelledby="echosphere-insights-cinema-heading">
+            <div class="echosphere-hero-intro-frame echosphere-insights-cinema-frame">
+                <div class="case-study-cinema-placeholder" aria-hidden="true">Insight montage — video placeholder</div>
+                <div class="echosphere-insights-cinema-scrim" aria-hidden="true"></div>
+                <div class="echosphere-insights-cinema-content">
+                    <h2 id="echosphere-insights-cinema-heading" class="echosphere-you-told-us-stack-heading">
+                        <span class="echosphere-sr-only">What we heard</span>
+                        <span class="echosphere-you-told-us-kicker--below" aria-hidden="true">
+                            <span class="echosphere-you-told-us-kicker-text">
+                                <span id="echosphere-insights-kicker-text"></span><span class="echosphere-you-told-us-kicker-caret" id="echosphere-insights-kicker-caret" aria-hidden="true">|</span>
+                            </span>
+                        </span>
+                    </h2>
+                    <p class="echosphere-insights-cinema-headline">
+                        Identity, connection, and care—<br />often in tension.
+                    </p>
+                    <div class="echosphere-insights-cinema-columns">
+                        <div class="echosphere-insights-cinema-item">
+                            <h3 class="echosphere-insights-cinema-item-title">The paradox of visibility</h3>
+                            <p class="echosphere-insights-cinema-item-copy">
+                                Teens wanted to be seen as &ldquo;normal&rdquo; while still owning their story—disclosure on their terms, not as the defining label.
+                            </p>
+    </div>
+                        <div class="echosphere-insights-cinema-item">
+                            <h3 class="echosphere-insights-cinema-item-title">The friendship gap</h3>
+                            <p class="echosphere-insights-cinema-item-copy">
+                                Friends mattered most when flares hit—but those were often the loneliest moments, with support coming from parents instead of peers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="echosphere-understanding-research echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section" aria-labelledby="vm-research-heading">
+            <div class="echosphere-understanding-research-paper">
+                <h2 id="vm-research-heading" class="echosphere-understanding-research-heading">Understanding the research</h2>
+                <div class="echosphere-you-told-us-stack">
+                    <p class="echosphere-you-told-us-body-lead">
+                        We mapped interviews onto Maslow&apos;s hierarchy and a need-progression framework—from common social pressures to highly personal qualifiers.
+                    </p>
+                    <p class="echosphere-you-told-us-body-tagline">
+                        Placeholder: detailed framework diagrams and affinity artifacts from the original case study can slot into the carousel below.
+                    </p>
+                </div>
+
+                <div class="echosphere-analysis-carousel" role="region" aria-roledescription="carousel" aria-label="Research documentation">
+                    <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                    <div class="echosphere-analysis-carousel-track">
+                        <article class="echosphere-analysis-card case-study-placeholder-card">
+                            <div class="echosphere-analysis-card-media">Framework visuals &amp; mapping — placeholder</div>
+                            <div class="echosphere-analysis-card-copy">
+                                <h3 class="echosphere-analysis-card-title">Artifacts</h3>
+                                <p class="echosphere-analysis-card-text">
+                                    Replace this card with exported maps, photos, or clips from Voymemo as you finalize the page.
+                                </p>
+                            </div>
+                        </article>
         </div>
+    </div>
+
+                <section class="echosphere-key-findings-section" aria-labelledby="vm-findings-heading">
+                    <h3 id="vm-findings-heading" class="echosphere-key-findings-heading">Three tensions</h3>
+                    <div class="echosphere-key-findings-intro">
+                        <p class="echosphere-key-findings-intro-lead">
+                            These patterns showed up again and again in interviews—and stayed with us through synthesis and storytelling.
+                        </p>
+                    </div>
+                    <div class="echosphere-key-findings-panel echosphere-key-findings-paper">
+                        <div class="echosphere-findings-diagram" aria-label="Three research tensions">
+                            <div class="echosphere-findings-diagram__themes">
+                                <article class="echosphere-findings-theme">
+                                    <div class="echosphere-findings-theme__header">
+                                        <span class="echosphere-findings-theme__icon" aria-hidden="true">◇</span>
+                                        <h4 class="echosphere-findings-theme__title">Paradox of visibility</h4>
+                                    </div>
+                                    <div class="echosphere-findings-theme__block">
+                                        <p class="echosphere-findings-theme__label">What we heard</p>
+                                        <p class="echosphere-findings-theme__text">
+                                            Not hiding—but not being reduced to a diagnosis. Control over when and how they explain.
+                                        </p>
+                                    </div>
+                                </article>
+                                <article class="echosphere-findings-theme">
+                                    <div class="echosphere-findings-theme__header">
+                                        <span class="echosphere-findings-theme__icon" aria-hidden="true">◎</span>
+                                        <h4 class="echosphere-findings-theme__title">Friendship gap</h4>
+                                    </div>
+                                    <div class="echosphere-findings-theme__block">
+                                        <p class="echosphere-findings-theme__label">What we heard</p>
+                                        <p class="echosphere-findings-theme__text">
+                                            Peers anchor everyday life; during crises, many teens felt they could not &ldquo;bother&rdquo; friends and turned inward or to family.
+                                        </p>
+                                    </div>
+                                </article>
+                                <article class="echosphere-findings-theme">
+                                    <div class="echosphere-findings-theme__header">
+                                        <span class="echosphere-findings-theme__icon" aria-hidden="true">✦</span>
+                                        <h4 class="echosphere-findings-theme__title">Care tension</h4>
+                                    </div>
+                                    <div class="echosphere-findings-theme__block">
+                                        <p class="echosphere-findings-theme__label">What we heard</p>
+                                        <p class="echosphere-findings-theme__text">
+                                            Wanting autonomy while relying on caregivers in acute moments—and not wanting health to swallow their whole identity.
+                                        </p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="echosphere-understanding-design-direction-section" class="echosphere-insight-ambient-band echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1" aria-labelledby="vm-dir-heading echosphere-hmw-heading">
+                    <div class="echosphere-insight-ambient-slot echosphere-insight-ambient-slot--wide">
+                        <div class="echosphere-insight-ambient__frame">
+                            <div id="echosphere-insight-ambient-bubbles" class="echosphere-insight-ambient__bubbles" aria-hidden="true"></div>
+                            <div class="echosphere-insight-ambient__scrim" aria-hidden="true"></div>
+                            <div class="echosphere-insight-ambient__stack">
+                                <div class="echosphere-insight-ambient__content echosphere-insight-ambient__content--cinema">
+                                    <h2 id="vm-dir-heading" class="echosphere-insight-ambient__eyebrow">Design direction</h2>
+                                    <p class="echosphere-insight-ambient__lead">
+                                        Film and narrative became our shared reference—so the team could feel the weight of each quote, not just read it.
+                                    </p>
+                                    <p class="echosphere-insight-ambient__body">
+                                        From there we asked how comfort, dignity, and agency could coexist in any future concept.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="echosphere-insight-ambient__hmw echosphere-insight-ambient__hmw--on-light">
+                            <h3 id="echosphere-hmw-heading" class="echosphere-insight-ambient__hmw-text">
+                                <span class="echosphere-insight-ambient__hmw-kicker"><span class="echosphere-research-type-wrap">how might we</span></span>
+                                <span class="echosphere-insight-ambient__hmw-body">design <span class="echosphere-research-type-wrap echosphere-insight-ambient__hmw-body-kicker-match">personalized comfort</span> for young people navigating <span class="echosphere-research-type-wrap echosphere-insight-ambient__hmw-body-kicker-match">medical trauma</span>—without flattening their identities?</span>
+                            </h3>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="echosphere-concept-section" class="echosphere-insight-ambient-band echosphere-concept-ambient-band echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1" aria-labelledby="vm-outcomes-heading">
+                    <div class="echosphere-insight-ambient-slot echosphere-insight-ambient-slot--wide">
+                        <div class="echosphere-insight-ambient__frame">
+                            <div id="echosphere-concept-ambient-bubbles" class="echosphere-insight-ambient__bubbles" aria-hidden="true"></div>
+                            <div class="echosphere-insight-ambient__scrim" aria-hidden="true"></div>
+                            <div class="echosphere-insight-ambient__stack">
+                                <div class="echosphere-insight-ambient__content echosphere-insight-ambient__content--cinema">
+                                    <h2 id="vm-outcomes-heading" class="echosphere-insight-ambient__eyebrow">Preserve their voices</h2>
+                                    <p class="echosphere-insight-ambient__lead">
+                                        The ethnographic film below is the same spine we used in critique: tone, pacing, and silence as evidence.
+                                    </p>
+                                    <p class="echosphere-insight-ambient__body">
+                                        Full UI exploration can layer on this foundation when you are ready to extend the case study.
+                                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+                </section>
+
+                <section class="echosphere-final-prototype-section echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1" aria-labelledby="vm-film-heading">
+                    <h2 id="vm-film-heading" class="echosphere-understanding-research-heading">Ethnographic film</h2>
+                    <div class="echosphere-you-told-us-stack">
+                        <p class="echosphere-you-told-us-body-lead">Preserve their voices—a short documentary from interview footage.</p>
+                    </div>
+                    <div class="echosphere-final-prototype-embed">
+                        <div class="case-study-youtube-wrap">
+                            <iframe src="https://www.youtube.com/embed/k9Mp_2dbieo" title="Voymemo ethnographic film" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-to-top-section">
+        <a href="#hero-section"><img src="film/downarrow.svg" alt="Back to Top" class="up-arrow"></a>
     </div>
 
     <script>
-        // Include back button only
-        function includeNavigation() {
-            const navHTML = `
-                <nav class="nav-menu">
-                    <a href="work.html" class="nav-item nav-back" id="nav-back" aria-label="Back to Work">
-                        <span class="back-button-label" aria-hidden="true">&lt;</span>
-                    </a>
-                </nav>
-            `;
-            document.getElementById('navigation-container').innerHTML = navHTML;
-        }
-        
-        // Load navigation when page loads
-        document.addEventListener('DOMContentLoaded', includeNavigation);
-        
-        // Scroll Snap Animation - Show sections as they snap into view
-        function handleScrollAnimation() {
-            const sections = document.querySelectorAll('.fade-in-section');
-            
-            sections.forEach((section, index) => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const sectionHeight = section.getBoundingClientRect().height;
-                const windowHeight = window.innerHeight;
-                
-                // More lenient detection - show section when it's mostly in view
-                const isInView = sectionTop <= windowHeight * 0.3 && sectionTop >= -sectionHeight * 0.7;
-                
-                if (isInView) {
-                    section.classList.add('is-visible');
-                }
-            });
-        }
-        
-        // Add scroll event listener with faster response
-        let scrollTimeout;
-        window.addEventListener('scroll', () => {
-            if (scrollTimeout) {
-                clearTimeout(scrollTimeout);
-            }
-            scrollTimeout = setTimeout(handleScrollAnimation, 10);
-        });
-        
-        // Initialize hero section immediately and run detection
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.fade-in-section');
-            // Show hero section (first section) immediately
-            if (sections[0]) {
-                sections[0].classList.add('is-visible');
-            }
-            // Run detection immediately
-            handleScrollAnimation();
-        });
-        
-        // Add keyboard navigation for scroll snap
-        document.addEventListener('keydown', (e) => {
-            const sections = document.querySelectorAll('.fade-in-section');
-            const currentScroll = window.pageYOffset;
-            const windowHeight = window.innerHeight;
-            const currentSection = Math.round(currentScroll / windowHeight);
-            
-            if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: (currentSection + 1) * windowHeight,
-                    behavior: 'smooth'
-                });
-            } else if (e.key === 'ArrowUp' && currentSection > 0) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: (currentSection - 1) * windowHeight,
-                    behavior: 'smooth'
-                });
-            }
-        });
-        
-        // Add smooth fade-in
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                document.body.classList.add('loaded');
-            }, 100);
-        });
-        
-        // Progress Bar Functionality
-        let sectionTitles = [];
-        
-        function findSectionTitles() {
-            sectionTitles = Array.from(document.querySelectorAll('h2.section-title'));
-        }
-        
-        function updateProgressBar() {
-            if (sectionTitles.length === 0) {
-                findSectionTitles();
-            }
-            
-            const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-            const windowHeight = window.innerHeight;
-            const viewportCenter = scrollY + windowHeight / 2;
-            let activeIndex = 0;
-            let minDistance = Infinity;
-            
-            // Find which section title is closest to viewport center
-            sectionTitles.forEach((titleElement, index) => {
-                const rect = titleElement.getBoundingClientRect();
-                const elementTop = scrollY + rect.top;
-                const elementCenter = elementTop + rect.height / 2;
-                const distance = Math.abs(viewportCenter - elementCenter);
-                
-                // Check if element is in viewport
-                if (rect.top < windowHeight && rect.bottom > 0) {
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        activeIndex = index;
-                    }
-                }
-            });
-            
-            // If we're at the bottom, make the last section active
-            if (scrollY + windowHeight >= document.documentElement.scrollHeight - 50) {
-                activeIndex = sectionTitles.length - 1;
-            }
-            
-            // Update progress items
-            const progressItems = document.querySelectorAll('.progress-item');
-            progressItems.forEach((item, index) => {
-                const circle = item.querySelector('.progress-circle');
-                if (circle) {
-                    circle.classList.remove('active', 'completed');
-                    item.classList.remove('active');
-                    
-                    if (index < activeIndex) {
-                        circle.classList.add('completed');
-                    } else if (index === activeIndex) {
-                        circle.classList.add('active');
-                        item.classList.add('active');
-                    }
-                }
-            });
-        }
-        
-        // Scroll event listener
-        let ticking = false;
-        function onScroll() {
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    updateProgressBar();
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }
-        
-        window.addEventListener('scroll', onScroll, { passive: true });
-        
-        // Click handlers for progress items
-        document.addEventListener('DOMContentLoaded', function() {
-            findSectionTitles();
-            
-            document.querySelectorAll('.progress-item').forEach((item, index) => {
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    if (sectionTitles[index]) {
-                        const titleElement = sectionTitles[index];
-                        const rect = titleElement.getBoundingClientRect();
-                        const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-                        const offsetTop = scrollY + rect.top - 100;
-                        
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Initial update
-            updateProgressBar();
-        });
-        
-        // Also update after page fully loads
-        window.addEventListener('load', function() {
-            findSectionTitles();
-            updateProgressBar();
-        });
-        
-        // Interactive Diagram Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Maslow's Hierarchy - Add click interactions
-            const pyramidTiers = document.querySelectorAll('.pyramid-tier');
-            pyramidTiers.forEach((tier, index) => {
-                tier.addEventListener('click', function() {
-                    // Remove active class from all tiers
-                    pyramidTiers.forEach(t => t.classList.remove('active'));
-                    // Add active class to clicked tier
-                    this.classList.add('active');
-                });
-                
-                // Add hover effect with delay
-                tier.addEventListener('mouseenter', function() {
-                    // Highlight this tier and all tiers below it
-                    const tierLevel = parseInt(this.getAttribute('data-tier'));
-                    pyramidTiers.forEach(t => {
-                        const tLevel = parseInt(t.getAttribute('data-tier'));
-                        if (tLevel <= tierLevel) {
-                            t.classList.add('highlighted');
-                        }
-                    });
-                });
-                
-                tier.addEventListener('mouseleave', function() {
-                    pyramidTiers.forEach(t => t.classList.remove('highlighted'));
-                });
-            });
-            
-            // Need Progression - Add click interactions
-            const progressionItems = document.querySelectorAll('.progression-item');
-            progressionItems.forEach((item, index) => {
-                item.addEventListener('click', function() {
-                    // Remove active class from all items
-                    progressionItems.forEach(i => i.classList.remove('active'));
-                    // Add active class to clicked item and all items above it
-                    const clickedIndex = Array.from(progressionItems).indexOf(this);
-                    progressionItems.forEach((i, idx) => {
-                        if (idx <= clickedIndex) {
-                            i.classList.add('active');
-                        }
-                    });
-                });
-            });
-            
-            // Animate diagram on scroll into view
-            const observerOptions = {
-                threshold: 0.3,
-                rootMargin: '0px 0px -100px 0px'
-            };
-            
-            const diagramObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-in');
-                        // Stagger animation for pyramid tiers
-                        const tiers = entry.target.querySelectorAll('.pyramid-tier');
-                        tiers.forEach((tier, index) => {
-                            setTimeout(() => {
-                                tier.style.opacity = '1';
-                                tier.style.transform = 'translateX(0)';
-                            }, index * 100);
-                        });
-                        // Stagger animation for progression items
-                        const items = entry.target.querySelectorAll('.progression-item');
-                        items.forEach((item, index) => {
-                            setTimeout(() => {
-                                item.style.opacity = '1';
-                                item.style.transform = 'translateY(0)';
-                            }, index * 150);
-                        });
-                    }
-                });
-            }, observerOptions);
-            
-            const frameworksDiagram = document.querySelector('.frameworks-diagram');
-            if (frameworksDiagram) {
-                // Set initial state for animation
-                pyramidTiers.forEach(tier => {
-                    tier.style.opacity = '0';
-                    tier.style.transform = 'translateX(-20px)';
-                    tier.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                });
-                progressionItems.forEach(item => {
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateY(-20px)';
-                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                });
-                
-                diagramObserver.observe(frameworksDiagram);
-            }
-        });
-        
-        // Discoveries: interactive diagram — click or hover a node to show its content
-        document.addEventListener('DOMContentLoaded', function() {
-            const nodes = document.querySelectorAll('.discovery-node');
-            const panes = document.querySelectorAll('.discovery-detail-pane');
-            
-            function setActive(index) {
-                const i = Math.max(0, Math.min(index, nodes.length - 1));
-                nodes.forEach(function(n, idx) {
-                    n.classList.toggle('active', idx === i);
-                    n.setAttribute('aria-pressed', idx === i ? 'true' : 'false');
-                });
-                panes.forEach(function(p, idx) {
-                    p.classList.toggle('active', idx === i);
-                });
-            }
-            
-            nodes.forEach(function(node) {
-                node.addEventListener('click', function() {
-                    setActive(parseInt(this.getAttribute('data-discovery'), 10));
-                });
-                node.addEventListener('mouseenter', function() {
-                    setActive(parseInt(this.getAttribute('data-discovery'), 10));
-                });
-            });
-        });
+        window.CaseStudyShell = {
+            intro: {
+                main: 'Speculative UX research through film and frameworks.',
+                date: '(FALL 2025)',
+                goal: 'OUR GOAL: EMPATHY-FIRST DESIGN FOR PEDIATRIC CARE',
+                typingAriaStart: 'Speculative UX research through film and frameworks. (FALL 2025)',
+                fullAria:
+                    'Speculative UX research through film and frameworks. (FALL 2025). OUR GOAL: EMPATHY-FIRST DESIGN FOR PEDIATRIC CARE'
+            },
+            kickerYouToldUs: 'THE QUESTION',
+            kickerInsights: 'WHAT WE HEARD',
+            pageBubbles: [
+                { id: 1, size: 300, left: '4%', top: '10%', delay: 0, duration: 22, gradient: 'radial-gradient(circle at 30% 30%, rgba(130, 120, 200, 0.5), rgba(100, 100, 180, 0.22) 55%, rgba(140, 130, 210, 0.12) 72%, transparent 100%)' },
+                { id: 2, size: 340, left: '86%', top: '8%', delay: 1.5, duration: 26, gradient: 'radial-gradient(circle at 40% 40%, rgba(120, 110, 190, 0.48), rgba(160, 140, 220, 0.2) 58%, rgba(110, 100, 175, 0.1) 74%, transparent 100%)' },
+                { id: 3, size: 220, left: '12%', top: '52%', delay: 3, duration: 18, gradient: 'radial-gradient(circle at 35% 35%, rgba(140, 130, 205, 0.44), rgba(100, 95, 170, 0.18) 60%, rgba(130, 120, 200, 0.09) 76%, transparent 100%)' },
+                { id: 4, size: 280, left: '72%', top: '36%', delay: 0.8, duration: 24, gradient: 'radial-gradient(circle at 30% 30%, rgba(150, 140, 215, 0.42), rgba(120, 110, 185, 0.16) 58%, rgba(145, 135, 210, 0.09) 74%, transparent 100%)' },
+                { id: 5, size: 250, left: '24%', top: '22%', delay: 2.2, duration: 20, gradient: 'radial-gradient(circle at 40% 40%, rgba(125, 115, 195, 0.4), rgba(155, 145, 225, 0.15) 62%, rgba(115, 105, 180, 0.08) 76%, transparent 100%)' },
+                { id: 6, size: 300, left: '90%', top: '62%', delay: 4, duration: 23, gradient: 'radial-gradient(circle at 35% 35%, rgba(135, 125, 200, 0.43), rgba(105, 98, 175, 0.18) 58%, rgba(130, 120, 205, 0.1) 75%, transparent 100%)' },
+                { id: 7, size: 200, left: '8%', top: '78%', delay: 2.8, duration: 17, gradient: 'radial-gradient(circle at 30% 30%, rgba(145, 135, 210, 0.36), rgba(120, 112, 188, 0.12) 62%, rgba(140, 130, 200, 0.07) 78%, transparent 100%)' },
+                { id: 8, size: 260, left: '58%', top: '70%', delay: 1.2, duration: 21, gradient: 'radial-gradient(circle at 40% 40%, rgba(128, 118, 198, 0.4), rgba(150, 138, 218, 0.16) 60%, rgba(118, 108, 185, 0.09) 76%, transparent 100%)' }
+            ],
+            panelBubbles: [
+                { id: 1, size: 100, left: '6%', top: '10%', delay: 0, duration: 16, gradient: 'radial-gradient(circle at 30% 30%, rgba(130, 120, 200, 0.5), rgba(100, 100, 180, 0.22) 55%, rgba(140, 130, 210, 0.1) 72%, transparent 100%)' },
+                { id: 2, size: 130, left: '78%', top: '8%', delay: 1.2, duration: 20, gradient: 'radial-gradient(circle at 40% 40%, rgba(120, 110, 190, 0.48), rgba(160, 140, 220, 0.2) 58%, rgba(110, 100, 175, 0.1) 74%, transparent 100%)' },
+                { id: 3, size: 72, left: '12%', top: '58%', delay: 2, duration: 14, gradient: 'radial-gradient(circle at 35% 35%, rgba(140, 130, 205, 0.44), rgba(100, 95, 170, 0.18) 60%, rgba(130, 120, 200, 0.09) 76%, transparent 100%)' },
+                { id: 4, size: 110, left: '70%', top: '42%', delay: 0.6, duration: 18, gradient: 'radial-gradient(circle at 30% 30%, rgba(150, 140, 215, 0.42), rgba(120, 110, 185, 0.16) 58%, rgba(145, 135, 210, 0.09) 74%, transparent 100%)' },
+                { id: 5, size: 88, left: '38%', top: '18%', delay: 2.8, duration: 15, gradient: 'radial-gradient(circle at 40% 40%, rgba(125, 115, 195, 0.4), rgba(155, 145, 225, 0.15) 62%, rgba(115, 105, 180, 0.08) 76%, transparent 100%)' },
+                { id: 6, size: 95, left: '52%', top: '62%', delay: 1.8, duration: 17, gradient: 'radial-gradient(circle at 35% 35%, rgba(135, 125, 200, 0.42), rgba(105, 98, 175, 0.18) 58%, rgba(130, 120, 205, 0.09) 75%, transparent 100%)' },
+                { id: 7, size: 64, left: '4%', top: '38%', delay: 3.2, duration: 13, gradient: 'radial-gradient(circle at 30% 30%, rgba(145, 135, 210, 0.36), rgba(120, 112, 188, 0.12) 62%, rgba(140, 130, 200, 0.07) 78%, transparent 100%)' },
+                { id: 8, size: 118, left: '58%', top: '28%', delay: 0.4, duration: 19, gradient: 'radial-gradient(circle at 40% 40%, rgba(128, 118, 198, 0.4), rgba(150, 138, 218, 0.16) 60%, rgba(118, 108, 185, 0.09) 76%, transparent 100%)' }
+            ]
+        };
     </script>
+    <script src="js/case-study-shell.js"></script>
+    <script src="js/page-scroll-star.js"></script>
 </body>
 </html>
-
