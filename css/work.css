@@ -379,6 +379,7 @@ body::before {
 }
 
 .project-item[data-project='echosphere'] .project-thumb,
+.project-item[data-project='daybreak'] .project-thumb,
 .project-item[data-project='voymemo'] .project-thumb,
 .project-item[data-project='laserharp'] .project-thumb {
     filter: brightness(1) contrast(1.04) saturate(0.95);

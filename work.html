@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GitHub Pages project sites: normalize asset URLs when the path is /repo/work/ (trailing slash) -->
+    <script>
+        (function () {
+            if (!/\.github\.io$/i.test(location.hostname)) return;
+            var segs = location.pathname.split('/').filter(Boolean);
+            if (!segs.length) return;
+            var first = segs[0];
+            if (/\.[a-z0-9]{2,5}$/i.test(first)) return;
+            var b = document.createElement('base');
+            b.href = location.origin + '/' + first + '/';
+            document.head.insertBefore(b, document.head.firstChild);
+        })();
+    </script>
     <link rel="icon" href="film/cursor-star.png" type="image/png">
     <title>Work - Tiffany Lee</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/work.css">
+    <link rel="stylesheet" href="css/style.css?v=20260205">
+    <link rel="stylesheet" href="css/work.css?v=20260205">
 </head>
 <body>
     <script src="js/paper-ink-filter.js"></script>
