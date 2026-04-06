@@ -469,8 +469,14 @@
         var MAIN = intro.main;
         var DATE = intro.date || '';
         var PHASE_GOAL = intro.goal || '';
+        var GOAL_SEGMENTS = intro.goalSegments && intro.goalSegments.length ? intro.goalSegments : null;
+        var GOAL_TEXT = GOAL_SEGMENTS
+            ? GOAL_SEGMENTS.map(function (s) {
+                  return s.text;
+              }).join('')
+            : PHASE_GOAL;
         var LINE_GAP_MS = intro.lineGapMs != null ? intro.lineGapMs : 720;
-        var FULL_ARIA = intro.fullAria || MAIN + ' ' + DATE + '. ' + PHASE_GOAL;
+        var FULL_ARIA = intro.fullAria || MAIN + ' ' + DATE + '. ' + GOAL_TEXT;
         var TYPING_ARIA_START = intro.typingAriaStart || MAIN + ' ' + DATE;
 
         var ran = false;
@@ -532,6 +538,55 @@
             step();
         }
 
+        function createGoalLineWithSegments(segmentDefs) {
+            var p = document.createElement('p');
+            p.className = 'echosphere-research-line echosphere-research-line--goal-centerpiece';
+            var wrap = document.createElement('span');
+            wrap.className = 'echosphere-research-type-wrap lh-goal-wrap--mixed';
+            var segmentEls = [];
+            for (var s = 0; s < segmentDefs.length; s++) {
+                var span = document.createElement('span');
+                span.className =
+                    segmentDefs[s].kind === 'lower' ? 'lh-goal-seg--lower' : 'lh-goal-seg--upper';
+                wrap.appendChild(span);
+                segmentEls.push(span);
+            }
+            p.appendChild(wrap);
+            var caretEl = document.createElement('span');
+            caretEl.className = 'echosphere-research-type-caret';
+            caretEl.setAttribute('aria-hidden', 'true');
+            caretEl.textContent = '|';
+            p.appendChild(caretEl);
+            letterRoot.appendChild(p);
+            return { p: p, wrap: wrap, segmentEls: segmentEls, caret: caretEl };
+        }
+
+        function typeGoalSegments(segmentEls, segmentDefs, msPerChar, caretEl, onDone) {
+            for (var r = 0; r < segmentEls.length; r++) {
+                segmentEls[r].textContent = '';
+            }
+            caretEl.classList.remove('echosphere-research-type-caret--done');
+            var si = 0;
+            var j = 0;
+            function step() {
+                if (si >= segmentDefs.length) {
+                    if (onDone) onDone();
+                    return;
+                }
+                var text = segmentDefs[si].text;
+                if (j < text.length) {
+                    segmentEls[si].textContent += text.charAt(j);
+                    j += 1;
+                    window.setTimeout(step, msPerChar);
+                } else {
+                    si += 1;
+                    j = 0;
+                    window.setTimeout(step, 0);
+                }
+            }
+            step();
+        }
+
         function typeMainThenDate(line, mainText, dateText, onDone, ariaAtStart) {
             line.main.textContent = '';
             if (line.date) line.date.textContent = '';
@@ -577,7 +632,13 @@
             l0.main.textContent = MAIN;
             if (l0.date) l0.date.textContent = DATE;
             finishCaret(l0);
-            if (PHASE_GOAL) {
+            if (GOAL_SEGMENTS) {
+                var l1s = createGoalLineWithSegments(GOAL_SEGMENTS);
+                for (var gi = 0; gi < GOAL_SEGMENTS.length; gi++) {
+                    l1s.segmentEls[gi].textContent = GOAL_SEGMENTS[gi].text;
+                }
+                finishCaret(l1s);
+            } else if (PHASE_GOAL) {
                 var l1 = createResearchLine('goal-centerpiece', false);
                 l1.main.textContent = PHASE_GOAL;
                 finishCaret(l1);
@@ -594,9 +655,19 @@
             }
             letterRoot.innerHTML = '';
             var line0 = createResearchLine('center', !!DATE, { support: true });
-            var line1 = PHASE_GOAL ? createResearchLine('goal-centerpiece', false) : null;
+            var line1 = GOAL_SEGMENTS
+                ? createGoalLineWithSegments(GOAL_SEGMENTS)
+                : PHASE_GOAL
+                  ? createResearchLine('goal-centerpiece', false)
+                  : null;
             if (line1) {
-                line1.main.textContent = '';
+                if (GOAL_SEGMENTS) {
+                    for (var ei = 0; ei < line1.segmentEls.length; ei++) {
+                        line1.segmentEls[ei].textContent = '';
+                    }
+                } else {
+                    line1.main.textContent = '';
+                }
                 finishCaret(line1);
             }
 
@@ -606,17 +677,31 @@
                 DATE,
                 function () {
                     finishCaret(line0);
-                    setHeadingAria(MAIN + ' ' + DATE + '. ' + PHASE_GOAL + '…');
-                    if (!line1 || !PHASE_GOAL) {
+                    setHeadingAria(MAIN + ' ' + DATE + '. ' + GOAL_TEXT + '…');
+                    if (!line1 || (!PHASE_GOAL && !GOAL_SEGMENTS)) {
                         setHeadingAria(FULL_ARIA);
                         return;
                     }
                     window.setTimeout(function () {
-                        line1.caret.classList.remove('echosphere-research-type-caret--done');
-                        typeInto(line1, PHASE_GOAL, intro.msGoal != null ? intro.msGoal : 22, function () {
-                            finishCaret(line1);
-                            setHeadingAria(FULL_ARIA);
-                        });
+                        var msG = intro.msGoal != null ? intro.msGoal : 22;
+                        if (GOAL_SEGMENTS) {
+                            typeGoalSegments(
+                                line1.segmentEls,
+                                GOAL_SEGMENTS,
+                                msG,
+                                line1.caret,
+                                function () {
+                                    finishCaret(line1);
+                                    setHeadingAria(FULL_ARIA);
+                                }
+                            );
+                        } else {
+                            line1.caret.classList.remove('echosphere-research-type-caret--done');
+                            typeInto(line1, PHASE_GOAL, msG, function () {
+                                finishCaret(line1);
+                                setHeadingAria(FULL_ARIA);
+                            });
+                        }
                     }, LINE_GAP_MS);
                 },
                 TYPING_ARIA_START

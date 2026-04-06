@@ -1,0 +1,1014 @@
+/* Heavenly Lyre — dark canvas, off-white copy, gold/yellow accents (EchoSphere shell overrides) */
+body.case-study-laserharp {
+    /* Dark blue canvas (cooler than neutral charcoal) */
+    --lh-bg: #060a16;
+    /* Hero shell + letterboxing: same as page bg (no lighter “halo” around the asset) */
+    --lh-hero-radius: clamp(22px, 3.2vw, 38px);
+    --lh-bg-elevated: #0a1020;
+    --lh-bg-card: #0e1528;
+    --lh-bg-card-soft: #131b32;
+    --lh-ink: #eae6df;
+    --lh-ink-muted: rgba(234, 230, 223, 0.74);
+    --lh-ink-faint: rgba(234, 230, 223, 0.48);
+    /* Match work / home gold (#fec307, rgba(254, 195, 7, …)) */
+    --lh-gold: #fec307;
+    --lh-gold-deep: #c99406;
+    --lh-gold-muted: rgba(254, 195, 7, 0.42);
+    --lh-stroke: rgba(254, 195, 7, 0.38);
+    --lh-stroke-soft: rgba(254, 195, 7, 0.2);
+    --echosphere-page-bg: var(--lh-bg);
+    --echosphere-canvas: var(--lh-bg-elevated);
+    --echosphere-ink: var(--lh-ink);
+    --echosphere-ink-muted: var(--lh-ink-muted);
+    --echosphere-ink-faint: var(--lh-ink-faint);
+    --echosphere-card-inner: var(--lh-bg-card);
+    --echosphere-card-subtle: var(--lh-bg-card-soft);
+    --echosphere-card-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.04),
+        0 8px 40px rgba(0, 0, 0, 0.35),
+        0 28px 90px rgba(0, 0, 0, 0.45);
+    --echosphere-card-border: 1px solid rgba(255, 255, 255, 0.08);
+    --echosphere-accent-soft: rgba(254, 195, 7, 0.1);
+    color: var(--lh-ink);
+}
+
+/* Main bands */
+body.case-study-laserharp .hero-section {
+    background: var(--lh-bg);
+}
+
+body.case-study-laserharp .echosphere-hero-montage {
+    background: var(--lh-bg);
+    /* Match inner frame radius so the card edge doesn’t “step” at the bottom */
+    border-radius: 0 0 var(--lh-hero-radius) var(--lh-hero-radius);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.04),
+        0 12px 48px rgba(0, 0, 0, 0.4),
+        0 40px 100px rgba(0, 0, 0, 0.35);
+}
+
+body.case-study-laserharp .echosphere-hero-intro-frame {
+    border-radius: var(--lh-hero-radius);
+    background: var(--lh-bg);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.06),
+        0 4px 24px rgba(0, 0, 0, 0.35),
+        0 24px 64px rgba(0, 0, 0, 0.25);
+}
+
+body.case-study-laserharp .echosphere-hero-intro-frame::after {
+    border-radius: inherit;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Top hero only — 16:9 stage like EchoSphere intro video (square thumb crops to a shorter frame) */
+body.case-study-laserharp #hero-section > .echosphere-hero-montage:not(.lh-sketch-hero-montage) .echosphere-hero-intro-frame {
+    aspect-ratio: 16 / 9;
+}
+
+body.case-study-laserharp
+    #hero-section
+    > .echosphere-hero-montage:not(.lh-sketch-hero-montage)
+    .echosphere-hero-intro-frame
+    .echosphere-hero-intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Full-width hero frame before Research & testing (same montage + media treatment as top hero) */
+body.case-study-laserharp .lh-sketch-hero-montage .lh-sketch-hero-intro {
+    margin-top: clamp(1.25rem, 3.5vh, 2.5rem);
+    margin-bottom: 0;
+    padding-top: clamp(0.35rem, 1.2vh, 0.85rem);
+}
+
+body.case-study-laserharp .echosphere-post-hero {
+    background: var(--lh-bg);
+    color: var(--lh-ink-muted);
+}
+
+/* YouTube Short after intro goal — vertical frame, centered under letter */
+body.case-study-laserharp .lh-intro-youtube-wrap {
+    margin-top: clamp(2.25rem, 5.5vh, 3.75rem);
+    max-width: min(420px, 92vw);
+    aspect-ratio: 9 / 16;
+    border-radius: var(--lh-hero-radius);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.04),
+        0 16px 48px rgba(0, 0, 0, 0.45);
+}
+
+/* Final prototype — hero still (16:9) then full-width demo embed */
+body.case-study-laserharp .lh-final-prototype-hero {
+    margin-top: clamp(2rem, 5vh, 3rem);
+    width: 100%;
+    max-width: min(72rem, 100%);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+body.case-study-laserharp .echosphere-final-prototype-section .case-study-youtube-wrap {
+    border-radius: var(--lh-hero-radius);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.04),
+        0 16px 48px rgba(0, 0, 0, 0.45);
+}
+
+body.case-study-laserharp .lh-final-reflection {
+    margin-top: clamp(2.5rem, 6vh, 4rem);
+}
+
+body.case-study-laserharp .lh-final-reflection__title {
+    margin: 0 0 clamp(1rem, 2.5vh, 1.35rem);
+    font-family: var(--font-nhg-text);
+    font-size: clamp(1.35rem, 3.8vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+/* Typed intro (post-hero): title/date lines stay unfiltered; goal line uses paper-ink; left-aligned flow inside a centered column */
+body.case-study-laserharp #next-section .echosphere-research-letter {
+    /* Match .echosphere-research-heading cap so the goal line isn’t stuck in a ~44rem column */
+    max-width: min(72rem, 96vw);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.case-study-laserharp #next-section .echosphere-research-line {
+    filter: none;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+/* Goal line only — paper-ink displacement (title + date stay unfiltered above) */
+body.case-study-laserharp #next-section .echosphere-research-line--goal-centerpiece {
+    filter: url(#paper-ink-distort);
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+body.case-study-laserharp #next-section .echosphere-research-type-wrap {
+    animation: none;
+}
+
+body.case-study-laserharp #next-section .echosphere-research-line--goal-centerpiece .echosphere-research-type-wrap {
+    text-wrap: wrap;
+}
+
+body.case-study-laserharp .echosphere-understanding-research {
+    background: transparent;
+}
+
+/* Typed intro — flat gold (no gradient / texture clip) */
+body.case-study-laserharp .echosphere-research-type-wrap {
+    background-image: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: var(--lh-gold);
+    animation: none;
+}
+
+body.case-study-laserharp .echosphere-research-type-caret {
+    color: var(--lh-gold-muted);
+}
+
+/* Intro goal: mixed case + line breaks (shell defaults to uppercase on goal-centerpiece) */
+body.case-study-laserharp .echosphere-research-line--goal-centerpiece {
+    text-transform: none;
+}
+
+/* Segmented intro goal: lowercase = white, uppercase = flat gold (see case-study-shell.js) */
+body.case-study-laserharp .lh-goal-wrap--mixed {
+    display: block;
+    white-space: pre-line;
+    text-wrap: wrap;
+    background-image: none !important;
+    -webkit-text-fill-color: unset;
+    color: inherit;
+    background-clip: unset;
+    -webkit-background-clip: unset;
+    animation: none !important;
+}
+
+/* Full row width so the last line doesn’t flex-shrink to one-word columns */
+body.case-study-laserharp #next-section .echosphere-research-line--goal-centerpiece .lh-goal-wrap--mixed {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+body.case-study-laserharp .lh-goal-seg--lower {
+    display: inline;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+    color: #ffffff;
+    text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.75),
+        0 0 36px rgba(0, 0, 0, 0.88),
+        0 4px 24px rgba(0, 0, 0, 0.65);
+}
+
+body.case-study-laserharp .lh-goal-seg--upper {
+    display: inline;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+    background-image: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: var(--lh-gold);
+    animation: none;
+    text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.7),
+        0 0 28px rgba(0, 0, 0, 0.55),
+        0 3px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* Preserve intentional line break before final question; that segment still ends with \n from JS */
+body.case-study-laserharp .lh-goal-seg--lower:nth-of-type(3) {
+    white-space: pre-line;
+}
+
+body.case-study-laserharp .echosphere-research-heading-date {
+    color: var(--lh-gold-muted);
+}
+
+/* Nav */
+body.case-study-laserharp #navigation-container .nav-item {
+    color: var(--lh-ink) !important;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.case-study-laserharp #navigation-container .nav-item:hover {
+    color: var(--lh-gold) !important;
+}
+
+body.case-study-laserharp #navigation-container .nav-item.active {
+    color: var(--lh-gold-muted) !important;
+}
+
+/* Scroll rail */
+body.case-study-laserharp .echosphere-scroll-rail .home-scroll-thumb img {
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.5))
+        drop-shadow(0 0 14px rgba(254, 195, 7, 0.45));
+}
+
+body.case-study-laserharp .echosphere-scroll-rail .home-scroll-track::before {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.14) 50%,
+        rgba(255, 255, 255, 0.06) 100%
+    );
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.06),
+        0 0 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Overview / section kickers — white (midsize caps, e.g. IDEATING) */
+body.case-study-laserharp .echosphere-you-told-us-kicker--below {
+    color: #ffffff;
+    text-shadow: 0 2px 28px rgba(0, 0, 0, 0.45);
+}
+
+body.case-study-laserharp .echosphere-you-told-us-kicker-caret {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+/* Fractal-noise displacement on type (js/paper-ink-filter.js → #paper-ink-distort). Card media / video slots stay siblings, not inside these nodes. */
+body.case-study-laserharp .echosphere-you-told-us-paper .echosphere-you-told-us-stack-heading,
+body.case-study-laserharp .echosphere-you-told-us-paper .echosphere-you-told-us-stack > p,
+body.case-study-laserharp .echosphere-understanding-research-paper .echosphere-understanding-research-heading,
+body.case-study-laserharp .echosphere-understanding-research-paper .echosphere-you-told-us-stack > p,
+body.case-study-laserharp .echosphere-design-features-slide__label,
+body.case-study-laserharp .echosphere-design-features-slide__goal-label,
+body.case-study-laserharp .echosphere-design-features-slide__title,
+body.case-study-laserharp .echosphere-design-features-slide__body,
+body.case-study-laserharp .echosphere-design-features-slide__goal,
+body.case-study-laserharp .echosphere-analysis-card-copy,
+body.case-study-laserharp .echosphere-analysis-carousel-hint,
+body.case-study-laserharp .echosphere-insight-ambient__hmw-text,
+body.case-study-laserharp .lh-final-reflection__title {
+    filter: url(#paper-ink-distort);
+}
+
+body.case-study-laserharp .echosphere-you-told-us-body-lead,
+body.case-study-laserharp .echosphere-key-findings-intro-lead {
+    color: var(--lh-ink);
+}
+
+body.case-study-laserharp .echosphere-you-told-us-body-tagline,
+body.case-study-laserharp .echosphere-key-findings-intro-tagline {
+    color: var(--lh-ink-muted);
+}
+
+body.case-study-laserharp .lh-body-inline-link {
+    display: inline;
+    color: var(--lh-gold);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 1px;
+}
+
+body.case-study-laserharp .lh-body-inline-link:hover {
+    color: var(--lh-ink);
+    text-decoration-color: var(--lh-gold-muted);
+}
+
+/* Research scope */
+body.case-study-laserharp .echosphere-research-scope {
+    border-top-color: var(--lh-stroke-soft);
+}
+
+body.case-study-laserharp .echosphere-research-scope-stat--survey,
+body.case-study-laserharp .echosphere-research-scope-interview-line {
+    color: var(--lh-gold);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+body.case-study-laserharp .echosphere-research-scope-interview-sub {
+    color: var(--lh-ink-muted);
+}
+
+/* Three-line scope rotator — same centering as .echosphere-research-scope-stat--survey / --interviews */
+body.case-study-laserharp .lh-rscope-line {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+    padding-inline: clamp(0.5rem, 3vw, 1.5rem);
+    font-size: clamp(2.1rem, 8vw, 5.5rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 0.94;
+    text-transform: uppercase;
+    color: var(--lh-gold);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    filter: url(#paper-ink-distort);
+    opacity: 0;
+    transform: translate(-50%, -46%);
+}
+
+body.case-study-laserharp
+    .hero-section.fade-in-section.is-visible
+    .lh-research-scope-stage--triple
+    .lh-rscope-line--a {
+    animation: lhResearchScopePhaseA 7.5s ease-in-out infinite;
+    animation-delay: 0.35s;
+}
+
+body.case-study-laserharp
+    .hero-section.fade-in-section.is-visible
+    .lh-research-scope-stage--triple
+    .lh-rscope-line--b {
+    animation: lhResearchScopePhaseB 7.5s ease-in-out infinite;
+    animation-delay: 0.35s;
+}
+
+body.case-study-laserharp
+    .hero-section.fade-in-section.is-visible
+    .lh-research-scope-stage--triple
+    .lh-rscope-line--c {
+    animation: lhResearchScopePhaseC 7.5s ease-in-out infinite;
+    animation-delay: 0.35s;
+}
+
+@keyframes lhResearchScopePhaseA {
+    0%,
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -46%);
+    }
+    8% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    28% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    36% {
+        opacity: 0;
+        transform: translate(-50%, -46%);
+    }
+}
+
+@keyframes lhResearchScopePhaseB {
+    0%,
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -46%);
+    }
+    36%,
+    40% {
+        opacity: 0;
+        transform: translate(-50%, -46%);
+    }
+    44% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    60% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    68% {
+        opacity: 0;
+        transform: translate(-50%, -46%);
+    }
+}
+
+@keyframes lhResearchScopePhaseC {
+    0%,
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -46%);
+    }
+    68%,
+    72% {
+        opacity: 0;
+        transform: translate(-50%, -46%);
+    }
+    76% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    92% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -46%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.case-study-laserharp .lh-research-scope-stage--triple {
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(0.65rem, 2vh, 1.1rem);
+    }
+
+    body.case-study-laserharp .lh-rscope-line {
+        position: static;
+        transform: none !important;
+        opacity: 1 !important;
+        animation: none !important;
+    }
+}
+
+/* Quote bubbles — dark glass + gold rim */
+body.case-study-laserharp .echosphere-you-told-us-bubble {
+    --echo-bubble-stroke: var(--lh-stroke);
+    --echo-bubble-stroke-soft: var(--lh-stroke-soft);
+    color: var(--lh-ink);
+    box-shadow:
+        0 0 0 1px var(--echo-bubble-stroke-soft),
+        0 0 0 1px rgba(0, 0, 0, 0.35),
+        0 10px 36px rgba(0, 0, 0, 0.35);
+}
+
+body.case-study-laserharp .echosphere-you-told-us-bubble--mid {
+    background: linear-gradient(168deg, #1c2338 0%, #121a2e 100%);
+}
+
+body.case-study-laserharp .echosphere-you-told-us-bubble--in {
+    background: linear-gradient(168deg, #1f263c 0%, #161d30 100%);
+}
+
+body.case-study-laserharp .echosphere-you-told-us-bubble--out {
+    background: linear-gradient(168deg, rgba(254, 195, 7, 0.14) 0%, rgba(254, 195, 7, 0.1) 100%);
+    color: var(--lh-ink);
+}
+
+body.case-study-laserharp .echosphere-paper-ink-text {
+    color: var(--lh-ink-muted);
+}
+
+/* Research and testing — no card band; sits on the black page like surrounding sections */
+body.case-study-laserharp #lh-research-testing-section.echosphere-understanding-research {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin-top: clamp(3rem, 8vh, 6rem);
+    margin-bottom: 0;
+    padding-top: clamp(2.5rem, 6.5vh, 4rem);
+    padding-bottom: clamp(2.5rem, 6.5vh, 4rem);
+}
+
+/* Research & testing — match EchoSphere “Understanding the research” band: centered intro + carousel */
+body.case-study-laserharp #lh-research-testing-section .echosphere-understanding-research-paper {
+    font-family: var(--font-nhg-text);
+}
+
+body.case-study-laserharp #lh-research-testing-section .lh-research-testing-intro-stack {
+    max-width: min(38rem, 100%);
+    margin-inline: auto;
+    text-align: center;
+    align-items: center;
+}
+
+body.case-study-laserharp #lh-research-testing-section .lh-research-testing-intro-stack .echosphere-you-told-us-body-lead {
+    color: var(--lh-ink);
+    line-height: 1.12;
+}
+
+body.case-study-laserharp #lh-research-testing-section .lh-research-testing-intro-stack .echosphere-you-told-us-body-tagline {
+    font-weight: 400;
+    color: var(--lh-ink-muted);
+}
+
+/* Band section titles — gold sans (NHG); Research & testing is white uppercase like reference layout */
+body.case-study-laserharp .echosphere-understanding-research-heading {
+    font-family: var(--font-nhg-text);
+    color: var(--lh-gold);
+}
+
+body.case-study-laserharp #lh-research-testing-section .echosphere-understanding-research-heading {
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    line-height: 0.92;
+}
+
+/* Analysis carousel */
+body.case-study-laserharp .echosphere-analysis-carousel-hint {
+    color: var(--lh-gold-muted);
+}
+
+body.case-study-laserharp .echosphere-analysis-carousel-track {
+    scrollbar-color: var(--lh-stroke-soft) transparent;
+}
+
+body.case-study-laserharp .echosphere-analysis-carousel-track::-webkit-scrollbar-thumb {
+    background: var(--lh-stroke-soft);
+}
+
+body.case-study-laserharp .echosphere-analysis-card-title {
+    color: var(--lh-gold);
+}
+
+body.case-study-laserharp .echosphere-analysis-card-text {
+    color: var(--lh-ink-muted);
+}
+
+body.case-study-laserharp .echosphere-analysis-card-text strong {
+    color: var(--lh-ink);
+}
+
+body.case-study-laserharp .echosphere-analysis-card-media {
+    background: var(--lh-bg-elevated);
+    border-color: var(--lh-stroke);
+    box-shadow:
+        0 0 0 1px var(--lh-stroke-soft),
+        0 0 0 4px rgba(0, 0, 0, 0.2),
+        0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* Key findings — dark cards */
+body.case-study-laserharp .echosphere-key-findings-heading {
+    color: var(--lh-gold);
+}
+
+body.case-study-laserharp .echosphere-key-findings-panel {
+    --echo-findings-stroke: var(--lh-stroke);
+    --echo-findings-stroke-soft: var(--lh-stroke-soft);
+    background: linear-gradient(168deg, #131b32 0%, #0e1424 100%);
+    box-shadow:
+        0 0 0 1px var(--echo-findings-stroke-soft),
+        0 12px 48px rgba(0, 0, 0, 0.35);
+}
+
+body.case-study-laserharp .echosphere-key-findings-panel::after {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+body.case-study-laserharp .echosphere-findings-theme {
+    --echo-findings-stroke: var(--lh-stroke);
+    --echo-findings-stroke-soft: var(--lh-stroke-soft);
+    background: linear-gradient(168deg, #1c2338 0%, #121a2e 100%);
+    box-shadow:
+        0 0 0 1px var(--echo-findings-stroke-soft),
+        0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+body.case-study-laserharp .echosphere-findings-theme::before {
+    color: rgba(254, 195, 7, 0.14);
+}
+
+body.case-study-laserharp .echosphere-findings-theme__icon {
+    background: linear-gradient(168deg, #252c42 0%, #1a2234 100%);
+    box-shadow:
+        0 0 0 1px var(--echo-findings-stroke-soft),
+        0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+body.case-study-laserharp .echosphere-findings-theme__title {
+    color: var(--lh-gold);
+}
+
+body.case-study-laserharp .echosphere-findings-theme__label {
+    color: var(--lh-gold-muted);
+}
+
+body.case-study-laserharp .echosphere-findings-theme__text {
+    color: var(--lh-ink-muted);
+}
+
+body.case-study-laserharp .echosphere-findings-theme__block--implication {
+    background: linear-gradient(108deg, rgba(254, 195, 7, 0.1) 0%, rgba(210, 155, 5, 0.06) 100%);
+    border-color: var(--lh-stroke-soft);
+    border-left-color: var(--lh-gold-deep);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+body.case-study-laserharp .echosphere-findings-theme__block--implication .echosphere-findings-theme__label {
+    color: var(--lh-gold-muted);
+}
+
+body.case-study-laserharp .echosphere-findings-theme__block--implication .echosphere-findings-theme__text {
+    color: var(--lh-ink);
+}
+
+/* HMW band (below dark tile) */
+body.case-study-laserharp .echosphere-insight-ambient__hmw-body {
+    color: var(--lh-ink);
+}
+
+body.case-study-laserharp .echosphere-insight-ambient__hmw-body-kicker-match {
+    color: var(--lh-gold);
+}
+
+/* Design direction / concept dark tiles — slightly warmer base */
+body.case-study-laserharp .echosphere-insight-ambient__frame {
+    background:
+        linear-gradient(168deg, rgba(254, 195, 7, 0.12) 0%, transparent 55%),
+        linear-gradient(165deg, #101628 0%, #080c18 42%, #040610 100%);
+}
+
+/* Placeholders + hero media — letterboxing matches page (object-fit: contain) */
+body.case-study-laserharp .case-study-hero-media {
+    background: var(--lh-bg);
+    vertical-align: top;
+}
+
+/* Clip asset corners in sync with frame (avoids subpixel mismatch on some GPUs) */
+body.case-study-laserharp .echosphere-hero-intro-frame .case-study-hero-media,
+body.case-study-laserharp .echosphere-hero-intro-frame .echosphere-hero-intro-video {
+    border-radius: var(--lh-hero-radius);
+}
+
+body.case-study-laserharp .case-study-media-placeholder,
+body.case-study-laserharp .case-study-cinema-placeholder {
+    background: linear-gradient(145deg, #121a2a 0%, #0c1220 50%, #080e18 100%);
+    color: var(--lh-gold-muted);
+}
+
+body.case-study-laserharp .case-study-proto-placeholder .echosphere-analysis-card-media,
+body.case-study-laserharp .case-study-placeholder-card .echosphere-analysis-card-media {
+    background: linear-gradient(160deg, #141c2c 0%, #0e1424 100%);
+    color: var(--lh-gold-muted);
+}
+
+/* Film grain reads on dark */
+body.case-study-laserharp .echosphere-film-grain {
+    opacity: 0.14;
+    mix-blend-mode: soft-light;
+}
+
+/* Back to top */
+body.case-study-laserharp .back-to-top-section {
+    background: var(--lh-bg);
+}
+
+body.case-study-laserharp .back-to-top-section .up-arrow {
+    filter: brightness(0) invert(1);
+    opacity: 0.42;
+}
+
+body.case-study-laserharp .back-to-top-section .up-arrow:hover {
+    opacity: 0.85;
+    filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(254, 195, 7, 0.4));
+}
+
+/* Section titles → all-caps labels (BUILDING THE PROTOTYPE, FINAL PROTOTYPE) */
+body.case-study-laserharp .lh-section-heading-caps {
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+}
+
+/* Building the prototype — step index (replaces emoji marks) */
+body.case-study-laserharp .echosphere-design-features-slide__mark {
+    font-family: var(--font-nhg-text);
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    color: rgba(255, 255, 255, 0.22);
+    user-select: none;
+}
+
+/* Building the prototype — EchoSphere design-features deck on dark canvas */
+body.case-study-laserharp .echosphere-design-features-slide + .echosphere-design-features-slide {
+    border-top-color: var(--lh-stroke-soft);
+}
+
+body.case-study-laserharp .echosphere-design-features-slide__label,
+body.case-study-laserharp .echosphere-design-features-slide__goal-label {
+    color: var(--lh-gold-muted);
+}
+
+body.case-study-laserharp .echosphere-design-features-slide__title {
+    color: #ffffff;
+    letter-spacing: -0.03em;
+}
+
+body.case-study-laserharp .echosphere-design-features-slide__body {
+    color: var(--lh-ink-muted);
+}
+
+body.case-study-laserharp .echosphere-design-features-slide__goal {
+    color: var(--lh-ink);
+}
+
+body.case-study-laserharp .echosphere-design-features-section .echosphere-design-features-video-slot,
+body.case-study-laserharp .echosphere-design-features-section .echosphere-prototype-media-slot {
+    background: var(--lh-bg-card) !important;
+}
+
+body.case-study-laserharp .echosphere-design-features-section .echosphere-design-features-slide__media .echosphere-analysis-card-media {
+    background: linear-gradient(165deg, #1a2234 0%, #101520 100%) !important;
+    border: 2px solid var(--lh-stroke);
+    box-shadow:
+        0 0 0 1px var(--lh-stroke-soft),
+        0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* 3D CAD carousel — fill the 16:9 stage (no letterboxing from contain + intrinsic size) */
+body.case-study-laserharp .lh-3d-modeling-carousel .echosphere-analysis-card-media {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+body.case-study-laserharp .lh-3d-modeling-carousel .echosphere-analysis-card-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    min-height: 0;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* 3D modeling — multi-paragraph body + spec list (prose centered like circuits story) */
+body.case-study-laserharp .lh-3d-modeling-story {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: min(38em, 100%);
+    text-align: center;
+}
+
+body.case-study-laserharp .lh-3d-modeling-story > p {
+    margin: 0;
+}
+
+body.case-study-laserharp .lh-3d-modeling-story > p + p,
+body.case-study-laserharp .lh-3d-modeling-story > p + .lh-3d-modeling-story__spec-intro,
+body.case-study-laserharp .lh-3d-modeling-story > ul + p {
+    margin-top: clamp(0.85rem, 2.2vh, 1.15rem);
+}
+
+body.case-study-laserharp .lh-3d-modeling-story__spec-intro {
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+    color: var(--lh-ink);
+}
+
+body.case-study-laserharp .lh-3d-modeling-specs {
+    margin: 0 auto clamp(0.35rem, 1vh, 0.5rem);
+    padding: 0.35rem 0 0.15rem clamp(1.1rem, 3vw, 1.35rem);
+    list-style: disc;
+    color: var(--lh-ink-muted);
+    font-size: clamp(0.98rem, 2.4vw, 1.12rem);
+    line-height: 1.45;
+    text-align: left;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+body.case-study-laserharp .lh-3d-modeling-specs li {
+    margin-bottom: 0.35rem;
+    padding-left: 0.25rem;
+}
+
+body.case-study-laserharp .lh-3d-modeling-specs li::marker {
+    color: var(--lh-gold-muted);
+}
+
+body.case-study-laserharp .lh-3d-modeling-specs strong {
+    color: var(--lh-ink);
+    font-weight: 700;
+}
+
+/* Circuits & soldering — centered, sectioned story */
+body.case-study-laserharp .lh-circuits-story {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 38em;
+    text-align: center;
+}
+
+body.case-study-laserharp .lh-circuits-story__block {
+    margin-top: clamp(1.35rem, 3.5vh, 2rem);
+}
+
+body.case-study-laserharp .lh-circuits-story__block:first-child {
+    margin-top: 0;
+}
+
+body.case-study-laserharp .lh-circuits-story__heading {
+    margin: 0 0 clamp(0.55rem, 1.4vh, 0.75rem);
+    font-size: clamp(0.7rem, 1.65vw, 0.8rem);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--lh-gold-muted);
+}
+
+body.case-study-laserharp .lh-circuits-story__block > p {
+    margin: 0;
+    text-wrap: balance;
+}
+
+body.case-study-laserharp .lh-circuits-story__block > p + p {
+    margin-top: clamp(0.55rem, 1.5vh, 0.8rem);
+}
+
+body.case-study-laserharp .lh-circuits-story strong {
+    color: var(--lh-ink);
+    font-weight: 700;
+}
+
+body.case-study-laserharp .lh-circuits-story em {
+    font-style: italic;
+    color: var(--lh-ink-muted);
+}
+
+body.case-study-laserharp .lh-circuits-carousel-mid {
+    margin-top: clamp(1.25rem, 3.5vh, 2rem);
+}
+
+body.case-study-laserharp .lh-circuits-story--after-carousel {
+    margin-top: clamp(1rem, 2.75vh, 1.65rem);
+}
+
+/* Circuits carousels — photos fill the 16:9 media frame */
+body.case-study-laserharp .lh-circuits-carousel .echosphere-analysis-card-media {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+body.case-study-laserharp .lh-circuits-carousel .echosphere-analysis-card-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    min-height: 0;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* MIDI bridge — prose spacing + code blocks (no paper-ink filter on code) */
+body.case-study-laserharp .lh-midi-story__lead + .lh-midi-story__lead {
+    margin-top: clamp(0.85rem, 2.2vh, 1.15rem);
+}
+
+body.case-study-laserharp .lh-midi-story__lead strong {
+    color: var(--lh-ink);
+    font-weight: 700;
+}
+
+/* MIDI code inside carousel 16:9 media panels */
+body.case-study-laserharp .lh-midi-carousel .lh-midi-code-media {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.45rem;
+    padding: clamp(0.65rem, 1.4vw, 0.9rem);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+body.case-study-laserharp .lh-midi-carousel .lh-midi-code-media__label {
+    flex: 0 0 auto;
+    margin: 0;
+    font-size: clamp(0.65rem, 1.55vw, 0.75rem);
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--lh-gold-muted);
+}
+
+body.case-study-laserharp .lh-code-block__pre {
+    margin: 0;
+    padding: clamp(0.85rem, 2vw, 1.1rem) clamp(1rem, 2.5vw, 1.25rem);
+    max-height: min(14rem, 38vh);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    scrollbar-color: var(--lh-stroke-soft) rgba(0, 0, 0, 0.2);
+    scrollbar-width: thin;
+    tab-size: 4;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: clamp(0.72rem, 1.85vw, 0.82rem);
+    line-height: 1.45;
+    color: rgba(232, 236, 248, 0.92);
+    background: linear-gradient(165deg, #121a28 0%, #0c121c 100%);
+    border: 1px solid var(--lh-stroke);
+    border-radius: 10px;
+    box-shadow:
+        0 0 0 1px var(--lh-stroke-soft),
+        0 10px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* Fill the 16:9 media slot; scroll inside the pre, not the whole card */
+body.case-study-laserharp .lh-midi-carousel .lh-code-block__pre--media {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none;
+    padding: clamp(0.5rem, 1.2vw, 0.7rem) clamp(0.65rem, 1.6vw, 0.9rem);
+    font-size: clamp(0.74rem, 1.45vw, 0.86rem);
+    border-radius: 8px;
+}
+
+body.case-study-laserharp .lh-code-block__pre code {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    white-space: pre;
+}
+
+body.case-study-laserharp .lh-code-block__pre::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+body.case-study-laserharp .lh-code-block__pre::-webkit-scrollbar-thumb {
+    background: var(--lh-stroke-soft);
+    border-radius: 4px;
+}
+
+body.case-study-laserharp .lh-code-block__pre::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.case-study-laserharp #next-section .echosphere-research-line--goal-centerpiece {
+        filter: none;
+    }
+
+    body.case-study-laserharp .echosphere-you-told-us-paper .echosphere-you-told-us-stack-heading,
+    body.case-study-laserharp .echosphere-you-told-us-paper .echosphere-you-told-us-stack > p,
+    body.case-study-laserharp .echosphere-understanding-research-paper .echosphere-understanding-research-heading,
+    body.case-study-laserharp .echosphere-understanding-research-paper .echosphere-you-told-us-stack > p,
+    body.case-study-laserharp .echosphere-design-features-slide__label,
+    body.case-study-laserharp .echosphere-design-features-slide__goal-label,
+    body.case-study-laserharp .echosphere-design-features-slide__title,
+    body.case-study-laserharp .echosphere-design-features-slide__body,
+    body.case-study-laserharp .echosphere-design-features-slide__goal,
+    body.case-study-laserharp .echosphere-analysis-card-copy,
+    body.case-study-laserharp .echosphere-analysis-carousel-hint,
+    body.case-study-laserharp .echosphere-insight-ambient__hmw-text,
+    body.case-study-laserharp .lh-final-reflection__title {
+        filter: none;
+    }
+}
