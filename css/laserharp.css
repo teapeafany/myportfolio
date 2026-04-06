@@ -1,4 +1,15 @@
-/* Heavenly Lyre — cinematic case study */
+/* Heavenly Lyre — case study shell (EchoSphere-style parts; dark + gold palette) */
+
+html:has(.laserharp-page) {
+    scroll-behavior: smooth;
+    scroll-snap-type: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:has(.laserharp-page) {
+        scroll-behavior: auto;
+    }
+}
 
 .laserharp-page,
 .laserharp-page html {
@@ -60,6 +71,63 @@
     color: var(--lyre-text);
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+/* Full-page grain (EchoSphere-style; subtle on dark) */
+.laserharp-film-grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.07;
+    background-image: url('../film/texture.png');
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+    animation: laserharp-page-grain 12s steps(10) infinite;
+}
+
+@keyframes laserharp-page-grain {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-2%, 1.5%);
+    }
+}
+
+/* Star rail — match EchoSphere placement; gold-friendly thumb */
+.laserharp-scroll-rail.about-progress-bar.home-scroll-rail {
+    right: clamp(10px, 2.8vw, 24px);
+    z-index: 999;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.laserharp-scroll-rail .home-scroll-track::before {
+    background: linear-gradient(
+        180deg,
+        rgba(254, 195, 7, 0.12) 0%,
+        rgba(255, 255, 255, 0.08) 50%,
+        rgba(254, 195, 7, 0.1) 100%
+    );
+    box-shadow:
+        0 0 0 1px rgba(254, 195, 7, 0.08),
+        0 0 14px rgba(0, 0, 0, 0.35);
+}
+
+.laserharp-scroll-rail .home-scroll-thumb img {
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.5))
+        drop-shadow(0 0 14px rgba(254, 195, 7, 0.22));
+}
+
+.laserharp-hero-shell {
+    position: relative;
+    z-index: 4;
+}
+
+.laserharp-hero-shell.fade-in-section {
+    opacity: 1;
 }
 
 /* ——— Hero (full viewport, layered image + lasers + grain) ——— */
@@ -270,58 +338,74 @@
     }
 }
 
-/* ——— Main column + scroll reveal ———
-   Match home `.about-scroll-section` / `.about-content` width + horizontal inset */
+/* Post-hero band — separates hero from case body */
+.laserharp-post-hero {
+    width: 100%;
+    padding: clamp(2.5rem, 7vh, 4rem) clamp(1.75rem, 8vw, 4rem);
+    border-top: 1px solid rgba(254, 195, 7, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: linear-gradient(180deg, rgba(12, 10, 20, 0.94) 0%, var(--lyre-void) 100%);
+    box-sizing: border-box;
+}
+
+.laserharp-post-hero-inner {
+    max-width: min(52rem, 100%);
+    margin: 0 auto;
+}
+
+.laserharp-post-hero-kicker {
+    font-family: var(--font-nhg-text);
+    font-size: var(--lyre-label);
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--lyre-text-dim);
+    margin: 0 0 1rem;
+    text-shadow: var(--lyre-text-shadow-soft);
+}
+
+.laserharp-project-intro-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--lyre-hero-title-gold);
+    text-shadow: var(--lyre-hero-title-shadow);
+    margin: 0 0 1.25rem;
+    max-width: 20ch;
+}
+
+.laserharp-post-hero-lead {
+    font-family: var(--font-nhg-text);
+    font-size: var(--lyre-body-lead);
+    line-height: 1.5;
+    color: var(--lyre-text);
+    margin: 0;
+    max-width: 38rem;
+    text-shadow: var(--lyre-text-shadow-soft);
+}
+
+.laserharp-case-column {
+    width: 100%;
+    background: var(--lyre-void);
+}
+
+/* ——— Main column + scroll reveal ——— */
 .laserharp-main {
     max-width: min(100%, 68rem);
     width: 100%;
     margin: 0 auto;
-    padding: 0 clamp(1.75rem, 9vw, 5.5rem) 5rem clamp(1.75rem, 12vw, 7rem);
+    padding: clamp(2.5rem, 6vh, 4rem) clamp(1.75rem, 9vw, 5.5rem) clamp(4rem, 10vh, 6rem)
+        clamp(1.75rem, 12vw, 7rem);
     position: relative;
     box-sizing: border-box;
-}
-
-.laserharp-article {
     font-family: var(--font-nhg-text);
     font-size: var(--lyre-body);
     line-height: 1.52;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-/* Journal framing — same column as home letter (first strips are left) */
-.laserharp-journal-mast {
-    text-align: left;
-    margin-bottom: 2.25rem;
-    max-width: min(100%, 48rem);
-    margin-left: 0;
-    margin-right: auto;
-    padding-right: min(12%, 4rem);
-    filter: url(#paper-ink-distort);
-}
-
-.laserharp-journal-frag {
-    color: var(--lyre-headline-accent);
-    font-family: var(--font-nhg-text);
-    font-size: 1.05em;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    word-spacing: 0.02em;
-    line-height: 1.3;
-    margin: 0 0 0.5rem;
-    text-shadow: var(--lyre-text-shadow-soft);
-}
-
-.laserharp-journal-dek {
-    color: var(--lyre-text-muted);
-    font-family: var(--font-nhg-text);
-    font-size: 1em;
-    font-weight: 400;
-    letter-spacing: -0.008em;
-    word-spacing: 0.02em;
-    line-height: 1.45;
-    margin: 0;
-    text-shadow: var(--lyre-text-shadow-soft);
 }
 
 .laserharp-reveal {
@@ -351,6 +435,75 @@
     margin-left: 0;
     margin-right: auto;
     max-width: min(100%, 48rem);
+}
+
+.laserharp-lead--flush {
+    margin-top: 0;
+}
+
+.laserharp-part-body > .laserharp-lead em {
+    font-style: italic;
+    font-family: 'Instrument Serif', Georgia, serif;
+    color: rgba(232, 224, 206, 0.94);
+}
+
+/* Numbered parts — EchoSphere-style sections, dark panels */
+.laserharp-part {
+    margin-bottom: clamp(2.5rem, 6vh, 3.75rem);
+    padding: clamp(1.75rem, 4vw, 2.75rem) clamp(1.35rem, 4vw, 2.25rem);
+    border-radius: clamp(16px, 2.5vw, 24px);
+    background: var(--lyre-panel);
+    border: 1px solid var(--lyre-rim);
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.35),
+        0 18px 48px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+}
+
+.laserharp-part--last {
+    margin-bottom: 0;
+}
+
+.laserharp-part-head {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(254, 195, 7, 0.1);
+}
+
+.laserharp-part-label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.65rem;
+    margin: 0 0 0.5rem;
+    font-family: var(--font-nhg-text);
+    font-size: var(--lyre-label);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lyre-text-dim);
+    text-shadow: var(--lyre-text-shadow-soft);
+}
+
+.laserharp-part-num {
+    color: var(--lyre-gold);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+}
+
+.laserharp-part-title {
+    font-family: var(--font-nhg-text);
+    font-size: clamp(1.85rem, 4.5vw, 2.85rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--lyre-hero-title-gold);
+    text-shadow: var(--lyre-hero-title-shadow);
+    margin: 0;
+    max-width: 22ch;
+}
+
+.laserharp-part-body {
+    position: relative;
 }
 
 /* ——— Gallery — work-style rounded cards; images keep intrinsic aspect ratio ——— */
@@ -404,21 +557,17 @@
     max-width: min(100%, 720px);
 }
 
-/* ——— Sections ——— plain flow on the page (no panel frames) ——— */
-.laserharp-section {
-    margin-bottom: 2.75rem;
-    padding: 0;
-}
-
-.laserharp-section > p {
+/* Prose inside parts */
+.laserharp-prose > p,
+.laserharp-prose p {
     max-width: min(100%, 48rem);
     margin-left: 0;
     margin-right: auto;
     text-align: left;
 }
 
-.laserharp-section > pre.laserharp-code,
-.laserharp-section .laserharp-videos {
+.laserharp-prose > pre.laserharp-code,
+.laserharp-prose .laserharp-videos {
     transform: none;
     text-align: left;
     margin-left: 0;
@@ -428,86 +577,32 @@
     padding-right: 0;
 }
 
-.laserharp-section > ol.laserharp-list {
+.laserharp-prose > ol.laserharp-list {
     transform: none;
     text-align: left;
     margin-left: 0;
     margin-right: 0;
-    max-width: none;
+    max-width: min(100%, 52rem);
     padding-left: 1.5rem;
     padding-right: 0;
     list-style-position: outside;
 }
 
-/* Section titles — NHG + paper distort */
-.laserharp-section-heading {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    margin: 0 0 1.75rem;
-    padding: 0;
-    max-width: min(100%, 56rem);
-    text-align: left;
-}
-
-.laserharp-section-heading .laserharp-entry-num {
+.laserharp-prose h3 {
     font-family: var(--font-nhg-text);
-    font-size: clamp(0.8125rem, 1.25vw, 0.9375rem);
-    font-weight: 400;
+    font-size: clamp(1.25rem, 2.8vw, 1.65rem);
+    font-weight: 600;
     font-style: normal;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--lyre-text-dim);
-    line-height: 1.2;
-    text-shadow: var(--lyre-text-shadow-soft);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    filter: url(#paper-ink-distort);
-    transform: translateX(-0.12rem) rotate(-0.35deg);
-    transform-origin: left top;
-}
-
-/* Match work page center-slot montage--xl headline size */
-.laserharp-section-title-text {
-    font-family: var(--font-nhg-text);
-    font-size: clamp(3rem, 10vw, 6.5rem);
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: -0.03em;
-    word-spacing: 0.02em;
-    line-height: 1.06;
-    color: var(--lyre-headline);
-    text-shadow: var(--lyre-headline-shadow);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    filter: url(#paper-ink-distort);
-    transform: translateX(-0.18rem) rotate(-0.4deg);
-    transform-origin: left center;
-}
-
-.laserharp-section h3 {
-    font-family: var(--font-nhg-text);
-    font-size: clamp(1.75rem, 4.2vw, 3.2rem);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--lyre-headline);
+    color: var(--lyre-hero-title-gold);
     margin: 1.5rem 0 0.85rem;
-    letter-spacing: -0.015em;
-    word-spacing: 0.02em;
-    line-height: 1.2;
-    text-shadow: var(--lyre-headline-shadow);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    text-shadow: var(--lyre-text-shadow-soft);
     text-align: left;
     max-width: min(100%, 48rem);
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    filter: url(#paper-ink-distort);
-    transform: translateX(-0.1rem) rotate(-0.3deg);
-    transform-origin: left center;
 }
 
-.laserharp-section p {
+.laserharp-prose p {
     font-size: inherit;
     line-height: inherit;
     font-weight: 400;
@@ -518,17 +613,16 @@
     text-shadow: var(--lyre-ink-shadow);
 }
 
-.laserharp-section strong {
+.laserharp-prose strong {
     font-family: var(--font-nhg-text);
     font-style: normal;
     font-weight: 700;
     letter-spacing: -0.02em;
-    word-spacing: 0.01em;
-    color: var(--lyre-headline);
+    color: rgba(246, 243, 236, 0.98);
     text-shadow: var(--lyre-text-shadow-soft);
 }
 
-.laserharp-section em {
+.laserharp-prose em {
     font-style: italic;
     font-family: 'Instrument Serif', Georgia, serif;
     color: rgba(232, 224, 206, 0.94);
@@ -536,14 +630,14 @@
     text-shadow: var(--lyre-text-shadow-soft);
 }
 
-.laserharp-section a {
+.laserharp-prose a {
     color: var(--lyre-gold);
     text-decoration: none;
     border-bottom: 1px solid rgba(184, 152, 74, 0.4);
     transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.laserharp-section a:hover {
+.laserharp-prose a:hover {
     color: var(--lyre-gold-hover);
     border-bottom-color: rgba(212, 184, 106, 0.55);
 }
@@ -564,7 +658,7 @@
     text-shadow: var(--lyre-ink-shadow);
 }
 
-.laserharp-section code {
+.laserharp-prose code {
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     font-size: 0.92em;
     background: rgba(36, 32, 48, 0.95);
@@ -645,6 +739,139 @@
     text-shadow: var(--lyre-text-shadow-soft);
 }
 
+.laserharp-part .laserharp-gallery {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+/* Placeholder media — swap inner HTML for <video> / <img> / iframe when assets are ready */
+.laserharp-media-slot {
+    margin-top: clamp(1.75rem, 4vw, 2.75rem);
+    padding-top: clamp(1.25rem, 3vw, 1.75rem);
+    border-top: 1px dashed rgba(254, 195, 7, 0.2);
+}
+
+.laserharp-media-slot-kicker {
+    font-family: var(--font-nhg-text);
+    font-size: var(--lyre-label);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lyre-text-dim);
+    margin: 0 0 1rem;
+    text-shadow: var(--lyre-text-shadow-soft);
+}
+
+.laserharp-placeholder-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.laserharp-placeholder-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 640px) {
+    .laserharp-placeholder-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.laserharp-placeholder {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    box-sizing: border-box;
+    border-radius: clamp(12px, 2vw, 18px);
+    background: linear-gradient(165deg, rgba(8, 7, 14, 0.95) 0%, rgba(18, 16, 28, 0.88) 100%);
+    border: 1px dashed rgba(254, 195, 7, 0.28);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    min-height: 5.5rem;
+}
+
+.laserharp-placeholder--video {
+    aspect-ratio: 16 / 9;
+    min-height: unset;
+}
+
+.laserharp-placeholder--photo {
+    aspect-ratio: 4 / 3;
+    min-height: unset;
+}
+
+.laserharp-placeholder-label {
+    font-family: var(--font-nhg-text);
+    font-size: var(--lyre-label);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(254, 195, 7, 0.55);
+}
+
+.laserharp-placeholder-hint {
+    display: block;
+    margin-top: 0.35rem;
+    font-family: var(--font-nhg-text);
+    font-size: clamp(0.75rem, 1.8vw, 0.875rem);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    color: var(--lyre-text-dim);
+    max-width: 22rem;
+    line-height: 1.35;
+}
+
+/* Intro strip below hero — optional full-width reel */
+.laserharp-hero-media-slot {
+    position: relative;
+    z-index: 2;
+    padding: 0 clamp(1.75rem, 8vw, 4rem) clamp(1.5rem, 4vh, 2.5rem);
+    max-width: min(56rem, 100%);
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.laserharp-hero-media-slot .laserharp-media-slot {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+.laserharp-back-to-top {
+    text-align: center;
+    padding: clamp(2rem, 5vw, 3rem) 1rem clamp(3rem, 8vw, 4.5rem);
+    position: relative;
+    z-index: 4;
+    background: var(--lyre-void);
+}
+
+.laserharp-back-to-top-link {
+    font-family: var(--font-nhg-text);
+    font-size: var(--lyre-label);
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--lyre-gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(184, 152, 74, 0.45);
+    padding-bottom: 0.15em;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.laserharp-back-to-top-link:hover {
+    color: var(--lyre-gold-hover);
+    border-bottom-color: rgba(212, 184, 106, 0.65);
+}
+
 /* ——— Reduced motion ——— */
 @media (prefers-reduced-motion: reduce) {
     .laserharp-hero-bg,
@@ -653,11 +880,12 @@
         animation: none;
     }
 
-    .laserharp-journal-mast,
+    .laserharp-film-grain {
+        animation: none;
+    }
+
     .laserharp-title,
-    .laserharp-section-heading .laserharp-entry-num,
-    .laserharp-section-title-text,
-    .laserharp-section h3 {
+    .laserharp-project-intro-title {
         filter: none;
         transform: none;
     }
@@ -683,9 +911,8 @@
         padding: 0 clamp(1.25rem, 7vw, 2.5rem) max(4vh, 1.5rem) clamp(1.25rem, 9vw, 3rem);
     }
 
-    .laserharp-journal-mast {
-        padding-right: 0;
-        max-width: 100%;
+    .laserharp-part {
+        padding: 1.35rem 1.15rem;
     }
 }
 
@@ -719,7 +946,8 @@
         grid-template-columns: 1fr;
     }
 
-    .laserharp-section > p {
+    .laserharp-prose > p,
+    .laserharp-prose p {
         max-width: 100%;
     }
 
@@ -728,12 +956,12 @@
         max-width: 100%;
     }
 
-    .laserharp-section-title-text {
-        font-size: clamp(2.25rem, 9.5vw, 4rem);
+    .laserharp-part-title {
+        font-size: clamp(1.5rem, 7vw, 2.25rem);
     }
 
-    .laserharp-section h3 {
-        font-size: clamp(1.35rem, 5.5vw, 2.35rem);
+    .laserharp-prose h3 {
+        font-size: clamp(1.1rem, 4vw, 1.45rem);
     }
 }
 

@@ -4,276 +4,694 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="film/cursor-star.png" type="image/png">
-    <title>Heavenly Lyre - Tiffany Lee</title>
+    <title>Heavenly Laser Lyre - Tiffany Lee</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/laserharp.css">
+    <link rel="stylesheet" href="css/echosphere.css">
+    <link rel="stylesheet" href="css/case-study-shell.css">
+    <link rel="stylesheet" href="css/case-study-laserharp.css">
 </head>
-<body class="laserharp-page">
+<body class="echosphere-page case-study-laserharp">
     <script src="js/paper-ink-filter.js"></script>
     <script src="js/nav-scroll.js" defer></script>
-    <div id="navigation-container"></div>
-
-    <header class="laserharp-hero">
-        <div class="laserharp-hero-visual" aria-hidden="true">
-            <div class="laserharp-hero-bg"></div>
-            <div class="laserharp-hero-lasers"></div>
-            <div class="laserharp-hero-vignette"></div>
-            <div class="laserharp-hero-grain"></div>
-        </div>
-        <div class="laserharp-hero-content">
-            <p class="laserharp-eyebrow">Physical computing · Arduino · MIDI</p>
-            <h1 class="laserharp-title"><span class="laserharp-title-line">Heavenly</span> <span class="laserharp-title-line laserharp-title-line--accent">Lyre</span></h1>
-            <p class="laserharp-hero-dek">MIDI lyre · laser strings · photoresistors</p>
-            <p class="laserharp-hero-dek">Break a beam to play a note—serial, Python, IAC, GarageBand</p>
-        </div>
-        <div class="laserharp-hero-edge" aria-hidden="true"></div>
-    </header>
-
-    <main class="laserharp-main">
-        <article class="laserharp-article laserharp-journal">
-            <header class="laserharp-journal-mast laserharp-reveal">
-                <p class="laserharp-journal-frag">[ Build log · Spring 2026 ]</p>
-                <p class="laserharp-journal-dek">Field notes from the build.</p>
-            </header>
-            <p class="laserharp-lead laserharp-reveal">
-                This project is probably one of the coolest artifacts I have ever made by far. I came across the concept of a laser harp while surfing online, and, while it wasn’t the most common creation, the creator I was looking at had confirmed in the comments that she used a MIDI connection and Arduino, so I knew it could be done. I wanted to build that instrument for myself. The lack of strings seemed magical, and I could picture it as a prop in something like <em>Harry Potter</em>—enchanted instruments on set. A traditional harp’s asymmetry intimidated me, and I’m not a harpist (oboe and piano are more my background), so I wanted something simple and symmetrical—easier to CAD and to reason about. I landed on a lyre, inspired by the game <em>Genshin</em>, funny enough. Lasers as invisible strings, photoresistors catching the light, and software turning breaks in the beam into notes—that was the picture I held the whole way through.
-            </p>
-
-            <div class="laserharp-gallery laserharp-reveal" aria-label="Project photos">
-                <figure class="laserharp-gallery-item">
-                    <img src="film/laserharp-IMG_1601.jpg" alt="Lyre body and wiring detail" loading="lazy" width="800" height="600">
-                </figure>
-                <figure class="laserharp-gallery-item">
-                    <img src="film/laserharp-IMG_1598.jpg" alt="Lyre from another angle" loading="lazy" width="800" height="600">
-                </figure>
-                <figure class="laserharp-gallery-item">
-                    <img src="film/laserharp-IMG_1574.jpg" alt="Build process or assembled lyre" loading="lazy" width="1200" height="675">
-                </figure>
-                <figure class="laserharp-gallery-item">
-                    <img src="film/laserharp-IMG_1595.jpg" alt="Lyre detail" loading="lazy" width="800" height="600">
-                </figure>
-                <figure class="laserharp-gallery-item">
-                    <img src="film/laserharp-IMG_6675.jpg" alt="Heavenly Lyre with laser beams visible in low light" loading="lazy" width="800" height="1200">
-                </figure>
-            </div>
-
-            <section class="laserharp-section laserharp-reveal">
-                <h2 class="laserharp-section-heading"><span class="laserharp-entry-num" aria-hidden="true">01</span><span class="laserharp-section-title-text">Research &amp; testing</span></h2>
-                <p>The concept was simple: lasers would act as invisible strings, beaming down on photoresistors, which would read light levels. When the player blocks a beam, the value drops, and that change has to reach the music software on my computer somehow. I read a lot of threads and build logs to sanity-check the idea.</p>
-                <p>This <a href="https://www.instructables.com/Arduino-Laser-Harp-1/" target="_blank" rel="noopener">Instructables Arduino laser harp</a> helped me connect the dots on circuitry—my parts and schematic ended up quite different, but the underlying logic matched what I needed.</p>
-                <p>I knew the project would pull in printing, soldering, firmware, and software bridges, so I started early. Chase and Professor Nitsche helped me get lasers and photoresistors in hand; I tested them on a breadboard until the readings looked stable. Once those behaved, I let myself believe the rest of the build was actually possible.</p>
-            </section>
-
-            <section class="laserharp-section laserharp-reveal">
-                <h2 class="laserharp-section-heading"><span class="laserharp-entry-num" aria-hidden="true">02</span><span class="laserharp-section-title-text">3D modeling</span></h2>
-                <p>I started CAD knowing the print queue would eat time. There are plenty of Venti-style lyre meshes online, but editing someone else’s body was fighting the tool more than designing—so I modeled my own shell in Fusion, with room to hide the Arduino (or try to), routes for wiring, and clean holes for lasers and sensors. I had never really used Fusion before; splines, extrudes, and reference images turned into a crash course from a patient friend (thanks, Tanmay). We iterated on proportions, exported an STL, and sent it to another friend with a printer when the campus HIVE line looked endless.</p>
-                <p>Our first version had a base about fourteen inches tall and an inch and a half thick—too big for the printer we had access to, and it had to get thinner anyway. Fitting the protoboard and Arduino entirely inside started to feel like a pipe dream; I accepted a more external harness and moved on.</p>
-                <p>After another pass, the final dimensions settled to:</p>
-                <ul class="laserharp-list">
-                    <li><strong>Top holes</strong> (6mm lasers): 6.3mm for tolerance</li>
-                    <li><strong>Bottom holes</strong> (so lasers don’t fall through): 4.7mm</li>
-                    <li><strong>Height of lyre:</strong> 10 inches</li>
-                    <li><strong>Bottom holes for photoresistors:</strong> about 5mm</li>
-                </ul>
-                <p>The bottom of the lyre stayed hollow to feed photoresistor wiring up cleanly. When the mesh finally felt right, I sent it off to print—about eight hours on the clock, and a long wait to see if reality matched the screen.</p>
-            </section>
-
-            <section class="laserharp-section laserharp-reveal">
-                <h2 class="laserharp-section-heading"><span class="laserharp-entry-num" aria-hidden="true">03</span><span class="laserharp-section-title-text">MIDI bridge &amp; code</span></h2>
-                <p>This layer took almost a full day of head-scratching. I went looking for Hairless MIDI Bridge to pipe the Arduino into GarageBand and learned the build everyone recommended doesn’t play nicely with newer Mac OS. I needed another path.</p>
-                <h3>What actually happened</h3>
-                <ol class="laserharp-list">
-                    <li><strong>Serial-MIDI Bridge first.</strong> I installed SerialMidiBridge, worked through the Mac security warning, pointed it at <code>/dev/cu.usbmodem101</code>, baud 9600, IAC Driver Bus 1, hit Start—and GarageBand stayed silent.</li>
-                    <li><strong>Checking the obvious.</strong> IAC was online in Audio MIDI Setup, Bus 1 existed, GarageBand reported a MIDI input, MIDI Monitor showed the bus alive. Blocking a laser still produced nothing in the DAW.</li>
-                    <li><strong>Serial told the truth.</strong> With Serial Monitor open I could see the Arduino shouting values when I broke beams, but MIDI Monitor never saw translated notes. The bridge wasn’t turning my stream into reliable MIDI.</li>
-                    <li><strong>Dead ends.</strong> Hairless’s site was down when I looked. MIDIUSB wasn’t an option on my Uno. Cranking Serial-MIDI Bridge toward true MIDI baud didn’t save it.</li>
-                    <li><strong>Python.</strong> I set a threshold at 600—beam blocked sends NOTE ON, clear sends NOTE OFF—installed <strong>pyserial</strong> and <strong>python-rtmidi</strong>, and wrote a small script to read the comma-separated analog values as text and emit MIDI straight to the IAC driver. First pass tried to treat raw bytes as MIDI and sounded like chaos; parsing integers fixed it. After that, GarageBand finally listened.</li>
-                </ol>
-                <p>To run it: <code>python3 ~/serial_midi.py</code>. The script auto-reconnects when the cable gets fussy. <em>You have to close the Arduino IDE before Python owns the serial port—and the other way around—or they step on each other.</em> The listings below are for four lasers and four photoresistors.</p>
-                <h3>Python bridge</h3>
-                <pre class="laserharp-code"><code>import serial
-import rtmidi
-import time
-
-midiout = rtmidi.MidiOut()
-midiout.open_port(0)
-
-THRESHOLD = 600
-last_notes = []
-
-def connect():
-    while True:
-        try:
-            ser = serial.Serial('/dev/cu.usbmodem101', 9600, timeout=1)
-            time.sleep(2)
-            ser.reset_input_buffer()
-            print("Connected!")
-            return ser
-        except:
-            print("Waiting for Arduino...")
-            time.sleep(2)
-
-ser = connect()
-print("Running... block the lasers!")
-
-while True:
-    try:
-        line = ser.readline().decode('utf-8').strip()
-        if line:
-            values = list(map(int, line.split(',')))
-            if len(values) != 4:
-                continue
-
-            b1 = values[0] &lt; THRESHOLD
-            b2 = values[1] &lt; THRESHOLD
-            b3 = values[2] &lt; THRESHOLD
-            b4 = values[3] &lt; THRESHOLD
-
-            if b1 and b2 and b3 and b4:
-                notes = [83]
-            elif b1 and b2 and b3:
-                notes = [77]
-            elif b1 and b2 and b4:
-                notes = [73]
-            elif b1 and b3 and b4:
-                notes = [75]
-            elif b2 and b3 and b4:
-                notes = [80]
-            elif b1 and b2:
-                notes = [72]
-            elif b1 and b3:
-                notes = [74]
-            elif b2 and b3:
-                notes = [69]
-            elif b3 and b4:
-                notes = [70]
-            elif b2 and b4:
-                notes = [80]
-            elif b1 and b4:
-                notes = [73]
-            elif b1:
-                notes = [71]
-            elif b2:
-                notes = [76]
-            elif b3:
-                notes = [79]
-            elif b4:
-                notes = [78]
-            else:
-                notes = []
-
-            for note in last_notes:
-                if note not in notes:
-                    midiout.send_message([0x80, note, 0])
-            for note in notes:
-                if note not in last_notes:
-                    midiout.send_message([0x90, note, 127])
-                    print("NOTE ON:", note)
-
-            last_notes = notes
-
-    except:
-        print("Disconnected! Reconnecting...")
-        time.sleep(1)
-        ser = connect()</code></pre>
-                <h3>Arduino · four LDRs, 9600 baud</h3>
-                <pre class="laserharp-code"><code>void setup() {
-  Serial.begin(9600);
-}
-
-void loop() {
-  int ldr1 = analogRead(A0);
-  int ldr2 = analogRead(A1);
-  int ldr3 = analogRead(A2);
-  int ldr4 = analogRead(A3);
-  
-  Serial.print(ldr1); Serial.print(",");
-  Serial.print(ldr2); Serial.print(",");
-  Serial.print(ldr3); Serial.print(",");
-  Serial.println(ldr4);
-  
-  delay(50);
-}</code></pre>
-            </section>
-
-            <section class="laserharp-section laserharp-reveal">
-                <h2 class="laserharp-section-heading"><span class="laserharp-entry-num" aria-hidden="true">04</span><span class="laserharp-section-title-text">Circuits &amp; soldering</span></h2>
-                <p>With the shell in hand, I wired the “strings”: photoresistors into dividers on A0–A3, lasers sharing positive and negative busses, grounds and 5V where they belonged. I’m not brand-new to soldering, so I pre-cut and stripped wire, dry-fit everything, and only then started locking joints down.</p>
-                <p><strong>Don’t do what I did once:</strong> soldering photoresistor legs before threading them through the body means extra jumpers and extra time. Thread first, solder second.</p>
-                <p>The laser harness was fussier than it should have been—bussing four emitters to two rails meant solder, desolder, shorten, lengthen, repeat until the bundle cooperated. I’d meant to tuck the wiring along the lyre’s edges; the final length is a little proud instead.</p>
-                <p>When all four beams lined up with their sensors, the project finally felt like it had a finish line. Hot glue keeps the lasers from drifting off their photoresistors, and it also saved a few parts that popped loose when I handled the board too roughly—a lesson I wish I’d already internalized on the cat project.</p>
-            </section>
-
-            <section class="laserharp-section laserharp-reveal">
-                <h2 class="laserharp-section-heading"><span class="laserharp-entry-num" aria-hidden="true">05</span><span class="laserharp-section-title-text">Decorating</span></h2>
-                <p>I still wanted the object to feel like an instrument on a shelf, not a bare dev board with lasers. Air-dry clay entered the picture after a guest lecture in another class—an exercise about emotional expression where Supratim handed out clay; I ended up sculpting a small bird for it and realized the material could hide hardware and add wings.</p>
-                <p>I ordered more clay, shaped wings and small embellishments, and built the stand from cardboard plus leftover stuffing from an earlier project. The base reads a little like a cloud holding the lyre up—which was exactly the mood I was chasing.</p>
-            </section>
-
-            <section class="laserharp-section laserharp-reveal">
-                <h2 class="laserharp-section-heading"><span class="laserharp-entry-num" aria-hidden="true">06</span><span class="laserharp-section-title-text">Final demo</span></h2>
-                <div class="laserharp-videos">
-                    <div class="laserharp-video-block">
-                        <div class="laserharp-video-wrap">
-                            <iframe src="https://www.youtube.com/embed/J74geotIhL8" title="Heavenly Lyre demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="laserharp-video-caption">Full demo</p>
-                    </div>
-                    <div class="laserharp-video-block">
-                        <div class="laserharp-video-wrap">
-                            <iframe src="https://www.youtube.com/embed/Pg94yKDsQyw" title="Heavenly Lyre shorts" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="laserharp-video-caption">Shorts</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="laserharp-section laserharp-reveal">
-                <h2 class="laserharp-section-heading"><span class="laserharp-entry-num" aria-hidden="true">07</span><span class="laserharp-section-title-text">Reflection</span></h2>
-                <p>This build reminded me how much faster you move when people who’ve already fought the same battles lean in. ECE students at the HIVE kept stopping to ask what I was making and offering tricks for cleaner joints or saner routing—that community piece mattered as much as any datasheet.</p>
-                <p>I’m far more comfortable at the soldering iron now, and Fusion feels like a tool I’ll open again instead of dreading. There’s still more to learn (there always is), but the lyre actually plays—and that’s the line I wanted to end on.</p>
-            </section>
-        </article>
-    </main>
-
-    <div class="about-progress-bar home-scroll-rail" id="about-progress-bar" aria-hidden="true">
+    <div class="floating-bubbles" id="floating-bubbles"></div>
+    <div class="echosphere-film-grain" aria-hidden="true"></div>
+    <div class="about-progress-bar home-scroll-rail visible echosphere-scroll-rail" id="about-progress-bar" aria-hidden="false">
         <div class="home-scroll-track" id="home-scroll-track"></div>
-        <div class="home-scroll-thumb" id="home-scroll-thumb" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Scroll the page">
+        <div class="home-scroll-thumb" id="home-scroll-thumb" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Scroll the case study">
             <img src="film/home-scroll-star.png" alt="" width="88" height="88" draggable="false">
         </div>
     </div>
 
-    <script>
-        function includeNavigation() {
-            const navHTML = `
-                <nav class="nav-menu">
-                    <a href="work.html" class="nav-item nav-back" id="nav-back" aria-label="Back to Work">
-                        <span class="back-button-label" aria-hidden="true">&lt;</span>
-                    </a>
-                </nav>
-            `;
-            document.getElementById('navigation-container').innerHTML = navHTML;
-        }
-        document.addEventListener('DOMContentLoaded', includeNavigation);
+    <div id="hero-section" class="hero-section fade-in-section">
+    <div id="navigation-container"></div>
+        <div class="echosphere-hero-montage">
+            <h1 class="echosphere-sr-only">Heavenly Laser Lyre</h1>
+            <div class="echosphere-hero-intro echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t0" aria-label="Heavenly Laser Lyre hero">
+                <div class="echosphere-hero-intro-frame">
+                    <img src="film/laserharp-thumb.png" alt="" class="echosphere-hero-intro-video" width="500" height="500" />
+                </div>
+            </div>
+        </div>
 
-        document.querySelectorAll('.laserharp-reveal').forEach(function (el) {
-            var io = new IntersectionObserver(
-                function (entries) {
-                    entries.forEach(function (e) {
-                        if (e.isIntersecting) {
-                            e.target.classList.add('is-visible');
-                            io.unobserve(e.target);
-                        }
-                    });
-                },
-                { rootMargin: '0px 0px -6% 0px', threshold: 0.06 }
-            );
-            io.observe(el);
-        });
+        <div id="next-section" class="echosphere-post-hero" aria-label="Project context">
+            <div class="echosphere-post-hero-inner">
+                <h2 id="echosphere-post-hero-heading" class="echosphere-research-heading" aria-live="polite" aria-label="Project introduction">
+                    <div class="echosphere-research-letter" id="echosphere-research-letter"></div>
+                </h2>
+                <div class="case-study-youtube-wrap lh-intro-youtube-wrap">
+                    <iframe
+                        src="https://www.youtube.com/embed/Pg94yKDsQyw?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=Pg94yKDsQyw&amp;playsinline=1&amp;rel=0"
+                        title="Laser harp — short clip"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div id="you-told-us-section" class="echosphere-hero-intro echosphere-hero-you-told-us echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section" aria-labelledby="lh-context-heading">
+            <div class="echosphere-hero-intro-frame">
+                <div class="case-study-media-placeholder" role="img" aria-label="Placeholder">Teaser motion / key render — placeholder</div>
+            </div>
+            <div class="echosphere-you-told-us-below">
+                <div class="echosphere-you-told-us-bubbles echosphere-you-told-us-bubbles--spread">
+                    <div class="echosphere-you-told-us-bubbles-col echosphere-you-told-us-bubbles-col--left">
+                        <blockquote class="echosphere-you-told-us-bubble echosphere-you-told-us-bubble--in">
+                            <span class="echosphere-paper-ink-text">&ldquo;what fictional worlds can i design for&rdquo;</span>
+                        </blockquote>
+                    </div>
+                    <div class="echosphere-you-told-us-bubbles-col echosphere-you-told-us-bubbles-col--center">
+                        <blockquote class="echosphere-you-told-us-bubble echosphere-you-told-us-bubble--mid">
+                            <span class="echosphere-paper-ink-text">&ldquo;the film or novel world? harry potter?&rdquo;</span>
+                        </blockquote>
+                    </div>
+                    <div class="echosphere-you-told-us-bubbles-col echosphere-you-told-us-bubbles-col--right">
+                        <blockquote class="echosphere-you-told-us-bubble echosphere-you-told-us-bubble--out">
+                            <span class="echosphere-paper-ink-text">&ldquo;the game world? genshin impact?&rdquo;</span>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="echosphere-you-told-us-paper">
+                    <h2 id="lh-context-heading" class="echosphere-you-told-us-stack-heading">
+                        <span class="echosphere-sr-only">Ideating</span>
+                        <span class="echosphere-you-told-us-kicker--below" aria-hidden="true">
+                            <span class="echosphere-you-told-us-kicker-text">
+                                <span id="echosphere-you-told-us-kicker-text"></span><span class="echosphere-you-told-us-kicker-caret" id="echosphere-you-told-us-kicker-caret" aria-hidden="true">|</span>
+                            </span>
+                        </span>
+                    </h2>
+                    <div class="echosphere-you-told-us-stack">
+                        <p class="echosphere-you-told-us-body-lead">
+                            I built an instrument where the strings are made of light. Where the physical and the fictional finally touch.
+                        </p>
+                        <p class="echosphere-you-told-us-body-tagline">
+                            This project is probably one of the coolest artifacts I have ever made by far. I came across the concept of a laser harp while surfing online, and, while it wasn&rsquo;t the most common creation, the creator I was looking at had confirmed in the comments that she used a MIDI connection and Arduino, so I knew it could be done. I wanted to create this musical instrument for myself.
+                            <a
+                                href="https://www.instagram.com/reels/DPElCSziN16/"
+                                class="lh-body-inline-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >See the creator&rsquo;s laser harp reel on Instagram<span class="echosphere-sr-only"> (opens in new tab)</span></a>.
+                        </p>
+                    </div>
+                </div>
+                <div class="echosphere-research-scope" aria-labelledby="lh-scope-heading">
+                    <h3 id="lh-scope-heading" class="echosphere-sr-only">
+                        Arduino, 3D model in Fusion, connect through MIDI — rotating on screen.
+                    </h3>
+                    <div class="echosphere-research-scope-stage lh-research-scope-stage--triple">
+                        <p class="echosphere-research-scope-stat lh-rscope-line lh-rscope-line--a">ARDUINO</p>
+                        <p class="echosphere-research-scope-stat lh-rscope-line lh-rscope-line--b">3D MODEL IN FUSION</p>
+                        <p class="echosphere-research-scope-stat lh-rscope-line lh-rscope-line--c">CONNECT THROUGH MIDI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="echosphere-hero-montage lh-sketch-hero-montage fade-in-section" aria-label="Early sketches and ideation">
+            <div class="echosphere-hero-intro echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 lh-sketch-hero-intro">
+                <div class="echosphere-hero-intro-frame">
+                    <img
+                        src="film/laser-lyre/sketching.png"
+                        alt="Sketch explorations for the laser lyre form and layout"
+                        class="echosphere-hero-intro-video case-study-hero-media"
+                        width="1600"
+                        height="900"
+                        loading="lazy"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <section
+            id="lh-research-testing-section"
+            class="echosphere-understanding-research echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section"
+            aria-labelledby="lh-research-testing-heading"
+        >
+            <div class="echosphere-understanding-research-paper">
+                <h2 id="lh-research-testing-heading" class="echosphere-understanding-research-heading lh-section-heading-caps">Research and testing</h2>
+                <div class="echosphere-you-told-us-stack lh-research-testing-intro-stack">
+                    <p class="echosphere-you-told-us-body-lead">
+                        The concept was simple: lasers would act as invisible strings, beaming down on photoresistors, which would read light levels.
+                    </p>
+                    <p class="echosphere-you-told-us-body-tagline">
+                        When the player blocks a beam, the value drops, and that change has to reach the music software on my computer somehow. I read a lot of threads and build logs to sanity-check the idea.
+                    </p>
+                </div>
+
+                <div
+                    class="echosphere-analysis-carousel"
+                    role="region"
+                    aria-roledescription="carousel"
+                    aria-label="Research: references and hardware testing"
+                >
+                    <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                    <div class="echosphere-analysis-carousel-track">
+                        <article class="echosphere-analysis-card">
+                            <div class="echosphere-analysis-card-media">
+                                <img
+                                    src="film/laser-lyre/schematics.png"
+                                    alt="Early laser lyre schematic and layout notes"
+                                    class="echosphere-analysis-card-img mindmap-visual-image"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div class="echosphere-analysis-card-copy">
+                                <h3 class="echosphere-analysis-card-title">Reference &amp; circuitry</h3>
+                                <p class="echosphere-analysis-card-text">
+                                    <a
+                                        href="https://www.instructables.com/Arduino-Laser-Harp-1/"
+                                        class="lh-body-inline-link"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >This Instructables Arduino laser harp<span class="echosphere-sr-only"> (opens in new tab)</span></a>
+                                    helped me connect the dots on circuitry; my parts and schematic ended up quite different, but the underlying logic matched what I needed.
+                                </p>
+                            </div>
+                        </article>
+                        <article class="echosphere-analysis-card">
+                            <div class="echosphere-analysis-card-media">
+                                <img
+                                    src="film/laser-lyre/breadboard.png"
+                                    alt="Lasers and photoresistors tested on a breadboard"
+                                    class="echosphere-analysis-card-img mindmap-visual-image"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div class="echosphere-analysis-card-copy">
+                                <h3 class="echosphere-analysis-card-title">Breadboard validation</h3>
+                                <p class="echosphere-analysis-card-text">
+                                    I knew the project would pull in printing, soldering, firmware, and software bridges, so I started early. Chase and Professor Nitsche helped me get lasers and photoresistors in hand; I tested them on a breadboard until the readings looked stable. Once those behaved, I let myself believe the rest of the build was actually possible.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            id="echosphere-understanding-design-direction-section"
+            class="echosphere-insight-ambient-band echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section"
+            aria-labelledby="echosphere-hmw-heading"
+        >
+            <div class="echosphere-insight-ambient-slot echosphere-insight-ambient-slot--wide">
+                <div class="echosphere-insight-ambient__hmw echosphere-insight-ambient__hmw--on-light">
+                    <h3 id="echosphere-hmw-heading" class="echosphere-insight-ambient__hmw-text">
+                        <span class="echosphere-insight-ambient__hmw-kicker">
+                            <span class="echosphere-research-type-wrap">how might we</span>
+                        </span>
+                        <span class="echosphere-insight-ambient__hmw-body">
+                            build an instrument that convinces you it belongs in
+                            <span class="echosphere-research-type-wrap echosphere-insight-ambient__hmw-body-kicker-match">another world?</span>
+                        </span>
+                    </h3>
+                </div>
+            </div>
+        </section>
+
+        <div class="echosphere-understanding-research echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section">
+            <div class="echosphere-understanding-research-paper">
+                <section
+                    id="lh-building-prototype-section"
+                    class="echosphere-design-features-section echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1"
+                    aria-labelledby="lh-building-heading"
+                >
+                    <h2 id="lh-building-heading" class="echosphere-understanding-research-heading lh-section-heading-caps">Building the prototype</h2>
+                    <div class="echosphere-you-told-us-stack">
+                        <p class="echosphere-you-told-us-body-lead">
+                            Placeholder — the build in four passes: form, software bridge, electronics, and finish.
+                        </p>
+                    </div>
+
+                    <div class="echosphere-design-features-deck">
+                        <article class="echosphere-design-features-slide echosphere-design-features-slide--spotlight">
+                            <div class="echosphere-design-features-slide__mark" aria-hidden="true">1</div>
+                            <p class="echosphere-design-features-slide__label">Build</p>
+                            <h3 class="echosphere-design-features-slide__title">3D MODELING</h3>
+                            <div class="echosphere-design-features-slide__media echosphere-design-features-slide__media--spotlight">
+                                <div
+                                    class="echosphere-analysis-carousel echosphere-design-features-carousel lh-3d-modeling-carousel"
+                                    role="region"
+                                    aria-roledescription="carousel"
+                                    aria-label="3D modeling: media"
+                                >
+                                    <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                                    <div class="echosphere-analysis-carousel-track">
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <img
+                                                    src="film/laser-lyre/3d1.png"
+                                                    alt="Fusion CAD of the laser lyre — view 1 of 4"
+                                                    class="echosphere-analysis-card-img mindmap-visual-image"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">First CAD pass</h3>
+                                                <p class="echosphere-analysis-card-text">Included a base—about 14″ tall and 1.5″ thick before printer limits forced a slimmer direction.</p>
+                                            </div>
+                                        </article>
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <img
+                                                    src="film/laser-lyre/3d2.png"
+                                                    alt="Fusion CAD of the laser lyre — view 2 of 4"
+                                                    class="echosphere-analysis-card-img mindmap-visual-image"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">Shrinking the design</h3>
+                                                <p class="echosphere-analysis-card-text">The first version was too large for the bed; it also had to get much thinner. Fully hiding the protoboard and Arduino stopped feeling realistic.</p>
+                                            </div>
+                                        </article>
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <img
+                                                    src="film/laser-lyre/3d3.png"
+                                                    alt="Fusion CAD of the laser lyre — view 3 of 4"
+                                                    class="echosphere-analysis-card-img mindmap-visual-image"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">Holes &amp; routing</h3>
+                                                <p class="echosphere-analysis-card-text">Laser and photoresistor holes tuned for tolerance; the bottom stayed hollow to run wiring.</p>
+                                            </div>
+                                        </article>
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <img
+                                                    src="film/laser-lyre/3d4.png"
+                                                    alt="Fusion CAD of the laser lyre — view 4 of 4"
+                                                    class="echosphere-analysis-card-img mindmap-visual-image"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">Print handoff</h3>
+                                                <p class="echosphere-analysis-card-text">Final STL out the door—first print run clocked in around eight hours.</p>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="echosphere-design-features-slide__body lh-3d-modeling-story">
+                                <p>
+                                    I got started on CAD early because printing would take a while. Plenty of Venti’s-lyre meshes exist online, but after struggling to edit one as a mesh body, I built my own so I could hide an Arduino, route wiring, and place holes exactly where I needed them. I had never used Fusion before—nothing like the simple table from my last project—so reference images, splines, and extrudes came together with a crash course from a friend (thanks Tanmay!). We iterated measurements and sent STLs to another friend with a printer; outside the HIVE queue, that extra printer access mattered a lot.
+                                </p>
+                                <p>
+                                    Our first CAD model included a base: about <strong>14 inches tall</strong> and <strong>1.5 inches thick</strong>. Then came the first hard constraint—the machine I could use couldn’t handle that size, and the part had to get <strong>much thinner</strong>. Fitting the protoboard and Arduino fully inside turned out to be a pipe dream, so I kept them <strong>moderately external</strong>, which stayed workable.
+                                </p>
+                                <p class="lh-3d-modeling-story__spec-intro">After those adjustments, the numbers I landed on looked like this:</p>
+                                <ul class="lh-3d-modeling-specs" aria-label="Final lyre measurements">
+                                    <li><strong>Top holes</strong> (6&nbsp;mm lasers, with tolerance): <strong>6.3&nbsp;mm</strong></li>
+                                    <li><strong>Bottom laser holes</strong> (so beams don’t fall through): <strong>4.7&nbsp;mm</strong></li>
+                                    <li><strong>Overall height:</strong> <strong>10 inches</strong></li>
+                                    <li><strong>Bottom photoresistor holes:</strong> about <strong>5&nbsp;mm</strong></li>
+                                </ul>
+                                <p>
+                                    The bottom of the lyre stayed <strong>hollow</strong> for photoresistor wiring. When the model was finally done, I sent it off to print—the run took a whopping <strong>eight hours</strong>.
+                                </p>
+                            </div>
+                            <p class="echosphere-design-features-slide__goal-label">Focus</p>
+                            <p class="echosphere-design-features-slide__goal">Fusion geometry pushed by real printer limits: thinner walls, external electronics, tolerance-aware holes, a hollow base for wiring, then an STL validated through friend-and-queue print passes.</p>
+                        </article>
+
+                        <article class="echosphere-design-features-slide echosphere-design-features-slide--spotlight">
+                            <div class="echosphere-design-features-slide__mark" aria-hidden="true">2</div>
+                            <p class="echosphere-design-features-slide__label">Build</p>
+                            <h3 class="echosphere-design-features-slide__title">MIDI BRIDGE AND CODE</h3>
+                            <div class="echosphere-design-features-slide__media echosphere-design-features-slide__media--spotlight">
+                                <div
+                                    class="echosphere-analysis-carousel echosphere-design-features-carousel lh-midi-carousel"
+                                    role="region"
+                                    aria-roledescription="carousel"
+                                    aria-label="MIDI bridge and code: media"
+                                >
+                                    <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                                    <div class="echosphere-analysis-carousel-track">
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media lh-midi-code-media">
+                                                <p class="lh-midi-code-media__label">Arduino — stream readings (excerpt)</p>
+                                                <pre class="lh-code-block__pre lh-code-block__pre--media" tabindex="0"><code>const int PIN_COUNT = 6;
+const int PINS[PIN_COUNT] = { A0, A1, A2, A3, A4, A5 };
+
+void setup() {
+  Serial.begin(115200);
+}
+
+void loop() {
+  for (int i = 0; i &lt; PIN_COUNT; i++) {
+    Serial.print(analogRead(PINS[i]));
+    if (i &lt; PIN_COUNT - 1) Serial.print(',');
+  }
+  Serial.println();
+  delay(5);
+}</code></pre>
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">Firmware → USB</h3>
+                                                <p class="echosphere-analysis-card-text">The Arduino samples every photoresistor and prints one CSV line per frame so the laptop always sees a stable, ordered snapshot of all strings.</p>
+                                            </div>
+                                        </article>
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media lh-midi-code-media">
+                                                <p class="lh-midi-code-media__label">Python — serial to MIDI (excerpt)</p>
+                                                <pre class="lh-code-block__pre lh-code-block__pre--media" tabindex="0"><code>import serial
+import mido
+
+SERIAL_PORT = "/dev/cu.usbmodem101"  # your port
+BAUD = 115200
+THRESHOLD = 380
+NOTES = [60, 62, 64, 65, 67, 69]
+was_on = [False] * len(NOTES)
+
+ser = serial.Serial(SERIAL_PORT, BAUD, timeout=0.02)
+out = mido.open_output("Your Virtual MIDI Port")
+
+try:
+    while True:
+        line = ser.readline().decode(errors="ignore").strip()
+        if not line:
+            continue
+        vals = [int(x) for x in line.split(",")]
+        for i, v in enumerate(vals):
+            if i &gt;= len(NOTES):
+                break
+            on = v &lt; THRESHOLD  # beam blocked → dimmer reading
+            if on and not was_on[i]:
+                out.send(mido.Message("note_on", note=NOTES[i], velocity=100))
+            elif not on and was_on[i]:
+                out.send(mido.Message("note_off", note=NOTES[i], velocity=0))
+            was_on[i] = on
+except KeyboardInterrupt:
+    ser.close()</code></pre>
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">Host → MIDI</h3>
+                                                <p class="echosphere-analysis-card-text">Python reads serial, applies a light threshold so a blocked beam reads as a hit, and emits note-on/note-off on a virtual MIDI port for a DAW or soft synth.</p>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="echosphere-design-features-slide__body lh-midi-story__lead">
+                                Once the hardware was reading light levels reliably, the instrument still wasn’t “musical” until the laptop understood those readings as notes. I kept the firmware dumb on purpose: the Arduino only <strong>streams analog values over serial</strong> as comma-separated numbers—one row per scan—so I could tune thresholds and voicing in software without reflashing every time I changed my mind.
+                            </p>
+                            <p class="echosphere-design-features-slide__body lh-midi-story__lead">
+                                On the host side, a <strong>Python</strong> script opens the USB serial port, parses each line into per-string brightness, and compares against a cutoff (when a laser is blocked the photoresistor dips). Crossing that boundary triggers <strong>MIDI note-on</strong>; clearing it sends <strong>note-off</strong>. Output goes to a virtual MIDI bus (e.g. IAC on macOS or loopback on Windows) so any DAW or standalone synth can receive the lyre like a normal controller. Velocity is simplified for now; the important part was getting predictable note fires while I played.
+                            </p>
+                            <p class="echosphere-design-features-slide__goal-label">Focus</p>
+                            <p class="echosphere-design-features-slide__goal">Thin firmware that only ships sensor truth over serial; a Python MIDI bridge for thresholds, debouncing feel, and DAW-ready note traffic without constant hardware flashes.</p>
+                        </article>
+
+                        <article class="echosphere-design-features-slide echosphere-design-features-slide--spotlight">
+                            <div class="echosphere-design-features-slide__mark" aria-hidden="true">3</div>
+                            <p class="echosphere-design-features-slide__label">Build</p>
+                            <h3 class="echosphere-design-features-slide__title">CIRCUITS AND SOLDERING</h3>
+                            <div class="echosphere-design-features-slide__media echosphere-design-features-slide__media--spotlight">
+                                <div
+                                    class="echosphere-analysis-carousel echosphere-design-features-carousel lh-circuits-carousel"
+                                    role="region"
+                                    aria-roledescription="carousel"
+                                    aria-label="Circuits and soldering: plan through lesson"
+                                >
+                                    <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                                    <div class="echosphere-analysis-carousel-track">
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <img
+                                                    src="film/laser-lyre/puttingpartstgt.png"
+                                                    alt="Lyre body and electronics laid out for fit-up before soldering"
+                                                    class="echosphere-analysis-card-img mindmap-visual-image"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">Plan &amp; fit-up</h3>
+                                                <p class="echosphere-analysis-card-text">Strings to the board, efficient bench setup, then dry-fit on the print before committing solder.</p>
+                                            </div>
+                                        </article>
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <img
+                                                    src="film/laser-lyre/preppingforsoldering.png"
+                                                    alt="Wire and parts prepped on the bench before soldering"
+                                                    class="echosphere-analysis-card-img mindmap-visual-image"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">Through-hole pass</h3>
+                                                <p class="echosphere-analysis-card-text">Pre-cut wire, photoresistors, resistors, analog pins, ground, and 5&nbsp;V—plus one wiring mistake to work around.</p>
+                                            </div>
+                                        </article>
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <img
+                                                    src="film/laser-lyre/Soldering.png"
+                                                    alt="Soldering components on the protoboard"
+                                                    class="echosphere-analysis-card-img mindmap-visual-image"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">Lesson on the bench</h3>
+                                                <p class="echosphere-analysis-card-text">Extra jumpers after soldering photoresistor legs before threading the lyre—fixable, just slower.</p>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="echosphere-design-features-slide__body lh-circuits-story">
+                                <div class="lh-circuits-story__block">
+                                    <h4 class="lh-circuits-story__heading">Plan &amp; fit-up</h4>
+                                    <p>Next was wiring the rest of the lyre strings and <strong>soldering to the protoboard</strong>—it needed planning, but I’d soldered before and wanted to stay efficient on the bench.</p>
+                                    <p>When the <strong>3D print</strong> arrived, I <strong>dry-fit everything</strong> first. Once the fit felt right, I moved into real solder joints.</p>
+                                </div>
+                                <div class="lh-circuits-story__block">
+                                    <h4 class="lh-circuits-story__heading">Prep &amp; through-hole</h4>
+                                    <p>I <strong>cut wire to length and stripped ends</strong> up front so the harness stayed organized instead of turning into a bird’s nest.</p>
+                                    <p>Then I soldered <strong>photoresistors</strong>, <strong>resistors</strong>, and <strong>analog pins</strong>, plus <strong>ground</strong> and <strong>5&nbsp;V</strong>.</p>
+                                </div>
+                                <div class="lh-circuits-story__block">
+                                    <h4 class="lh-circuits-story__heading">Lesson learned</h4>
+                                    <p>Don’t <strong>solder photoresistor legs</strong> before you <strong>thread them through the lyre holes</strong>. I forgot—and had to add <strong>extra jumper wire</strong> to reach the board. Not a disaster, just more time.</p>
+                                </div>
+                            </div>
+                            <div
+                                class="echosphere-design-features-slide__media echosphere-design-features-slide__media--spotlight lh-circuits-carousel-mid"
+                            >
+                                <div
+                                    class="echosphere-analysis-carousel echosphere-design-features-carousel lh-circuits-carousel"
+                                    role="region"
+                                    aria-roledescription="carousel"
+                                    aria-label="Circuits and soldering: lasers and finish"
+                                >
+                                    <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                                    <div class="echosphere-analysis-carousel-track">
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <img
+                                                    src="film/laser-lyre/solderinglaser.png"
+                                                    alt="Soldering shared power leads for the laser modules"
+                                                    class="echosphere-analysis-card-img mindmap-visual-image"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">Laser rails</h3>
+                                                <p class="echosphere-analysis-card-text">Shared +/− buses, desolder cycles, and leads that ended up shorter than planned.</p>
+                                            </div>
+                                        </article>
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <img
+                                                    src="film/laser-lyre/addingthelaser.png"
+                                                    alt="Laser modules mounted and wired on the lyre assembly"
+                                                    class="echosphere-analysis-card-img mindmap-visual-image"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">Lock &amp; finish</h3>
+                                                <p class="echosphere-analysis-card-text">Four strings stable—glue for beam alignment and for parts knocked loose while handling.</p>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="echosphere-design-features-slide__body lh-circuits-story lh-circuits-story--after-carousel">
+                                <div class="lh-circuits-story__block">
+                                    <h4 class="lh-circuits-story__heading">Laser wiring</h4>
+                                    <p>The <strong>lasers</strong> fought me more than they should have. I tried to run everything off <strong>two buses</strong>—one positive, one negative—and <strong>soldered and desoldered</strong> more than once.</p>
+                                    <p>After cutting and redoing runs, the leads were <strong>too short</strong>. In the final build the bundle <strong>sticks out</strong> more than I wanted; I’d hoped to <strong>tape leads</strong> neatly along the sides of the lyre.</p>
+                                </div>
+                                <div class="lh-circuits-story__block">
+                                    <h4 class="lh-circuits-story__heading">Lock-in &amp; glue</h4>
+                                    <p>When <strong>all four strings</strong> behaved, it finally felt like the endgame.</p>
+                                    <p>I <strong>hot-glued</strong> the lasers so they wouldn’t wander off the photoresistors, and dabbed glue anywhere a part had popped off when I <strong>handled the board too hard</strong>—something I wish I’d used more on the <strong>cat project</strong>.</p>
+                                </div>
+                            </div>
+                            <p class="echosphere-design-features-slide__goal-label">Focus</p>
+                            <p class="echosphere-design-features-slide__goal">Repeatable bench discipline (prep, fit, then solder), honest rework on shared laser power, and mechanical locking—glue—so optics stay aligned under handling.</p>
+                        </article>
+
+                        <article class="echosphere-design-features-slide echosphere-design-features-slide--spotlight">
+                            <div class="echosphere-design-features-slide__mark" aria-hidden="true">4</div>
+                            <p class="echosphere-design-features-slide__label">Build</p>
+                            <h3 class="echosphere-design-features-slide__title">POLISHING</h3>
+                            <div class="echosphere-design-features-slide__media echosphere-design-features-slide__media--spotlight">
+                                <div
+                                    class="echosphere-analysis-carousel echosphere-design-features-carousel lh-circuits-carousel"
+                                    role="region"
+                                    aria-roledescription="carousel"
+                                    aria-label="Polishing: wings and finish"
+                                >
+                                    <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                                    <div class="echosphere-analysis-carousel-track">
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <img
+                                                    src="film/laser-lyre/wings1.png"
+                                                    alt="Air-dry clay wings sculpted for the laser lyre"
+                                                    class="echosphere-analysis-card-img mindmap-visual-image"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">Wings in clay</h3>
+                                                <p class="echosphere-analysis-card-text">Hand-built air-dry clay wings and surface detail so the instrument reads as a full character piece, not just a circuit on a frame.</p>
+                                            </div>
+                                        </article>
+                                        <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                            <div class="echosphere-analysis-card-media">
+                                                <img
+                                                    src="film/laser-lyre/wings2.png"
+                                                    alt="Wings and embellishments attached to the lyre body"
+                                                    class="echosphere-analysis-card-img mindmap-visual-image"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="echosphere-analysis-card-copy">
+                                                <h3 class="echosphere-analysis-card-title">Mounted &amp; embellished</h3>
+                                                <p class="echosphere-analysis-card-text">Wings and extra trim integrated onto the print—helping steer the eye toward fantasy while tucking messy hardware out of sight.</p>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="echosphere-design-features-slide__body lh-circuits-story">
+                                <div class="lh-circuits-story__block">
+                                    <h4 class="lh-circuits-story__heading">Showpiece &amp; concealment</h4>
+                                    <p>I wanted encountering this lyre to feel like a <strong>whole experience</strong>—not a breadboard with lasers taped on. I still had to <strong>hide the Arduino and loose parts</strong>, so the sculpt and layout had to work as stagecraft as much as engineering.</p>
+                                </div>
+                                <div class="lh-circuits-story__block">
+                                    <h4 class="lh-circuits-story__heading">Clay wings &amp; detail</h4>
+                                    <p>After ordering <strong>air-dry clay</strong>, I shaped the <strong>wings</strong> and added <strong>more embellishments</strong> so the body felt finished and intentional from every angle you’d actually see on a table or in a demo.</p>
+                                </div>
+                                <div class="lh-circuits-story__block">
+                                    <h4 class="lh-circuits-story__heading">Cloud base</h4>
+                                    <p>I built the <strong>base from cardboard</strong> and used <strong>leftover stuffing from the cat project</strong>—it ended up reading like the lyre was <strong>floating on clouds</strong>. I’d call that a success.</p>
+                                </div>
+                            </div>
+                            <p class="echosphere-design-features-slide__goal-label">Focus</p>
+                            <p class="echosphere-design-features-slide__goal">Presentation as part of the instrument: clay and trim that sell the fantasy while quietly hiding hardware, plus a playful pedestal that frames the whole build.</p>
+                        </article>
+                    </div>
+            </section>
+
+                <section class="echosphere-final-prototype-section echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1" aria-labelledby="lh-proto-heading">
+                    <h2 id="lh-proto-heading" class="echosphere-understanding-research-heading lh-section-heading-caps">Final prototype</h2>
+                    <div class="echosphere-you-told-us-stack">
+                        <p class="echosphere-you-told-us-body-lead">The finished lyre on its cloud base, plus a short demo of it in action.</p>
+                    </div>
+                    <div class="lh-final-prototype-hero echosphere-hero-intro-frame">
+                        <img
+                            src="film/laser-lyre/Hero.JPG"
+                            alt="Finished Heavenly Laser Lyre on the cloud pedestal"
+                            class="echosphere-hero-intro-video case-study-hero-media"
+                            width="1600"
+                            height="900"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="echosphere-final-prototype-embed">
+                        <div class="case-study-youtube-wrap">
+                            <iframe
+                                src="https://www.youtube.com/embed/J74geotIhL8?rel=0&amp;playsinline=1"
+                                title="Heavenly Laser Lyre — demo"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen
+                                loading="lazy"
+                            ></iframe>
+                        </div>
+                    </div>
+                    <div class="echosphere-you-told-us-stack lh-final-reflection" aria-labelledby="lh-reflection-heading">
+                        <h3 id="lh-reflection-heading" class="lh-final-reflection__title">Reflection</h3>
+                        <p class="echosphere-you-told-us-body-tagline">
+                            I think this project really just showed me that with the help of people who have mastered so many different disciplines, you can really create something cool. So many ECE students would come up to me at HIVE, wonder what I&rsquo;m making and offer their help, which was pretty awesome. I&rsquo;m a lot more comfortable soldering and I&rsquo;ve picked up a lot of techniques for it and I&rsquo;ll probably be using Fusion in the near future, but there&rsquo;s still more to learn.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-to-top-section">
+        <a href="#hero-section"><img src="film/downarrow.svg" alt="Back to Top" class="up-arrow"></a>
+    </div>
+
+    <script>
+        window.CaseStudyShell = {
+            intro: {
+                main: 'Heavenly Laser Lyre: a physical computing build.',
+                date: '(Spring 2026)',
+                msMain: 34,
+                msDate: 30,
+                msGoal: 30,
+                lineGapMs: 900,
+                goalSegments: [
+                    { text: 'what gets lost, or found, when you ', kind: 'lower' },
+                    { text: 'TRANSLATE FICTION ', kind: 'upper' },
+                    { text: 'into something you can hold,\n', kind: 'lower' },
+                    { text: 'AND WHAT DOES THAT WORLD NEED FROM YOU?', kind: 'upper' }
+                ],
+                typingAriaStart: 'Heavenly Laser Lyre: a physical computing build. (Spring 2026)',
+                fullAria:
+                    'Heavenly Laser Lyre: a physical computing build. (Spring 2026). what gets lost, or found, when you TRANSLATE FICTION into something you can hold, AND WHAT DOES THAT WORLD NEED FROM YOU?'
+            },
+            kickerYouToldUs: 'IDEATING',
+            pageBubbles: [
+                { id: 1, size: 300, left: '4%', top: '10%', delay: 0, duration: 22, gradient: 'radial-gradient(circle at 30% 30%, rgba(254, 195, 7, 0.5), rgba(254, 195, 7, 0.22) 55%, rgba(254, 195, 7, 0.12) 72%, transparent 100%)' },
+                { id: 2, size: 340, left: '86%', top: '8%', delay: 1.5, duration: 26, gradient: 'radial-gradient(circle at 40% 40%, rgba(254, 195, 7, 0.46), rgba(254, 195, 7, 0.2) 58%, rgba(254, 195, 7, 0.1) 74%, transparent 100%)' },
+                { id: 3, size: 220, left: '12%', top: '52%', delay: 3, duration: 18, gradient: 'radial-gradient(circle at 35% 35%, rgba(255, 210, 70, 0.44), rgba(254, 195, 7, 0.18) 60%, rgba(254, 195, 7, 0.09) 76%, transparent 100%)' },
+                { id: 4, size: 280, left: '72%', top: '36%', delay: 0.8, duration: 24, gradient: 'radial-gradient(circle at 30% 30%, rgba(254, 195, 7, 0.42), rgba(210, 155, 5, 0.16) 58%, rgba(254, 195, 7, 0.09) 74%, transparent 100%)' },
+                { id: 5, size: 250, left: '24%', top: '22%', delay: 2.2, duration: 20, gradient: 'radial-gradient(circle at 40% 40%, rgba(254, 195, 7, 0.4), rgba(254, 195, 7, 0.15) 62%, rgba(254, 195, 7, 0.08) 76%, transparent 100%)' },
+                { id: 6, size: 300, left: '90%', top: '62%', delay: 4, duration: 23, gradient: 'radial-gradient(circle at 35% 35%, rgba(255, 205, 60, 0.43), rgba(254, 195, 7, 0.18) 58%, rgba(254, 195, 7, 0.1) 75%, transparent 100%)' },
+                { id: 7, size: 200, left: '8%', top: '78%', delay: 2.8, duration: 17, gradient: 'radial-gradient(circle at 30% 30%, rgba(254, 195, 7, 0.36), rgba(254, 195, 7, 0.12) 62%, rgba(254, 195, 7, 0.07) 78%, transparent 100%)' },
+                { id: 8, size: 260, left: '58%', top: '70%', delay: 1.2, duration: 21, gradient: 'radial-gradient(circle at 40% 40%, rgba(254, 195, 7, 0.4), rgba(210, 155, 5, 0.16) 60%, rgba(254, 195, 7, 0.09) 76%, transparent 100%)' }
+            ],
+            panelBubbles: [
+                { id: 1, size: 100, left: '6%', top: '10%', delay: 0, duration: 16, gradient: 'radial-gradient(circle at 30% 30%, rgba(254, 195, 7, 0.5), rgba(254, 195, 7, 0.22) 55%, rgba(254, 195, 7, 0.1) 72%, transparent 100%)' },
+                { id: 2, size: 130, left: '78%', top: '8%', delay: 1.2, duration: 20, gradient: 'radial-gradient(circle at 40% 40%, rgba(254, 195, 7, 0.46), rgba(254, 195, 7, 0.2) 58%, rgba(254, 195, 7, 0.1) 74%, transparent 100%)' },
+                { id: 3, size: 72, left: '12%', top: '58%', delay: 2, duration: 14, gradient: 'radial-gradient(circle at 35% 35%, rgba(255, 210, 70, 0.44), rgba(254, 195, 7, 0.18) 60%, rgba(254, 195, 7, 0.09) 76%, transparent 100%)' },
+                { id: 4, size: 110, left: '70%', top: '42%', delay: 0.6, duration: 18, gradient: 'radial-gradient(circle at 30% 30%, rgba(254, 195, 7, 0.42), rgba(210, 155, 5, 0.16) 58%, rgba(254, 195, 7, 0.09) 74%, transparent 100%)' },
+                { id: 5, size: 88, left: '38%', top: '18%', delay: 2.8, duration: 15, gradient: 'radial-gradient(circle at 40% 40%, rgba(254, 195, 7, 0.4), rgba(254, 195, 7, 0.15) 62%, rgba(254, 195, 7, 0.08) 76%, transparent 100%)' },
+                { id: 6, size: 95, left: '52%', top: '62%', delay: 1.8, duration: 17, gradient: 'radial-gradient(circle at 35% 35%, rgba(255, 205, 60, 0.43), rgba(254, 195, 7, 0.18) 58%, rgba(254, 195, 7, 0.09) 75%, transparent 100%)' },
+                { id: 7, size: 64, left: '4%', top: '38%', delay: 3.2, duration: 13, gradient: 'radial-gradient(circle at 30% 30%, rgba(254, 195, 7, 0.36), rgba(254, 195, 7, 0.12) 62%, rgba(254, 195, 7, 0.07) 78%, transparent 100%)' },
+                { id: 8, size: 118, left: '58%', top: '28%', delay: 0.4, duration: 19, gradient: 'radial-gradient(circle at 40% 40%, rgba(254, 195, 7, 0.4), rgba(210, 155, 5, 0.16) 60%, rgba(254, 195, 7, 0.09) 76%, transparent 100%)' }
+            ]
+        };
     </script>
+    <script src="js/case-study-shell.js"></script>
     <script src="js/page-scroll-star.js"></script>
 </body>
 </html>
