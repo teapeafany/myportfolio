@@ -1,12 +1,12 @@
 /* Heavenly Lyre — dark canvas, off-white copy, gold/yellow accents (EchoSphere shell overrides) */
 body.case-study-laserharp {
-    /* Dark blue canvas (cooler than neutral charcoal) */
-    --lh-bg: #060a16;
+    /* Dark navy canvas — shifted cooler / more blue than neutral charcoal */
+    --lh-bg: #050b1f;
     /* Hero shell + letterboxing: same as page bg (no lighter “halo” around the asset) */
     --lh-hero-radius: clamp(22px, 3.2vw, 38px);
-    --lh-bg-elevated: #0a1020;
-    --lh-bg-card: #0e1528;
-    --lh-bg-card-soft: #131b32;
+    --lh-bg-elevated: #0a1430;
+    --lh-bg-card: #0e1c38;
+    --lh-bg-card-soft: #142748;
     --lh-ink: #eae6df;
     --lh-ink-muted: rgba(234, 230, 223, 0.74);
     --lh-ink-faint: rgba(234, 230, 223, 0.48);
