@@ -1,12 +1,12 @@
 /* Heavenly Lyre — dark canvas, off-white copy, gold/yellow accents (EchoSphere shell overrides) */
 body.case-study-laserharp {
-    /* Dark blue canvas (cooler than neutral charcoal) */
-    --lh-bg: #060a16;
+    /* Dark navy canvas — shifted cooler / more blue than neutral charcoal */
+    --lh-bg: #050b1f;
     /* Hero shell + letterboxing: same as page bg (no lighter “halo” around the asset) */
     --lh-hero-radius: clamp(22px, 3.2vw, 38px);
-    --lh-bg-elevated: #0a1020;
-    --lh-bg-card: #0e1528;
-    --lh-bg-card-soft: #131b32;
+    --lh-bg-elevated: #0a1430;
+    --lh-bg-card: #0e1c38;
+    --lh-bg-card-soft: #142748;
     --lh-ink: #eae6df;
     --lh-ink-muted: rgba(234, 230, 223, 0.74);
     --lh-ink-faint: rgba(234, 230, 223, 0.48);
@@ -121,17 +121,6 @@ body.case-study-laserharp .echosphere-final-prototype-section .case-study-youtub
 
 body.case-study-laserharp .lh-final-reflection {
     margin-top: clamp(2.5rem, 6vh, 4rem);
-}
-
-body.case-study-laserharp .lh-final-reflection__title {
-    margin: 0 0 clamp(1rem, 2.5vh, 1.35rem);
-    font-family: var(--font-nhg-text);
-    font-size: clamp(1.35rem, 3.8vw, 2rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.15;
-    text-transform: uppercase;
-    color: #ffffff;
 }
 
 /* Typed intro (post-hero): title/date lines stay unfiltered; goal line uses paper-ink; left-aligned flow inside a centered column */
@@ -301,7 +290,7 @@ body.case-study-laserharp .echosphere-design-features-slide__goal,
 body.case-study-laserharp .echosphere-analysis-card-copy,
 body.case-study-laserharp .echosphere-analysis-carousel-hint,
 body.case-study-laserharp .echosphere-insight-ambient__hmw-text,
-body.case-study-laserharp .lh-final-reflection__title {
+body.case-study-laserharp .lh-final-reflection .echosphere-you-told-us-kicker--below {
     filter: url(#paper-ink-distort);
 }
 
@@ -1008,7 +997,7 @@ body.case-study-laserharp .lh-code-block__pre::-webkit-scrollbar-track {
     body.case-study-laserharp .echosphere-analysis-card-copy,
     body.case-study-laserharp .echosphere-analysis-carousel-hint,
     body.case-study-laserharp .echosphere-insight-ambient__hmw-text,
-    body.case-study-laserharp .lh-final-reflection__title {
+    body.case-study-laserharp .lh-final-reflection .echosphere-you-told-us-kicker--below {
         filter: none;
     }
 }

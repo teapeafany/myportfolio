@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="film/cursor-star.png" type="image/png">
+    <title>iCAN Alliance - Tiffany Lee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/echosphere.css">
+    <link rel="stylesheet" href="css/case-study-shell.css">
+    <link rel="stylesheet" href="css/case-study-ican.css">
+</head>
+<body class="echosphere-page case-study-ican">
+    <script src="js/paper-ink-filter.js"></script>
+    <script src="js/nav-scroll.js" defer></script>
+    <div class="floating-bubbles" id="floating-bubbles"></div>
+    <div class="echosphere-film-grain" aria-hidden="true"></div>
+    <div class="about-progress-bar home-scroll-rail visible echosphere-scroll-rail" id="about-progress-bar" aria-hidden="false">
+        <div class="home-scroll-track" id="home-scroll-track"></div>
+        <div class="home-scroll-thumb" id="home-scroll-thumb" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Scroll the case study">
+            <img src="film/home-scroll-star.png" alt="" width="88" height="88" draggable="false">
+        </div>
+    </div>
+
+    <div id="hero-section" class="hero-section fade-in-section">
+        <div id="navigation-container"></div>
+
+        <div class="echosphere-hero-montage">
+            <h1 class="echosphere-sr-only">iCAN Alliance</h1>
+            <div class="echosphere-hero-intro echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t0" aria-label="iCAN Alliance hero">
+                <div class="echosphere-hero-intro-frame">
+                    <img
+                        src="film/iCAN/ican%20thumbnail.png"
+                        alt="iCAN Alliance app interface preview"
+                        class="echosphere-hero-intro-video case-study-hero-media echosphere-ican-hero-thumb"
+                        width="1920"
+                        height="1080"
+                        decoding="async"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <div id="next-section" class="echosphere-post-hero" aria-label="Project context">
+            <div class="echosphere-post-hero-inner">
+                <h2 id="echosphere-post-hero-heading" class="echosphere-research-heading" aria-live="polite" aria-label="Project introduction">
+                    <div class="echosphere-research-letter" id="echosphere-research-letter"></div>
+                </h2>
+            </div>
+        </div>
+
+        <div id="you-told-us-section" class="echosphere-hero-intro echosphere-hero-you-told-us echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section" aria-labelledby="ican-my-role-heading">
+            <p id="ican-context-a11y" class="echosphere-sr-only">
+                Context section: background video of the medication flow in the app, three short quotes about medication trials and burnout, then the headline My role, lead copy with role responsibilities and team shape, supporting line on the ongoing engagement and partners, and scope notes for a live web app and clinical trial users.
+            </p>
+            <div class="echosphere-hero-intro-frame">
+                <video
+                    class="echosphere-hero-intro-video echosphere-you-told-us-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                    disablepictureinpicture
+                    aria-label="Screen recording: medication flow in the iCAN app"
+                >
+                    <source src="film/iCAN/medicationflow.mp4" type="video/mp4" />
+                </video>
+            </div>
+            <div class="echosphere-you-told-us-below">
+                <div class="echosphere-you-told-us-bubbles echosphere-you-told-us-bubbles--spread" aria-label="Problem space tensions">
+                    <div class="echosphere-you-told-us-bubbles-col echosphere-you-told-us-bubbles-col--left">
+                        <blockquote class="echosphere-you-told-us-bubble echosphere-you-told-us-bubble--in">
+                            <span class="echosphere-paper-ink-text">&ldquo;Skipping doses isn&rsquo;t rebellion &mdash; it&rsquo;s burnout.&rdquo;</span>
+                        </blockquote>
+                    </div>
+                    <div class="echosphere-you-told-us-bubbles-col echosphere-you-told-us-bubbles-col--center">
+                        <blockquote class="echosphere-you-told-us-bubble echosphere-you-told-us-bubble--mid">
+                            <span class="echosphere-paper-ink-text">&ldquo;Exhausting, high-stakes regimens.&rdquo;</span>
+                        </blockquote>
+                    </div>
+                    <div class="echosphere-you-told-us-bubbles-col echosphere-you-told-us-bubbles-col--right">
+                        <blockquote class="echosphere-you-told-us-bubble echosphere-you-told-us-bubble--out">
+                            <span class="echosphere-paper-ink-text">&ldquo;Make it something kids want to open.&rdquo;</span>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="echosphere-you-told-us-paper">
+                    <h2 id="ican-my-role-heading" class="echosphere-you-told-us-stack-heading">
+                        <span class="echosphere-sr-only">My role</span>
+                        <span class="echosphere-you-told-us-kicker--below" aria-hidden="true">
+                            <span class="echosphere-you-told-us-kicker-text">
+                                <span id="echosphere-you-told-us-kicker-text"></span><span class="echosphere-you-told-us-kicker-caret" id="echosphere-you-told-us-kicker-caret" aria-hidden="true">|</span>
+                            </span>
+                        </span>
+                    </h2>
+                    <div class="echosphere-you-told-us-stack">
+                        <p class="echosphere-you-told-us-body-lead">
+                            Product designer &mdash; UI design, asset creation, mobile adaptation, dev collaboration, and usability testing documentation. Two-person design team embedded with a full engineering squad.
+                        </p>
+                        <p class="echosphere-you-told-us-body-tagline">
+                            An ongoing product design role. A live, deployed web app built in collaboration with the International Children&rsquo;s Advisory Network and Georgia Tech&rsquo;s Bits of Good.
+                        </p>
+                    </div>
+                </div>
+                <div class="echosphere-research-scope" aria-labelledby="ican-scope-heading">
+                    <h3 id="ican-scope-heading" class="echosphere-sr-only">Project scope</h3>
+                    <div class="echosphere-research-scope-stage">
+                        <p class="echosphere-research-scope-stat echosphere-research-scope-stat--survey">Live web app</p>
+                        <div class="echosphere-research-scope-stat echosphere-research-scope-stat--interviews">
+                            <p class="echosphere-research-scope-interview-line">iCAN &times; Bits of Good</p>
+                            <p class="echosphere-research-scope-interview-sub">kids in active clinical trials</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="ican-inherited-section" class="echosphere-understanding-research echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section" aria-labelledby="ican-inherited-heading">
+            <div class="echosphere-understanding-research-paper">
+                <h2 id="ican-inherited-heading" class="echosphere-understanding-research-heading">What we inherited</h2>
+                <div class="echosphere-you-told-us-stack echosphere-ican-inherited-stack">
+                    <p class="echosphere-you-told-us-body-lead">
+                        iCAN already had a working product with an established design system and a deployed codebase.
+                    </p>
+                    <p class="echosphere-you-told-us-body-tagline">
+                        We weren&rsquo;t starting from zero &mdash; we were integrating into a living product. The existing experience centered on onboarding and baseline play; our challenge was to keep all of that working while asking how we bring kids back to the app, not only through a trial session.
+                    </p>
+                </div>
+                <div class="echosphere-final-prototype-embed echosphere-ican-inherited-embed">
+                    <div
+                        class="echosphere-analysis-carousel echosphere-ican-carousel echosphere-ican-inherited-carousel"
+                        role="region"
+                        aria-roledescription="carousel"
+                        aria-label="What we inherited: product walkthrough and design system"
+                    >
+                        <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                        <div class="echosphere-analysis-carousel-track">
+                            <article class="echosphere-analysis-card echosphere-ican-inherited-card">
+                                <div class="echosphere-analysis-card-media">
+                                    <video
+                                        class="echosphere-analysis-card-video"
+                                        autoplay
+                                        muted
+                                        loop
+                                        playsinline
+                                        preload="metadata"
+                                        disablepictureinpicture
+                                        aria-label="Screen recording: inherited iCAN app focused on tutorial flow and basic game functionality"
+                                    >
+                                        <source src="film/iCAN/what%20we%20inherited.mp4" type="video/mp4" />
+                                    </video>
+                                </div>
+                                <div class="echosphere-analysis-card-copy">
+                                    <h3 class="echosphere-analysis-card-title">Product as we joined</h3>
+                                    <p class="echosphere-analysis-card-text">
+                                        What we inherited was essentially a <strong>tutorial flow</strong> and <strong>core game functionality</strong> &mdash; enough for kids to learn the app and play through the basics. It did its job. The harder product question was <strong>how we bring them back to the app</strong>: turning a functional first visit into something they want to open again and again.
+                                    </p>
+                                </div>
+                            </article>
+                            <article class="echosphere-analysis-card echosphere-ican-inherited-card">
+                                <div class="echosphere-analysis-card-media">
+                                    <img
+                                        src="film/iCAN/designsystemf25.png"
+                                        alt="iCAN design system: components, tokens, and patterns inherited from the existing product"
+                                        class="echosphere-analysis-card-img echosphere-ican-inherited-design-system-img"
+                                        width="1920"
+                                        height="1080"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </div>
+                                <div class="echosphere-analysis-card-copy">
+                                    <h3 class="echosphere-analysis-card-title">Design system</h3>
+                                    <p class="echosphere-analysis-card-text">
+                                        Components, tokens, and patterns we built on &mdash; every new surface had to stay consistent with this foundation.
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="echosphere-insights-cinema-section" class="echosphere-hero-intro echosphere-insights-cinema echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section" aria-labelledby="echosphere-insights-cinema-heading">
+            <div class="echosphere-hero-intro-frame echosphere-insights-cinema-frame">
+                <video
+                    class="echosphere-hero-intro-video echosphere-insights-cinema-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                    disablepictureinpicture
+                    aria-label="B-roll: child using iPad in context of medication adherence and the problem space"
+                >
+                    <source src="film/iCAN/kidonipadbroll.mp4" type="video/mp4" />
+                </video>
+                <div class="echosphere-insights-cinema-scrim" aria-hidden="true"></div>
+                <div class="echosphere-insights-cinema-content">
+                    <h2 id="echosphere-insights-cinema-heading" class="echosphere-you-told-us-stack-heading">
+                        <span class="echosphere-sr-only">The problem space</span>
+                        <span class="echosphere-you-told-us-kicker--below" aria-hidden="true">
+                            <span class="echosphere-you-told-us-kicker-text">
+                                <span id="echosphere-insights-kicker-text"></span><span class="echosphere-you-told-us-kicker-caret" id="echosphere-insights-kicker-caret" aria-hidden="true">|</span>
+                            </span>
+                        </span>
+                    </h2>
+                    <p class="echosphere-insights-cinema-headline">
+                        Children need something<br />they actually want to open.
+                    </p>
+                    <div class="echosphere-insights-cinema-columns">
+                        <div class="echosphere-insights-cinema-item">
+                            <h3 class="echosphere-insights-cinema-item-title">The regimen</h3>
+                            <p class="echosphere-insights-cinema-item-copy">
+                                Children aged 8&ndash;18 enrolled in clinical medication trials face exhausting, high-stakes routines. Skipping doses isn&rsquo;t rebellion &mdash; it&rsquo;s burnout.
+                            </p>
+                        </div>
+                        <div class="echosphere-insights-cinema-item">
+                            <h3 class="echosphere-insights-cinema-item-title">The product bet</h3>
+                            <p class="echosphere-insights-cinema-item-copy">
+                                The existing iCAN app had the right idea: a Tamagotchi-style virtual pet that rewards medication check-ins. Our job this semester was to make it actually feel like something kids want to open.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="echosphere-understanding-research echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section" aria-labelledby="ican-sprint-heading">
+            <div class="echosphere-understanding-research-paper">
+                <section
+                    class="echosphere-key-findings-section echosphere-ican-sprint-findings"
+                    aria-labelledby="ican-sprint-heading"
+                >
+                    <h3 id="ican-sprint-heading" class="echosphere-key-findings-heading">Sprint overview</h3>
+                    <div class="echosphere-key-findings-intro">
+                        <p class="echosphere-key-findings-intro-lead">
+                            Five sprints from big fixes through mobile polish &mdash; each scoped to ship alongside a full engineering squad.
+                        </p>
+                        <p class="echosphere-key-findings-intro-tagline">
+                            From stabilization to trial-ready mobile screens, every cycle landed in the live app.
+                        </p>
+                    </div>
+                    <div class="echosphere-key-findings-panel echosphere-key-findings-paper">
+                        <div class="echosphere-findings-diagram" aria-label="Five sprint phases from core fixes through mobile polish">
+                            <p class="echosphere-findings-diagram__root">Ship with the squad &rarr; review &rarr; next sprint</p>
+                            <span class="echosphere-findings-diagram__connector" aria-hidden="true"></span>
+                            <div class="echosphere-findings-diagram__themes">
+                                <article class="echosphere-findings-theme">
+                                    <div class="echosphere-findings-theme__header">
+                                        <span class="echosphere-findings-theme__icon" aria-hidden="true">1</span>
+                                        <h4 class="echosphere-findings-theme__title">Big fixes &amp; feeding flow</h4>
+                                    </div>
+                                    <div class="echosphere-findings-theme__block">
+                                        <p class="echosphere-findings-theme__label">Sprint focus</p>
+                                        <p class="echosphere-findings-theme__text">Stabilize core flows and the pet feeding experience before layering new surface area.</p>
+                                    </div>
+                                </article>
+                                <article class="echosphere-findings-theme">
+                                    <div class="echosphere-findings-theme__header">
+                                        <span class="echosphere-findings-theme__icon" aria-hidden="true">2</span>
+                                        <h4 class="echosphere-findings-theme__title">Child login redesign, embedded games, notifications</h4>
+                                    </div>
+                                    <div class="echosphere-findings-theme__block">
+                                        <p class="echosphere-findings-theme__label">Sprint focus</p>
+                                        <p class="echosphere-findings-theme__text">
+                                            Child login redesign, embedded games (including Flowerman), and notification patterns kids could actually follow.
+                                        </p>
+                                    </div>
+                                </article>
+                                <article class="echosphere-findings-theme">
+                                    <div class="echosphere-findings-theme__header">
+                                        <span class="echosphere-findings-theme__icon" aria-hidden="true">3</span>
+                                        <h4 class="echosphere-findings-theme__title">Main game page &amp; pixel art</h4>
+                                    </div>
+                                    <div class="echosphere-findings-theme__block">
+                                        <p class="echosphere-findings-theme__label">Sprint focus</p>
+                                        <p class="echosphere-findings-theme__text">The Tamagotchi-style home and new pet states so the world felt alive in more moments.</p>
+                                    </div>
+                                </article>
+                                <article class="echosphere-findings-theme">
+                                    <div class="echosphere-findings-theme__header">
+                                        <span class="echosphere-findings-theme__icon" aria-hidden="true">4</span>
+                                        <h4 class="echosphere-findings-theme__title">Bug fixes</h4>
+                                    </div>
+                                    <div class="echosphere-findings-theme__block">
+                                        <p class="echosphere-findings-theme__label">Sprint focus</p>
+                                        <p class="echosphere-findings-theme__text">Hard pause on features to clear drift between design intent and what trial users were hitting.</p>
+                                    </div>
+                                </article>
+                                <article class="echosphere-findings-theme">
+                                    <div class="echosphere-findings-theme__header">
+                                        <span class="echosphere-findings-theme__icon" aria-hidden="true">5</span>
+                                        <h4 class="echosphere-findings-theme__title">Mobile designs &amp; bug fixes</h4>
+                                    </div>
+                                    <div class="echosphere-findings-theme__block">
+                                        <p class="echosphere-findings-theme__label">Sprint focus</p>
+                                        <p class="echosphere-findings-theme__text">Desktop-first layouts extended to phones, plus dark-mode login and another polish pass on defects.</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <span class="echosphere-findings-diagram__connector" aria-hidden="true"></span>
+                            <p class="echosphere-findings-diagram__merge">Five sprints &rarr; one continuous deployment thread</p>
+                            <span class="echosphere-findings-diagram__connector" aria-hidden="true"></span>
+                            <p class="echosphere-findings-diagram__outcome">Live for kids in active trials</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="echosphere-key-findings-section" aria-labelledby="ican-design-features-heading">
+                    <h3 id="ican-design-features-heading" class="echosphere-key-findings-heading">Design features</h3>
+                    <div class="echosphere-key-findings-intro">
+                        <p class="echosphere-key-findings-intro-lead">
+                            Four threads of design and visual work that met kids where they are &mdash; in the game, at login, on mobile, and in the pet&rsquo;s world.
+                        </p>
+                    </div>
+                </section>
+
+                <div class="echosphere-design-features-deck echosphere-ican-features-deck">
+                    <div class="echosphere-design-features-slide echosphere-design-features-slide--spotlight echosphere-ican-feature-slide">
+                        <div class="echosphere-design-features-slide__mark" aria-hidden="true">🎮</div>
+                        <p class="echosphere-design-features-slide__label">Feature</p>
+                        <h3 class="echosphere-design-features-slide__title" id="ican-flowerman">Embedded games &mdash; Flowerman</h3>
+                        <p class="echosphere-design-features-slide__body">
+                            Kids needed reasons to open the app beyond medication reminders. I designed Flowerman &mdash; a word-guessing game embedded into the pet experience &mdash; alongside Tic-Tac-Toe and riddles as game options. Daily coin limits were introduced to keep gameplay healthy and non-addictive.
+                        </p>
+                        <div class="echosphere-design-features-slide__media echosphere-design-features-slide__media--spotlight">
+                            <div
+                                class="echosphere-analysis-carousel echosphere-design-features-carousel echosphere-ican-carousel"
+                                role="region"
+                                aria-roledescription="carousel"
+                                aria-label="Embedded games: games page, Flowerman play, win and error states, daily coin limit"
+                            >
+                                <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                                <div class="echosphere-analysis-carousel-track">
+                                    <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                        <div class="echosphere-analysis-card-media">
+                                            <video
+                                                class="echosphere-analysis-card-video"
+                                                autoplay
+                                                muted
+                                                loop
+                                                playsinline
+                                                preload="metadata"
+                                                disablepictureinpicture
+                                                aria-label="Games page: choosing Flowerman, Tic-Tac-Toe, or riddles"
+                                            >
+                                                <source src="film/iCAN/pickgames.mp4" type="video/mp4" />
+                                            </video>
+                                        </div>
+                                        <div class="echosphere-analysis-card-copy">
+                                            <h3 class="echosphere-analysis-card-title">Games page</h3>
+                                            <p class="echosphere-analysis-card-text">
+                                                Where kids pick what to play from the pet experience &mdash; Flowerman sits alongside Tic-Tac-Toe and riddles so there&rsquo;s more than one reason to stay in the app.
+                                            </p>
+                                        </div>
+                                    </article>
+                                    <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                        <div class="echosphere-analysis-card-media">
+                                            <video
+                                                class="echosphere-analysis-card-video"
+                                                autoplay
+                                                muted
+                                                loop
+                                                playsinline
+                                                preload="metadata"
+                                                disablepictureinpicture
+                                                aria-label="Flowerman word game in the pet experience"
+                                            >
+                                                <source src="film/iCAN/flowerman.mp4" type="video/mp4" />
+                                            </video>
+                                        </div>
+                                        <div class="echosphere-analysis-card-copy">
+                                            <h3 class="echosphere-analysis-card-title">In the pet flow</h3>
+                                            <p class="echosphere-analysis-card-text">
+                                                Screen capture of Flowerman running inside the Tamagotchi-style world &mdash; word guesses, feedback, and the loop kids see between check-ins.
+                                            </p>
+                                        </div>
+                                    </article>
+                                    <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                        <div class="echosphere-analysis-card-media">
+                                            <img
+                                                src="film/iCAN/flowermanALLCORRECT.png"
+                                                alt="Flowerman: all letters correct, puzzle solved"
+                                                class="echosphere-analysis-card-img"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </div>
+                                        <div class="echosphere-analysis-card-copy">
+                                            <h3 class="echosphere-analysis-card-title">Solved word</h3>
+                                            <p class="echosphere-analysis-card-text">
+                                                Clear win state when every letter is right &mdash; positive closure before kids head back to the rest of the app.
+                                            </p>
+                                        </div>
+                                    </article>
+                                    <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                        <div class="echosphere-analysis-card-media">
+                                            <img
+                                                src="film/iCAN/flowermanTOOMANYERR.png"
+                                                alt="Flowerman: too many incorrect guesses, gentle stop state"
+                                                class="echosphere-analysis-card-img"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </div>
+                                        <div class="echosphere-analysis-card-copy">
+                                            <h3 class="echosphere-analysis-card-title">Too many wrong guesses</h3>
+                                            <p class="echosphere-analysis-card-text">
+                                                Soft brake when errors stack up &mdash; pairs with daily coin limits so play stays light, not grinding.
+                                            </p>
+                                        </div>
+                                    </article>
+                                    <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                        <div class="echosphere-analysis-card-media">
+                                            <img
+                                                src="film/iCAN/coinlimit.png"
+                                                alt="Daily coin limit: message when the play budget for the day is used"
+                                                class="echosphere-analysis-card-img"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </div>
+                                        <div class="echosphere-analysis-card-copy">
+                                            <h3 class="echosphere-analysis-card-title">Daily coin limit</h3>
+                                            <p class="echosphere-analysis-card-text">
+                                                Caps how much kids can spend on games per day &mdash; keeps embedded play rewarding without turning the pet app into an endless grind.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="echosphere-design-features-slide echosphere-design-features-slide--spotlight echosphere-ican-feature-slide">
+                        <div class="echosphere-design-features-slide__mark" aria-hidden="true">🎨</div>
+                        <p class="echosphere-design-features-slide__label">Feature</p>
+                        <h3 class="echosphere-design-features-slide__title" id="ican-login">Playful login customization</h3>
+                        <p class="echosphere-design-features-slide__body">
+                            The login screen is the first thing a child sees. This work was mainly <strong>Ayesha&rsquo;s</strong> ticket; I paired with her on <strong>layout</strong> and <strong>user flow</strong> so kids could identify their account using colors, shapes, patterns, or emojis instead of a typed password &mdash; lowering cognitive load and making the app feel personal from the very first tap.
+                        </p>
+                        <div class="echosphere-design-features-slide__media echosphere-design-features-slide__media--spotlight">
+                            <div
+                                class="echosphere-analysis-carousel echosphere-design-features-carousel echosphere-ican-carousel"
+                                role="region"
+                                aria-roledescription="carousel"
+                                aria-label="Playful login: screen explorations for visual sign-in paths"
+                            >
+                                <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                                <div class="echosphere-analysis-carousel-track">
+                                    <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                        <div class="echosphere-analysis-card-media">
+                                            <img
+                                                src="film/iCAN/login1.png"
+                                                alt="iCAN login screen"
+                                                class="echosphere-analysis-card-img"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </div>
+                                        <div class="echosphere-analysis-card-copy">
+                                            <h3 class="echosphere-analysis-card-title">Login screen</h3>
+                                        </div>
+                                    </article>
+                                    <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                        <div class="echosphere-analysis-card-media">
+                                            <img
+                                                src="film/iCAN/login2.png"
+                                                alt="iCAN login: colors"
+                                                class="echosphere-analysis-card-img"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </div>
+                                        <div class="echosphere-analysis-card-copy">
+                                            <h3 class="echosphere-analysis-card-title">Colors</h3>
+                                        </div>
+                                    </article>
+                                    <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                        <div class="echosphere-analysis-card-media">
+                                            <img
+                                                src="film/iCAN/login3.png"
+                                                alt="iCAN login: select colors"
+                                                class="echosphere-analysis-card-img"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </div>
+                                        <div class="echosphere-analysis-card-copy">
+                                            <h3 class="echosphere-analysis-card-title">Select colors</h3>
+                                        </div>
+                                    </article>
+                                    <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                        <div class="echosphere-analysis-card-media">
+                                            <img
+                                                src="film/iCAN/login4.png"
+                                                alt="iCAN login: incorrect passcode"
+                                                class="echosphere-analysis-card-img"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </div>
+                                        <div class="echosphere-analysis-card-copy">
+                                            <h3 class="echosphere-analysis-card-title">Incorrect passcode</h3>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="echosphere-design-features-slide echosphere-design-features-slide--spotlight echosphere-ican-feature-slide">
+                        <div class="echosphere-design-features-slide__mark" aria-hidden="true">📱</div>
+                        <p class="echosphere-design-features-slide__label">Feature</p>
+                        <h3 class="echosphere-design-features-slide__title" id="ican-mobile">Mobile adaptation &amp; dark mode</h3>
+                        <p class="echosphere-design-features-slide__body">
+                            The app was desktop-first. I extended the design to mobile &mdash; including a dark mode variant for the mobile login &mdash; so the app could reach kids wherever they actually are.
+                        </p>
+                        <div class="echosphere-design-features-slide__media echosphere-design-features-slide__media--spotlight">
+                            <div
+                                class="echosphere-analysis-carousel echosphere-design-features-carousel echosphere-ican-carousel echosphere-ican-mobile-carousel"
+                                role="region"
+                                aria-roledescription="carousel"
+                                aria-label="Mobile: login and games on phone"
+                            >
+                                <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                                <div class="echosphere-analysis-carousel-track">
+                                    <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                        <div class="echosphere-analysis-card-media">
+                                            <img
+                                                src="film/iCAN/login%20mobile.png"
+                                                alt="iCAN login on mobile"
+                                                class="echosphere-analysis-card-img"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </div>
+                                        <div class="echosphere-analysis-card-copy">
+                                            <h3 class="echosphere-analysis-card-title">Login mobile</h3>
+                                        </div>
+                                    </article>
+                                    <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                        <div class="echosphere-analysis-card-media">
+                                            <img
+                                                src="film/iCAN/gamesmobile.png"
+                                                alt="iCAN games hub on mobile"
+                                                class="echosphere-analysis-card-img"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </div>
+                                        <div class="echosphere-analysis-card-copy">
+                                            <h3 class="echosphere-analysis-card-title">Games mobile</h3>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="echosphere-design-features-slide echosphere-design-features-slide--spotlight echosphere-ican-feature-slide">
+                        <div class="echosphere-design-features-slide__mark" aria-hidden="true">🐾</div>
+                        <p class="echosphere-design-features-slide__label">Feature</p>
+                        <h3 class="echosphere-design-features-slide__title" id="ican-pixel">Character positions &amp; pixel art</h3>
+                        <p class="echosphere-design-features-slide__body">
+                            A big chunk of my work was visual and graphic: developing new character positions and states for the virtual pet so it feels alive across more interactions.
+                        </p>
+                        <div class="echosphere-design-features-slide__media echosphere-design-features-slide__media--spotlight">
+                            <div
+                                class="echosphere-analysis-carousel echosphere-design-features-carousel echosphere-ican-carousel echosphere-ican-pixel-carousel"
+                                role="region"
+                                aria-roledescription="carousel"
+                                aria-label="Pet pixel art: character assets"
+                            >
+                                <div class="echosphere-analysis-carousel-track">
+                                    <article class="echosphere-analysis-card echosphere-design-features-carousel-card">
+                                        <div class="echosphere-analysis-card-media">
+                                            <img
+                                                src="film/iCAN/assets.png"
+                                                alt="iCAN virtual pet: character positions and pixel art asset sheet"
+                                                class="echosphere-analysis-card-img"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </div>
+                                        <div class="echosphere-analysis-card-copy">
+                                            <h3 class="echosphere-analysis-card-title">Assets</h3>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section
+                    id="echosphere-understanding-design-direction-section"
+                    class="echosphere-key-findings-section echosphere-ican-challenge-plain echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1"
+                    aria-labelledby="ican-challenge-how-heading"
+                >
+                    <h3 id="ican-challenge-how-heading" class="echosphere-key-findings-heading">Design challenge &amp; how we worked</h3>
+                    <div class="echosphere-key-findings-intro">
+                        <p class="echosphere-key-findings-intro-lead">
+                            Inside a live product, the hardest calls weren&rsquo;t what to add &mdash; they were what not to break. Work had to feel native to a design language we didn&rsquo;t author, ship cleanly each sprint, and stay responsible for trial users we couldn&rsquo;t interview yet.
+                        </p>
+                        <p class="echosphere-key-findings-intro-tagline">
+                            Weekly crits pressure-tested decisions. I reviewed pull requests with developers, caught drift between Figma and production early, and drafted a usability testing report to prep interviews with the iCAN nonprofit (in progress).
+                        </p>
+                    </div>
+                </section>
+
+                <section id="echosphere-concept-section" class="echosphere-insight-ambient-band echosphere-concept-ambient-band echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1" aria-labelledby="ican-now-heading">
+                    <div class="echosphere-insight-ambient-slot echosphere-insight-ambient-slot--wide">
+                        <div class="echosphere-insight-ambient__frame">
+                            <img
+                                src="film/iCAN/nowcat.png"
+                                alt="PillPal virtual pet character in the app as deployed today"
+                                class="echosphere-ican-nowcat-img"
+                                width="1920"
+                                height="1080"
+                                decoding="async"
+                            />
+                            <div class="echosphere-insight-ambient__stack">
+                                <div class="echosphere-insight-ambient__content echosphere-insight-ambient__content--cinema">
+                                    <h2 id="ican-now-heading" class="echosphere-insight-ambient__eyebrow">Where it is now</h2>
+                                    <p class="echosphere-insight-ambient__lead">
+                                        iCAN&rsquo;s PillPal is currently in deployment.
+                                    </p>
+                                    <p class="echosphere-insight-ambient__body">
+                                        What we shipped this semester&mdash;embedded games, a tailored child login, and mobile layouts&mdash;is live in production for kids in active clinical trials.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="echosphere-final-prototype-section echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1" aria-labelledby="ican-next-heading">
+                    <h2 id="ican-next-heading" class="echosphere-understanding-research-heading">What&rsquo;s next</h2>
+                    <div class="echosphere-you-told-us-stack">
+                        <p class="echosphere-you-told-us-body-lead">
+                            Usability testing with iCAN&rsquo;s pediatric users is in progress. Findings will inform the next round of feature prioritization with the nonprofit.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-to-top-section">
+        <a href="#hero-section"><img src="film/downarrow.svg" alt="Back to Top" class="up-arrow"></a>
+    </div>
+
+    <script>
+        window.CaseStudyShell = {
+            intro: {
+                main: 'iCAN Alliance — Gamifying medication adherence for kids in clinical trials.',
+                date: ' (SPRING 2026)',
+                goal: 'OUR GOAL: MAKING MEDICINE FEEL LESS LIKE MEDICINE',
+                typingAriaStart: 'iCAN Alliance — Gamifying medication adherence for kids in clinical trials. (SPRING 2026)',
+                fullAria:
+                    'iCAN Alliance — Gamifying medication adherence for kids in clinical trials. (SPRING 2026). OUR GOAL: MAKING MEDICINE FEEL LESS LIKE MEDICINE'
+            },
+            kickerYouToldUs: 'MY ROLE',
+            kickerInsights: 'THE PROBLEM SPACE',
+            pageBubbles: [
+                { id: 1, size: 300, left: '4%', top: '10%', delay: 0, duration: 22, gradient: 'radial-gradient(circle at 30% 30%, rgba(0, 150, 136, 0.48), rgba(77, 182, 172, 0.24) 55%, rgba(128, 203, 196, 0.12) 72%, transparent 100%)' },
+                { id: 2, size: 340, left: '86%', top: '8%', delay: 1.5, duration: 26, gradient: 'radial-gradient(circle at 40% 40%, rgba(0, 121, 107, 0.44), rgba(38, 166, 154, 0.2) 58%, rgba(77, 182, 172, 0.1) 74%, transparent 100%)' },
+                { id: 3, size: 220, left: '12%', top: '52%', delay: 3, duration: 18, gradient: 'radial-gradient(circle at 35% 35%, rgba(77, 182, 172, 0.42), rgba(0, 105, 92, 0.18) 60%, rgba(128, 203, 196, 0.09) 76%, transparent 100%)' },
+                { id: 4, size: 280, left: '72%', top: '36%', delay: 0.8, duration: 24, gradient: 'radial-gradient(circle at 30% 30%, rgba(38, 166, 154, 0.4), rgba(0, 137, 123, 0.16) 58%, rgba(77, 182, 172, 0.09) 74%, transparent 100%)' },
+                { id: 5, size: 250, left: '24%', top: '22%', delay: 2.2, duration: 20, gradient: 'radial-gradient(circle at 40% 40%, rgba(128, 203, 196, 0.38), rgba(0, 121, 107, 0.15) 62%, rgba(38, 166, 154, 0.08) 76%, transparent 100%)' },
+                { id: 6, size: 300, left: '90%', top: '62%', delay: 4, duration: 23, gradient: 'radial-gradient(circle at 35% 35%, rgba(0, 150, 136, 0.42), rgba(77, 182, 172, 0.18) 58%, rgba(128, 203, 196, 0.1) 75%, transparent 100%)' },
+                { id: 7, size: 200, left: '8%', top: '78%', delay: 2.8, duration: 17, gradient: 'radial-gradient(circle at 30% 30%, rgba(38, 166, 154, 0.34), rgba(0, 105, 92, 0.12) 62%, rgba(77, 182, 172, 0.07) 78%, transparent 100%)' },
+                { id: 8, size: 260, left: '58%', top: '70%', delay: 1.2, duration: 21, gradient: 'radial-gradient(circle at 40% 40%, rgba(0, 137, 123, 0.4), rgba(128, 203, 196, 0.16) 60%, rgba(38, 166, 154, 0.09) 76%, transparent 100%)' }
+            ],
+            panelBubbles: [
+                { id: 1, size: 100, left: '6%', top: '10%', delay: 0, duration: 16, gradient: 'radial-gradient(circle at 30% 30%, rgba(0, 150, 136, 0.5), rgba(77, 182, 172, 0.22) 55%, rgba(128, 203, 196, 0.1) 72%, transparent 100%)' },
+                { id: 2, size: 130, left: '78%', top: '8%', delay: 1.2, duration: 20, gradient: 'radial-gradient(circle at 40% 40%, rgba(0, 121, 107, 0.46), rgba(38, 166, 154, 0.2) 58%, rgba(77, 182, 172, 0.1) 74%, transparent 100%)' },
+                { id: 3, size: 72, left: '12%', top: '58%', delay: 2, duration: 14, gradient: 'radial-gradient(circle at 35% 35%, rgba(77, 182, 172, 0.44), rgba(0, 105, 92, 0.18) 60%, rgba(128, 203, 196, 0.09) 76%, transparent 100%)' },
+                { id: 4, size: 110, left: '70%', top: '42%', delay: 0.6, duration: 18, gradient: 'radial-gradient(circle at 30% 30%, rgba(38, 166, 154, 0.42), rgba(0, 137, 123, 0.16) 58%, rgba(77, 182, 172, 0.09) 74%, transparent 100%)' },
+                { id: 5, size: 88, left: '38%', top: '18%', delay: 2.8, duration: 15, gradient: 'radial-gradient(circle at 40% 40%, rgba(128, 203, 196, 0.4), rgba(0, 121, 107, 0.15) 62%, rgba(38, 166, 154, 0.08) 76%, transparent 100%)' },
+                { id: 6, size: 95, left: '52%', top: '62%', delay: 1.8, duration: 17, gradient: 'radial-gradient(circle at 35% 35%, rgba(0, 150, 136, 0.42), rgba(77, 182, 172, 0.18) 58%, rgba(128, 203, 196, 0.09) 75%, transparent 100%)' },
+                { id: 7, size: 64, left: '4%', top: '38%', delay: 3.2, duration: 13, gradient: 'radial-gradient(circle at 30% 30%, rgba(38, 166, 154, 0.36), rgba(0, 105, 92, 0.12) 62%, rgba(77, 182, 172, 0.07) 78%, transparent 100%)' },
+                { id: 8, size: 118, left: '58%', top: '28%', delay: 0.4, duration: 19, gradient: 'radial-gradient(circle at 40% 40%, rgba(0, 137, 123, 0.4), rgba(128, 203, 196, 0.16) 60%, rgba(38, 166, 154, 0.09) 76%, transparent 100%)' }
+            ]
+        };
+    </script>
+    <script src="js/case-study-shell.js"></script>
+    <script src="js/page-scroll-star.js"></script>
+</body>
+</html>
