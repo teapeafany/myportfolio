@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="film/cursor-star.png" type="image/png">
+    <title>Berlin Emotionscapes - Tiffany Lee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/echosphere.css">
+    <link rel="stylesheet" href="css/berlin-emotionscape.css">
+</head>
+<body class="be-page">
+    <script src="js/paper-ink-filter.js"></script>
+    <script src="js/nav-scroll.js" defer></script>
+    <div id="navigation-container"></div>
+
+    <!-- Edge star rail — same as EchoSphere; IDs match js/page-scroll-star.js -->
+    <div
+        class="about-progress-bar home-scroll-rail visible echosphere-scroll-rail"
+        id="about-progress-bar"
+        aria-hidden="false"
+    >
+        <div class="home-scroll-track" id="home-scroll-track"></div>
+        <div
+            class="home-scroll-thumb"
+            id="home-scroll-thumb"
+            role="slider"
+            aria-orientation="vertical"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+            aria-label="Scroll the page"
+        >
+            <img src="film/home-scroll-star.png" alt="" width="88" height="88" draggable="false" />
+        </div>
+    </div>
+
+    <!-- EchoSphere OUR GOAL typography -->
+    <section class="be-echo-hero echosphere-post-hero" aria-label="Berlin Emotionscapes">
+        <div class="echosphere-post-hero-inner">
+            <h2 id="be-goal-heading" class="echosphere-research-heading" aria-label="Berlin Emotionscapes">
+                <div class="echosphere-research-letter be-goal-letter">
+                    <p class="echosphere-research-line echosphere-research-line--goal-centerpiece">
+                        <span class="echosphere-research-type-wrap">BERLIN EMOTIONSCAPES</span>
+                    </p>
+                    <p class="echosphere-research-line echosphere-research-line--center echosphere-research-line--support be-goal-subline">
+                        <span class="echosphere-research-type-wrap">
+                            a data visualization
+                            <span class="echosphere-research-heading-date">(Fall 2025)</span>
+                        </span>
+                    </p>
+                </div>
+            </h2>
+        </div>
+    </section>
+
+    <div class="be-gallery be-gallery--lead-map">
+        <div class="be-gallery__spotlight" aria-label="Berlin Emotionscapes map">
+            <figure class="be-gallery__piece">
+                <div class="echosphere-hero-intro be-gallery__hero-intro">
+                    <div class="echosphere-hero-intro-frame">
+                        <img
+                            class="echosphere-hero-intro-video"
+                            src="film/BERLIN%20EMOTIONSCAPE.png"
+                            alt="Berlin Emotionscapes map overlaying emotional journey with the Berlin Wall and city geography"
+                            width="2400"
+                            height="1350"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+            </figure>
+        </div>
+    </div>
+
+    <!-- Guiding question (EchoSphere HMW type scale) -->
+    <section class="echosphere-insight-ambient-band be-hmw-band" aria-labelledby="be-hmw-heading">
+        <div class="echosphere-insight-ambient-slot echosphere-insight-ambient-slot--wide">
+            <div class="echosphere-insight-ambient__hmw echosphere-insight-ambient__hmw--on-light be-hmw">
+                <h3 id="be-hmw-heading" class="echosphere-insight-ambient__hmw-text">
+                    <span class="echosphere-insight-ambient__hmw-kicker">
+                        <span class="echosphere-research-type-wrap">how do</span>
+                    </span>
+                    <span class="echosphere-insight-ambient__hmw-body">
+                        <span class="echosphere-research-type-wrap echosphere-insight-ambient__hmw-body-kicker-match">invisible cultural boundaries</span>
+                        shape lived emotional experience?
+                    </span>
+                </h3>
+            </div>
+        </div>
+    </section>
+
+    <main class="be-gallery">
+        <div class="be-gallery__spotlight" aria-label="Berlin Emotionscapes essay">
+            <div class="be-prose">
+                <p>
+                    This map overlays Berlin&rsquo;s rich history of the dividing Berlin Wall with my journey of emotions this summer. I hoped to find answers to why I felt more comfortable or enjoyed certain neighborhoods more than others, and the wall offers a historical context to the division of culture. This data had surprised me in many ways though, as I discovered I felt overall happier in the areas in the East—regions once under oppression of the GDR.
+                </p>
+                <p>
+                    I wondered why, and through further research and connecting details to my memories, I came to a few conclusions. The East and West have their subtly underlying cultural differences, from the presence of trams in the East and the U-Bahns in the west. Small foreign cuisine differences like Chinese restaurants in the West and Vietnamese in the East. Quieter neighborhoods and cars in the West, and more bustling liveliness and trendy artistic neighborhoods in the East. After reunification, many artists and creatives moved into the East because rent was cheaper, which fostered experimental spaces, galleries, and subcultures. That creative spirit still lingers in places like Friedrichshain, Mitte, or parts of Prenzlauer Berg.
+                </p>
+                <p>
+                    I was able to make these distinctions upon searching for patterns in my above map.
+                </p>
+                <p>
+                    Additionally this data unlocked more memories and emotions for me. As I plotted the landmark areas where remains of the wall reside, I began to remember my visits in the area. The solemnness that settled when we took a walk around the Berlin Wall Memorial, along with the eerie deceased pigeon I encountered on the way out. The overwhelming buildings and cars around the mall of Berlin and by Potsdamer and Leipziger Platz, making me feel tired and burnt out.
+                </p>
+                <p>
+                    The excitement when I stepped into Mitte and saw the many shops and trams everywhere. It would help to see current residents of Berlin and their perspective on emotions felt in these areas to see if there are further hidden cultural differences.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function includeNavigation() {
+            var navHTML =
+                '<nav class="nav-menu">' +
+                '<a href="index.html" class="nav-item" id="nav-home">home</a>' +
+                '<a href="work.html" class="nav-item" id="nav-work">work</a>' +
+                '<a href="headspace.html" class="nav-item" id="nav-headspace">headspace</a>' +
+                '<a href="cinema.html" class="nav-item" id="nav-cinema">the cinema</a>' +
+                '</nav>';
+            var el = document.getElementById('navigation-container');
+            if (el) el.innerHTML = navHTML;
+            var workLink = document.getElementById('nav-work');
+            if (workLink) workLink.classList.add('active');
+        }
+        document.addEventListener('DOMContentLoaded', includeNavigation);
+    </script>
+    <script src="js/page-scroll-star.js"></script>
+</body>
+</html>
