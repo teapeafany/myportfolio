@@ -123,17 +123,6 @@ body.case-study-laserharp .lh-final-reflection {
     margin-top: clamp(2.5rem, 6vh, 4rem);
 }
 
-body.case-study-laserharp .lh-final-reflection__title {
-    margin: 0 0 clamp(1rem, 2.5vh, 1.35rem);
-    font-family: var(--font-nhg-text);
-    font-size: clamp(1.35rem, 3.8vw, 2rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.15;
-    text-transform: uppercase;
-    color: #ffffff;
-}
-
 /* Typed intro (post-hero): title/date lines stay unfiltered; goal line uses paper-ink; left-aligned flow inside a centered column */
 body.case-study-laserharp #next-section .echosphere-research-letter {
     /* Match .echosphere-research-heading cap so the goal line isn’t stuck in a ~44rem column */
@@ -301,7 +290,7 @@ body.case-study-laserharp .echosphere-design-features-slide__goal,
 body.case-study-laserharp .echosphere-analysis-card-copy,
 body.case-study-laserharp .echosphere-analysis-carousel-hint,
 body.case-study-laserharp .echosphere-insight-ambient__hmw-text,
-body.case-study-laserharp .lh-final-reflection__title {
+body.case-study-laserharp .lh-final-reflection .echosphere-you-told-us-kicker--below {
     filter: url(#paper-ink-distort);
 }
 
@@ -1008,7 +997,7 @@ body.case-study-laserharp .lh-code-block__pre::-webkit-scrollbar-track {
     body.case-study-laserharp .echosphere-analysis-card-copy,
     body.case-study-laserharp .echosphere-analysis-carousel-hint,
     body.case-study-laserharp .echosphere-insight-ambient__hmw-text,
-    body.case-study-laserharp .lh-final-reflection__title {
+    body.case-study-laserharp .lh-final-reflection .echosphere-you-told-us-kicker--below {
         filter: none;
     }
 }
