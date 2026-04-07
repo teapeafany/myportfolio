@@ -1,0 +1,698 @@
+/* iCAN Alliance — EchoSphere shell; blue accent on scroll rail (matches heading blue) */
+
+/* Consistent vertical rhythm between major bands (tighter than default 11rem research margin) */
+body.case-study-ican {
+    --ican-gap-major: clamp(3.75rem, 10vh, 6.25rem);
+    --ican-gap: clamp(2.75rem, 6.5vh, 4.5rem);
+    --ican-gap-tight: clamp(2rem, 4.5vh, 3rem);
+    /* Heading palette — single blue + green; tints derived so nothing drifts */
+    /* Brand blue; tints auto-match via color-mix */
+    --ican-h-blue: #2c3694;
+    --ican-h-green: #77a000;
+    --ican-h-blue-soft: color-mix(in srgb, var(--ican-h-blue) 35%, transparent);
+    --ican-h-green-soft: color-mix(in srgb, var(--ican-h-green) 45%, transparent);
+    --ican-h-green-muted: color-mix(in srgb, var(--ican-h-green) 55%, transparent);
+    /* EchoSphere “ink” tints rebuilt from brand blue (replaces rgba(30, 42, 94, …)) */
+    --ican-ink-96: color-mix(in srgb, var(--ican-h-blue) 96%, transparent);
+    --ican-ink-94: color-mix(in srgb, var(--ican-h-blue) 94%, transparent);
+    --ican-ink-92: color-mix(in srgb, var(--ican-h-blue) 92%, transparent);
+    --ican-ink-9: color-mix(in srgb, var(--ican-h-blue) 90%, transparent);
+    --ican-ink-72: color-mix(in srgb, var(--ican-h-blue) 72%, transparent);
+    --ican-ink-48: color-mix(in srgb, var(--ican-h-blue) 48%, transparent);
+    --ican-ink-44: color-mix(in srgb, var(--ican-h-blue) 44%, transparent);
+    --ican-ink-42: color-mix(in srgb, var(--ican-h-blue) 42%, transparent);
+    --ican-ink-38: color-mix(in srgb, var(--ican-h-blue) 38%, transparent);
+    --ican-ink-22: color-mix(in srgb, var(--ican-h-blue) 22%, transparent);
+    --ican-ink-12: color-mix(in srgb, var(--ican-h-blue) 12%, transparent);
+    --ican-ink-1: color-mix(in srgb, var(--ican-h-blue) 10%, transparent);
+}
+
+/* “What we inherited” — don’t use the full EchoSphere research top margin after context */
+body.case-study-ican #ican-inherited-section.echosphere-understanding-research {
+    margin-top: var(--ican-gap-major);
+    padding-bottom: clamp(2rem, 5.5vh, 3.5rem);
+}
+
+/* Problem-space cinema — match major gap after inherited */
+body.case-study-ican #echosphere-insights-cinema-section.echosphere-insights-cinema {
+    margin-top: var(--ican-gap-major);
+    padding-top: clamp(0.5rem, 1.5vh, 1rem);
+}
+
+/* Problem-space b-roll: darker plate + scrim so light type reads like EchoSphere cinema */
+body.case-study-ican .echosphere-insights-cinema .echosphere-insights-cinema-frame {
+    background: #030306;
+}
+
+body.case-study-ican .echosphere-insights-cinema .echosphere-insights-cinema-video {
+    filter: brightness(0.88) contrast(1.06) saturate(1.02);
+}
+
+body.case-study-ican .echosphere-insights-cinema .echosphere-insights-cinema-scrim {
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.38) 0%,
+        rgba(0, 0, 0, 0.55) 38%,
+        rgba(0, 0, 0, 0.76) 72%,
+        rgba(0, 0, 0, 0.85) 100%
+    );
+}
+
+/* Sprint → design features column — same major entry as other breaks */
+body.case-study-ican #hero-section > div.echosphere-understanding-research.echosphere-hero-spec-reveal {
+    margin-top: var(--ican-gap-major);
+    padding-top: 0;
+    padding-bottom: clamp(2.5rem, 7vh, 4.25rem);
+}
+
+/* Sprint overview (key-findings layout) — flush to top of paper column */
+body.case-study-ican .echosphere-understanding-research-paper > .echosphere-ican-sprint-findings {
+    margin-top: 0;
+}
+
+/* Hide duplicate index watermark; numbered icon carries sprint order */
+body.case-study-ican .echosphere-ican-sprint-findings .echosphere-findings-theme::before {
+    content: none;
+}
+
+/* Rounded corners for rows 2–3 of the 5-card grid (EchoSphere only styles 1–3) */
+body.case-study-ican .echosphere-ican-sprint-findings .echosphere-findings-theme:nth-child(4) {
+    border-radius: 1.08rem 1.12rem 1.12rem 1.08rem;
+}
+
+body.case-study-ican .echosphere-ican-sprint-findings .echosphere-findings-theme:nth-child(5) {
+    border-radius: 0.58rem 1.12rem 1.12rem 1.12rem;
+}
+
+/* Design features — extra air after sprint findings */
+body.case-study-ican .echosphere-understanding-research-paper > .echosphere-key-findings-section[aria-labelledby='ican-design-features-heading'] {
+    margin-top: calc(var(--ican-gap) + clamp(1.5rem, 3.5vh, 2.75rem));
+}
+
+/* Feature deck — breathing room under intro before first feature block */
+body.case-study-ican .echosphere-ican-features-deck.echosphere-design-features-deck {
+    margin-top: calc(var(--ican-gap-tight) + clamp(0.85rem, 2vh, 1.35rem));
+}
+
+/* Space above each “Swipe or scroll sideways…” + carousel */
+body.case-study-ican .echosphere-ican-features-deck .echosphere-design-features-slide__media {
+    padding-top: clamp(1.5rem, 3.75vh, 2.65rem);
+}
+
+/* First feature slide — deck already has margin; remove doubled top padding on first slide */
+body.case-study-ican .echosphere-ican-features-deck > .echosphere-design-features-slide:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+/*
+ * Design-features carousels — EchoSphere deck parity: spotlight classes widen slides in HTML;
+ * this adds the tall light 16×9 stage for real img/video. Placeholders keep the dark slot.
+ */
+body.case-study-ican .echosphere-ican-features-deck .echosphere-analysis-card:not(.case-study-placeholder-card) .echosphere-analysis-card-media {
+    background: #f5f5f7;
+    border: none;
+    box-shadow: none;
+    /* Fixed 16×9 frame so portrait captures (e.g. mobile login) don’t stretch taller than Flowerman / desktop login */
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.case-study-ican .echosphere-ican-features-deck .echosphere-analysis-card:not(.case-study-placeholder-card) .echosphere-analysis-card-media::after {
+    display: none;
+}
+
+body.case-study-ican .echosphere-ican-features-deck .echosphere-analysis-card:not(.case-study-placeholder-card) .echosphere-analysis-card-video,
+body.case-study-ican .echosphere-ican-features-deck .echosphere-analysis-card:not(.case-study-placeholder-card) .echosphere-analysis-card-img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 0;
+    aspect-ratio: unset;
+    object-fit: contain;
+    object-position: center;
+    cursor: default;
+}
+
+/* Mobile login — white stage; screenshots slightly inset so height matches sibling carousels (16×9 frame) */
+body.case-study-ican
+    .echosphere-ican-features-deck
+    .echosphere-ican-mobile-carousel
+    .echosphere-analysis-card:not(.case-study-placeholder-card)
+    .echosphere-analysis-card-media {
+    background: #fff;
+}
+
+body.case-study-ican
+    .echosphere-ican-features-deck
+    .echosphere-ican-mobile-carousel
+    .echosphere-analysis-card:not(.case-study-placeholder-card)
+    .echosphere-analysis-card-img {
+    max-width: 78%;
+    max-height: 78%;
+}
+
+/* Character assets — single slide centered in the spotlight track + caption */
+body.case-study-ican .echosphere-ican-pixel-carousel .echosphere-analysis-carousel-track {
+    justify-content: center;
+}
+
+body.case-study-ican .echosphere-ican-pixel-carousel .echosphere-analysis-card-copy {
+    text-align: center;
+}
+
+/* What we inherited carousel — same wide card peek as EchoSphere spotlight */
+body.case-study-ican .echosphere-ican-inherited-embed .echosphere-ican-inherited-carousel .echosphere-analysis-card {
+    flex: 0 0 min(68rem, 92%);
+}
+
+body.case-study-ican .echosphere-ican-inherited-embed .echosphere-ican-inherited-carousel .echosphere-analysis-card .echosphere-analysis-card-media {
+    min-height: clamp(16rem, 34vw, 34rem);
+}
+
+/* Ambient tiles (“where it is now”) — uniform separation in the paper column */
+body.case-study-ican .echosphere-understanding-research-paper > .echosphere-insight-ambient-band {
+    margin-top: var(--ican-gap);
+    margin-bottom: 0;
+}
+
+/* “Where it is now” — nowcat behind copy; dark ambient frame + white type (beats global green eyebrow) */
+body.case-study-ican #echosphere-concept-section .echosphere-ican-nowcat-img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    pointer-events: none;
+}
+
+body.case-study-ican #echosphere-concept-section.echosphere-concept-ambient-band .echosphere-insight-ambient__eyebrow {
+    color: #cee080;
+    text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.32),
+        0 2px 28px rgba(0, 0, 0, 0.48),
+        0 2px 48px rgba(0, 0, 0, 0.45);
+}
+
+body.case-study-ican #echosphere-concept-section.echosphere-concept-ambient-band .echosphere-insight-ambient__lead {
+    color: #fff;
+    text-shadow:
+        0 0 1px rgba(0, 0, 0, 0.9),
+        0 0 24px rgba(0, 0, 0, 0.8),
+        0 2px 40px rgba(0, 0, 0, 0.5),
+        0 4px 64px rgba(0, 0, 0, 0.4);
+}
+
+body.case-study-ican #echosphere-concept-section.echosphere-concept-ambient-band .echosphere-insight-ambient__body {
+    color: rgba(255, 255, 255, 0.82);
+    text-shadow:
+        0 0 1px rgba(0, 0, 0, 0.88),
+        0 0 20px rgba(0, 0, 0, 0.72),
+        0 2px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* Design challenge & how we worked — plain paper block (no cinematic ambient / video tile) */
+body.case-study-ican .echosphere-understanding-research-paper > .echosphere-ican-challenge-plain {
+    margin-top: var(--ican-gap);
+    margin-bottom: 0;
+    text-align: center;
+}
+
+body.case-study-ican .echosphere-ican-challenge-plain .echosphere-key-findings-intro-lead,
+body.case-study-ican .echosphere-ican-challenge-plain .echosphere-key-findings-intro-tagline {
+    max-width: min(42rem, 100%);
+    margin-inline: auto;
+}
+
+/* What’s next — extra air after “Where it is now” */
+body.case-study-ican .echosphere-understanding-research-paper > .echosphere-final-prototype-section {
+    margin-top: calc(var(--ican-gap-major) + clamp(1.5rem, 3.5vh, 2.75rem));
+    padding-bottom: 0;
+}
+
+body.case-study-ican .echosphere-scroll-rail .home-scroll-thumb img {
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.12))
+        drop-shadow(0 0 14px color-mix(in srgb, var(--ican-h-blue) 35%, transparent));
+}
+
+/*
+ * Media placeholders — match EchoSphere hero / cinema / analysis cards:
+ * dark 16×9 video bed, light uppercase label, inset rim (see echosphere-prototype-media-slot).
+ */
+body.case-study-ican .echosphere-hero-intro-frame .case-study-media-placeholder {
+    background: linear-gradient(165deg, #1c2030 0%, #12141c 45%, #0a0a0c 100%);
+    color: rgba(255, 255, 255, 0.44);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    font-family: var(--font-nhg-text);
+    font-size: clamp(0.8rem, 1.6vw, 1.05rem);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+/* Primary hero — same visual weight as EchoSphere intro video (16×9, viewport-capped) */
+body.case-study-ican #hero-section > .echosphere-hero-montage .echosphere-hero-intro-frame {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    min-height: clamp(18rem, min(48vw, calc(min(96vw, 1420px) * 9 / 16)), 40rem);
+    max-height: min(85vh, 920px);
+}
+
+body.case-study-ican #hero-section > .echosphere-hero-montage .echosphere-hero-intro-frame > .echosphere-ican-hero-thumb {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    min-height: 0;
+    object-fit: contain;
+    object-position: center;
+    background: #0a0a0c;
+}
+
+/* Context / “you told us” film — matches second EchoSphere hero video frame */
+body.case-study-ican #you-told-us-section .echosphere-hero-intro-frame {
+    aspect-ratio: 16 / 9;
+    min-height: clamp(15rem, 34vh, 30rem);
+}
+
+body.case-study-ican #you-told-us-section .echosphere-hero-intro-frame .echosphere-hero-intro-video {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Problem-space cinema band — match EchoSphere insights min height + scale */
+body.case-study-ican .echosphere-insights-cinema .echosphere-insights-cinema-frame {
+    min-height: clamp(16rem, 36vh, 32rem);
+}
+
+/*
+ * Analysis carousels — match EchoSphere: card height comes from 16×9 media only (no min-height fight).
+ * Real EchoSphere slides use img/video with aspect-ratio 16/9; placeholders follow the same geometry.
+ */
+body.case-study-ican .case-study-placeholder-card .echosphere-analysis-card-media {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+    box-sizing: border-box;
+    background: linear-gradient(165deg, #16161c 0%, #0a0a0c 100%);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.48);
+    font-family: var(--font-nhg-text);
+    font-size: clamp(0.78rem, 1.65vw, 1rem);
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+body.case-study-ican .echosphere-ican-carousel .echosphere-analysis-carousel-track {
+    scroll-padding-inline: clamp(0.5rem, 1.5vw, 1rem);
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Single full-width “before” card — same max width rhythm as EchoSphere prototype embed */
+/* Inherited + context role copy — lead/tagline width cap */
+body.case-study-ican .echosphere-ican-inherited-stack.echosphere-you-told-us-stack > p,
+body.case-study-ican #you-told-us-section .echosphere-you-told-us-paper .echosphere-you-told-us-stack > .echosphere-you-told-us-body-tagline {
+    max-width: min(42rem, 100%);
+    margin-inline: auto;
+}
+
+body.case-study-ican .echosphere-ican-inherited-embed {
+    margin-top: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+body.case-study-ican .echosphere-ican-inherited-embed .echosphere-ican-inherited-carousel {
+    margin-top: 0;
+    width: 100%;
+}
+
+body.case-study-ican .echosphere-ican-inherited-embed .echosphere-ican-inherited-card .echosphere-analysis-card-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+    background: #f5f5f7;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+body.case-study-ican .echosphere-ican-inherited-design-system-img {
+    width: auto;
+    height: auto;
+    max-width: min(96%, 56rem);
+    max-height: 94%;
+    min-height: 0;
+    aspect-ratio: unset;
+    object-fit: contain;
+    object-position: center;
+    cursor: default;
+}
+
+/* Feature deck uses same slide pattern as EchoSphere design-features; pull carousel flush under copy */
+body.case-study-ican .echosphere-design-features-slide__media .echosphere-analysis-carousel {
+    margin-top: 0;
+}
+
+/* ─── Heading colors (largest = blue, mid = green) ─── */
+
+body.case-study-ican .echosphere-understanding-research-heading,
+body.case-study-ican .echosphere-understanding-research-paper .echosphere-understanding-research-heading {
+    color: var(--ican-h-blue);
+}
+
+body.case-study-ican .echosphere-key-findings-heading {
+    color: var(--ican-h-blue);
+}
+
+body.case-study-ican #ican-sprint-heading.echosphere-key-findings-heading,
+body.case-study-ican #ican-design-features-heading.echosphere-key-findings-heading {
+    color: var(--ican-h-blue);
+}
+
+body.case-study-ican #next-section .echosphere-research-heading,
+body.case-study-ican #next-section .echosphere-research-line {
+    color: var(--ican-h-blue);
+}
+
+/*
+ * Post-hero typing — flat brand fill; keep support + goal at same opacity (Echo default 0.94 on support).
+ * Paper-ink warp comes from .echosphere-research-line in echosphere.css.
+ */
+body.case-study-ican #next-section .echosphere-research-line {
+    opacity: 1;
+}
+
+body.case-study-ican #next-section .echosphere-research-type-wrap {
+    background-image: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: var(--ican-h-blue);
+    animation: none;
+}
+
+body.case-study-ican #next-section .echosphere-research-heading-date {
+    color: var(--ican-h-blue);
+}
+
+body.case-study-ican #next-section .echosphere-research-type-caret {
+    color: var(--ican-h-blue);
+}
+
+/* ─── Light-band copy + chrome: EchoSphere navy → iCAN blue (mid headings stay green below) ─── */
+
+body.case-study-ican .echosphere-post-hero {
+    color: var(--ican-ink-92);
+}
+
+body.case-study-ican .echosphere-you-told-us-body-lead,
+body.case-study-ican .echosphere-you-told-us-body-mid,
+body.case-study-ican .echosphere-key-findings-intro-lead {
+    color: var(--ican-ink-94);
+}
+
+body.case-study-ican .echosphere-you-told-us-body-tagline,
+body.case-study-ican .echosphere-key-findings-intro-tagline {
+    color: var(--ican-ink-72);
+}
+
+body.case-study-ican .echosphere-research-scope {
+    border-top-color: var(--ican-ink-1);
+}
+
+body.case-study-ican .echosphere-research-scope-stat--survey {
+    color: var(--ican-h-green);
+}
+
+body.case-study-ican .echosphere-research-scope-interview-line {
+    color: var(--ican-h-green);
+}
+
+body.case-study-ican .echosphere-research-scope-interview-sub {
+    color: var(--ican-h-green-muted);
+}
+
+body.case-study-ican .echosphere-you-told-us-bubble {
+    --echo-bubble-stroke: var(--ican-ink-44);
+    --echo-bubble-stroke-soft: var(--ican-ink-22);
+    color: var(--ican-ink-9);
+    box-shadow:
+        0 0 0 1px var(--echo-bubble-stroke-soft),
+        0.12rem -0.08rem 0 color-mix(in srgb, var(--ican-h-blue) 14%, transparent),
+        -0.1rem 0.1rem 0 color-mix(in srgb, var(--ican-h-blue) 10%, transparent),
+        0 1px 0 rgba(255, 255, 255, 0.88) inset,
+        0 3px 14px color-mix(in srgb, var(--ican-h-blue) 7%, transparent);
+}
+
+body.case-study-ican .echosphere-you-told-us-bubble--out {
+    background: linear-gradient(
+        168deg,
+        color-mix(in srgb, var(--ican-h-blue) 11%, transparent) 0%,
+        color-mix(in srgb, var(--ican-h-blue) 14%, transparent) 100%
+    );
+    color: var(--ican-ink-92);
+}
+
+body.case-study-ican .echosphere-you-told-us-bubble--in::before,
+body.case-study-ican .echosphere-you-told-us-bubble--out::before {
+    background: color-mix(in srgb, var(--ican-h-blue) 38%, transparent);
+}
+
+body.case-study-ican .echosphere-you-told-us-bubble--out::before {
+    background: color-mix(in srgb, var(--ican-h-blue) 42%, transparent);
+}
+
+body.case-study-ican .echosphere-you-told-us-kicker-caret {
+    color: var(--ican-h-blue-soft);
+}
+
+body.case-study-ican .echosphere-design-features-slide + .echosphere-design-features-slide {
+    border-top-color: var(--ican-ink-1);
+}
+
+body.case-study-ican .echosphere-design-features-slide__label,
+body.case-study-ican .echosphere-design-features-slide__goal-label {
+    color: var(--ican-ink-38);
+}
+
+body.case-study-ican .echosphere-design-features-slide__body {
+    color: var(--ican-ink-72);
+}
+
+body.case-study-ican .echosphere-design-features-slide__goal {
+    color: var(--ican-ink-9);
+}
+
+body.case-study-ican .echosphere-key-findings-panel {
+    --echo-findings-stroke: var(--ican-ink-44);
+    --echo-findings-stroke-soft: var(--ican-ink-22);
+    border-color: var(--echo-findings-stroke);
+    box-shadow:
+        0 0 0 1px var(--echo-findings-stroke-soft),
+        0.12rem -0.08rem 0 color-mix(in srgb, var(--ican-h-blue) 12%, transparent),
+        -0.1rem 0.1rem 0 color-mix(in srgb, var(--ican-h-blue) 8%, transparent),
+        0 1px 0 rgba(255, 255, 255, 0.88) inset,
+        0 10px 32px color-mix(in srgb, var(--ican-h-blue) 8%, transparent);
+}
+
+body.case-study-ican .echosphere-findings-diagram__root,
+body.case-study-ican .echosphere-findings-diagram__merge,
+body.case-study-ican .echosphere-findings-diagram__outcome {
+    --echo-findings-stroke: var(--ican-ink-44);
+    --echo-findings-stroke-soft: var(--ican-ink-22);
+    color: var(--ican-ink-94);
+    box-shadow:
+        0 0 0 1px var(--echo-findings-stroke-soft),
+        0.08rem -0.05rem 0 color-mix(in srgb, var(--ican-h-blue) 10%, transparent),
+        -0.06rem 0.06rem 0 color-mix(in srgb, var(--ican-h-blue) 7%, transparent),
+        0 1px 0 rgba(255, 255, 255, 0.85) inset,
+        0 18px 40px color-mix(in srgb, var(--ican-h-blue) 7%, transparent);
+}
+
+body.case-study-ican .echosphere-findings-diagram__outcome {
+    background: linear-gradient(
+        168deg,
+        color-mix(in srgb, var(--ican-h-blue) 10%, transparent) 0%,
+        color-mix(in srgb, var(--ican-h-blue) 12%, transparent) 100%
+    );
+    color: var(--ican-ink-96);
+}
+
+body.case-study-ican .echosphere-findings-theme {
+    --echo-findings-stroke: var(--ican-ink-44);
+    --echo-findings-stroke-soft: var(--ican-ink-22);
+    border-color: var(--echo-findings-stroke);
+    box-shadow:
+        0 0 0 1px var(--echo-findings-stroke-soft),
+        0.1rem -0.06rem 0 color-mix(in srgb, var(--ican-h-blue) 9%, transparent),
+        -0.08rem 0.08rem 0 color-mix(in srgb, var(--ican-h-blue) 6%, transparent),
+        0 1px 0 rgba(255, 255, 255, 0.92) inset,
+        0 12px 36px color-mix(in srgb, var(--ican-h-blue) 8%, transparent),
+        0 28px 64px rgba(20, 30, 70, 0.06);
+}
+
+body.case-study-ican .echosphere-findings-theme::before {
+    color: var(--ican-ink-12);
+}
+
+body.case-study-ican .echosphere-findings-theme__icon {
+    border-color: var(--ican-ink-44);
+    box-shadow:
+        0 0 0 1px var(--ican-ink-22),
+        0.08rem -0.06rem 0 color-mix(in srgb, var(--ican-h-blue) 10%, transparent),
+        0 14px 28px color-mix(in srgb, var(--ican-h-blue) 9%, transparent);
+}
+
+body.case-study-ican .echosphere-findings-theme__label {
+    color: var(--ican-ink-42);
+}
+
+body.case-study-ican .echosphere-findings-theme__text {
+    color: var(--ican-ink-72);
+}
+
+body.case-study-ican .echosphere-findings-theme__block--implication {
+    background: linear-gradient(
+        108deg,
+        color-mix(in srgb, var(--ican-h-blue) 9%, transparent) 0%,
+        color-mix(in srgb, var(--ican-h-blue) 6%, transparent) 100%
+    );
+    border-color: color-mix(in srgb, var(--ican-h-blue) 16%, transparent);
+    border-left-color: color-mix(in srgb, var(--ican-h-blue) 48%, transparent);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.65),
+        0.06rem -0.04rem 0 color-mix(in srgb, var(--ican-h-blue) 6%, transparent),
+        0 16px 32px color-mix(in srgb, var(--ican-h-blue) 7%, transparent);
+}
+
+body.case-study-ican .echosphere-findings-theme__block--implication .echosphere-findings-theme__label {
+    color: var(--ican-ink-48);
+}
+
+body.case-study-ican .echosphere-findings-theme__block--implication .echosphere-findings-theme__text {
+    color: var(--ican-ink-96);
+}
+
+body.case-study-ican .echosphere-analysis-card-text {
+    color: var(--ican-ink-72);
+}
+
+body.case-study-ican .echosphere-analysis-card-text strong {
+    color: var(--ican-ink-9);
+}
+
+/* EchoSphere doesn’t attach paper-ink to card / theme body type — match the rest of the page */
+body.case-study-ican .echosphere-findings-theme__label,
+body.case-study-ican .echosphere-findings-theme__text,
+body.case-study-ican .echosphere-findings-theme__block--implication .echosphere-findings-theme__label,
+body.case-study-ican .echosphere-findings-theme__block--implication .echosphere-findings-theme__text,
+body.case-study-ican .echosphere-analysis-card-title,
+body.case-study-ican .echosphere-analysis-card-text,
+body.case-study-ican .echosphere-analysis-card-text strong {
+    filter: url(#paper-ink-distort);
+}
+
+body.case-study-ican .echosphere-analysis-carousel-track {
+    scrollbar-color: var(--ican-ink-22) transparent;
+}
+
+body.case-study-ican .echosphere-analysis-carousel-track::-webkit-scrollbar-thumb {
+    background: var(--ican-ink-22);
+}
+
+body.case-study-ican .echosphere-insight-ambient__hmw-body {
+    color: var(--ican-ink-94);
+}
+
+body.case-study-ican #you-told-us-section .echosphere-you-told-us-kicker--below {
+    color: var(--ican-h-blue);
+}
+
+body.case-study-ican #you-told-us-section .echosphere-you-told-us-kicker-caret {
+    color: var(--ican-h-blue-soft);
+}
+
+body.case-study-ican .echosphere-insights-cinema-headline {
+    color: #fff;
+    text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.08),
+        0 2px 48px rgba(0, 0, 0, 0.55),
+        0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+body.case-study-ican .echosphere-insights-cinema-content .echosphere-you-told-us-kicker--below {
+    color: #cee080;
+    text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.35),
+        0 2px 40px rgba(0, 0, 0, 0.55);
+}
+
+body.case-study-ican .echosphere-insights-cinema-content .echosphere-you-told-us-kicker-caret {
+    color: color-mix(in srgb, #cee080 52%, transparent);
+}
+
+body.case-study-ican .echosphere-insights-cinema-item-title {
+    color: #cee080;
+    text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.32),
+        0 2px 28px rgba(0, 0, 0, 0.48);
+}
+
+body.case-study-ican .echosphere-insights-cinema-item-copy {
+    color: rgba(255, 255, 255, 0.78);
+    text-shadow: 0 1px 24px rgba(0, 0, 0, 0.4);
+}
+
+body.case-study-ican .echosphere-insight-ambient__eyebrow {
+    color: var(--ican-h-green);
+    text-shadow:
+        0 2px 32px rgba(0, 0, 0, 0.5),
+        0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+body.case-study-ican .echosphere-design-features-slide__title {
+    color: var(--ican-h-green);
+}
+
+body.case-study-ican .echosphere-findings-theme__title {
+    color: var(--ican-h-green);
+}
+
+body.case-study-ican .echosphere-analysis-card-title {
+    color: var(--ican-h-green);
+}
+
+body.case-study-ican .echosphere-analysis-carousel-hint {
+    color: var(--ican-h-green-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.case-study-ican .echosphere-findings-theme__label,
+    body.case-study-ican .echosphere-findings-theme__text,
+    body.case-study-ican .echosphere-findings-theme__block--implication .echosphere-findings-theme__label,
+    body.case-study-ican .echosphere-findings-theme__block--implication .echosphere-findings-theme__text,
+    body.case-study-ican .echosphere-analysis-card-title,
+    body.case-study-ican .echosphere-analysis-card-text,
+    body.case-study-ican .echosphere-analysis-card-text strong {
+        filter: none;
+    }
+}

@@ -382,13 +382,18 @@ body::before {
 .project-item[data-project='daybreak'] .project-thumb,
 .project-item[data-project='voymemo'] .project-thumb,
 .project-item[data-project='laserharp'] .project-thumb,
-.project-item[data-project='berlin-emotionscape'] .project-thumb {
+.project-item[data-project='berlin-emotionscape'] .project-thumb,
+.project-item[data-project='ican-alliance'] .project-thumb {
     filter: brightness(1) contrast(1.04) saturate(0.95);
 }
 
 /* Berlin Emotionscapes — warm tile field; map fills the tile (inherits .work-tile-media img cover + scale) */
 .project-item[data-project='berlin-emotionscape'] .work-tile-media {
     background: linear-gradient(165deg, #ece8e2 0%, #e2ddd6 100%);
+}
+
+.project-item[data-project='ican-alliance'] .work-tile-media {
+    background: linear-gradient(165deg, #e0f7f4 0%, #b2dfdb 100%);
 }
 
 /* Active card only: pull image down so gold type wins */
