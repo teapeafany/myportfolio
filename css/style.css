@@ -409,6 +409,10 @@ body.body--letter-dim .film-grain {
     .site-footer-credit__inner {
         filter: none;
     }
+
+    .home-hero-featured {
+        filter: none;
+    }
 }
 
 .about-scroll-section .text-group {
@@ -729,6 +733,50 @@ body.body--letter-dim .film-grain {
     20%, 100% {
         opacity: 0;
     }
+}
+
+/* Home hero — pinned callout to latest flagship case (complements cycling subtitles) */
+.home-hero-featured {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: max(1.1rem, env(safe-area-inset-bottom));
+    z-index: 11;
+    margin: 0;
+    max-width: min(36rem, 92vw);
+    padding: 0 0.75rem;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: var(--font-nhg-text);
+    font-size: clamp(0.68rem, 1.45vw, 0.82rem);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.35;
+    color: rgba(246, 243, 236, 0.68);
+    text-shadow:
+        0 0 1px rgba(255, 252, 245, 0.22),
+        0 1px 0 rgba(0, 0, 0, 0.38),
+        0 2px 12px rgba(0, 0, 0, 0.42);
+    filter: url(#paper-ink-distort);
+    pointer-events: auto;
+}
+
+.home-hero-featured__link {
+    color: rgba(254, 195, 7, 0.94);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(254, 195, 7, 0.38);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.home-hero-featured__link:hover {
+    color: #fec307;
+    border-bottom-color: rgba(254, 195, 7, 0.65);
+}
+
+.home-hero-featured__meta {
+    letter-spacing: 0.06em;
+    color: rgba(246, 243, 236, 0.58);
 }
 
 /* Responsive Design */
