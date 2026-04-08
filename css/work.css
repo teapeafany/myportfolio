@@ -384,6 +384,7 @@ body::before {
 .project-item[data-project='daybreak'] .project-thumb,
 .project-item[data-project='voymemo'] .project-thumb,
 .project-item[data-project='laserharp'] .project-thumb,
+.project-item[data-project='cafe-break'] .project-thumb,
 .project-item[data-project='berlin-emotionscape'] .project-thumb,
 .project-item[data-project='ican-alliance'] .project-thumb {
     filter: brightness(1) contrast(1.04) saturate(0.95);
@@ -396,6 +397,16 @@ body::before {
 
 .project-item[data-project='ican-alliance'] .work-tile-media {
     background: linear-gradient(165deg, #e0f7f4 0%, #b2dfdb 100%);
+}
+
+.project-item[data-project='cafe-break'] .work-tile-media {
+    background: linear-gradient(155deg, #2a221c 0%, #1a1410 100%);
+}
+
+.project-item[data-project='cafe-break'] .work-tile-media img {
+    object-fit: cover;
+    transform: scale(1.06);
+    transform-origin: center center;
 }
 
 /* Active card only: pull image down so gold type wins */
