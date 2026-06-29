@@ -250,7 +250,7 @@ body::before {
     }
 }
 
-/* Featured tiles — gold pulse (grid order: PillPal → EchoSphere → …; Lyre also featured) */
+/* Featured tiles — gold pulse (chronological grid: PillPal → Laser Lyre → EchoSphere, …) */
 .project-item[data-project='ican-alliance'],
 .project-item[data-project='echosphere'],
 .project-item[data-project='laserharp'] {
@@ -385,6 +385,7 @@ body::before {
 .project-item[data-project='voymemo'] .project-thumb,
 .project-item[data-project='laserharp'] .project-thumb,
 .project-item[data-project='cafe-break'] .project-thumb,
+.project-item[data-project='teabc-brand'] .project-thumb,
 .project-item[data-project='berlin-emotionscape'] .project-thumb,
 .project-item[data-project='ican-alliance'] .project-thumb {
     filter: brightness(1) contrast(1.04) saturate(0.95);
@@ -406,6 +407,16 @@ body::before {
 .project-item[data-project='cafe-break'] .work-tile-media img {
     object-fit: cover;
     transform: scale(1.06);
+    transform-origin: center center;
+}
+
+.project-item[data-project='teabc-brand'] .work-tile-media {
+    background: linear-gradient(160deg, #f4efe8 0%, #e8e0d6 100%);
+}
+
+.project-item[data-project='teabc-brand'] .work-tile-media img {
+    object-fit: cover;
+    transform: scale(1.04);
     transform-origin: center center;
 }
 
