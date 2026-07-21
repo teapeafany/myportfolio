@@ -38,16 +38,20 @@
 
         <!-- Filter Buttons -->
         <div class="filter-container">
+            <span class="filter-indicator" aria-hidden="true"></span>
             <button class="filter-btn active" data-filter="all"><span class="filter-btn-label">ALL</span></button>
             <button class="filter-btn" data-filter="ux-ui"><span class="filter-btn-label">UX/UI</span></button>
             <button class="filter-btn" data-filter="making"><span class="filter-btn-label">MAKING</span></button>
             <button class="filter-btn" data-filter="speculative"><span class="filter-btn-label">SPECULATIVE</span></button>
         </div>
+        <div class="work-tagline-wrap">
+            <p class="work-tagline">a little reel of things i've made&mdash;hover to peek, click to step inside.</p>
+        </div>
         <!-- Projects — cinematic grid; newest first (chronological) -->
         <div class="projects-list">
             <!-- Spring 2026 · PillPal -->
             <div
-                class="project-item"
+                class="project-item tile-hero"
                 data-project="ican-alliance"
                 data-category="ux-ui"
                 tabindex="0"
@@ -77,11 +81,15 @@
                         <span class="project-montage-line slot-bl" aria-hidden="true"></span>
                         <span class="project-montage-line slot-br" aria-hidden="true"></span>
                     </div>
-                    <div class="project-tile-overlay" aria-hidden="true">
+                    <div class="project-tile-overlay">
                         <div class="project-tile-copy">
                             <h2 class="project-tile-title">PillPal</h2>
-                            <p class="project-tile-meta">Product design · Spring 2026</p>
-                            <p class="project-tile-blurb">Gamifying medication adherence for kids in clinical trials—with iCAN and Georgia Tech Bits of Good.</p>
+                            <p class="project-tile-meta">Spring 2026</p>
+                            <div class="project-tile-tags">
+                                <span class="tile-tag">UX</span>
+                                <span class="tile-tag">UI</span>
+                                <span class="tile-tag">Product</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -107,7 +115,7 @@
                 </div>
             </div>
             <!-- Spring 2026 · Heavenly Laser Lyre -->
-            <div class="project-item" data-project="laserharp" data-category="making" tabindex="0" role="link" aria-label="Heavenly Laser Lyre physical computing build, Spring 2026">
+            <div class="project-item tile-standard" data-project="laserharp" data-category="making" tabindex="0" role="link" aria-label="Heavenly Laser Lyre physical computing build, Spring 2026">
                 <div class="project-tile">
                     <div class="project-media">
                         <div class="work-tile-media">
@@ -122,11 +130,15 @@
                         <span class="project-montage-line slot-bl" aria-hidden="true"></span>
                         <span class="project-montage-line slot-br" aria-hidden="true"></span>
                     </div>
-                    <div class="project-tile-overlay" aria-hidden="true">
+                    <div class="project-tile-overlay">
                         <div class="project-tile-copy">
                             <h2 class="project-tile-title">Heavenly Laser Lyre</h2>
-                            <p class="project-tile-meta">Arduino · Spring 2026</p>
-                            <p class="project-tile-blurb">Lasers, photoresistors, MIDI, and a 3D-printed lyre—full write-up on the blog.</p>
+                            <p class="project-tile-meta">Spring 2026</p>
+                            <div class="project-tile-tags">
+                                <span class="tile-tag">Maker</span>
+                                <span class="tile-tag">Arduino</span>
+                                <span class="tile-tag">3D Print</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -153,7 +165,7 @@
                 </div>
             </div>
             <!-- Spring 2026 · Daybreak -->
-            <div class="project-item" data-project="daybreak" data-category="ux-ui speculative" tabindex="0" role="link" aria-label="DAYBREAK case study, Spring 2026">
+            <div class="project-item tile-standard" data-project="daybreak" data-category="ux-ui speculative" tabindex="0" role="link" aria-label="DAYBREAK case study, Spring 2026">
                 <div class="project-tile">
                     <div class="project-media">
                         <div class="work-tile-media">
@@ -167,11 +179,15 @@
                         <span class="project-montage-line slot-bl" aria-hidden="true"></span>
                         <span class="project-montage-line slot-br" aria-hidden="true"></span>
                     </div>
-                    <div class="project-tile-overlay" aria-hidden="true">
+                    <div class="project-tile-overlay">
                         <div class="project-tile-copy">
                             <h2 class="project-tile-title">Daybreak</h2>
-                            <p class="project-tile-meta">Case study · Spring 2026</p>
-                            <p class="project-tile-blurb">An app that reframes daily interactions through a gentle, reflective lens—scroll the slidedeck for the full case study.</p>
+                            <p class="project-tile-meta">Spring 2026</p>
+                            <div class="project-tile-tags">
+                                <span class="tile-tag">UX</span>
+                                <span class="tile-tag">UI</span>
+                                <span class="tile-tag">Digital</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -194,7 +210,7 @@
                 </div>
             </div>
             <!-- Fall 2025 · EchoSphere -->
-            <div class="project-item" data-project="echosphere" data-category="ux-ui" tabindex="0" role="link" aria-label="ECHOSPHERE case study, Fall 2025">
+            <div class="project-item tile-wide" data-project="echosphere" data-category="ux-ui" tabindex="0" role="link" aria-label="ECHOSPHERE case study, Fall 2025">
                 <div class="project-tile">
                     <div class="project-media">
                         <div class="work-tile-media">
@@ -208,11 +224,15 @@
                         <span class="project-montage-line slot-bl" aria-hidden="true"></span>
                         <span class="project-montage-line slot-br" aria-hidden="true"></span>
                     </div>
-                    <div class="project-tile-overlay" aria-hidden="true">
+                    <div class="project-tile-overlay">
                         <div class="project-tile-copy">
                             <h2 class="project-tile-title">EchoSphere</h2>
-                            <p class="project-tile-meta">Case study · Fall 2025</p>
-                            <p class="project-tile-blurb">Music discovery that connects artists and listeners through immersive audio experiences.</p>
+                            <p class="project-tile-meta">Fall 2025</p>
+                            <div class="project-tile-tags">
+                                <span class="tile-tag">UX</span>
+                                <span class="tile-tag">UI</span>
+                                <span class="tile-tag">Digital</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -240,7 +260,7 @@
             </div>
             <!-- Fall 2025 · Berlin Emotionscapes -->
             <div
-                class="project-item"
+                class="project-item tile-half"
                 data-project="berlin-emotionscape"
                 data-category="making"
                 tabindex="0"
@@ -264,11 +284,15 @@
                         <span class="project-montage-line slot-bl" aria-hidden="true"></span>
                         <span class="project-montage-line slot-br" aria-hidden="true"></span>
                     </div>
-                    <div class="project-tile-overlay" aria-hidden="true">
+                    <div class="project-tile-overlay">
                         <div class="project-tile-copy">
                             <h2 class="project-tile-title">Berlin Emotionscapes</h2>
-                            <p class="project-tile-meta">Data visualization · Berlin</p>
-                            <p class="project-tile-blurb">Emotions and neighborhoods mapped against Berlin&rsquo;s Wall and east–west history.</p>
+                            <p class="project-tile-meta">Study abroad</p>
+                            <div class="project-tile-tags">
+                                <span class="tile-tag">Data Viz</span>
+                                <span class="tile-tag">Map</span>
+                                <span class="tile-tag">Making</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -295,7 +319,7 @@
             </div>
             <!-- Fall 2024 · Cafe Break (A-Frame, external) -->
             <div
-                class="project-item"
+                class="project-item tile-half"
                 data-project="cafe-break"
                 data-category="making"
                 data-external-url="https://teapeafany.github.io/cafe-aframe/"
@@ -326,11 +350,15 @@
                         <span class="project-montage-line slot-bl" aria-hidden="true"></span>
                         <span class="project-montage-line slot-br" aria-hidden="true"></span>
                     </div>
-                    <div class="project-tile-overlay" aria-hidden="true">
+                    <div class="project-tile-overlay">
                         <div class="project-tile-copy">
                             <h2 class="project-tile-title">Cafe Break</h2>
-                            <p class="project-tile-meta">A-Frame · Fall 2024</p>
-                            <p class="project-tile-blurb">A small immersive caf&eacute; scene built in A-Frame—open the live build in the browser.</p>
+                            <p class="project-tile-meta">Fall 2024</p>
+                            <div class="project-tile-tags">
+                                <span class="tile-tag">Making</span>
+                                <span class="tile-tag">A-Frame</span>
+                                <span class="tile-tag">Web</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -448,16 +476,44 @@
     <script>
         // Filter functionality
         document.addEventListener('DOMContentLoaded', function() {
+            const filterContainer = document.querySelector('.filter-container');
             const filterButtons = document.querySelectorAll('.filter-btn');
             const projectItems = document.querySelectorAll('.project-item');
-            
+            const indicator = document.querySelector('.filter-indicator');
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // Slide the gold "selection reticle" onto the active button.
+            // Offset outward by PAD so it reads as one deliberate frame, not a
+            // second line hugging the button's own rim.
+            const PAD = 5;
+            function moveIndicator(btn) {
+                if (!indicator || !btn) return;
+                indicator.style.width = (btn.offsetWidth + PAD * 2) + 'px';
+                indicator.style.height = (btn.offsetHeight + PAD * 2) + 'px';
+                indicator.style.transform =
+                    'translate(' + (btn.offsetLeft - PAD) + 'px, ' + (btn.offsetTop - PAD) + 'px)';
+                indicator.classList.add('is-ready');
+            }
+
+            function syncIndicator() {
+                moveIndicator(document.querySelector('.filter-btn.active') || filterButtons[0]);
+            }
+
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     // Remove active class from all buttons
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     // Add active class to clicked button
                     this.classList.add('active');
-                    
+
+                    // Slide reticle + ink-flicker the label (montage cut echo)
+                    moveIndicator(this);
+                    if (!reduceMotion) {
+                        this.classList.remove('flicker');
+                        void this.offsetWidth;
+                        this.classList.add('flicker');
+                    }
+
                     const filterValue = this.getAttribute('data-filter');
                     
                     // Filter projects (data-category may be space-separated: "ux-ui speculative")
@@ -474,7 +530,20 @@
                         }
                     });
                 });
+
+                button.addEventListener('animationend', function() {
+                    button.classList.remove('flicker');
+                });
             });
+
+            // Position reticle on load, after fonts settle, and on resize
+            syncIndicator();
+            requestAnimationFrame(syncIndicator);
+            window.addEventListener('load', syncIndicator);
+            window.addEventListener('resize', syncIndicator);
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(syncIndicator);
+            }
         });
     </script>
     <script src="js/page-scroll-star.js"></script>
