@@ -32,7 +32,13 @@ async function refreshAccessToken() {
   });
   const json = await res.json();
   if (!res.ok) {
-    throw new Error(`token refresh failed: ${JSON.stringify(json)}`);
+    const hint =
+      json.error === 'invalid_grant'
+        ? ' Refresh token is invalid/expired — re-run: node scripts/spotify-auth.mjs and update SPOTIFY_REFRESH_TOKEN.'
+        : json.error === 'invalid_client'
+          ? ' Client ID/secret are wrong — check SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET.'
+          : '';
+    throw new Error(`token refresh failed: ${JSON.stringify(json)}.${hint}`);
   }
   return json.access_token;
 }
