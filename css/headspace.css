@@ -1,15 +1,10 @@
 /* UI sans: Neue Haas Grotesk Text via css/style.css */
 
-/* Custom Font */
-@font-face {
-    font-family: 'Myhandwriting-Regular';
-    src: url('../film/Myhandwriting-Regular.ttf') format('truetype'),
-         url('../film/Myhandwriting-Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+/* Headspace Page Styles */
+html {
+    height: 100%;
 }
 
-/* Headspace Page Styles */
 body {
     background: #000;
     margin: 0;
@@ -17,8 +12,10 @@ body {
     font-family: var(--font-nhg-text);
     font-weight: 300;
     position: relative;
-    overflow: auto !important;
-    height: auto !important;
+    /* One-page layout: the feed scrolls internally, the page itself does not */
+    overflow: hidden !important;
+    height: 100vh;
+    height: 100dvh;
     opacity: 0;
     transition: all 0.5s ease;
 }
@@ -28,6 +25,7 @@ body.loaded {
     background: #000;
 }
 
+/* Ambient film still — deep backdrop */
 body::before {
     content: '';
     position: fixed;
@@ -36,11 +34,11 @@ body::before {
     width: 100%;
     height: 100%;
     background: url('../film/filmstill.png') center/cover no-repeat;
-    filter: brightness(35%);
+    filter: brightness(28%);
     z-index: -2;
 }
 
-/* Collage Overlay */
+/* Collage montage — the "wall" behind the feed */
 body::after {
     content: '';
     position: fixed;
@@ -49,11 +47,12 @@ body::after {
     width: 100%;
     height: 100%;
     background: url('../film/collage.png') center/cover no-repeat;
-    filter: brightness(60%);
+    filter: brightness(72%) saturate(0.98);
     z-index: -1;
     opacity: 1;
 }
 
+/* Loading screen */
 .loading-screen {
     position: fixed;
     top: 0;
@@ -99,274 +98,55 @@ body::after {
 }
 
 @keyframes headspaceSpinner {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
+/* Page container — fills exactly one viewport, no page scroll */
 .headspace-container {
     position: relative;
     width: 100%;
+    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    z-index: 10;
-}
-
-/* Logo Styles */
-.hslogo {
-    max-width: 800px;
-    width: 100%;
-    height: auto;
-    margin-bottom: 2rem;
-    filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.5)) 
-            drop-shadow(0 0 30px rgba(255, 120, 0, 0.3))
-            drop-shadow(0 0 45px rgba(255, 100, 0, 0.2));
-    animation: logoGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes logoGlow {
-    0% {
-        filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.5)) 
-                drop-shadow(0 0 30px rgba(255, 120, 0, 0.3))
-                drop-shadow(0 0 45px rgba(255, 100, 0, 0.2));
-    }
-    100% {
-        filter: drop-shadow(0 0 20px rgba(255, 160, 20, 0.6)) 
-                drop-shadow(0 0 35px rgba(255, 140, 10, 0.4))
-                drop-shadow(0 0 50px rgba(255, 120, 0, 0.3));
-    }
-}
-
-/* Personal Journal Layout */
-.personal-journal {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-left: 5rem;
-}
-
-.journal-container {
-    position: relative;
-    max-width: 1400px;
-    width: 100%;
-}
-
-.journal-background {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    position: relative;
-    z-index: 1;
-}
-
-.journal-page1-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-53%, -54%);
-    max-width: 82%;
-    width: 82%;
-    height: auto;
-    border-radius: 8px;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.journal-page2-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-53%, -54%);
-    max-width: 80%;
-    width: 80%;
-    height: auto;
-    border-radius: 8px;
-    z-index: 2;
-    pointer-events: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.journal-page2-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.journal-page1-overlay {
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.journal-page1-overlay.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.journal-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-start;
-    padding: 2rem;
+    justify-content: flex-start;
+    padding: clamp(2rem, 4.5vh, 3rem) clamp(1rem, 4vw, 3rem) clamp(0.75rem, 2.5vh, 1.5rem);
     box-sizing: border-box;
-    z-index: 3;
-}
-
-.journal-left-column {
-    flex: 1;
-    width: 700px;
-    padding-right: 2rem;
-    padding-left: 2rem;
-}
-
-.journal-right-column {
-    flex: 1;
-    width: 700px;
-    padding-right: 2rem;
-    padding-left: 2rem;
-}
-
-
-.partone-image {
-    display: block;
-    margin-left: -3rem;
-    margin-top: 1rem;
-    max-width: 500px;
-    width: 100%;
-    height: auto;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: magicalWrite 1s ease-out 0.5s forwards;
-}
-
-.journal-placeholder {
-    display: block;
-    margin-top: -2rem;
-    margin-left: 6rem;
-    max-width: 500px;
-    width: 100%;
-    height: auto;
-}
-
-.journal-ppt-container {
-    position: relative;
-    width: 80%;
-    max-width: 300px;
-    margin-left: 0rem;
-    bottom: 36rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: magicalWrite 1s ease-out 1.5s forwards;
-}
-
-.journal-ppt-iframe {
-    width: 476px;
-    height: 288px;
-    border: none;
-    z-index: 1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.storyleft-overlay {
-    z-index: 2;
-    pointer-events: none;
-    display: block;
-    margin-left: 6rem;
-    margin-bottom: 0;
-    max-width: 500px;
-    width: 75%;
-    height: auto;
-}
-.storyright-overlay {
-    z-index: 2;
-    pointer-events: none;
-    display: block;
-    margin-left: 0rem;
-    margin-top: -1rem;
-    max-width: 500px;
-    width: 75%;
-    height: auto;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: magicalWrite 1s ease-out 1.5s forwards;
-}
-
-.aboutme-image {
-    z-index: 2;
-    pointer-events: none;
-    display: block;
-    max-width: 550px;
-    margin-top: -2rem;
-    margin-left: 3rem;
-    width: 100%;
-    height: auto;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: magicalWrite 1s ease-out 2s forwards;
-}
-
-/* Journal Navigation Buttons */
-.journal-nav-button {
-    position: absolute;
-    top: calc(50% - 3rem);
-    transform: translateY(-50%);
-    background: none;
-    border: none;
     z-index: 10;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    animation: magicalWrite 1s ease-out 2.5s forwards;
 }
 
-.journal-nav-button:hover {
-    transform: translateY(-50%) scale(1.1);
-    opacity: 0.8;
-}
-
-.journal-back-button {
-    left: 2rem;
-}
-
-.journal-next-button {
-    right: 6rem;
-}
-
-.nav-button-icon {
-    width: 40px;
+/* Logo */
+.hslogo {
+    flex: 0 0 auto;
+    max-width: clamp(280px, 32vw, 460px);
+    width: 100%;
     height: auto;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+    margin: 0;
+    filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.45))
+            drop-shadow(0 0 30px rgba(255, 120, 0, 0.25));
 }
 
-
-.journal-text p {
-    margin-bottom: 1.2rem;
-}
-
-.journal-text p:last-child {
-    margin-bottom: 0;
-}
-
-
-/* Home subtitle look (from style.css); in-flow placement; two-line cycle timing */
+/* Subtitle (home subtitle look; in-flow) — pulled up under the script logo */
 .headspace-container .headspace-subtitle-container.subtitle-container {
     position: relative;
+    flex: 0 0 auto;
     bottom: auto;
     left: auto;
     transform: none;
     width: 100%;
-    max-width: 960px;
-    margin-top: -3rem;
-    margin-bottom: 2rem;
+    max-width: 720px;
+    margin: clamp(-3.5rem, -6vh, -2rem) auto clamp(0.7rem, 1.8vh, 1.2rem);
+    text-align: center;
     overflow: hidden;
+}
+
+/* Smaller subtitle so the larger logo still leaves room for the feed */
+.headspace-container .headspace-subtitle-container .subtitle {
+    font-size: clamp(0.82rem, 1.5vw, 1rem);
+    line-height: 1.35;
+    letter-spacing: 0.01em;
 }
 
 .headspace-container .headspace-subtitle-container .subtitle-1 {
@@ -377,164 +157,558 @@ body::after {
     animation: cycleSubtitles 20s infinite 4s;
 }
 
-@keyframes magicalWrite {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* ------------------------------------------------------------------ */
+/* Living feed — wide cream panel over the collage; scrolls internally */
+/* ------------------------------------------------------------------ */
+.hs-feed-shell {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    max-width: min(1180px, 94vw);
+    margin: 0 auto;
+    background: #f7f2e8;
+    color: #141414;
+    border-radius: 5px;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.5) inset,
+        0 18px 50px rgba(0, 0, 0, 0.45),
+        0 4px 14px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .personal-journal {
-        margin-left: 3rem;
-    }
-    
-    .journal-container {
-        max-width: 90%;
-    }
+.hs-feed {
+    height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+    box-sizing: border-box;
+    scrollbar-width: none;
 }
 
-@media (max-width: 1024px) {
-    .personal-journal {
-        margin-left: 2rem;
-    }
-    
-    .journal-container {
-        max-width: 95%;
-    }
-    
-    .journal-page1-overlay,
-    .journal-page2-overlay {
-        max-width: 85%;
-        width: 85%;
-    }
+.hs-feed::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
+/* Vertical timeline: a central line the entries hang off of, alternating sides */
+.hs-feed-list {
+    position: relative;
+    list-style: none;
+    margin: 0 auto;
+    max-width: 980px;
+    /* Big top/bottom padding so the first and last entries can reach center */
+    padding: 42vh 0;
+}
+
+.hs-feed-list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(
+        to bottom,
+        transparent 0,
+        rgba(20, 20, 20, 0.28) 6%,
+        rgba(20, 20, 20, 0.28) 94%,
+        transparent 100%
+    );
+    transform: translateX(-0.5px);
+}
+
+.hs-feed-empty {
+    margin: 0;
+    text-align: center;
+    color: rgba(20, 20, 20, 0.5);
+    font-size: 0.95rem;
+    font-weight: 300;
+}
+
+/* Minimalist entry rail — pinned to the cream panel (does not scroll away) */
+.hs-rail {
+    position: absolute;
+    top: 50%;
+    right: clamp(0.55rem, 1.4vw, 1rem);
+    z-index: 5;
+    width: 14px;
+    height: min(52vh, 320px);
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.hs-rail-track {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: rgba(20, 20, 20, 0.18);
+    transform: translateX(-50%);
+}
+
+.hs-rail-ticks {
+    position: absolute;
+    inset: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.hs-rail-tick {
+    position: relative;
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 1px solid rgba(20, 20, 20, 0.45);
+    border-radius: 50%;
+    background: #f7f2e8;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.hs-rail-tick:hover {
+    border-color: #141414;
+    transform: scale(1.2);
+}
+
+.hs-rail-tick.is-active {
+    background: #141414;
+    border-color: #141414;
+    transform: scale(1.25);
+}
+
+.hs-rail-tick:focus {
+    outline: none;
+}
+
+.hs-rail-tick:focus-visible {
+    outline: 2px solid rgba(20, 20, 20, 0.55);
+    outline-offset: 3px;
+}
+
+/* A single entry — hangs off one side of the central line */
+.hs-entry {
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    /* Scroll-driven focus fade (set inline by JS); short transition smooths it */
+    opacity: 0.06;
+    transition: opacity 0.25s ease;
+}
+
+.hs-entry + .hs-entry {
+    margin-top: clamp(3rem, 9vh, 6.5rem);
+}
+
+/* Left side: sits in the left half, content hugs the centre line */
+.hs-entry--left {
+    margin-right: 50%;
+    padding-right: clamp(1.5rem, 3.5vw, 3rem);
+    text-align: right;
+}
+
+/* Right side: pushed into the right half */
+.hs-entry--right {
+    margin-left: 50%;
+    padding-left: clamp(1.5rem, 3.5vw, 3rem);
+    text-align: left;
+}
+
+/* Node dot on the central line */
+.hs-entry::after {
+    content: '';
+    position: absolute;
+    top: 0.5rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #141414;
+    box-shadow: 0 0 0 4px #f7f2e8;
+}
+
+.hs-entry--left::after {
+    right: -5px;
+}
+
+.hs-entry--right::after {
+    left: -5px;
+}
+
+.hs-entry-inner {
+    display: inline-block;
+    max-width: 100%;
+    text-align: left;
+}
+
+.hs-date {
+    display: block;
+    margin: 0 0 clamp(0.6rem, 1.6vw, 0.95rem);
+    font-family: var(--font-nhg-text);
+    font-size: 0.78rem;
+    font-weight: var(--font-weight-bold, 700);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    line-height: 1.3;
+    color: #0a0a0a;
+    filter: url(#paper-ink-distort);
+}
+
+/* Media gallery — one or more photos/videos per entry */
+.hs-media-group {
+    --hs-gap: clamp(0.5rem, 1.2vw, 0.85rem);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--hs-gap);
+    align-items: flex-start;
+}
+
+.hs-media-item {
+    flex: 1 1 100%;
+    min-width: 0;
+}
+
+/* Portrait media takes half the width, so two verticals ≈ one horizontal */
+.hs-media-item--portrait {
+    flex: 0 1 calc(50% - var(--hs-gap) / 2);
+    max-width: calc(50% - var(--hs-gap) / 2);
+}
+
+.hs-media {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    background: #ece4d4;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+    vertical-align: top;
+}
+
+.hs-caption {
+    margin: clamp(0.7rem, 1.8vw, 1.05rem) 0 0;
+    max-width: 42ch;
+    font-family: var(--font-nhg-text);
+    font-size: 1.05rem;
+    font-weight: var(--font-weight-roman, 400);
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+    color: #0a0a0a;
+    white-space: pre-line;
+    filter: url(#paper-ink-distort);
+}
+
+/* ------------------------------------------------------------------ */
+/* Composer (edit mode only)                                          */
+/* ------------------------------------------------------------------ */
+.hs-composer-toggle {
+    position: fixed;
+    right: clamp(1rem, 3vw, 2rem);
+    bottom: clamp(1rem, 3vw, 2rem);
+    z-index: 1200;
+    padding: 0.6rem 1.1rem;
+    font-family: var(--font-nhg-text);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: #141414;
+    background: #f7f2e8;
+    border: 1px solid rgba(20, 20, 20, 0.2);
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hs-composer-toggle:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
+}
+
+.hs-composer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1300;
+    width: min(420px, 92vw);
+    height: 100%;
+    overflow-y: auto;
+    background: #f7f2e8;
+    color: #141414;
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.5);
+    padding: clamp(1.25rem, 3vw, 2rem);
+    box-sizing: border-box;
+    font-family: var(--font-nhg-text);
+}
+
+.hs-composer-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.hs-composer-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.hs-composer-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: #141414;
+    cursor: pointer;
+    padding: 0 0.25rem;
+}
+
+.hs-composer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.hs-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.hs-field--tight {
+    margin-top: 0.75rem;
+}
+
+.hs-field-label {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(20, 20, 20, 0.62);
+}
+
+.hs-optional {
+    text-transform: none;
+    letter-spacing: 0;
+    color: rgba(20, 20, 20, 0.4);
+}
+
+.hs-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.55rem 0.7rem;
+    font-family: var(--font-nhg-text);
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: #141414;
+    background: #fffdf8;
+    border: 1px solid rgba(20, 20, 20, 0.22);
+    border-radius: 3px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.hs-input:focus {
+    border-color: rgba(20, 20, 20, 0.55);
+}
+
+.hs-textarea {
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.hs-dropzone {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 130px;
+    padding: 1rem;
+    text-align: center;
+    background: #fffdf8;
+    border: 1px dashed rgba(20, 20, 20, 0.3);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.hs-dropzone.is-dragover {
+    border-color: rgba(20, 20, 20, 0.7);
+    background: #f2ead9;
+}
+
+.hs-file-input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.hs-dropzone-hint {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(20, 20, 20, 0.55);
+    pointer-events: none;
+}
+
+.hs-preview {
+    width: 100%;
+}
+
+.hs-preview img,
+.hs-preview video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+}
+
+.hs-note {
+    margin: 0.35rem 0 0;
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: rgba(20, 20, 20, 0.55);
+}
+
+.hs-note code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.72rem;
+    background: rgba(20, 20, 20, 0.07);
+    padding: 0.05rem 0.3rem;
+    border-radius: 2px;
+}
+
+.hs-composer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.hs-btn {
+    flex: 1 1 auto;
+    padding: 0.55rem 0.8rem;
+    font-family: var(--font-nhg-text);
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #141414;
+    background: #fffdf8;
+    border: 1px solid rgba(20, 20, 20, 0.24);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.hs-btn:hover {
+    background: #f2ead9;
+    border-color: rgba(20, 20, 20, 0.5);
+}
+
+.hs-btn--primary {
+    flex-basis: 100%;
+    background: #141414;
+    color: #f7f2e8;
+    border-color: #141414;
+}
+
+.hs-btn--primary:hover {
+    background: #000;
+    border-color: #000;
+}
+
+.hs-composer-status {
+    margin: 0.25rem 0 0;
+    min-height: 1.1em;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: rgba(20, 20, 20, 0.7);
+}
+
+/* ------------------------------------------------------------------ */
+/* Responsive                                                        */
+/* ------------------------------------------------------------------ */
 @media (max-width: 768px) {
-    .headspace-container {
-        padding: 1rem;
-    }
-    
     .hslogo {
-        max-width: 90%;
-        margin-bottom: 1.5rem;
-    }
-    
-    .headspace-container .headspace-subtitle-container.subtitle-container {
-        margin-top: -2rem;
-        margin-bottom: 1.5rem;
-        padding: 0 1rem;
+        max-width: clamp(220px, 60vw, 320px);
     }
 
     .headspace-container .headspace-subtitle-container .subtitle {
         font-size: clamp(1rem, 3.75vw, 1.28rem);
         line-height: 1.3;
     }
-    
-    .personal-journal {
-        margin-left: 0;
-        width: 100%;
-        padding: 0 1rem;
-    }
-    
-    .journal-container {
+
+    .hs-feed-shell {
         max-width: 100%;
     }
-    
-    .journal-background {
+
+    .hs-feed {
+        padding: 0 clamp(1rem, 5vw, 1.75rem);
+    }
+
+    .hs-rail {
+        right: 0.35rem;
+        height: min(44vh, 240px);
+    }
+
+    /* Single-sided timeline: line on the left, every entry full width on the right */
+    .hs-feed-list::before {
+        left: 8px;
+        transform: none;
+    }
+
+    .hs-entry,
+    .hs-entry--left,
+    .hs-entry--right {
         width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: clamp(1.75rem, 8vw, 2.5rem);
+        padding-right: 0;
+        text-align: left;
     }
-    
-    .journal-page1-overlay,
-    .journal-page2-overlay {
-        max-width: 90%;
-        width: 90%;
-        transform: translate(-50%, -50%);
-    }
-    
-    .journal-content {
-        padding: 1rem;
-    }
-    
-    .journal-left-column,
-    .journal-right-column {
-        width: 100%;
-        padding: 0.5rem;
-    }
-    
-    .journal-nav-button {
-        top: calc(50% - 2rem);
-    }
-    
-    .journal-back-button {
-        left: 1rem;
-    }
-    
-    .journal-next-button {
-        right: 1rem;
-    }
-    
-    .nav-button-icon {
-        width: 30px;
+
+    .hs-entry--left::after,
+    .hs-entry--right::after {
+        left: 4px;
+        right: auto;
     }
 }
 
 @media (max-width: 480px) {
     .hslogo {
-        max-width: 85%;
-        margin-bottom: 1rem;
-    }
-    
-    .headspace-container .headspace-subtitle-container.subtitle-container {
-        margin-top: -1.5rem;
-        margin-bottom: 1rem;
+        max-width: 72%;
     }
 
-    .headspace-container .headspace-subtitle-container .subtitle {
-        font-size: clamp(0.95rem, 3.5vw, 1.15rem);
-        line-height: 1.5;
+    .hs-feed-shell {
+        border-radius: 4px;
     }
-    
-    .personal-journal {
-        padding: 0 0.5rem;
+
+    .hs-caption {
+        font-size: 0.96rem;
     }
-    
-    .journal-page1-overlay,
-    .journal-page2-overlay {
-        max-width: 95%;
-        width: 95%;
-    }
-    
-    .journal-content {
-        padding: 0.5rem;
-    }
-    
-    .journal-nav-button {
-        top: calc(50% - 1.5rem);
-    }
-    
-    .journal-back-button {
-        left: 0.5rem;
-    }
-    
-    .journal-next-button {
-        right: 0.5rem;
-    }
-    
-    .nav-button-icon {
-        width: 25px;
-    }
-    
+
     .nav-menu {
         gap: 0.4rem 0.55rem;
     }
-    
+
     .nav-item {
         font-size: clamp(0.82rem, 3.5vw, 1.05rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hs-group {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 }

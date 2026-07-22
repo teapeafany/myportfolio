@@ -19,54 +19,90 @@
     </div>
     <!-- Shared Navigation -->
     <div id="navigation-container"></div>
-    
+
     <!-- Main Content -->
     <main class="headspace-container">
         <img src="film/thoughts.png" alt="thoughts" class="hslogo">
-        
+
         <!-- Subtitle (home styling, page copy) -->
         <div class="subtitle-container headspace-subtitle-container">
-            <p class="subtitle subtitle-1 subtitle-line subtitle-line--lead">here are some recent pages in my book.</p>
-            <p class="subtitle subtitle-2 subtitle-line subtitle-line--whisper">it's messy, it's chaotic, but that's the creative process.</p>
+            <p class="subtitle subtitle-1 subtitle-line subtitle-line--lead">updates, wins, and things i'm making as they happen.</p>
+            <p class="subtitle subtitle-2 subtitle-line subtitle-line--whisper">medals, stages, projects, and the little bits in between.</p>
         </div>
 
-        <!-- Personal Journal Image -->
-        <div class="personal-journal">
-            <div class="journal-container">
-                <img src="film/myjournal.png" alt="Personal Journal" class="journal-background">
-                <img src="film/page1.jpg" alt="Page 1" class="journal-page1-overlay">
-                <img src="film/page2.jpeg" alt="Page 2" class="journal-page2-overlay">
-                
-                <!-- Navigation Buttons -->
-                <button class="journal-nav-button journal-back-button" onclick="previousPage()">
-                    <img src="film/backpagebutton.svg" alt="Previous Page" class="nav-button-icon">
-                </button>
-                <button class="journal-nav-button journal-next-button" onclick="nextPage()">
-                    <img src="film/nextpagebutton.svg" alt="Next Page" class="nav-button-icon">
-                </button>
-                
-                <div class="journal-content">
-                    <div class="journal-left-column">
-                        <!-- <img src="film/aboutme.svg" alt="About Me" class="aboutme-image"> -->
-                    </div>
-                    <div class="journal-divider"></div>
-                    <div class="journal-right-column">
-                        <!-- <img src="film/partone.png" alt="Part One" class="partone-image"> -->
-                        <!-- <img src="film/partonestory.svg" alt="Part One Story" class="storyright-overlay"> -->
-
-                        <!-- <div class="journal-ppt-container">
-                            <iframe src="https://gtvault-my.sharepoint.com/personal/tlee602_gatech_edu/_layouts/15/Doc.aspx?sourcedoc={cd0cb488-1324-4a46-a67d-8d2aff07467a}&amp;action=embedview&amp;wdAr=1.7777777777777777" width="400px" height="220px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
-
-                        </div> -->
-                    </div>
-                </div>
+        <!-- Living feed / timeline (cream reading column over the collage) -->
+        <section class="hs-feed-shell" aria-label="Headspace feed">
+            <div class="hs-feed" id="hs-feed-scroll">
+                <ol id="headspace-feed" class="hs-feed-list"></ol>
+                <p id="hs-feed-empty" class="hs-feed-empty" hidden>nothing here yet.</p>
             </div>
-        </div>
+            <!-- Minimalist entry indicator — one tick per post -->
+            <nav class="hs-rail" id="hs-rail" aria-label="Feed entries" hidden>
+                <div class="hs-rail-track" aria-hidden="true"></div>
+                <ol class="hs-rail-ticks" id="hs-rail-ticks"></ol>
+            </nav>
+        </section>
     </main>
-    
+
+    <!-- Composer (only shown in edit mode: headspace.html?edit=1) -->
+    <aside id="hs-composer" class="hs-composer" hidden aria-label="Add a headspace entry">
+        <header class="hs-composer-head">
+            <h2 class="hs-composer-title">new entry</h2>
+            <button type="button" class="hs-composer-close" id="hs-composer-close" aria-label="Close composer">&times;</button>
+        </header>
+
+        <form id="hs-composer-form" class="hs-composer-form">
+            <label class="hs-field">
+                <span class="hs-field-label">date</span>
+                <input type="date" id="hs-input-date" class="hs-input" required>
+            </label>
+
+            <label class="hs-field">
+                <span class="hs-field-label">type</span>
+                <select id="hs-input-type" class="hs-input">
+                    <option value="image">image</option>
+                    <option value="video">video</option>
+                </select>
+            </label>
+
+            <div class="hs-field">
+                <span class="hs-field-label">media</span>
+                <div id="hs-dropzone" class="hs-dropzone" tabindex="0" role="button" aria-label="Choose or drop a photo or video">
+                    <input type="file" id="hs-input-file" class="hs-file-input" accept="image/*,video/*" multiple>
+                    <span class="hs-dropzone-hint">drop one or more files here, or click to choose</span>
+                    <div id="hs-preview" class="hs-preview" hidden></div>
+                </div>
+                <label class="hs-field hs-field--tight">
+                    <span class="hs-field-label">path(s) in repo <span class="hs-optional">(comma or newline separated for multiple)</span></span>
+                    <textarea id="hs-input-src" class="hs-input hs-textarea" rows="2" placeholder="film/headspace/one.jpg, film/headspace/two.jpg"></textarea>
+                </label>
+                <p class="hs-note">place the actual file in <code>film/headspace/</code> before pushing.</p>
+            </div>
+
+            <label class="hs-field">
+                <span class="hs-field-label">thoughts <span class="hs-optional">(optional)</span></span>
+                <textarea id="hs-input-caption" class="hs-input hs-textarea" rows="3" placeholder="a little comment…"></textarea>
+            </label>
+
+            <label class="hs-field">
+                <span class="hs-field-label">alt text <span class="hs-optional">(optional)</span></span>
+                <input type="text" id="hs-input-alt" class="hs-input" placeholder="short description for accessibility">
+            </label>
+
+            <div class="hs-composer-actions">
+                <button type="submit" class="hs-btn hs-btn--primary" id="hs-add">add to preview</button>
+                <button type="button" class="hs-btn" id="hs-copy-entry">copy entry</button>
+                <button type="button" class="hs-btn" id="hs-copy-feed">copy full feed</button>
+                <button type="button" class="hs-btn" id="hs-download">download headspace-feed.js</button>
+            </div>
+            <p id="hs-composer-status" class="hs-composer-status" role="status" aria-live="polite"></p>
+        </form>
+    </aside>
+
+    <button type="button" id="hs-composer-toggle" class="hs-composer-toggle" hidden aria-label="Open composer">+ entry</button>
+
     <script>
         // Include shared navigation
-        //
         function includeNavigation() {
             const navHTML = `
                 <nav class="nav-menu">
@@ -77,15 +113,11 @@
                 </nav>
             `;
             document.getElementById('navigation-container').innerHTML = navHTML;
-            
-            // Set active state
             document.getElementById('nav-headspace').classList.add('active');
         }
-        
-        // Load navigation when page loads
         document.addEventListener('DOMContentLoaded', includeNavigation);
-        
-        // Add smooth fade-in
+
+        // Smooth fade-in
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 document.body.classList.add('loaded');
@@ -95,7 +127,6 @@
         // Loading screen handling
         document.addEventListener('DOMContentLoaded', function() {
             const loader = document.getElementById('loading-screen');
-
             function hideLoader() {
                 if (!loader || loader.classList.contains('hidden')) {
                     return;
@@ -103,64 +134,13 @@
                 loader.classList.add('hidden');
                 setTimeout(() => loader.remove(), 600);
             }
-
-            // Hide once all assets are loaded
             window.addEventListener('load', hideLoader);
-            // Fallback in case load event takes too long
             setTimeout(hideLoader, 4000);
         });
-        
-        // Journal navigation functions
-        let currentPage = 1;
-        const totalPages = 2;
-        
-        function updatePageVisibility() {
-            const page1 = document.querySelector('.journal-page1-overlay');
-            const page2 = document.querySelector('.journal-page2-overlay');
-            const backButton = document.querySelector('.journal-back-button');
-            const nextButton = document.querySelector('.journal-next-button');
-            
-            if (currentPage === 1) {
-                page1.classList.remove('hidden');
-                page2.classList.remove('active');
-                backButton.style.opacity = '0.3';
-                backButton.style.pointerEvents = 'none';
-            } else if (currentPage === 2) {
-                page1.classList.add('hidden');
-                page2.classList.add('active');
-                backButton.style.opacity = '1';
-                backButton.style.pointerEvents = 'auto';
-            }
-            
-            if (currentPage === totalPages) {
-                nextButton.style.opacity = '0.3';
-                nextButton.style.pointerEvents = 'none';
-            } else {
-                nextButton.style.opacity = '1';
-                nextButton.style.pointerEvents = 'auto';
-            }
-        }
-        
-        function previousPage() {
-            if (currentPage > 1) {
-                currentPage--;
-                updatePageVisibility();
-            }
-        }
-        
-        function nextPage() {
-            if (currentPage < totalPages) {
-                currentPage++;
-                updatePageVisibility();
-            }
-        }
-        
-        // Initialize page visibility on load
-        document.addEventListener('DOMContentLoaded', function() {
-            updatePageVisibility();
-        });
     </script>
-    
+
+    <!-- Feed data (edit this file to publish new posts) -->
+    <script src="js/headspace-feed.js"></script>
     <script src="js/headspace.js"></script>
 </body>
 </html>

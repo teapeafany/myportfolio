@@ -1,193 +1,626 @@
-// Headspace Page JavaScript
+/*
+ * Headspace — living feed / timeline.
+ *
+ * Public: renders window.HEADSPACE_FEED (from js/headspace-feed.js) read-only.
+ * Edit mode (headspace.html?edit=1): shows a composer to draft entries and
+ * copy/download an updated headspace-feed.js to commit + push.
+ */
+(function () {
+    'use strict';
 
-document.addEventListener('DOMContentLoaded', function() {
-    const scatteredItems = document.querySelectorAll('.scattered-item');
-    const flipPageBtn = document.getElementById('flip-page');
-    const addEntryBtn = document.getElementById('add-entry');
-    const journalPages = document.querySelectorAll('.journal-page');
-    
-    let currentPage = 0;
-    
-    // Scattered items interaction
-    scatteredItems.forEach((item, index) => {
-        item.addEventListener('click', function() {
-            // Add click animation
-            this.style.transform = 'scale(1.2) rotate(10deg)';
-            this.style.zIndex = '20';
-            
-            // Show placeholder content
-            showPlaceholderContent(this);
-            
-            // Reset after animation
-            setTimeout(() => {
-                this.style.transform = '';
-                this.style.zIndex = '';
-            }, 300);
+    var MEDIA_DIR = 'film/headspace/';
+
+    // Working copy of the feed (edit mode can prepend drafts to it).
+    var feed = (window.HEADSPACE_FEED || []).slice();
+
+    /* -------------------------------------------------------------- */
+    /* Helpers                                                        */
+    /* -------------------------------------------------------------- */
+
+    function guessType(path) {
+        return /\.(mp4|mov|webm|m4v|ogg)$/i.test(path || '') ? 'video' : 'image';
+    }
+
+    function parseDate(str) {
+        // Parse YYYY-MM-DD as a local date (avoid timezone shifting the day).
+        if (typeof str !== 'string') return new Date(NaN);
+        var parts = str.split('-');
+        if (parts.length === 3) {
+            return new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+        }
+        return new Date(str);
+    }
+
+    function formatDate(str) {
+        var d = parseDate(str);
+        if (isNaN(d.getTime())) return str || '';
+        return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    }
+
+    function sortedFeed() {
+        // Chronological: oldest first, most recent at the bottom.
+        return feed.slice().sort(function (a, b) {
+            return parseDate(a.date) - parseDate(b.date);
         });
-        
-        // Add random floating animation
-        setInterval(() => {
-            if (!item.style.transform.includes('scale')) {
-                const randomFloat = Math.random() * 4 - 2; // -2 to 2 degrees
-                item.style.transform = `rotate(${randomFloat}deg)`;
-            }
-        }, 3000 + index * 500);
-    });
-    
-    // Flip page functionality
-    flipPageBtn.addEventListener('click', function() {
-        journalPages.forEach(page => {
-            page.style.transform = 'rotateY(180deg)';
-            page.style.opacity = '0';
-        });
-        
-        setTimeout(() => {
-            // Add new content or reset
-            addNewJournalContent();
-            
-            journalPages.forEach(page => {
-                page.style.transform = 'rotateY(0deg)';
-                page.style.opacity = '1';
+    }
+
+    function el(tag, className) {
+        var node = document.createElement(tag);
+        if (className) node.className = className;
+        return node;
+    }
+
+    // Normalise an entry's media into a list of { type, src, alt } items.
+    // Supports: single { type, src, alt }, an array `media`, or `src` as an array.
+    function mediaList(entry) {
+        if (Array.isArray(entry.media)) {
+            return entry.media.filter(function (m) { return m && m.src; });
+        }
+        if (Array.isArray(entry.src)) {
+            return entry.src.filter(Boolean).map(function (s) {
+                return { type: entry.type || guessType(s), src: s, alt: '' };
             });
-        }, 500);
-    });
-    
-    // Add entry functionality
-    addEntryBtn.addEventListener('click', function() {
-        const randomPage = Math.random() > 0.5 ? journalPages[0] : journalPages[1];
-        addNewEntry(randomPage);
-    });
-    
-    // Show placeholder content for scattered items
-    function showPlaceholderContent(item) {
-        const label = item.querySelector('.item-label').textContent;
-        
-        // Create temporary overlay
-        const overlay = document.createElement('div');
-        overlay.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            cursor: pointer;
-        `;
-        
-        const content = document.createElement('div');
-        content.style.cssText = `
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 400px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        `;
-        
-        content.innerHTML = `
-            <h3 style="color: #2c2c2c; margin-bottom: 1rem; font-family: 'Arial';">${label}</h3>
-            <div style="width: 200px; height: 150px; background: #f0f0f0; border: 2px dashed #ccc; margin: 1rem auto; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-                <span style="color: #999; font-size: 0.9rem;">Placeholder Image</span>
-            </div>
-            <p style="color: #666; font-size: 0.9rem; margin-top: 1rem;">This would contain your ${label.toLowerCase()} content.</p>
-        `;
-        
-        overlay.appendChild(content);
-        document.body.appendChild(overlay);
-        
-        // Close on click
-        overlay.addEventListener('click', function() {
-            document.body.removeChild(overlay);
+        }
+        if (entry.src) {
+            return [{ type: entry.type || guessType(entry.src), src: entry.src, alt: entry.alt }];
+        }
+        return [];
+    }
+
+    function buildMedia(item, fallbackAlt) {
+        if (item.type === 'video') {
+            var video = el('video', 'hs-media');
+            video.setAttribute('autoplay', '');
+            video.setAttribute('muted', '');
+            video.setAttribute('loop', '');
+            video.setAttribute('playsinline', '');
+            video.setAttribute('controls', '');
+            video.setAttribute('preload', 'auto');
+            video.muted = true; // required for autoplay in most browsers
+            video.autoplay = true;
+            video.loop = true;
+            video.playsInline = true;
+            video.src = item.src;
+            return video;
+        }
+        var img = el('img', 'hs-media');
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.src = item.src;
+        img.alt = item.alt || fallbackAlt || '';
+        return img;
+    }
+
+    function buildEntryItem(entry, index) {
+        var li = el('li', 'hs-entry ' + (index % 2 === 0 ? 'hs-entry--left' : 'hs-entry--right'));
+        var inner = el('div', 'hs-entry-inner');
+
+        var time = el('time', 'hs-date');
+        if (entry.date) time.setAttribute('datetime', entry.date);
+        time.textContent = formatDate(entry.date);
+        inner.appendChild(time);
+
+        var media = mediaList(entry);
+        if (media.length) {
+            var group = el('div', 'hs-media-group');
+            media.forEach(function (m) {
+                var itemEl = el('div', 'hs-media-item');
+                itemEl.appendChild(buildMedia(m, entry.caption));
+                group.appendChild(itemEl);
+            });
+            inner.appendChild(group);
+        }
+
+        if (entry.caption) {
+            var cap = el('p', 'hs-caption');
+            cap.textContent = entry.caption;
+            inner.appendChild(cap);
+        }
+
+        li.appendChild(inner);
+        return li;
+    }
+
+    // Portrait (taller than wide) media collapses to half width.
+    function applyAllOrientations() {
+        if (!listEl) return;
+        var items = listEl.querySelectorAll('.hs-media-item');
+        for (var i = 0; i < items.length; i++) {
+            var m = items[i].querySelector('img, video');
+            if (!m) continue;
+            var w = m.tagName === 'VIDEO' ? m.videoWidth : m.naturalWidth;
+            var h = m.tagName === 'VIDEO' ? m.videoHeight : m.naturalHeight;
+            if (w && h) {
+                items[i].classList.toggle('hs-media-item--portrait', h > w);
+            }
+        }
+    }
+
+    /* -------------------------------------------------------------- */
+    /* Render                                                         */
+    /* -------------------------------------------------------------- */
+
+    var listEl = document.getElementById('headspace-feed');
+    var emptyEl = document.getElementById('hs-feed-empty');
+    var feedEl = document.querySelector('.hs-feed');
+    var railEl = document.getElementById('hs-rail');
+    var railTicksEl = document.getElementById('hs-rail-ticks');
+    var focusTicking = false;
+    var userInteracted = false;
+
+    function clamp(v, min, max) {
+        return v < min ? min : (v > max ? max : v);
+    }
+
+    function buildRail(count) {
+        if (!railEl || !railTicksEl) return;
+        railTicksEl.innerHTML = '';
+        if (count < 1) {
+            railEl.hidden = true;
+            return;
+        }
+        railEl.hidden = false;
+        for (var i = 0; i < count; i++) {
+            var li = document.createElement('li');
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'hs-rail-tick';
+            btn.setAttribute('data-index', String(i));
+            btn.setAttribute('aria-label', 'Go to entry ' + (i + 1) + ' of ' + count);
+            li.appendChild(btn);
+            railTicksEl.appendChild(li);
+        }
+    }
+
+    function updateRail(activeIndex) {
+        if (!railTicksEl) return;
+        var ticks = railTicksEl.querySelectorAll('.hs-rail-tick');
+        for (var i = 0; i < ticks.length; i++) {
+            ticks[i].classList.toggle('is-active', i === activeIndex);
+        }
+    }
+
+    function scrollToEntry(index) {
+        if (!feedEl || !listEl) return;
+        var nodes = listEl.querySelectorAll('.hs-entry');
+        var target = nodes[index];
+        if (!target) return;
+        userInteracted = true;
+        var box = feedEl.getBoundingClientRect();
+        var r = target.getBoundingClientRect();
+        var delta = (r.top + r.height / 2) - (box.top + box.height / 2);
+        feedEl.scrollTop += delta;
+        requestFocusUpdate();
+    }
+
+    // Fade each entry by how far its centre is from the viewport centre of the
+    // scroll panel — so only the one or two entries in the middle read clearly.
+    function updateFocus() {
+        if (!feedEl) return;
+        var nodes = listEl.querySelectorAll('.hs-entry');
+        var box = feedEl.getBoundingClientRect();
+        var center = box.top + box.height / 2;
+        var half = box.height / 2 || 1;
+        // Stay fully readable across the panel; only fade an entry once it is
+        // nearly out of view (its centre approaching / past the top or bottom edge).
+        var fadeStart = 0.82; // plateau: full opacity until 82% of the way to the edge
+        var fadeEnd = 1.28;   // fully faded only once well past the edge
+        var bestIndex = 0;
+        var bestDist = Infinity;
+        for (var i = 0; i < nodes.length; i++) {
+            var r = nodes[i].getBoundingClientRect();
+            var nodeCenter = r.top + r.height / 2;
+            var dist = Math.abs(nodeCenter - center) / half; // 0 at centre, 1 at edge
+            var t = (dist - fadeStart) / (fadeEnd - fadeStart);
+            var op = clamp(1 - t, 0.05, 1);
+            nodes[i].style.opacity = op.toFixed(3);
+            if (Math.abs(nodeCenter - center) < bestDist) {
+                bestDist = Math.abs(nodeCenter - center);
+                bestIndex = i;
+            }
+        }
+        updateRail(bestIndex);
+    }
+
+    function requestFocusUpdate() {
+        if (focusTicking) return;
+        focusTicking = true;
+        window.requestAnimationFrame(function () {
+            focusTicking = false;
+            updateFocus();
         });
     }
-    
-    // Add new journal content
-    function addNewJournalContent() {
-        const entries = [
-            {
-                title: "NEW DISCOVERY",
-                content: "Found inspiration in unexpected places today...",
-                sketch: "sketch-1"
-            },
-            {
-                title: "CREATIVE BREAKTHROUGH",
-                content: "The pieces finally came together...",
-                sketch: "sketch-2"
-            },
-            {
-                title: "QUIET MOMENT",
-                content: "Sometimes the best ideas come in silence...",
-                sketch: "sketch-3"
+
+    // On load, open with the most recent entry (the last one) centered in the
+    // panel. Stops once the visitor scrolls on their own.
+    function centerNewest() {
+        if (!feedEl || userInteracted) return;
+        var nodes = listEl.querySelectorAll('.hs-entry');
+        if (!nodes.length) return;
+        var last = nodes[nodes.length - 1];
+        var lastRect = last.getBoundingClientRect();
+        var box = feedEl.getBoundingClientRect();
+        var delta = (lastRect.top + lastRect.height / 2) - (box.top + box.height / 2);
+        feedEl.scrollTop += delta;
+    }
+
+    function onMediaReady() {
+        applyAllOrientations();
+        centerNewest();
+        requestFocusUpdate();
+        // Nudge autoplay — some browsers need an explicit play() after load.
+        if (listEl) {
+            var videos = listEl.querySelectorAll('video');
+            for (var i = 0; i < videos.length; i++) {
+                videos[i].muted = true;
+                var p = videos[i].play();
+                if (p && typeof p.catch === 'function') p.catch(function () {});
             }
-        ];
-        
-        const randomEntry = entries[Math.floor(Math.random() * entries.length)];
-        
-        // Update random page with new content
-        const randomPage = Math.random() > 0.5 ? journalPages[0] : journalPages[1];
-        const existingEntries = randomPage.querySelectorAll('.journal-entry');
-        
-        if (existingEntries.length > 0) {
-            const randomEntryElement = existingEntries[Math.floor(Math.random() * existingEntries.length)];
-            randomEntryElement.querySelector('.entry-title').textContent = randomEntry.title;
-            randomEntryElement.querySelector('.handwritten-text').textContent = randomEntry.content;
         }
     }
-    
-    // Add new entry to journal
-    function addNewEntry(page) {
-        const newEntry = document.createElement('div');
-        newEntry.className = 'journal-entry';
-        
-        const timestamp = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-        
-        newEntry.innerHTML = `
-            <h3 class="entry-title">NEW ENTRY - ${timestamp}</h3>
-            <div class="entry-content">
-                <p class="handwritten-text">A fresh thought captured in this moment...</p>
-                <div class="sketch-container">
-                    <div class="simple-sketch"></div>
-                </div>
-            </div>
-        `;
-        
-        // Add with animation
-        newEntry.style.opacity = '0';
-        newEntry.style.transform = 'translateY(20px)';
-        page.appendChild(newEntry);
-        
-        setTimeout(() => {
-            newEntry.style.transition = 'all 0.3s ease';
-            newEntry.style.opacity = '1';
-            newEntry.style.transform = 'translateY(0)';
-        }, 100);
-        
-        // Remove oldest entry if too many
-        const entries = page.querySelectorAll('.journal-entry');
-        if (entries.length > 3) {
-            entries[0].style.transition = 'all 0.3s ease';
-            entries[0].style.opacity = '0';
-            entries[0].style.transform = 'translateY(-20px)';
-            
-            setTimeout(() => {
-                if (entries[0].parentNode) {
-                    entries[0].parentNode.removeChild(entries[0]);
+
+    function render() {
+        if (!listEl) return;
+        listEl.innerHTML = '';
+
+        var entries = sortedFeed();
+
+        if (!entries.length) {
+            if (emptyEl) emptyEl.hidden = false;
+            buildRail(0);
+            return;
+        }
+        if (emptyEl) emptyEl.hidden = true;
+
+        entries.forEach(function (entry, index) {
+            listEl.appendChild(buildEntryItem(entry, index));
+        });
+
+        buildRail(entries.length);
+        applyAllOrientations();
+        updateFocus();
+    }
+
+    /* -------------------------------------------------------------- */
+    /* Composer (edit mode)                                           */
+    /* -------------------------------------------------------------- */
+
+    function isEditMode() {
+        try {
+            var params = new URLSearchParams(window.location.search);
+            var v = params.get('edit');
+            return v === '1' || v === 'true';
+        } catch (err) {
+            return /[?&]edit=(1|true)\b/.test(window.location.search);
+        }
+    }
+
+    function serializeEntry(entry, indent) {
+        var pad = indent || '        ';
+        var inner = pad + '    ';
+        var fields = [];
+        fields.push('date: ' + JSON.stringify(entry.date));
+
+        if (entry.media && entry.media.length) {
+            var mediaLines = entry.media.map(function (m) {
+                var parts = 'type: ' + JSON.stringify(m.type) + ', src: ' + JSON.stringify(m.src);
+                if (m.alt) parts += ', alt: ' + JSON.stringify(m.alt);
+                return inner + '    { ' + parts + ' }';
+            }).join(',\n');
+            fields.push('media: [\n' + mediaLines + '\n' + inner + ']');
+        } else {
+            fields.push('type: ' + JSON.stringify(entry.type));
+            fields.push('src: ' + JSON.stringify(entry.src));
+        }
+
+        fields.push('caption: ' + JSON.stringify(entry.caption || ''));
+        if (!(entry.media && entry.media.length)) {
+            fields.push('alt: ' + JSON.stringify(entry.alt || ''));
+        }
+        return pad + '{\n' + inner + fields.join(',\n' + inner) + '\n' + pad + '}';
+    }
+
+    var FILE_HEADER = [
+        '/*',
+        ' * Headspace feed data — the living page of updates.',
+        ' *',
+        ' * HOW TO ADD A POST (on my end, then push):',
+        ' *   1. Drop the photo/video into  film/headspace/',
+        ' *   2. Add an entry to the top of the array below, or use the composer:',
+        ' *      open  headspace.html?edit=1  , fill the form, then Copy / Download.',
+        ' *   3. Commit + push. The public page only ever shows the rendered feed.',
+        ' *',
+        ' * Entry shape: { date, type ("image"|"video"), src, caption?, alt? }',
+        ' * Newest entries render first — order here does not matter.',
+        ' */'
+    ].join('\n');
+
+    function generateFeedFileText(entries) {
+        var body = entries.map(function (e) { return serializeEntry(e); }).join(',\n');
+        return FILE_HEADER + '\nwindow.HEADSPACE_FEED = [\n' + body + '\n];\n';
+    }
+
+    function initComposer() {
+        var toggle = document.getElementById('hs-composer-toggle');
+        var panel = document.getElementById('hs-composer');
+        var closeBtn = document.getElementById('hs-composer-close');
+        var form = document.getElementById('hs-composer-form');
+        if (!toggle || !panel || !form) return;
+
+        var dateInput = document.getElementById('hs-input-date');
+        var typeInput = document.getElementById('hs-input-type');
+        var fileInput = document.getElementById('hs-input-file');
+        var srcInput = document.getElementById('hs-input-src');
+        var captionInput = document.getElementById('hs-input-caption');
+        var altInput = document.getElementById('hs-input-alt');
+        var dropzone = document.getElementById('hs-dropzone');
+        var preview = document.getElementById('hs-preview');
+        var hint = dropzone ? dropzone.querySelector('.hs-dropzone-hint') : null;
+        var status = document.getElementById('hs-composer-status');
+
+        var addBtn = document.getElementById('hs-add');
+        var copyEntryBtn = document.getElementById('hs-copy-entry');
+        var copyFeedBtn = document.getElementById('hs-copy-feed');
+        var downloadBtn = document.getElementById('hs-download');
+
+        // Reveal edit affordances.
+        toggle.hidden = false;
+
+        // Default the date to today.
+        if (dateInput && !dateInput.value) {
+            var now = new Date();
+            var mm = String(now.getMonth() + 1).padStart(2, '0');
+            var dd = String(now.getDate()).padStart(2, '0');
+            dateInput.value = now.getFullYear() + '-' + mm + '-' + dd;
+        }
+
+        function openPanel() { panel.hidden = false; }
+        function closePanel() { panel.hidden = true; }
+
+        toggle.addEventListener('click', openPanel);
+        if (closeBtn) closeBtn.addEventListener('click', closePanel);
+
+        function setStatus(msg) {
+            if (status) status.textContent = msg || '';
+        }
+
+        function clearPreview() {
+            if (!preview) return;
+            preview.innerHTML = '';
+            preview.hidden = true;
+            if (hint) hint.style.display = '';
+        }
+
+        function addPreview(url, type) {
+            if (!preview || !url) return;
+            var node;
+            if (type === 'video') {
+                node = document.createElement('video');
+                node.setAttribute('autoplay', '');
+                node.setAttribute('muted', '');
+                node.setAttribute('loop', '');
+                node.setAttribute('playsinline', '');
+                node.setAttribute('controls', '');
+                node.muted = true;
+                node.autoplay = true;
+                node.loop = true;
+                node.playsInline = true;
+            } else {
+                node = document.createElement('img');
+                node.alt = '';
+            }
+            node.src = url;
+            preview.appendChild(node);
+            preview.hidden = false;
+            if (hint) hint.style.display = 'none';
+        }
+
+        function handleFiles(files) {
+            if (!files || !files.length) return;
+            var arr = Array.prototype.slice.call(files);
+            clearPreview();
+            var paths = [];
+            arr.forEach(function (file) {
+                var isVideo = file.type.indexOf('video') === 0;
+                paths.push(MEDIA_DIR + file.name);
+                addPreview(URL.createObjectURL(file), isVideo ? 'video' : 'image');
+            });
+            if (srcInput) srcInput.value = paths.join(', ');
+            if (typeInput && arr.length === 1) {
+                typeInput.value = arr[0].type.indexOf('video') === 0 ? 'video' : 'image';
+            }
+            setStatus(arr.length + (arr.length === 1 ? ' file' : ' files') + ' loaded — save ' +
+                (arr.length === 1 ? 'it' : 'them') + ' into ' + MEDIA_DIR);
+        }
+
+        if (fileInput) {
+            fileInput.addEventListener('change', function () {
+                handleFiles(fileInput.files);
+            });
+        }
+
+        if (dropzone) {
+            ['dragenter', 'dragover'].forEach(function (evt) {
+                dropzone.addEventListener(evt, function (e) {
+                    e.preventDefault();
+                    dropzone.classList.add('is-dragover');
+                });
+            });
+            ['dragleave', 'dragend', 'drop'].forEach(function (evt) {
+                dropzone.addEventListener(evt, function () {
+                    dropzone.classList.remove('is-dragover');
+                });
+            });
+            dropzone.addEventListener('drop', function (e) {
+                e.preventDefault();
+                if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) {
+                    handleFiles(e.dataTransfer.files);
                 }
-            }, 300);
+            });
+        }
+
+        function parsePaths(raw) {
+            return (raw || '').split(/[\n,]+/).map(function (s) {
+                return s.trim();
+            }).filter(Boolean);
+        }
+
+        // Keep preview in sync if the path(s) are typed manually (no file chosen).
+        if (srcInput) {
+            srcInput.addEventListener('change', function () {
+                if (fileInput && fileInput.files && fileInput.files.length) return;
+                clearPreview();
+                parsePaths(srcInput.value).forEach(function (p) {
+                    addPreview(p, guessType(p));
+                });
+            });
+        }
+
+        function currentEntry() {
+            var paths = parsePaths(srcInput ? srcInput.value : '');
+            var entry = { date: dateInput ? dateInput.value : '' };
+
+            if (paths.length > 1) {
+                entry.media = paths.map(function (p) {
+                    return { type: guessType(p), src: p, alt: '' };
+                });
+            } else {
+                entry.type = typeInput ? typeInput.value : 'image';
+                entry.src = paths[0] || '';
+                entry.alt = altInput ? altInput.value.trim() : '';
+            }
+            entry.caption = captionInput ? captionInput.value.trim() : '';
+            return entry;
+        }
+
+        function validate(entry) {
+            if (!entry.date) { setStatus('add a date first.'); return false; }
+            var hasMedia = (entry.media && entry.media.length) || entry.src;
+            if (!hasMedia) { setStatus('add a media path (or choose a file).'); return false; }
+            return true;
+        }
+
+        function copyText(text, okMsg) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(function () {
+                    setStatus(okMsg);
+                }, function () {
+                    fallbackCopy(text, okMsg);
+                });
+            } else {
+                fallbackCopy(text, okMsg);
+            }
+        }
+
+        function fallbackCopy(text, okMsg) {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+                document.execCommand('copy');
+                setStatus(okMsg);
+            } catch (err) {
+                setStatus('could not copy automatically — check the console.');
+                console.log(text);
+            }
+            document.body.removeChild(ta);
+        }
+
+        // Add draft to the in-memory feed and re-render.
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var entry = currentEntry();
+            if (!validate(entry)) return;
+            feed.unshift(entry);
+            render();
+            setStatus('added to preview — now Copy or Download to publish.');
+        });
+
+        if (copyEntryBtn) {
+            copyEntryBtn.addEventListener('click', function () {
+                var entry = currentEntry();
+                if (!validate(entry)) return;
+                copyText(serializeEntry(entry, '    ') + ',', 'entry copied — paste it at the top of the array in js/headspace-feed.js.');
+            });
+        }
+
+        if (copyFeedBtn) {
+            copyFeedBtn.addEventListener('click', function () {
+                copyText(generateFeedFileText(sortedFeed()), 'full feed copied — replace the contents of js/headspace-feed.js.');
+            });
+        }
+
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', function () {
+                var text = generateFeedFileText(sortedFeed());
+                var blob = new Blob([text], { type: 'text/javascript' });
+                var url = URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = 'headspace-feed.js';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+                setStatus('downloaded — move it into js/ (replace the old one) and push.');
+            });
         }
     }
-    
-    // Add subtle page breathing animation
-    setInterval(() => {
-        const journalSpread = document.querySelector('.journal-spread');
-        journalSpread.style.transform = 'scale(1.001)';
-        
-        setTimeout(() => {
-            journalSpread.style.transform = 'scale(1)';
-        }, 2000);
-    }, 5000);
-});
+
+    /* -------------------------------------------------------------- */
+    /* Boot                                                           */
+    /* -------------------------------------------------------------- */
+
+    function markInteracted() {
+        userInteracted = true;
+    }
+
+    function boot() {
+        render();
+
+        if (feedEl) {
+            feedEl.addEventListener('scroll', requestFocusUpdate, { passive: true });
+            // Any deliberate scroll gesture cancels the auto-centering.
+            feedEl.addEventListener('wheel', markInteracted, { passive: true });
+            feedEl.addEventListener('touchmove', markInteracted, { passive: true });
+            feedEl.addEventListener('pointerdown', markInteracted, { passive: true });
+        }
+        if (railTicksEl) {
+            railTicksEl.addEventListener('click', function (e) {
+                var btn = e.target.closest('.hs-rail-tick');
+                if (!btn) return;
+                var index = Number(btn.getAttribute('data-index'));
+                if (!isNaN(index)) scrollToEntry(index);
+            });
+        }
+        window.addEventListener('keydown', function (e) {
+            var keys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ', 'Spacebar'];
+            if (keys.indexOf(e.key) !== -1) markInteracted();
+        });
+        window.addEventListener('resize', function () {
+            centerNewest();
+            requestFocusUpdate();
+        });
+        // Media changes the layout as it loads — recentre + recompute the fade then.
+        if (listEl) {
+            listEl.addEventListener('load', onMediaReady, true);
+            listEl.addEventListener('loadedmetadata', onMediaReady, true);
+        }
+
+        centerNewest();
+        requestFocusUpdate();
+        // Once every image has settled its height, land precisely on the newest.
+        window.addEventListener('load', onMediaReady);
+
+        if (isEditMode()) initComposer();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot);
+    } else {
+        boot();
+    }
+})();
