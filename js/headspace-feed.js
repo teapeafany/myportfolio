@@ -11,7 +11,16 @@
  * Entry shape (multiple): { date, media: [ { type, src, alt? }, ... ], caption? }
  * Entries render in chronological order — oldest first, most recent at the bottom.
  * Use \n in a caption for a line break.
+ *
+ * LISTEN WITH ME — shows currently playing track only (cover / song / artist).
+ * Populated by data/spotify-now.json via .github/workflows/spotify-now.yml.
+ * No profile link — the widget is hidden when nothing is playing.
  */
+window.HEADSPACE_LISTEN = {
+    label: "now playing",
+    nowPlayingUrl: "data/spotify-now.json"
+};
+
 window.HEADSPACE_FEED = [
         {
             date: "2026-01-03",
@@ -74,5 +83,13 @@ window.HEADSPACE_FEED = [
                 { type: "image", src: "film/headspace/IMG_2579 2.JPG" }
             ],
             caption: "omg we finally finished rhythm hop. so much soldering, struggling, and jumping, but we made it. our very own diy DDR machine."
+        },
+        {
+            date: "2026-05-07",
+            media: [
+                { type: "image", src: "film/headspace/IMG_3121.JPG" },
+                { type: "image", src: "film/headspace/IMG_3418.JPG" }
+            ],
+            caption: "i graduated! undergrad was honestly a blur but so fun. masters here we come!"
         }
 ];

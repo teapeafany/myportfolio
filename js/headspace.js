@@ -578,8 +578,201 @@
         userInteracted = true;
     }
 
+    function initViewControls() {
+        var fullBtn = document.getElementById('hs-toggle-full');
+        var hideBtn = document.getElementById('hs-toggle-hide');
+        if (!fullBtn || !hideBtn) return;
+
+        var ICON_EXPAND =
+            '<svg class="hs-view-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">' +
+            '<path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '</svg>';
+        var ICON_COLLAPSE =
+            '<svg class="hs-view-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">' +
+            '<path d="M6 2v4H2M10 2v4h4M14 10h-4v4M6 14v-4H2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '</svg>';
+        var ICON_EYE =
+            '<svg class="hs-view-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">' +
+            '<path d="M1.5 8s2.8-4.5 6.5-4.5S14.5 8 14.5 8 11.7 12.5 8 12.5 1.5 8 1.5 8z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '<circle cx="8" cy="8" r="2" fill="none" stroke="currentColor" stroke-width="1.4"/>' +
+            '</svg>';
+        var ICON_EYE_OFF =
+            '<svg class="hs-view-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">' +
+            '<path d="M1.5 8s2.8-4.5 6.5-4.5S14.5 8 14.5 8 11.7 12.5 8 12.5 1.5 8 1.5 8z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '<circle cx="8" cy="8" r="2" fill="none" stroke="currentColor" stroke-width="1.4"/>' +
+            '<path d="M2.5 13.5L13.5 2.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>' +
+            '</svg>';
+
+        function syncLabels() {
+            var isFull = document.body.classList.contains('hs-view-full');
+            var isCollage = document.body.classList.contains('hs-view-collage');
+            fullBtn.setAttribute('aria-pressed', isFull ? 'true' : 'false');
+            hideBtn.setAttribute('aria-pressed', isCollage ? 'true' : 'false');
+            fullBtn.setAttribute('aria-label', isFull ? 'Exit full view' : 'Expand feed');
+            hideBtn.setAttribute('aria-label', isCollage ? 'Show feed' : 'Hide feed');
+            fullBtn.title = isFull ? 'exit' : 'full';
+            hideBtn.title = isCollage ? 'show' : 'hide';
+            fullBtn.innerHTML = isFull ? ICON_COLLAPSE : ICON_EXPAND;
+            hideBtn.innerHTML = isCollage ? ICON_EYE : ICON_EYE_OFF;
+            fullBtn.hidden = isCollage;
+        }
+
+        fullBtn.addEventListener('click', function () {
+            document.body.classList.remove('hs-view-collage');
+            document.body.classList.toggle('hs-view-full');
+            syncLabels();
+            requestFocusUpdate();
+        });
+
+        hideBtn.addEventListener('click', function () {
+            var entering = !document.body.classList.contains('hs-view-collage');
+            document.body.classList.remove('hs-view-full');
+            document.body.classList.toggle('hs-view-collage', entering);
+            syncLabels();
+            if (!entering) requestFocusUpdate();
+        });
+
+        // Esc exits either mode
+        window.addEventListener('keydown', function (e) {
+            if (e.key !== 'Escape') return;
+            if (!document.body.classList.contains('hs-view-full') &&
+                !document.body.classList.contains('hs-view-collage')) return;
+            document.body.classList.remove('hs-view-full', 'hs-view-collage');
+            syncLabels();
+            requestFocusUpdate();
+        });
+
+        syncLabels();
+    }
+
+    function initListen() {
+        var root = document.getElementById('hs-listen');
+        var toggle = document.getElementById('hs-listen-toggle');
+        var panel = document.getElementById('hs-listen-panel');
+        var embed = document.getElementById('hs-listen-embed');
+        var labelEl = document.getElementById('hs-listen-label');
+        var titleEl = document.getElementById('hs-listen-title');
+        var artistEl = document.getElementById('hs-listen-artist');
+        var artEl = document.getElementById('hs-listen-art');
+        var metaEl = document.getElementById('hs-listen-meta');
+        var metaArt = document.getElementById('hs-listen-meta-art');
+        var metaTitle = document.getElementById('hs-listen-meta-title');
+        var metaArtist = document.getElementById('hs-listen-meta-artist');
+        var cfg = window.HEADSPACE_LISTEN || {};
+        if (!root || !toggle || !panel || !embed) return;
+
+        if (labelEl && cfg.label) labelEl.textContent = cfg.label;
+
+        var loadedEmbedId = null;
+        var current = null;
+
+        function setArt(img, src, alt) {
+            if (!img) return;
+            if (src) {
+                img.src = src;
+                img.alt = alt || '';
+                img.hidden = false;
+            } else {
+                img.removeAttribute('src');
+                img.hidden = true;
+            }
+        }
+
+        function setMeta(data) {
+            if (!metaEl) return;
+            if (data && (data.title || data.albumArt)) {
+                metaEl.hidden = false;
+                if (metaTitle) metaTitle.textContent = data.title || '';
+                if (metaArtist) metaArtist.textContent = data.artist || '';
+                setArt(metaArt, data.albumArt || '', data.title || '');
+            } else {
+                metaEl.hidden = true;
+            }
+        }
+
+        function mountEmbed(type, id) {
+            if (!type || !id) {
+                embed.innerHTML = '';
+                loadedEmbedId = null;
+                return;
+            }
+            var key = type + ':' + id;
+            if (loadedEmbedId === key) return;
+            embed.innerHTML = '';
+            var iframe = document.createElement('iframe');
+            iframe.src = 'https://open.spotify.com/embed/' + type + '/' + id +
+                '?utm_source=generator&theme=0';
+            iframe.title = (cfg.label || 'listen with me') + ' — now playing';
+            iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+            iframe.loading = 'lazy';
+            iframe.setAttribute('allowfullscreen', '');
+            embed.appendChild(iframe);
+            loadedEmbedId = key;
+        }
+
+        function closePanel() {
+            panel.hidden = true;
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+
+        function openPanel() {
+            if (!current || !current.trackId) return;
+            mountEmbed('track', current.trackId);
+            panel.hidden = false;
+            toggle.setAttribute('aria-expanded', 'true');
+        }
+
+        function renderNow(data) {
+            current = data || null;
+            var playing = !!(data && data.isPlaying && data.trackId);
+
+            root.classList.toggle('is-playing', playing);
+
+            // Only show while something is actually playing — no profile links.
+            if (playing) {
+                root.hidden = false;
+                if (titleEl) titleEl.textContent = data.title || '';
+                if (artistEl) artistEl.textContent = data.artist || '';
+                setArt(artEl, data.albumArt || '', data.title || '');
+                setMeta(data);
+                if (labelEl) labelEl.textContent = 'now playing';
+            } else {
+                root.hidden = true;
+                setMeta(null);
+                setArt(artEl, '', '');
+                if (titleEl) titleEl.textContent = '';
+                if (artistEl) artistEl.textContent = '';
+                closePanel();
+                current = null;
+            }
+        }
+
+        toggle.addEventListener('click', function () {
+            if (panel.hidden) openPanel();
+            else closePanel();
+        });
+
+        function fetchNow() {
+            var url = cfg.nowPlayingUrl || 'data/spotify-now.json';
+            var bust = url + (url.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now();
+            fetch(bust, { cache: 'no-store' }).then(function (res) {
+                if (!res.ok) throw new Error('no now-playing');
+                return res.json();
+            }).then(function (data) {
+                renderNow(data);
+            }).catch(function () {
+                renderNow(null);
+            });
+        }
+
+        fetchNow();
+        setInterval(fetchNow, 60 * 1000);
+    }
+
     function boot() {
         render();
+        initViewControls();
+        initListen();
 
         if (feedEl) {
             feedEl.addEventListener('scroll', requestFocusUpdate, { passive: true });
