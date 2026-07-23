@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "NOT CUTE ANYMORE",
-  "artist": "ILLIT",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e023d09075f6c7fabe9a7234cb3",
-  "trackUrl": "https://open.spotify.com/track/1k0JAiH11gHL9dc5dfQjQr",
-  "trackId": "1k0JAiH11gHL9dc5dfQjQr",
-  "fetchedAt": "2026-07-23T12:57:12.993Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-07-23T15:19:18.531Z"
 }
