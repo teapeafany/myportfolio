@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-07-23T15:19:18.531Z"
+  "isPlaying": true,
+  "title": "OMG",
+  "artist": "NewJeans",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02d70036292d54f29e8b68ec01",
+  "trackUrl": "https://open.spotify.com/track/65FftemJ1DbbZ45DUfHJXE",
+  "trackId": "65FftemJ1DbbZ45DUfHJXE",
+  "fetchedAt": "2026-07-23T16:53:37.763Z"
 }
