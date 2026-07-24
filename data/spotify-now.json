@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-07-24T19:06:43.577Z"
+  "isPlaying": true,
+  "title": "Sunsetz",
+  "artist": "Cigarettes After Sex",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02dfed999f959177dfc4f33cdc",
+  "trackUrl": "https://open.spotify.com/track/0yuAWlxq59xT3agQ965OxE",
+  "trackId": "0yuAWlxq59xT3agQ965OxE",
+  "fetchedAt": "2026-07-24T20:40:50.589Z"
 }
