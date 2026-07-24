@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-07-23T18:13:48.987Z"
+  "isPlaying": true,
+  "title": "Tightrope",
+  "artist": "Tinashe",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02f32104e2f0d1283520e67858",
+  "trackUrl": "https://open.spotify.com/track/2ovaClouYyCligGAi5CzGX",
+  "trackId": "2ovaClouYyCligGAi5CzGX",
+  "fetchedAt": "2026-07-24T17:47:59.966Z"
 }
