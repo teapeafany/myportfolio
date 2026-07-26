@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-07-26T07:28:17.776Z"
+  "isPlaying": true,
+  "title": "Hurt",
+  "artist": "NewJeans",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e029d28fd01859073a3ae6ea209",
+  "trackUrl": "https://open.spotify.com/track/5expoVGQPvXuwBBFuNGqBd",
+  "trackId": "5expoVGQPvXuwBBFuNGqBd",
+  "fetchedAt": "2026-07-26T16:26:54.438Z"
 }
