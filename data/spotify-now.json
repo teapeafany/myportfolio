@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-07-25T07:25:06.409Z"
+  "isPlaying": true,
+  "title": "XO, My Cyberlove",
+  "artist": "CHUU",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e024c7b2ad91e751924ed7a899f",
+  "trackUrl": "https://open.spotify.com/track/4fr8jAAeEw8CehOFoBdjqL",
+  "trackId": "4fr8jAAeEw8CehOFoBdjqL",
+  "fetchedAt": "2026-07-26T04:47:50.335Z"
 }
