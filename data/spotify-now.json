@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "bamsopoong",
-  "artist": "ILLIT",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02f24755716ee6789fa094112c",
-  "trackUrl": "https://open.spotify.com/track/3INETdToKVgt2vfp1wYBFw",
-  "trackId": "3INETdToKVgt2vfp1wYBFw",
-  "fetchedAt": "2026-07-26T17:36:26.459Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-07-26T18:41:26.995Z"
 }
