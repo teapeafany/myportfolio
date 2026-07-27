@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "たぶん",
-  "artist": "YOASOBI",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e0239917845c74c9e64320fbed9",
-  "trackUrl": "https://open.spotify.com/track/398dL22bDbKbAmiOnPaq7o",
-  "trackId": "398dL22bDbKbAmiOnPaq7o",
-  "fetchedAt": "2026-07-27T19:55:14.167Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-07-27T21:16:41.287Z"
 }
