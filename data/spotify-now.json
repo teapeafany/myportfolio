@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-07-26T18:41:26.995Z"
+  "isPlaying": true,
+  "title": "expectations",
+  "artist": "Olivia Rodrigo",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e025cf234eeb7a2edf44bf64a46",
+  "trackUrl": "https://open.spotify.com/track/25nbeJzxF3dwvtTq57QKZi",
+  "trackId": "25nbeJzxF3dwvtTq57QKZi",
+  "fetchedAt": "2026-07-27T13:55:38.549Z"
 }
