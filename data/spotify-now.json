@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-07-27T21:16:41.287Z"
+  "isPlaying": true,
+  "title": "Ditto",
+  "artist": "NewJeans",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02edf5b257be1d6593e81bb45f",
+  "trackUrl": "https://open.spotify.com/track/3r8RuvgbX9s7ammBn07D3W",
+  "trackId": "3r8RuvgbX9s7ammBn07D3W",
+  "fetchedAt": "2026-07-27T22:31:11.183Z"
 }
