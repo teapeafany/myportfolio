@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-07-28T14:37:42.470Z"
+  "isPlaying": true,
+  "title": "Kokoroyohou",
+  "artist": "Eve",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e023aba86f5fd6944eb9f6836e1",
+  "trackUrl": "https://open.spotify.com/track/1pjXUZFaDSgf9wV1X76aXw",
+  "trackId": "1pjXUZFaDSgf9wV1X76aXw",
+  "fetchedAt": "2026-07-28T17:55:58.594Z"
 }
