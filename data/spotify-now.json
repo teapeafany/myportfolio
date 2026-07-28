@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "hate that i made you love me",
-  "artist": "Ariana Grande",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02b622d42c30697e1e1414343c",
-  "trackUrl": "https://open.spotify.com/track/20jbSiX29FDX4oQxBXyUEi",
-  "trackId": "20jbSiX29FDX4oQxBXyUEi",
-  "fetchedAt": "2026-07-28T20:51:39.411Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-07-28T21:59:42.592Z"
 }
