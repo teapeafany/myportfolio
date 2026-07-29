@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "play with earth!",
-  "artist": "wave to earth",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02bed6cba62070aabe116791ad",
-  "trackUrl": "https://open.spotify.com/track/7K8Cnsgdex1OSnRplCjjPG",
-  "trackId": "7K8Cnsgdex1OSnRplCjjPG",
-  "fetchedAt": "2026-07-29T20:40:17.944Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-07-29T21:40:18.014Z"
 }
