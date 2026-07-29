@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-07-28T21:59:42.592Z"
+  "isPlaying": true,
+  "title": "하루살이",
+  "artist": "DEAN, SULLI, Rad Museum",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e0224eb27f095031b1c29bcce20",
+  "trackUrl": "https://open.spotify.com/track/2AA1f7utyvXpmtKsEvp5lz",
+  "trackId": "2AA1f7utyvXpmtKsEvp5lz",
+  "fetchedAt": "2026-07-29T03:44:36.128Z"
 }
