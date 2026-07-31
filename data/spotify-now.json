@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Pimple",
-  "artist": "ILLIT",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02fc2fffae3025fbc540b98f34",
-  "trackUrl": "https://open.spotify.com/track/1ZPwN2BYeKssfv4avkzyKI",
-  "trackId": "1ZPwN2BYeKssfv4avkzyKI",
-  "fetchedAt": "2026-07-31T15:02:20.278Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-07-31T16:53:52.198Z"
 }
