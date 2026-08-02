@@ -49,9 +49,59 @@
         </div>
         <!-- Projects — cinematic grid; newest first (chronological) -->
         <div class="projects-list">
+            <!-- Spring 2026 · Rhythm Hop -->
+            <div class="project-item tile-hero" data-project="rhythmhop" data-category="making" tabindex="0" role="link" aria-label="Rhythm Hop physical computing build, Spring 2026">
+                <div class="project-tile">
+                    <div class="project-media">
+                        <div class="work-tile-media">
+                            <img src="film/rhythmhop/thumb.jpg" alt="" class="project-thumb" onerror="this.style.display='none'; this.nextElementSibling?.classList.remove('hidden');">
+                            <span class="placeholder-label hidden">RHYTHM HOP</span>
+                        </div>
+                    </div>
+                    <div class="project-montage" data-montage="Spring 2026|Hopscotch|NeoPixels|Velostat|Arduino|Hallway|Rhythm game" aria-hidden="true">
+                        <span class="project-montage-line slot-tl" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-tr" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-ct" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-bl" aria-hidden="true"></span>
+                        <span class="project-montage-line slot-br" aria-hidden="true"></span>
+                    </div>
+                    <div class="project-tile-overlay">
+                        <div class="project-tile-copy">
+                            <h2 class="project-tile-title">Rhythm Hop</h2>
+                            <p class="project-tile-meta">Spring 2026</p>
+                            <div class="project-tile-tags">
+                                <span class="tile-tag">Maker</span>
+                                <span class="tile-tag">Arduino</span>
+                                <span class="tile-tag">Installation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-panel">
+                    <div class="panel-header">
+                        <div class="panel-date">Spring 2026</div>
+                        <div class="panel-tags">
+                            <span class="tag ux">MAKER</span>
+                            <span class="tag ui">ARDUINO</span>
+                            <span class="tag digital">INSTALLATION</span>
+                        </div>
+                    </div>
+                    <div class="panel-description">
+                        Rhythm Hop—illuminated floor tiles that turn hallway noise into beat-driven hopscotch. Velostat sensors, NeoPixels, and tempo-mapped game logic.
+                    </div>
+                    <div class="panel-tools">
+                        <span class="tool-label">Tools:</span>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Arduino</span>
+                            <span class="tool-tag">NeoPixels</span>
+                            <span class="tool-tag">Velostat</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Spring 2026 · PillPal -->
             <div
-                class="project-item tile-hero"
+                class="project-item tile-wide"
                 data-project="ican-alliance"
                 data-category="ux-ui"
                 tabindex="0"
@@ -443,6 +493,9 @@
                             break;
                         case 'laserharp':
                             targetPage = 'laserharp.html';
+                            break;
+                        case 'rhythmhop':
+                            targetPage = 'rhythmhop.html';
                             break;
                         case 'berlin-emotionscape':
                             targetPage = 'berlin-emotionscape.html';

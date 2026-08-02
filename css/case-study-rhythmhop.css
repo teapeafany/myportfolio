@@ -1,0 +1,575 @@
+/* Rhythm Hop — black canvas, mint + white only; grainy NHG type throughout */
+body.case-study-rhythmhop {
+    --rh-bg: #000000;
+    --rh-hero-radius: clamp(22px, 3.2vw, 38px);
+    --rh-bg-elevated: #000000;
+    --rh-bg-card: #0a0a0a;
+    --rh-bg-card-soft: #111111;
+    --rh-ink: #ffffff;
+    --rh-ink-muted: rgba(255, 255, 255, 0.72);
+    --rh-ink-faint: rgba(255, 255, 255, 0.45);
+    --rh-mint: #42f5b6;
+    --rh-mint-muted: rgba(66, 245, 182, 0.55);
+    --rh-stroke: rgba(66, 245, 182, 0.4);
+    --rh-stroke-soft: rgba(66, 245, 182, 0.22);
+    --echosphere-page-bg: var(--rh-bg);
+    --echosphere-canvas: var(--rh-bg-elevated);
+    --echosphere-ink: var(--rh-ink);
+    --echosphere-ink-muted: var(--rh-ink-muted);
+    --echosphere-ink-faint: var(--rh-ink-faint);
+    --echosphere-card-inner: var(--rh-bg-card);
+    --echosphere-card-subtle: var(--rh-bg-card-soft);
+    --echosphere-card-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.04),
+        0 8px 40px rgba(0, 0, 0, 0.55);
+    --echosphere-card-border: 1px solid rgba(255, 255, 255, 0.1);
+    --echosphere-accent-soft: rgba(66, 245, 182, 0.1);
+    color: var(--rh-ink);
+    background: var(--rh-bg);
+    font-family: var(--font-nhg-text);
+}
+
+body.case-study-rhythmhop,
+body.case-study-rhythmhop h1,
+body.case-study-rhythmhop h2,
+body.case-study-rhythmhop h3,
+body.case-study-rhythmhop h4,
+body.case-study-rhythmhop p,
+body.case-study-rhythmhop li,
+body.case-study-rhythmhop span,
+body.case-study-rhythmhop a,
+body.case-study-rhythmhop button,
+body.case-study-rhythmhop strong,
+body.case-study-rhythmhop blockquote {
+    font-family: var(--font-nhg-text);
+}
+
+/* Fractal-noise displacement on type (js/paper-ink-filter.js → #paper-ink-distort).
+   Keep media / video slots outside these filtered nodes. */
+body.case-study-rhythmhop .echosphere-you-told-us-paper .echosphere-you-told-us-stack-heading,
+body.case-study-rhythmhop .echosphere-you-told-us-paper .echosphere-you-told-us-stack > p,
+body.case-study-rhythmhop .echosphere-understanding-research-paper .echosphere-understanding-research-heading,
+body.case-study-rhythmhop .echosphere-understanding-research-paper .echosphere-you-told-us-stack > p,
+body.case-study-rhythmhop .echosphere-insight-ambient__hmw-text,
+body.case-study-rhythmhop .rh-credits__label,
+body.case-study-rhythmhop .rh-credits__items,
+body.case-study-rhythmhop .rh-idea-card__label,
+body.case-study-rhythmhop .rh-idea-card__title,
+body.case-study-rhythmhop .rh-idea-card__text,
+body.case-study-rhythmhop .rh-materials,
+body.case-study-rhythmhop .rh-process-step__mark,
+body.case-study-rhythmhop .rh-process-step__title,
+body.case-study-rhythmhop .rh-process-step > p,
+body.case-study-rhythmhop .rh-inline-link,
+body.case-study-rhythmhop #next-section .echosphere-research-letter {
+    filter: url(#paper-ink-distort);
+}
+
+body.case-study-rhythmhop .echosphere-analysis-carousel-hint {
+    filter: url(#paper-ink-distort);
+}
+
+body.case-study-rhythmhop .hero-section,
+body.case-study-rhythmhop .echosphere-hero-montage,
+body.case-study-rhythmhop .echosphere-post-hero,
+body.case-study-rhythmhop .echosphere-understanding-research,
+body.case-study-rhythmhop .echosphere-insight-ambient-band {
+    background: var(--rh-bg);
+}
+
+body.case-study-rhythmhop .echosphere-hero-montage {
+    border-radius: 0 0 var(--rh-hero-radius) var(--rh-hero-radius);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.04),
+        0 12px 48px rgba(0, 0, 0, 0.5);
+}
+
+body.case-study-rhythmhop .echosphere-hero-intro-frame {
+    border-radius: var(--rh-hero-radius);
+    background: #000;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 4px 24px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+body.case-study-rhythmhop .echosphere-hero-intro-frame::after {
+    border-radius: inherit;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+body.case-study-rhythmhop #hero-section > .echosphere-hero-montage .echosphere-hero-intro-frame {
+    aspect-ratio: 16 / 9;
+}
+
+body.case-study-rhythmhop #hero-section > .echosphere-hero-montage .echosphere-hero-intro-frame .echosphere-hero-intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    background: #000;
+}
+
+body.case-study-rhythmhop #hero-section > .echosphere-hero-montage .echosphere-hero-intro-frame video::-webkit-media-controls-panel {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
+}
+
+body.case-study-rhythmhop .echosphere-post-hero {
+    color: var(--rh-ink-muted);
+}
+
+body.case-study-rhythmhop #next-section .echosphere-research-letter {
+    max-width: min(72rem, 96vw);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.case-study-rhythmhop #next-section .echosphere-research-line {
+    filter: none;
+    justify-content: center;
+    text-align: center;
+}
+
+body.case-study-rhythmhop #next-section .echosphere-research-line--goal-centerpiece {
+    filter: url(#paper-ink-distort);
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    text-transform: none;
+}
+
+body.case-study-rhythmhop .echosphere-research-type-wrap {
+    background-image: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: var(--rh-mint);
+    animation: none;
+}
+
+body.case-study-rhythmhop .echosphere-research-type-caret {
+    color: var(--rh-mint-muted);
+}
+
+body.case-study-rhythmhop .echosphere-research-heading-date {
+    color: var(--rh-mint-muted);
+}
+
+body.case-study-rhythmhop .lh-goal-wrap--mixed {
+    display: block;
+    white-space: pre-line;
+    text-wrap: wrap;
+    background-image: none !important;
+    -webkit-text-fill-color: unset;
+    color: inherit;
+    background-clip: unset;
+    -webkit-background-clip: unset;
+    animation: none !important;
+}
+
+body.case-study-rhythmhop #next-section .echosphere-research-line--goal-centerpiece .lh-goal-wrap--mixed {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+body.case-study-rhythmhop .lh-goal-seg--lower {
+    display: inline;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+body.case-study-rhythmhop .lh-goal-seg--upper {
+    display: inline;
+    color: var(--rh-mint);
+    text-shadow:
+        0 0 18px rgba(66, 245, 182, 0.45),
+        0 0 40px rgba(66, 245, 182, 0.25);
+}
+
+body.case-study-rhythmhop #navigation-container .nav-item {
+    color: #ffffff !important;
+    text-shadow: none !important;
+}
+
+body.case-study-rhythmhop #navigation-container .nav-item:hover,
+body.case-study-rhythmhop #navigation-container .nav-item.active {
+    color: var(--rh-mint) !important;
+}
+
+body.case-study-rhythmhop .lh-section-heading-caps,
+body.case-study-rhythmhop .echosphere-understanding-research-heading {
+    color: #ffffff;
+    font-family: var(--font-nhg-text);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+body.case-study-rhythmhop .echosphere-you-told-us-body-tagline,
+body.case-study-rhythmhop .echosphere-you-told-us-body-lead {
+    color: var(--rh-ink-muted);
+}
+
+body.case-study-rhythmhop .echosphere-you-told-us-body-lead {
+    color: #ffffff;
+}
+
+body.case-study-rhythmhop .echosphere-you-told-us-kicker-text,
+body.case-study-rhythmhop .echosphere-you-told-us-kicker-caret {
+    color: var(--rh-mint) !important;
+}
+
+body.case-study-rhythmhop .echosphere-insight-ambient__hmw-text {
+    color: #ffffff;
+}
+
+/* Override EchoSphere navy on HMW connective copy */
+body.case-study-rhythmhop .echosphere-insight-ambient__hmw-body {
+    color: #ffffff;
+}
+
+body.case-study-rhythmhop .echosphere-insight-ambient__hmw-kicker .echosphere-research-type-wrap,
+body.case-study-rhythmhop .echosphere-insight-ambient__hmw-body-kicker-match {
+    color: var(--rh-mint);
+}
+
+/* Overview band — wide for big media; copy/credits centered in a readable measure */
+body.case-study-rhythmhop #you-told-us-section .echosphere-you-told-us-paper {
+    text-align: center;
+    max-width: min(68rem, 100%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.case-study-rhythmhop #you-told-us-section .echosphere-you-told-us-stack,
+body.case-study-rhythmhop #you-told-us-section .rh-credits {
+    max-width: min(42rem, 100%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.case-study-rhythmhop .rh-credits {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1.5rem, 3.5vh, 2.25rem);
+    margin-top: clamp(2rem, 5vh, 3rem);
+    padding-top: clamp(1.25rem, 3vh, 1.75rem);
+    border-top: 1px solid rgba(66, 245, 182, 0.28);
+    text-align: center;
+    width: 100%;
+}
+
+body.case-study-rhythmhop .rh-credits__block {
+    width: 100%;
+    max-width: 100%;
+}
+
+body.case-study-rhythmhop .rh-credits__label {
+    margin: 0 0 0.7rem;
+    font-family: var(--font-nhg-text);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rh-mint);
+    text-align: center;
+}
+
+body.case-study-rhythmhop .rh-credits__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.55rem 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+body.case-study-rhythmhop .rh-credits__items--names li {
+    margin: 0;
+    font-family: var(--font-nhg-text);
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+}
+
+body.case-study-rhythmhop .rh-credits__items--tags li {
+    margin: 0;
+    font-family: var(--font-nhg-text);
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rh-mint-muted);
+}
+
+body.case-study-rhythmhop .rh-idea-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 3vw, 1.75rem);
+    margin: clamp(1.75rem, 4vh, 2.75rem) auto 0;
+    max-width: min(56rem, 100%);
+    text-align: left;
+}
+
+body.case-study-rhythmhop .rh-materials {
+    justify-content: center;
+}
+
+@media (max-width: 720px) {
+    body.case-study-rhythmhop .rh-idea-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+body.case-study-rhythmhop .rh-idea-card {
+    background: var(--rh-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--rh-hero-radius);
+    padding: clamp(1.25rem, 3vw, 1.75rem);
+    box-shadow: var(--echosphere-card-shadow);
+}
+
+body.case-study-rhythmhop .rh-idea-card.is-chosen {
+    border-color: rgba(66, 245, 182, 0.55);
+    box-shadow:
+        0 0 0 1px rgba(66, 245, 182, 0.2),
+        0 0 28px rgba(66, 245, 182, 0.12);
+}
+
+body.case-study-rhythmhop .rh-idea-card__label {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rh-mint-muted);
+    margin-bottom: 0.65rem;
+}
+
+body.case-study-rhythmhop .rh-idea-card.is-chosen .rh-idea-card__label {
+    color: var(--rh-mint);
+}
+
+body.case-study-rhythmhop .rh-idea-card__title {
+    font-family: var(--font-nhg-text);
+    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin: 0 0 0.75rem;
+    line-height: 1.2;
+}
+
+body.case-study-rhythmhop .rh-idea-card__text {
+    margin: 0;
+    color: var(--rh-ink-muted);
+    line-height: 1.55;
+    font-size: 0.98rem;
+}
+
+body.case-study-rhythmhop .rh-materials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.55rem;
+    margin-top: 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+body.case-study-rhythmhop .rh-materials li {
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid var(--rh-stroke-soft);
+    background: rgba(66, 245, 182, 0.08);
+    color: #ffffff;
+    font-size: 0.86rem;
+    letter-spacing: 0.02em;
+}
+
+body.case-study-rhythmhop .rh-process-step {
+    margin-top: clamp(2.25rem, 5vh, 3.5rem);
+    padding-top: clamp(1.5rem, 3vh, 2rem);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    text-align: center;
+}
+
+body.case-study-rhythmhop .rh-process-step__mark {
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rh-mint);
+    margin: 0 0 0.5rem;
+}
+
+body.case-study-rhythmhop .rh-process-step__title {
+    font-family: var(--font-nhg-text);
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin: 0 0 1rem;
+    color: #ffffff;
+}
+
+body.case-study-rhythmhop .rh-process-step p {
+    max-width: min(42rem, 100%);
+    margin: 0 auto 1rem;
+    color: var(--rh-ink-muted);
+    line-height: 1.6;
+}
+
+body.case-study-rhythmhop .rh-process-step code {
+    color: var(--rh-mint);
+    background: rgba(66, 245, 182, 0.08);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+}
+
+/* Snap carousels — same shell as Laser Lyre, mint/white chrome */
+body.case-study-rhythmhop .echosphere-analysis-carousel {
+    text-align: center;
+}
+
+body.case-study-rhythmhop .echosphere-analysis-carousel-hint {
+    color: var(--rh-mint-muted);
+    text-align: center;
+}
+
+body.case-study-rhythmhop .echosphere-analysis-carousel-track {
+    scrollbar-color: var(--rh-stroke-soft) transparent;
+}
+
+body.case-study-rhythmhop .echosphere-analysis-carousel-track::-webkit-scrollbar-thumb {
+    background: var(--rh-stroke-soft);
+}
+
+body.case-study-rhythmhop .echosphere-analysis-card-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #0a0a0a;
+    border-color: rgba(66, 245, 182, 0.35);
+    box-shadow:
+        0 0 0 1px rgba(66, 245, 182, 0.12),
+        0 0 0 4px rgba(0, 0, 0, 0.25),
+        0 16px 48px rgba(0, 0, 0, 0.45);
+}
+
+/* Fill the outlined media frame edge-to-edge */
+body.case-study-rhythmhop .echosphere-analysis-card-img,
+body.case-study-rhythmhop .echosphere-analysis-card-video {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: unset;
+    object-fit: cover;
+    object-position: center;
+}
+
+body.case-study-rhythmhop .echosphere-analysis-card-img {
+    cursor: zoom-in;
+}
+
+/* Big media stage — equal side peek so the active slide reads centered */
+body.case-study-rhythmhop .rh-carousel .echosphere-analysis-carousel-track,
+body.case-study-rhythmhop .echosphere-analysis-carousel .echosphere-analysis-carousel-track {
+    justify-content: safe center;
+    scroll-padding-inline: 3%;
+    padding-inline: 3%;
+}
+
+body.case-study-rhythmhop .rh-carousel .echosphere-analysis-card,
+body.case-study-rhythmhop .echosphere-analysis-carousel .echosphere-analysis-card {
+    flex: 0 0 min(68rem, 94%);
+}
+
+body.case-study-rhythmhop .rh-carousel {
+    margin-top: 1.35rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/* Diagrams / tall stills — smaller stage, whole image visible */
+body.case-study-rhythmhop .rh-carousel--fit .echosphere-analysis-card {
+    flex: 0 0 min(36rem, 85%);
+}
+
+body.case-study-rhythmhop .rh-carousel--fit .echosphere-analysis-carousel-track {
+    scroll-padding-inline: 7.5%;
+    padding-inline: 7.5%;
+}
+
+body.case-study-rhythmhop .rh-carousel--fit .echosphere-analysis-card-media,
+body.case-study-rhythmhop .rh-solo-media--fit .echosphere-analysis-card-media,
+body.case-study-rhythmhop .rh-media--fit {
+    aspect-ratio: unset;
+    height: auto;
+    max-height: min(56vh, 32rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.case-study-rhythmhop .rh-carousel--fit .echosphere-analysis-card-img,
+body.case-study-rhythmhop .rh-solo-media--fit .echosphere-analysis-card-img,
+body.case-study-rhythmhop .rh-media--fit .echosphere-analysis-card-img {
+    position: static;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: min(56vh, 32rem);
+    object-fit: contain;
+    object-position: center;
+}
+
+body.case-study-rhythmhop .rh-solo-media {
+    margin-top: clamp(1.5rem, 4vh, 2.25rem);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: min(68rem, 100%);
+}
+
+body.case-study-rhythmhop .rh-solo-media--fit {
+    max-width: min(36rem, 100%);
+}
+
+body.case-study-rhythmhop .echosphere-understanding-research-paper {
+    max-width: min(72rem, 96vw);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+body.case-study-rhythmhop .rh-inline-link {
+    color: var(--rh-mint);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+}
+
+body.case-study-rhythmhop .rh-inline-link:hover {
+    color: #ffffff;
+}
+
+body.case-study-rhythmhop .case-study-media-placeholder {
+    background: #0a0a0a;
+    color: var(--rh-ink-faint);
+}
+
+body.case-study-rhythmhop .back-to-top-section .up-arrow {
+    filter: invert(1) brightness(1.2);
+}
+
+/* Kill any leftover EchoSphere gold / warm accents on this page */
+body.case-study-rhythmhop .bubble,
+body.case-study-rhythmhop .floating-bubbles .bubble {
+    opacity: 0.85;
+}

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="film/cursor-star.png" type="image/png">
+    <title>Rhythm Hop - Tiffany Lee</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/echosphere.css">
+    <link rel="stylesheet" href="css/case-study-shell.css">
+    <link rel="stylesheet" href="css/case-study-rhythmhop.css">
+</head>
+<body class="echosphere-page case-study-rhythmhop">
+    <script src="js/paper-ink-filter.js"></script>
+    <script src="js/nav-scroll.js" defer></script>
+    <div class="floating-bubbles" id="floating-bubbles"></div>
+    <div class="echosphere-film-grain" aria-hidden="true"></div>
+    <div class="about-progress-bar home-scroll-rail visible echosphere-scroll-rail" id="about-progress-bar" aria-hidden="false">
+        <div class="home-scroll-track" id="home-scroll-track"></div>
+        <div class="home-scroll-thumb" id="home-scroll-thumb" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Scroll the case study">
+            <img src="film/home-scroll-star.png" alt="" width="88" height="88" draggable="false">
+        </div>
+    </div>
+
+    <div id="hero-section" class="hero-section fade-in-section">
+        <div id="navigation-container"></div>
+        <div class="echosphere-hero-montage">
+            <h1 class="echosphere-sr-only">Rhythm Hop</h1>
+            <div class="echosphere-hero-intro echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t0" aria-label="Rhythm Hop hero">
+                <div class="echosphere-hero-intro-frame">
+                    <video
+                        class="echosphere-hero-intro-video"
+                        autoplay
+                        muted
+                        loop
+                        controls
+                        playsinline
+                        preload="auto"
+                        poster="film/rhythmhop/thumb.jpg"
+                        aria-label="Rhythm Hop installation demo"
+                    >
+                        <source src="film/rhythmhop/hero.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div id="next-section" class="echosphere-post-hero" aria-label="Project context">
+            <div class="echosphere-post-hero-inner">
+                <h2 id="echosphere-post-hero-heading" class="echosphere-research-heading" aria-live="polite" aria-label="Project introduction">
+                    <div class="echosphere-research-letter" id="echosphere-research-letter"></div>
+                </h2>
+            </div>
+        </div>
+
+        <div id="you-told-us-section" class="echosphere-hero-intro echosphere-hero-you-told-us echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section" aria-labelledby="rh-context-heading">
+            <div class="echosphere-you-told-us-below">
+                <div class="echosphere-you-told-us-paper">
+                    <h2 id="rh-context-heading" class="echosphere-you-told-us-stack-heading">
+                        <span class="echosphere-sr-only">Overview</span>
+                        <span class="echosphere-you-told-us-kicker--below" aria-hidden="true">
+                            <span class="echosphere-you-told-us-kicker-text">
+                                <span id="echosphere-you-told-us-kicker-text"></span><span class="echosphere-you-told-us-kicker-caret" id="echosphere-you-told-us-kicker-caret" aria-hidden="true">|</span>
+                            </span>
+                        </span>
+                    </h2>
+                    <div class="echosphere-you-told-us-stack">
+                        <p class="echosphere-you-told-us-body-lead">
+                            Illuminated floor tiles that turn hallway chaos into a beat students can follow.
+                        </p>
+                        <p class="echosphere-you-told-us-body-tagline">
+                            Built for Herman J. Russell West End Academy as part of Georgia Tech&rsquo;s Arduino Prototyping class (LMC 4813). After watching student videos and talking with a teacher over video call, our group traced the hallway noise problem to talking, yelling, and walking without rhythm&mdash;and set out to reshape that energy into structured, beat-driven movement.
+                        </p>
+                    </div>
+                    <div class="rh-solo-media">
+                        <div class="echosphere-analysis-card-media">
+                            <img src="film/rhythmhop/overview-image.jpg" alt="Rhythm Hop floor tiles installed in the hallway" class="echosphere-analysis-card-img" loading="lazy" width="1600" height="1066">
+                        </div>
+                    </div>
+                    <aside class="rh-credits" aria-label="Project credits">
+                        <div class="rh-credits__block">
+                            <h3 class="rh-credits__label" id="rh-team-heading">Team</h3>
+                            <ul class="rh-credits__items rh-credits__items--names" aria-labelledby="rh-team-heading">
+                                <li>Tiffany Lee</li>
+                                <li>Chih-Ying Lee</li>
+                                <li>Addison Hayes</li>
+                            </ul>
+                        </div>
+                        <div class="rh-credits__block">
+                            <h3 class="rh-credits__label" id="rh-focus-heading">Focus</h3>
+                            <ul class="rh-credits__items rh-credits__items--tags" aria-labelledby="rh-focus-heading">
+                                <li>Arduino</li>
+                                <li>Velostat sensors</li>
+                                <li>NeoPixel tiles</li>
+                                <li>Rhythm game</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+
+        <section
+            class="echosphere-understanding-research echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section"
+            aria-labelledby="rh-ideation-heading"
+        >
+            <div class="echosphere-understanding-research-paper">
+                <h2 id="rh-ideation-heading" class="echosphere-understanding-research-heading lh-section-heading-caps">Ideation</h2>
+                <div class="echosphere-you-told-us-stack">
+                    <p class="echosphere-you-told-us-body-lead">
+                        We started on Figma and explored two directions before the students voted.
+                    </p>
+                </div>
+                <div class="rh-idea-grid">
+                    <article class="rh-idea-card is-chosen">
+                        <span class="rh-idea-card__label">Chosen · Idea one</span>
+                        <h3 class="rh-idea-card__title">Organizing noise through hopscotch</h3>
+                        <p class="rh-idea-card__text">
+                            Unorganized sound waves with misaligned peaks feel chaotic. Inspired by hopscotch, we envisioned illuminated floor tiles that prompt students to step on specific pads at a set tempo&mdash;guiding footsteps rhythmically, cutting chaotic stomping, and pulling attention from yelling into gameplay.
+                        </p>
+                    </article>
+                    <article class="rh-idea-card">
+                        <span class="rh-idea-card__label">Idea two</span>
+                        <h3 class="rh-idea-card__title">Harmonizing existing noise</h3>
+                        <p class="rh-idea-card__text">
+                            Instead of preventing noise, detect the hallway&rsquo;s average pitch and play a complementary chord in real time&mdash;using wave interference so the existing soundscape feels more harmonious. Students voted for hopscotch, so we moved that concept into build.
+                        </p>
+                    </article>
+                </div>
+                <div class="rh-solo-media">
+                    <div class="echosphere-analysis-card-media">
+                        <img src="film/rhythmhop/ideation-mindmap.png" alt="Figma ideation mind map for Rhythm Hop concepts" class="echosphere-analysis-card-img" loading="lazy" width="1824" height="1294">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="echosphere-insight-ambient-band echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section"
+            aria-labelledby="rh-hmw-heading"
+        >
+            <div class="echosphere-insight-ambient-slot echosphere-insight-ambient-slot--wide">
+                <div class="echosphere-insight-ambient__hmw echosphere-insight-ambient__hmw--on-light">
+                    <h3 id="rh-hmw-heading" class="echosphere-insight-ambient__hmw-text">
+                        <span class="echosphere-insight-ambient__hmw-kicker">
+                            <span class="echosphere-research-type-wrap">how might we</span>
+                        </span>
+                        <span class="echosphere-insight-ambient__hmw-body">
+                            turn hallway stomping into
+                            <span class="echosphere-research-type-wrap echosphere-insight-ambient__hmw-body-kicker-match">shared rhythm?</span>
+                        </span>
+                    </h3>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="echosphere-understanding-research echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section"
+            aria-labelledby="rh-materials-heading"
+        >
+            <div class="echosphere-understanding-research-paper">
+                <h2 id="rh-materials-heading" class="echosphere-understanding-research-heading lh-section-heading-caps">Materials</h2>
+                <ul class="rh-materials">
+                    <li>Arduino Uno</li>
+                    <li>NeoPixel LED strip (250 LEDs)</li>
+                    <li>Velostat sheet</li>
+                    <li>Copper tape</li>
+                    <li>Foam tape</li>
+                    <li>Plexiglass sheets (2 per tile, 10 total)</li>
+                    <li>Resistors</li>
+                    <li>Breadboard</li>
+                    <li>Jumper wires</li>
+                    <li>Masking tape</li>
+                    <li>5V power supply</li>
+                    <li>USB cable</li>
+                </ul>
+                <div class="rh-solo-media rh-solo-media--fit">
+                    <div class="echosphere-analysis-card-media">
+                        <img src="film/rhythmhop/materials-messy.png" alt="Parts and materials laid out for the Rhythm Hop build" class="echosphere-analysis-card-img" loading="lazy" width="1408" height="1026">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="echosphere-understanding-research echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1 fade-in-section">
+            <div class="echosphere-understanding-research-paper">
+                <section aria-labelledby="rh-process-heading">
+                    <h2 id="rh-process-heading" class="echosphere-understanding-research-heading lh-section-heading-caps">Process</h2>
+                    <div class="echosphere-you-told-us-stack">
+                        <p class="echosphere-you-told-us-body-lead">
+                            Five pressure-sensitive tiles, one continuous NeoPixel strip, and game logic mapped to a song&rsquo;s tempo.
+                        </p>
+                    </div>
+
+                    <article class="rh-process-step">
+                        <p class="rh-process-step__mark">01 · Mechanics</p>
+                        <h3 class="rh-process-step__title">Designing the tiles</h3>
+                        <p>
+                            Each tile is bordered by NeoPixels and uses a velostat pressure sensor as input. Velostat is piezoresistive&mdash;resistance drops under pressure. Sandwiched between copper tape layers in a voltage divider, it gives the Arduino an analog reading: step on a tile, resistance falls, voltage shifts, and the board treats that as a trigger.
+                        </p>
+                        <p>
+                            A single continuous NeoPixel strip runs through all five tiles. Because LEDs are individually addressable, we split the strip into five segments and drove each as the game&rsquo;s primary feedback&mdash;active tile, countdown fade, success, and failure all read through color and animation.
+                        </p>
+                        <div class="echosphere-analysis-carousel rh-carousel rh-carousel--fit" role="region" aria-roledescription="carousel" aria-label="Designing the tiles">
+                            <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                            <div class="echosphere-analysis-carousel-track">
+                                <article class="echosphere-analysis-card">
+                                    <div class="echosphere-analysis-card-media">
+                                        <img src="film/rhythmhop/designing-tiles-1.png" alt="Diagram of tile mechanics and sensor layers" class="echosphere-analysis-card-img" loading="lazy">
+                                    </div>
+                                </article>
+                                <article class="echosphere-analysis-card">
+                                    <div class="echosphere-analysis-card-media">
+                                        <img src="film/rhythmhop/designing-tiles-2.png" alt="Diagram of NeoPixel strip routing across five tiles" class="echosphere-analysis-card-img" loading="lazy">
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rh-process-step">
+                        <p class="rh-process-step__mark">02 · Sensing</p>
+                        <h3 class="rh-process-step__title">Testing velostat</h3>
+                        <p>
+                            Cardboard prototypes had too little surface area for a usable resistance change. A wood build was too rigid for the velostat to compress. Foam tape as a compliant layer finally let the sensor stretch and settle under foot pressure.
+                        </p>
+                        <p>
+                            Exposed velostat area also mattered: too large, and uneven compression crushed the baseline resistance. Masking tape over parts of the sheet shrank the active area and restored a clear resting signal.
+                        </p>
+                        <div class="echosphere-analysis-carousel rh-carousel rh-carousel--fit" role="region" aria-roledescription="carousel" aria-label="Testing velostat">
+                            <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                            <div class="echosphere-analysis-carousel-track">
+                                <article class="echosphere-analysis-card">
+                                    <div class="echosphere-analysis-card-media">
+                                        <img src="film/rhythmhop/testing-vel-1.png" alt="Early velostat prototype on cardboard" class="echosphere-analysis-card-img" loading="lazy">
+                                    </div>
+                                </article>
+                                <article class="echosphere-analysis-card">
+                                    <div class="echosphere-analysis-card-media">
+                                        <img src="film/rhythmhop/testing-vel-2.png" alt="Velostat prototype on wood" class="echosphere-analysis-card-img" loading="lazy">
+                                    </div>
+                                </article>
+                                <article class="echosphere-analysis-card">
+                                    <div class="echosphere-analysis-card-media">
+                                        <img src="film/rhythmhop/testing-vel-3.png" alt="Foam-tape velostat prototype" class="echosphere-analysis-card-img" loading="lazy">
+                                    </div>
+                                </article>
+                                <article class="echosphere-analysis-card">
+                                    <div class="echosphere-analysis-card-media">
+                                        <img src="film/rhythmhop/testing-vel-4.png" alt="Velostat with masking tape reducing active area" class="echosphere-analysis-card-img" loading="lazy">
+                                    </div>
+                                </article>
+                                <article class="echosphere-analysis-card">
+                                    <div class="echosphere-analysis-card-media">
+                                        <img src="film/rhythmhop/testing-vel-5.png" alt="Tuned velostat sensor build" class="echosphere-analysis-card-img" loading="lazy">
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rh-process-step">
+                        <p class="rh-process-step__mark">03 · Light</p>
+                        <h3 class="rh-process-step__title">Testing the LED strip</h3>
+                        <p>
+                            In parallel we learned NeoPixel addressing, cutting, and re-soldering. Missing the directional arrows when rejoining segments meant a lot of rewiring. Physically disconnected LEDs left in the chain also broke data for everything downstream&mdash;another debugging rabbit hole before the strip behaved.
+                        </p>
+                    </article>
+
+                    <article class="rh-process-step">
+                        <p class="rh-process-step__mark">04 · Integration</p>
+                        <h3 class="rh-process-step__title">Combining sensor and LEDs</h3>
+                        <p>
+                            Early integration failed when upper and lower copper layers shorted and bypassed the voltage divider. Insulating the excess copper fixed the reads. Plexiglass top and bottom layers locked wiring, velostat, and LEDs in place so each tile could survive repeated stomps.
+                        </p>
+                        <div class="echosphere-analysis-carousel rh-carousel rh-carousel--fit" role="region" aria-roledescription="carousel" aria-label="Combining velostat and LEDs">
+                            <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                            <div class="echosphere-analysis-carousel-track">
+                                <article class="echosphere-analysis-card">
+                                    <div class="echosphere-analysis-card-media">
+                                        <img src="film/rhythmhop/combine-vel-led-1.png" alt="Single tile combining velostat sensor and NeoPixel LEDs" class="echosphere-analysis-card-img" loading="lazy">
+                                    </div>
+                                </article>
+                                <article class="echosphere-analysis-card">
+                                    <div class="echosphere-analysis-card-media">
+                                        <img src="film/rhythmhop/combine-vel-led-2.png" alt="Plexiglass tile sandwich with wiring secured" class="echosphere-analysis-card-img" loading="lazy">
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rh-process-step">
+                        <p class="rh-process-step__mark">05 · Scale</p>
+                        <h3 class="rh-process-step__title">Scaling to five tiles</h3>
+                        <p>
+                            ~250 LEDs made power the next problem. Laptop USB held up; a 9V battery did not. Dropping LED brightness made portable use stable. Updating every pixel was also expensive&mdash;so we set all colors first and called <code>strip.show()</code> once per frame to keep latency down.
+                        </p>
+                        <div class="rh-solo-media">
+                            <div class="echosphere-analysis-card-media">
+                                <video
+                                    class="echosphere-analysis-card-video"
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="auto"
+                                    aria-label="Scaling Rhythm Hop to five tiles"
+                                >
+                                    <source src="film/rhythmhop/scaling-five-tiles.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rh-process-step">
+                        <p class="rh-process-step__mark">06 · Code</p>
+                        <h3 class="rh-process-step__title">Game logic on the beat</h3>
+                        <p>
+                            Firmware grew in layers: press-to-recolor tests, per-tile color ranges to verify indexing, then the core game&mdash;a random tile lights up and fades LED-by-LED over a time window. Step in time for a green success flash; miss for red. Finally we mapped the sequence to a song&rsquo;s tempo so following the installation meant walking in rhythm&mdash;the hallway-noise goal, made playable.
+                        </p>
+                        <div class="rh-solo-media">
+                            <div class="echosphere-analysis-card-media">
+                                <video
+                                    class="echosphere-analysis-card-video"
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="auto"
+                                    aria-label="Rhythm Hop game logic demo"
+                                >
+                                    <source src="film/rhythmhop/game-logic.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rh-process-step">
+                        <p class="rh-process-step__mark">07 · Polish</p>
+                        <h3 class="rh-process-step__title">Testing and polishing</h3>
+                        <p>
+                            Once all five tiles talked to the Arduino, we played the game like students would&mdash;stomping early, late, and off-target to feel the timing window. We tuned fade speed, success/fail flashes, and LED brightness until the beat was readable from a hallway stride without washing out under classroom lights. Small wiring and tape fixes kept false triggers down before we brought the set on-site.
+                        </p>
+                        <div class="rh-solo-media">
+                            <div class="echosphere-analysis-card-media">
+                                <video
+                                    class="echosphere-analysis-card-video"
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="auto"
+                                    aria-label="Testing and polishing Rhythm Hop gameplay"
+                                >
+                                    <source src="film/rhythmhop/polish.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="echosphere-final-prototype-section echosphere-hero-spec-reveal echosphere-hero-spec-reveal--t1" aria-labelledby="rh-final-heading">
+                    <h2 id="rh-final-heading" class="echosphere-understanding-research-heading lh-section-heading-caps">Final product</h2>
+                    <div class="echosphere-you-told-us-stack">
+                        <p class="echosphere-you-told-us-body-lead">
+                            Five illuminated hopscotch tiles driven by velostat and NeoPixels&mdash;step on the beat, quiet the chaos.
+                        </p>
+                        <p class="echosphere-you-told-us-body-tagline">
+                            In the schematic, potentiometers stand in for the velostat sensors: both act as variable resistors in the same voltage-divider pattern, so as resistance drops under pressure the analog pin voltage rises. Code on
+                            <a class="rh-inline-link" href="https://github.com/lizyxv/rhythmhop" target="_blank" rel="noopener noreferrer">GitHub<span class="echosphere-sr-only"> (opens in new tab)</span></a>.
+                        </p>
+                    </div>
+                    <div class="echosphere-analysis-carousel rh-carousel" role="region" aria-roledescription="carousel" aria-label="Final product">
+                        <p class="echosphere-analysis-carousel-hint">Swipe or scroll sideways for more</p>
+                        <div class="echosphere-analysis-carousel-track">
+                            <article class="echosphere-analysis-card">
+                                <div class="echosphere-analysis-card-media">
+                                    <video
+                                        class="echosphere-analysis-card-video"
+                                        autoplay
+                                        muted
+                                        loop
+                                        playsinline
+                                        preload="auto"
+                                        aria-label="Rhythm Hop final product clip 1"
+                                    >
+                                        <source src="film/rhythmhop/final-product-1.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </article>
+                            <article class="echosphere-analysis-card">
+                                <div class="echosphere-analysis-card-media">
+                                    <video
+                                        class="echosphere-analysis-card-video"
+                                        autoplay
+                                        muted
+                                        loop
+                                        playsinline
+                                        preload="auto"
+                                        aria-label="Rhythm Hop final product clip 2"
+                                    >
+                                        <source src="film/rhythmhop/final-product-2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </article>
+                            <article class="echosphere-analysis-card">
+                                <div class="echosphere-analysis-card-media">
+                                    <img src="film/rhythmhop/final-product-3.jpg" alt="Finished Rhythm Hop tiles photographed on site" class="echosphere-analysis-card-img" loading="lazy">
+                                </div>
+                            </article>
+                            <article class="echosphere-analysis-card">
+                                <div class="echosphere-analysis-card-media rh-media--fit">
+                                    <img src="film/rhythmhop/schematic.png" alt="Rhythm Hop circuit schematic with potentiometers representing velostat sensors" class="echosphere-analysis-card-img" loading="lazy">
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-to-top-section">
+        <a href="#hero-section"><img src="film/downarrow.svg" alt="Back to Top" class="up-arrow"></a>
+    </div>
+
+    <script>
+        window.CaseStudyShell = {
+            intro: {
+                main: 'Rhythm Hop: hallway noise into beat-driven play.',
+                date: '(Spring 2026)',
+                msMain: 34,
+                msDate: 30,
+                msGoal: 30,
+                lineGapMs: 900,
+                goalSegments: [
+                    { text: 'how do you turn chaotic hallway sound into ', kind: 'lower' },
+                    { text: 'STRUCTURED RHYTHM ', kind: 'upper' },
+                    { text: 'students want to follow?\n', kind: 'lower' },
+                    { text: 'ONE STEP, ONE BEAT, FIVE GLOWING TILES.', kind: 'upper' }
+                ],
+                typingAriaStart: 'Rhythm Hop: hallway noise into beat-driven play. (Spring 2026)',
+                fullAria:
+                    'Rhythm Hop: hallway noise into beat-driven play. (Spring 2026). how do you turn chaotic hallway sound into STRUCTURED RHYTHM students want to follow? ONE STEP, ONE BEAT, FIVE GLOWING TILES.'
+            },
+            kickerYouToldUs: 'OVERVIEW',
+            pageBubbles: [
+                { id: 1, size: 300, left: '4%', top: '10%', delay: 0, duration: 22, gradient: 'radial-gradient(circle at 30% 30%, rgba(66, 245, 182, 0.45), rgba(66, 245, 182, 0.18) 55%, rgba(66, 245, 182, 0.08) 72%, transparent 100%)' },
+                { id: 2, size: 340, left: '86%', top: '8%', delay: 1.5, duration: 26, gradient: 'radial-gradient(circle at 40% 40%, rgba(66, 245, 182, 0.4), rgba(66, 245, 182, 0.16) 58%, rgba(66, 245, 182, 0.08) 74%, transparent 100%)' },
+                { id: 3, size: 220, left: '12%', top: '52%', delay: 3, duration: 18, gradient: 'radial-gradient(circle at 35% 35%, rgba(66, 245, 182, 0.38), rgba(66, 245, 182, 0.14) 60%, rgba(66, 245, 182, 0.07) 76%, transparent 100%)' },
+                { id: 4, size: 280, left: '72%', top: '36%', delay: 0.8, duration: 24, gradient: 'radial-gradient(circle at 30% 30%, rgba(66, 245, 182, 0.36), rgba(66, 245, 182, 0.14) 58%, rgba(66, 245, 182, 0.08) 74%, transparent 100%)' },
+                { id: 5, size: 250, left: '24%', top: '22%', delay: 2.2, duration: 20, gradient: 'radial-gradient(circle at 40% 40%, rgba(66, 245, 182, 0.34), rgba(66, 245, 182, 0.12) 62%, rgba(66, 245, 182, 0.06) 76%, transparent 100%)' },
+                { id: 6, size: 300, left: '90%', top: '62%', delay: 4, duration: 23, gradient: 'radial-gradient(circle at 35% 35%, rgba(66, 245, 182, 0.38), rgba(66, 245, 182, 0.14) 58%, rgba(66, 245, 182, 0.08) 75%, transparent 100%)' },
+                { id: 7, size: 200, left: '8%', top: '78%', delay: 2.8, duration: 17, gradient: 'radial-gradient(circle at 30% 30%, rgba(66, 245, 182, 0.3), rgba(66, 245, 182, 0.1) 62%, rgba(66, 245, 182, 0.05) 78%, transparent 100%)' },
+                { id: 8, size: 260, left: '58%', top: '70%', delay: 1.2, duration: 21, gradient: 'radial-gradient(circle at 40% 40%, rgba(66, 245, 182, 0.34), rgba(66, 245, 182, 0.14) 60%, rgba(66, 245, 182, 0.08) 76%, transparent 100%)' }
+            ],
+            panelBubbles: [
+                { id: 1, size: 100, left: '6%', top: '10%', delay: 0, duration: 16, gradient: 'radial-gradient(circle at 30% 30%, rgba(66, 245, 182, 0.45), rgba(66, 245, 182, 0.18) 55%, rgba(66, 245, 182, 0.08) 72%, transparent 100%)' },
+                { id: 2, size: 130, left: '78%', top: '8%', delay: 1.2, duration: 20, gradient: 'radial-gradient(circle at 40% 40%, rgba(66, 245, 182, 0.4), rgba(66, 245, 182, 0.16) 58%, rgba(66, 245, 182, 0.08) 74%, transparent 100%)' },
+                { id: 3, size: 72, left: '12%', top: '58%', delay: 2, duration: 14, gradient: 'radial-gradient(circle at 35% 35%, rgba(66, 245, 182, 0.38), rgba(66, 245, 182, 0.14) 60%, rgba(66, 245, 182, 0.07) 76%, transparent 100%)' },
+                { id: 4, size: 110, left: '70%', top: '42%', delay: 0.6, duration: 18, gradient: 'radial-gradient(circle at 30% 30%, rgba(66, 245, 182, 0.36), rgba(66, 245, 182, 0.14) 58%, rgba(66, 245, 182, 0.08) 74%, transparent 100%)' },
+                { id: 5, size: 88, left: '38%', top: '18%', delay: 2.8, duration: 15, gradient: 'radial-gradient(circle at 40% 40%, rgba(66, 245, 182, 0.34), rgba(66, 245, 182, 0.12) 62%, rgba(66, 245, 182, 0.06) 76%, transparent 100%)' },
+                { id: 6, size: 95, left: '52%', top: '62%', delay: 1.8, duration: 17, gradient: 'radial-gradient(circle at 35% 35%, rgba(66, 245, 182, 0.38), rgba(66, 245, 182, 0.14) 58%, rgba(66, 245, 182, 0.08) 75%, transparent 100%)' },
+                { id: 7, size: 64, left: '4%', top: '38%', delay: 3.2, duration: 13, gradient: 'radial-gradient(circle at 30% 30%, rgba(66, 245, 182, 0.3), rgba(66, 245, 182, 0.1) 62%, rgba(66, 245, 182, 0.05) 78%, transparent 100%)' },
+                { id: 8, size: 118, left: '58%', top: '28%', delay: 0.4, duration: 19, gradient: 'radial-gradient(circle at 40% 40%, rgba(66, 245, 182, 0.34), rgba(66, 245, 182, 0.14) 60%, rgba(66, 245, 182, 0.08) 76%, transparent 100%)' }
+            ]
+        };
+    </script>
+    <script src="js/case-study-shell.js"></script>
+    <script src="js/page-scroll-star.js"></script>
+</body>
+</html>
