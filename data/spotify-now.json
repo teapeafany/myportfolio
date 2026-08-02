@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-01T22:39:08.574Z"
+  "isPlaying": true,
+  "title": "Miniskirt",
+  "artist": "AOA",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e0236adcea4e93245f1fec547df",
+  "trackUrl": "https://open.spotify.com/track/6Yj8kVuVR3UPxx9r5eFEoV",
+  "trackId": "6Yj8kVuVR3UPxx9r5eFEoV",
+  "fetchedAt": "2026-08-02T19:55:30.339Z"
 }
