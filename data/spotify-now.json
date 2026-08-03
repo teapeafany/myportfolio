@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-03T04:01:31.564Z"
+  "isPlaying": true,
+  "title": "Tokyo Ghetto",
+  "artist": "Eve",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e026c2af0c1619740ab0cc28989",
+  "trackUrl": "https://open.spotify.com/track/4iiImoJUNnE4MpH3r1l5P4",
+  "trackId": "4iiImoJUNnE4MpH3r1l5P4",
+  "fetchedAt": "2026-08-03T13:47:14.997Z"
 }
