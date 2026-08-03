@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Fairy of Shampoo",
-  "artist": "TOMORROW X TOGETHER",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02b85b1b3fae4244c686929af5",
-  "trackUrl": "https://open.spotify.com/track/5JXpZcc3CeQaC6vAF1iaV5",
-  "trackId": "5JXpZcc3CeQaC6vAF1iaV5",
-  "fetchedAt": "2026-08-03T00:14:10.373Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-03T04:01:31.564Z"
 }
