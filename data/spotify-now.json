@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "get him back!",
-  "artist": "Olivia Rodrigo",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02e85259a1cae29a8d91f2093d",
-  "trackUrl": "https://open.spotify.com/track/2gyxAWHebV7xPYVxqoi86f",
-  "trackId": "2gyxAWHebV7xPYVxqoi86f",
-  "fetchedAt": "2026-08-03T21:16:52.115Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-03T22:30:38.144Z"
 }
