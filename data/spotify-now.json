@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-04T14:46:37.846Z"
+  "isPlaying": true,
+  "title": "Witches",
+  "artist": "Alice Phoebe Lou",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e0243f1c2a3c34bae8fe3ace56e",
+  "trackUrl": "https://open.spotify.com/track/27R1A3WZ5Zv0ywNe0Zunfr",
+  "trackId": "27R1A3WZ5Zv0ywNe0Zunfr",
+  "fetchedAt": "2026-08-04T18:20:09.528Z"
 }
