@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-03T22:30:38.144Z"
+  "isPlaying": true,
+  "title": "Love You Anyway",
+  "artist": "The Marías",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e028aa339341a0b0c813909c831",
+  "trackUrl": "https://open.spotify.com/track/3vxvz0JoRDvnx2jG9oPljA",
+  "trackId": "3vxvz0JoRDvnx2jG9oPljA",
+  "fetchedAt": "2026-08-04T12:17:51.013Z"
 }
