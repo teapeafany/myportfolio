@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-04T21:35:14.068Z"
+  "isPlaying": true,
+  "title": "那女孩對我說 - 純享版",
+  "artist": "陳卓璇, 孙珍妮, 田京凡, 王柯, 王丽娜, 鄭楠, 趙靖",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e028eeb4767f946866bf51b3b39",
+  "trackUrl": "https://open.spotify.com/track/0PxAnv36li423FV71u6RHr",
+  "trackId": "0PxAnv36li423FV71u6RHr",
+  "fetchedAt": "2026-08-05T14:39:51.240Z"
 }
