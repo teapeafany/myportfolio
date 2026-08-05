@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Last Train At 25 O'clock",
-  "artist": "Lamp",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e0258ebd661a51fcf2968db3ea1",
-  "trackUrl": "https://open.spotify.com/track/3VPBPBZKxQu3bqeuzz8gRm",
-  "trackId": "3VPBPBZKxQu3bqeuzz8gRm",
-  "fetchedAt": "2026-08-05T16:22:55.262Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-05T18:09:53.114Z"
 }
