@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-08T15:11:55.889Z"
+  "isPlaying": true,
+  "title": "After Midnight",
+  "artist": "Chappell Roan",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02a21d22ecf823e1c90aa22d1f",
+  "trackUrl": "https://open.spotify.com/track/3iPES3R1oHZjSu8CnG8kG2",
+  "trackId": "3iPES3R1oHZjSu8CnG8kG2",
+  "fetchedAt": "2026-08-08T17:40:00.167Z"
 }
