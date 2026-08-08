@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Seoul City",
-  "artist": "JENNIE",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e027f86eab0ae4e3d318b92e0b9",
-  "trackUrl": "https://open.spotify.com/track/4zUob9iYFS9TgAR0hgo5pR",
-  "trackId": "4zUob9iYFS9TgAR0hgo5pR",
-  "fetchedAt": "2026-08-08T19:36:27.964Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-08T20:02:05.755Z"
 }
