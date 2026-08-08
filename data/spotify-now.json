@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Change",
-  "artist": "Djo",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02fddfffec51b4580acae727c1",
-  "trackUrl": "https://open.spotify.com/track/1yQkAv4xtapCBCzI8q1QGF",
-  "trackId": "1yQkAv4xtapCBCzI8q1QGF",
-  "fetchedAt": "2026-08-08T18:04:46.910Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-08T18:56:03.036Z"
 }
