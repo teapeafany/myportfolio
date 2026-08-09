@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Danger",
-  "artist": "TOMORROW X TOGETHER",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e0296540ba5f88727371f0fa71b",
-  "trackUrl": "https://open.spotify.com/track/1EGJkCqwJLOviThbopmtgx",
-  "trackId": "1EGJkCqwJLOviThbopmtgx",
-  "fetchedAt": "2026-08-09T16:02:32.943Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-09T16:50:07.604Z"
 }
