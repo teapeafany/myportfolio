@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-09T16:50:07.604Z"
+  "isPlaying": true,
+  "title": "Gnarly",
+  "artist": "KATSEYE",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e022ca769bb73374b00d09a1c82",
+  "trackUrl": "https://open.spotify.com/track/1j15Ar0qGDzIR0v3CQv3JL",
+  "trackId": "1j15Ar0qGDzIR0v3CQv3JL",
+  "fetchedAt": "2026-08-10T03:20:55.188Z"
 }
