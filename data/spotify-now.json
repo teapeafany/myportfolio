@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "New Person, Same Old Mistakes",
-  "artist": "Tame Impala",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e029e1cfc756886ac782e363d79",
-  "trackUrl": "https://open.spotify.com/track/52ojopYMUzeNcudsoz7O9D",
-  "trackId": "52ojopYMUzeNcudsoz7O9D",
-  "fetchedAt": "2026-08-10T14:42:09.345Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-10T15:43:01.454Z"
 }
