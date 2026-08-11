@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Stateside + Zara Larsson",
-  "artist": "PinkPantheress, Zara Larsson",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02684ecc5bc1b724d0106ad694",
-  "trackUrl": "https://open.spotify.com/track/1DwscornXpj8fmOmYVlqZt",
-  "trackId": "1DwscornXpj8fmOmYVlqZt",
-  "fetchedAt": "2026-08-10T23:32:30.874Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-11T00:04:45.589Z"
 }
