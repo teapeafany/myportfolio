@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-12T17:16:46.580Z"
+  "isPlaying": true,
+  "title": "Goddess",
+  "artist": "Laufey",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02c8fad28da38a5376372362e6",
+  "trackUrl": "https://open.spotify.com/track/4R3AU2pjv8ge2siX1fVbZs",
+  "trackId": "4R3AU2pjv8ge2siX1fVbZs",
+  "fetchedAt": "2026-08-12T21:10:23.357Z"
 }
