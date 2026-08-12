@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-12T05:52:37.560Z"
+  "isPlaying": true,
+  "title": "Castle in Hollywood",
+  "artist": "Laufey",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e028f68f6e65c1cfd36bb21561c",
+  "trackUrl": "https://open.spotify.com/track/3zTnSPti5JjNsowJH4SS3u",
+  "trackId": "3zTnSPti5JjNsowJH4SS3u",
+  "fetchedAt": "2026-08-12T14:07:46.504Z"
 }
