@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-13T20:07:52.893Z"
+  "isPlaying": true,
+  "title": "Sugar",
+  "artist": "Maroon 5",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02442b53773d50e1b5369bb16c",
+  "trackUrl": "https://open.spotify.com/track/2iuZJX9X9P0GKaE93xcPjk",
+  "trackId": "2iuZJX9X9P0GKaE93xcPjk",
+  "fetchedAt": "2026-08-13T21:58:31.457Z"
 }
