@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Taste Back",
-  "artist": "Harry Styles",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e0274959140f550b11049c18a38",
-  "trackUrl": "https://open.spotify.com/track/3xClevycpBON8bkyxFbAna",
-  "trackId": "3xClevycpBON8bkyxFbAna",
-  "fetchedAt": "2026-08-13T05:45:50.609Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-13T07:04:39.652Z"
 }
