@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-14T21:11:42.577Z"
+  "isPlaying": true,
+  "title": "Shut up My Moms Calling",
+  "artist": "Hotel Ugly",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02350ab7a839c04bfd5225a9f5",
+  "trackUrl": "https://open.spotify.com/track/3hxIUxnT27p5WcmjGUXNwx",
+  "trackId": "3hxIUxnT27p5WcmjGUXNwx",
+  "fetchedAt": "2026-08-14T23:31:12.808Z"
 }
