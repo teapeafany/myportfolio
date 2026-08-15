@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-15T16:16:07.060Z"
+  "isPlaying": true,
+  "title": "I Wish you Roses",
+  "artist": "Kali Uchis",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e0281fccd758776d16b87721b17",
+  "trackUrl": "https://open.spotify.com/track/35SbrfbaSpGUBX7e5BPega",
+  "trackId": "35SbrfbaSpGUBX7e5BPega",
+  "fetchedAt": "2026-08-15T18:40:13.303Z"
 }
