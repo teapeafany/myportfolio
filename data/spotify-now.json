@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Falling Behind",
-  "artist": "Laufey",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e0248341e864d4b4881f56f01b4",
-  "trackUrl": "https://open.spotify.com/track/4KGGeE7RJsgLNZmnxGFlOj",
-  "trackId": "4KGGeE7RJsgLNZmnxGFlOj",
-  "fetchedAt": "2026-08-15T15:50:43.355Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-15T16:16:07.060Z"
 }
