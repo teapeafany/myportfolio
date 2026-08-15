@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-15T14:55:59.305Z"
+  "isPlaying": true,
+  "title": "Let It Happen",
+  "artist": "Tame Impala",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e029e1cfc756886ac782e363d79",
+  "trackUrl": "https://open.spotify.com/track/2X485T9Z5Ly0xyaghN73ed",
+  "trackId": "2X485T9Z5Ly0xyaghN73ed",
+  "fetchedAt": "2026-08-15T15:28:23.990Z"
 }
