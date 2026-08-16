@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "drop dead",
-  "artist": "Olivia Rodrigo",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e026949b83f85d782b21ce70583",
-  "trackUrl": "https://open.spotify.com/track/3fRCAPMMZ8l8P9YKI6OCzD",
-  "trackId": "3fRCAPMMZ8l8P9YKI6OCzD",
-  "fetchedAt": "2026-08-16T01:18:40.597Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-16T02:37:06.380Z"
 }
