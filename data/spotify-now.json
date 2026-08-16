@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Letter To My 13 Year Old Self",
-  "artist": "Laufey",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e0213832cc69a78c53b18a8bc10",
-  "trackUrl": "https://open.spotify.com/track/2zlvJLzZdU00biRqmxQBNA",
-  "trackId": "2zlvJLzZdU00biRqmxQBNA",
-  "fetchedAt": "2026-08-16T13:10:24.693Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-16T13:46:18.649Z"
 }
