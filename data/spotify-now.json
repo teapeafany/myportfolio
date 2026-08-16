@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "vampire",
-  "artist": "Olivia Rodrigo",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02e85259a1cae29a8d91f2093d",
-  "trackUrl": "https://open.spotify.com/track/1kuGVB7EU95pJObxwvfwKS",
-  "trackId": "1kuGVB7EU95pJObxwvfwKS",
-  "fetchedAt": "2026-08-16T04:18:42.286Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-16T04:57:03.981Z"
 }
