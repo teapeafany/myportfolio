@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Last Night on Earth",
-  "artist": "Green Day",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02c2ced39899b0d67cd5a724fa",
-  "trackUrl": "https://open.spotify.com/track/5TpPSTItCwtZ8Sltr3vdzm",
-  "trackId": "5TpPSTItCwtZ8Sltr3vdzm",
-  "fetchedAt": "2026-08-17T17:18:09.761Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-17T17:50:51.227Z"
 }
