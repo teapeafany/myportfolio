@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-17T20:40:27.936Z"
+  "isPlaying": true,
+  "title": "Summer Love (feat. Verbal Jint, Basick)",
+  "artist": "Lil Cats, Verbal Jint, 베이식(Basick)",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02e827e0ff3191990900e3be5d",
+  "trackUrl": "https://open.spotify.com/track/7yKrmBcGoUO5pjfApa1AsG",
+  "trackId": "7yKrmBcGoUO5pjfApa1AsG",
+  "fetchedAt": "2026-08-17T22:58:26.147Z"
 }
