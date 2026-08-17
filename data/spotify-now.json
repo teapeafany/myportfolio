@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Manchild",
-  "artist": "Sabrina Carpenter",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02b1863bf95557ea7f357c4947",
-  "trackUrl": "https://open.spotify.com/track/2BwO5K8Q7EPAJSGze3AAh9",
-  "trackId": "2BwO5K8Q7EPAJSGze3AAh9",
-  "fetchedAt": "2026-08-17T14:52:02.375Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-17T15:21:38.348Z"
 }
