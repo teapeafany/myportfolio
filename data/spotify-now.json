@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Dracula - JENNIE Remix",
-  "artist": "Tame Impala, JENNIE",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02c7c031ce9d06b131f8563676",
-  "trackUrl": "https://open.spotify.com/track/5yvVYFDUpbnjcnRBgjwTzM",
-  "trackId": "5yvVYFDUpbnjcnRBgjwTzM",
-  "fetchedAt": "2026-08-17T18:29:00.809Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-17T19:09:37.652Z"
 }
