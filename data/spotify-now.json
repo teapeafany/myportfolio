@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-17T19:09:37.652Z"
+  "isPlaying": true,
+  "title": "Dreamer's Song",
+  "artist": "Regina Song",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e0262bb73ec2682be3994a09abb",
+  "trackUrl": "https://open.spotify.com/track/5VbmUEAhSFWVzOnH0rmwsl",
+  "trackId": "5VbmUEAhSFWVzOnH0rmwsl",
+  "fetchedAt": "2026-08-17T19:43:25.242Z"
 }
