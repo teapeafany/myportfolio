@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "ひとりの夜 (Hitori no Yoru)",
-  "artist": "TOMORROW X TOGETHER",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e022fc53ae96b08fe4cfb212c8a",
-  "trackUrl": "https://open.spotify.com/track/6ms6ZqngVJxqfQiyXLrC3E",
-  "trackId": "6ms6ZqngVJxqfQiyXLrC3E",
-  "fetchedAt": "2026-08-17T23:54:28.641Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-18T01:22:07.834Z"
 }
