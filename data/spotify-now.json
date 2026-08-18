@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-18T15:17:33.423Z"
+  "isPlaying": true,
+  "title": "Not The Same Anymore",
+  "artist": "The Strokes",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02e3f1ba3de4659708c25d0f39",
+  "trackUrl": "https://open.spotify.com/track/5ncofiedz9Ej6YkvvXMKVn",
+  "trackId": "5ncofiedz9Ej6YkvvXMKVn",
+  "fetchedAt": "2026-08-18T17:00:52.426Z"
 }
