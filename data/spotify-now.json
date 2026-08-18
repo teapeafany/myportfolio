@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-18T01:22:07.834Z"
+  "isPlaying": true,
+  "title": "my way",
+  "artist": "Olivia Rodrigo",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e025cf234eeb7a2edf44bf64a46",
+  "trackUrl": "https://open.spotify.com/track/4Ilw2lD6z4WBqh65vUUZUf",
+  "trackId": "4Ilw2lD6z4WBqh65vUUZUf",
+  "fetchedAt": "2026-08-18T03:26:34.086Z"
 }
