@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-18T04:53:53.755Z"
+  "isPlaying": true,
+  "title": "Love War (Feat. BE′O)",
+  "artist": "YENA, BE'O",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e022f69a2a49b1c54f3eb4e2a22",
+  "trackUrl": "https://open.spotify.com/track/1UjN1QVbHnzJiqjkqzWmZK",
+  "trackId": "1UjN1QVbHnzJiqjkqzWmZK",
+  "fetchedAt": "2026-08-18T14:46:47.304Z"
 }
