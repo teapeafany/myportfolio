@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-19T07:02:01.134Z"
+  "isPlaying": true,
+  "title": "Selfless",
+  "artist": "The Strokes",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02e3f1ba3de4659708c25d0f39",
+  "trackUrl": "https://open.spotify.com/track/2t0wwvR15fc3K1ey8OiOaN",
+  "trackId": "2t0wwvR15fc3K1ey8OiOaN",
+  "fetchedAt": "2026-08-19T15:18:47.305Z"
 }
