@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-18T23:54:14.979Z"
+  "isPlaying": true,
+  "title": "what’s wrong with me",
+  "artist": "Olivia Rodrigo, Robert Smith",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e026949b83f85d782b21ce70583",
+  "trackUrl": "https://open.spotify.com/track/2e3YJ6Hm8tR5L5Zy8HzOtv",
+  "trackId": "2e3YJ6Hm8tR5L5Zy8HzOtv",
+  "fetchedAt": "2026-08-19T04:17:54.496Z"
 }
