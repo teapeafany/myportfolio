@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-19T19:16:17.608Z"
+  "isPlaying": true,
+  "title": "Falling out of Love",
+  "artist": "The Strokes",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e026b458d1409d938dad4e3ba2c",
+  "trackUrl": "https://open.spotify.com/track/7D92yxAcYNd1Sis8uXdkQo",
+  "trackId": "7D92yxAcYNd1Sis8uXdkQo",
+  "fetchedAt": "2026-08-19T21:12:49.734Z"
 }
