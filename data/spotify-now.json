@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Be Like a Woman",
-  "artist": "Chris Rainbow",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02f96aee01fdb9a8d00db869c5",
-  "trackUrl": "https://open.spotify.com/track/5Ctzx0mMiUPAu9JqbAOY9n",
-  "trackId": "5Ctzx0mMiUPAu9JqbAOY9n",
-  "fetchedAt": "2026-08-20T14:08:14.333Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-20T14:54:53.033Z"
 }
