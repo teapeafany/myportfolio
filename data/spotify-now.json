@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "distance",
-  "artist": "Long Shot Party",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e0217365c5e16dd8a2ed1d81760",
-  "trackUrl": "https://open.spotify.com/track/17zGkwutNrdgAAfC61QLWF",
-  "trackId": "17zGkwutNrdgAAfC61QLWF",
-  "fetchedAt": "2026-08-20T04:19:47.518Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-20T05:02:16.204Z"
 }
