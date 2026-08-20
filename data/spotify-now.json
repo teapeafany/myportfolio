@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Microdose",
-  "artist": "Jackson Laird",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02cb7539b65e1ef00c5379163d",
-  "trackUrl": "https://open.spotify.com/track/2AFwAqheImJxyzIu8Dv0vE",
-  "trackId": "2AFwAqheImJxyzIu8Dv0vE",
-  "fetchedAt": "2026-08-20T20:23:29.566Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-20T20:56:59.801Z"
 }
