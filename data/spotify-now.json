@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-19T21:44:35.043Z"
+  "isPlaying": true,
+  "title": "At the End of the Day",
+  "artist": "Wallows",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02a3dd4b9ef11ec5165d554322",
+  "trackUrl": "https://open.spotify.com/track/7xdKRHvX5OXoRyfPQ8w2mU",
+  "trackId": "7xdKRHvX5OXoRyfPQ8w2mU",
+  "fetchedAt": "2026-08-20T01:43:57.378Z"
 }
