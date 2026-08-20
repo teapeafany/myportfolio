@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Call It Fate, Call It Karma",
-  "artist": "The Strokes",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02f07ef193e0bb6a238ea37f0a",
-  "trackUrl": "https://open.spotify.com/track/3Y4rUyw7XBCK6hGHCOt6rp",
-  "trackId": "3Y4rUyw7XBCK6hGHCOt6rp",
-  "fetchedAt": "2026-08-20T16:48:56.139Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-20T17:19:31.404Z"
 }
