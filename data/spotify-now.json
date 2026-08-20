@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-20T14:54:53.033Z"
+  "isPlaying": true,
+  "title": "Hainin",
+  "artist": "Daliborovo Granje",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02432ed9dccbf0198b66c6e0ea",
+  "trackUrl": "https://open.spotify.com/track/1eUv5L0cqZhc74Ktj6gdIx",
+  "trackId": "1eUv5L0cqZhc74Ktj6gdIx",
+  "fetchedAt": "2026-08-20T16:04:33.130Z"
 }
