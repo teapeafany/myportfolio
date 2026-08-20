@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "The Adults Are Talking",
-  "artist": "The Strokes",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02e3f1ba3de4659708c25d0f39",
-  "trackUrl": "https://open.spotify.com/track/5ruzrDWcT0vuJIOMW7gMnW",
-  "trackId": "5ruzrDWcT0vuJIOMW7gMnW",
-  "fetchedAt": "2026-08-20T23:03:10.530Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-20T23:36:29.866Z"
 }
