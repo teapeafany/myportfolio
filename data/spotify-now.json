@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-21T19:05:14.998Z"
+  "isPlaying": true,
+  "title": "Pink Pony Club",
+  "artist": "Chappell Roan",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02a21d22ecf823e1c90aa22d1f",
+  "trackUrl": "https://open.spotify.com/track/6393yGahSJ9slVdOwSxOVR",
+  "trackId": "6393yGahSJ9slVdOwSxOVR",
+  "fetchedAt": "2026-08-21T20:33:22.402Z"
 }
