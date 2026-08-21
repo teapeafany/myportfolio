@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-20T23:36:29.866Z"
+  "isPlaying": true,
+  "title": "Going to Babble On",
+  "artist": "The Strokes",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e026b458d1409d938dad4e3ba2c",
+  "trackUrl": "https://open.spotify.com/track/2nxsLJwW4eFDwl36fUQJWe",
+  "trackId": "2nxsLJwW4eFDwl36fUQJWe",
+  "fetchedAt": "2026-08-21T13:57:32.402Z"
 }
