@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Love/Paranoia",
-  "artist": "Tame Impala",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e029e1cfc756886ac782e363d79",
-  "trackUrl": "https://open.spotify.com/track/5h9hkYIBWTZYFRmF6Iz1gt",
-  "trackId": "5h9hkYIBWTZYFRmF6Iz1gt",
-  "fetchedAt": "2026-08-21T15:54:35.588Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-21T16:38:58.098Z"
 }
