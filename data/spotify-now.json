@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-21T16:38:58.098Z"
+  "isPlaying": true,
+  "title": "12 to 12",
+  "artist": "sombr",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e026e3665d175bd9aadb15b08b2",
+  "trackUrl": "https://open.spotify.com/track/6MrLkXsMmHaYt680fhJUAq",
+  "trackId": "6MrLkXsMmHaYt680fhJUAq",
+  "fetchedAt": "2026-08-21T18:19:51.422Z"
 }
