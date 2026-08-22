@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Stargazing",
-  "artist": "The Neighbourhood",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e0236a7b44e8382e6165c235dac",
-  "trackUrl": "https://open.spotify.com/track/0VF7YLIxSQKyNiFL3X6MmN",
-  "trackId": "0VF7YLIxSQKyNiFL3X6MmN",
-  "fetchedAt": "2026-08-22T19:57:01.727Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-22T20:32:51.887Z"
 }
