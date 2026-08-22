@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-22T12:44:57.426Z"
+  "isPlaying": true,
+  "title": "Video Games",
+  "artist": "Lana Del Rey",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e0209a3bd307081267d1d86ffaf",
+  "trackUrl": "https://open.spotify.com/track/5r10a4G5daatVbwlLlujz4",
+  "trackId": "5r10a4G5daatVbwlLlujz4",
+  "fetchedAt": "2026-08-22T19:11:14.043Z"
 }
