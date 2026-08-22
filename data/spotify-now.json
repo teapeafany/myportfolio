@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-22T05:16:26.213Z"
+  "isPlaying": true,
+  "title": "Stroll Along the Beach",
+  "artist": "HOYO-MiX",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02a4b070883f931f6ef09d8ea6",
+  "trackUrl": "https://open.spotify.com/track/4mNPmcuISPP2RBztJBOKy0",
+  "trackId": "4mNPmcuISPP2RBztJBOKy0",
+  "fetchedAt": "2026-08-22T05:48:10.361Z"
 }
