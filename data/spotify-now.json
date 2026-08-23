@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Young Folks",
-  "artist": "Peter Bjorn and John",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e029cf4ac84b224a02f34d2e4f6",
-  "trackUrl": "https://open.spotify.com/track/4dyx5SzxPPaD8xQIid5Wjj",
-  "trackId": "4dyx5SzxPPaD8xQIid5Wjj",
-  "fetchedAt": "2026-08-23T14:24:37.500Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-23T14:51:43.484Z"
 }
