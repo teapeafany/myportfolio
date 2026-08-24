@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-24T04:01:14.640Z"
+  "isPlaying": true,
+  "title": "begged",
+  "artist": "Olivia Rodrigo",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e026949b83f85d782b21ce70583",
+  "trackUrl": "https://open.spotify.com/track/2duvkmcQAezPigFEGlERuA",
+  "trackId": "2duvkmcQAezPigFEGlERuA",
+  "fetchedAt": "2026-08-24T13:09:24.670Z"
 }
