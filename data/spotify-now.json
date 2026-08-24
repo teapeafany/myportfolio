@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-23T22:50:18.016Z"
+  "isPlaying": true,
+  "title": "Houdini",
+  "artist": "Dua Lipa",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e022f8790ed72296c2614607575",
+  "trackUrl": "https://open.spotify.com/track/6D8y7Bck8h11byRY88Pt2z",
+  "trackId": "6D8y7Bck8h11byRY88Pt2z",
+  "fetchedAt": "2026-08-24T01:51:24.194Z"
 }
