@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-25T15:54:36.799Z"
+  "isPlaying": true,
+  "title": "Ghost Girl",
+  "artist": "TOMORROW X TOGETHER",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e025e3b76cd24496147ec236b6a",
+  "trackUrl": "https://open.spotify.com/track/5voKDnuTGXBnIZbAqWnb8R",
+  "trackId": "5voKDnuTGXBnIZbAqWnb8R",
+  "fetchedAt": "2026-08-25T19:10:08.772Z"
 }
