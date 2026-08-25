@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-24T23:28:51.800Z"
+  "isPlaying": true,
+  "title": "Childhood Friends",
+  "artist": "Hot Freaks",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e029eadb9c0b1474dd3d4e73d64",
+  "trackUrl": "https://open.spotify.com/track/5ydKf6KdZOQMgExsKrohz5",
+  "trackId": "5ydKf6KdZOQMgExsKrohz5",
+  "fetchedAt": "2026-08-25T03:28:22.346Z"
 }
