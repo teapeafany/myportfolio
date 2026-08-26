@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "How Sweet",
-  "artist": "NewJeans",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02b657fbb27b17e7bd4691c2b2",
-  "trackUrl": "https://open.spotify.com/track/38tXZcL1gZRfbqfOG0VMTH",
-  "trackId": "38tXZcL1gZRfbqfOG0VMTH",
-  "fetchedAt": "2026-08-26T03:10:48.567Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-26T04:04:59.497Z"
 }
