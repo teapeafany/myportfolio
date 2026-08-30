@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Borderline",
-  "artist": "Tame Impala",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e0258267bd34420a00d5cf83a49",
-  "trackUrl": "https://open.spotify.com/track/5hM5arv9KDbCHS0k9uqwjr",
-  "trackId": "5hM5arv9KDbCHS0k9uqwjr",
-  "fetchedAt": "2026-08-30T11:47:52.268Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-08-30T15:29:55.034Z"
 }
