@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-09-02T13:33:38.848Z"
+  "isPlaying": true,
+  "title": "Dracula (with JENNIE)",
+  "artist": "Tame Impala, JENNIE",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02c7c031ce9d06b131f8563676",
+  "trackUrl": "https://open.spotify.com/track/5yvVYFDUpbnjcnRBgjwTzM",
+  "trackId": "5yvVYFDUpbnjcnRBgjwTzM",
+  "fetchedAt": "2026-09-02T22:28:02.483Z"
 }
