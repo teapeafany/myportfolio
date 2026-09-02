@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-08-30T15:29:55.034Z"
+  "isPlaying": true,
+  "title": "與你同在 (電視劇《櫻桃琥珀》插曲)",
+  "artist": "王奕珂",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e023c0b8c99b00334282e26ea00",
+  "trackUrl": "https://open.spotify.com/track/2Rc0y4xmFvClDAM9lYjaBb",
+  "trackId": "2Rc0y4xmFvClDAM9lYjaBb",
+  "fetchedAt": "2026-09-02T08:59:40.386Z"
 }
