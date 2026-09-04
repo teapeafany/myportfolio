@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-09-03T00:34:23.792Z"
+  "isPlaying": true,
+  "title": "將故事寫成我們",
+  "artist": "JJ Lin",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02129b5fb08edf1887d8a62981",
+  "trackUrl": "https://open.spotify.com/track/3Vl7IqSQsAsfScssywTDny",
+  "trackId": "3Vl7IqSQsAsfScssywTDny",
+  "fetchedAt": "2026-09-04T19:37:01.309Z"
 }
