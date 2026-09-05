@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "無法抗拒的你",
-  "artist": "Maderlin Weng",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02ec0515f8fd5c87ef73e81fd6",
-  "trackUrl": "https://open.spotify.com/track/3UIGjEhegNpwGvgGj2vXOd",
-  "trackId": "3UIGjEhegNpwGvgGj2vXOd",
-  "fetchedAt": "2026-09-05T06:08:48.236Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-09-05T10:36:38.994Z"
 }
