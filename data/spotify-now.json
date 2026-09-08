@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Malcolm In The Middle",
-  "artist": "Malcolm Todd",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02a1cac678024bb37d83ab012c",
-  "trackUrl": "https://open.spotify.com/track/6fLWI86qpzbxvAQO90tiwR",
-  "trackId": "6fLWI86qpzbxvAQO90tiwR",
-  "fetchedAt": "2026-09-08T21:29:09.602Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-09-08T23:38:42.477Z"
 }
