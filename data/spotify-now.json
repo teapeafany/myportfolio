@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-09-09T06:38:55.996Z"
+  "isPlaying": true,
+  "title": "Casual",
+  "artist": "Chappell Roan",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e0296fa88fb1789be437d5cb4b6",
+  "trackUrl": "https://open.spotify.com/track/3WSOUb3U7tqURbBSgZTrZX",
+  "trackId": "3WSOUb3U7tqURbBSgZTrZX",
+  "fetchedAt": "2026-09-11T21:13:26.598Z"
 }
