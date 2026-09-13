@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Last Friday Night (T.G.I.F.)",
-  "artist": "Katy Perry",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02d20c38f295039520d688a888",
-  "trackUrl": "https://open.spotify.com/track/3avYqdwHKEq8beXbeWCKqJ",
-  "trackId": "3avYqdwHKEq8beXbeWCKqJ",
-  "fetchedAt": "2026-09-13T17:43:24.559Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-09-13T19:53:05.736Z"
 }
