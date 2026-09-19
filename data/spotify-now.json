@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-09-19T13:04:29.928Z"
+  "isPlaying": true,
+  "title": "Siesta Freestyle",
+  "artist": "Lewis OfMan, Alicia te quiero",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e020dfde54ca58fa9c1c5fa2d93",
+  "trackUrl": "https://open.spotify.com/track/6ZHKeoIOkvmYUIfxHLtE2Z",
+  "trackId": "6ZHKeoIOkvmYUIfxHLtE2Z",
+  "fetchedAt": "2026-09-19T21:07:47.012Z"
 }
