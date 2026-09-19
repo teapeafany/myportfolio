@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Lovefool",
-  "artist": "The Cardigans",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e020aac8ca880151fda470e91af",
-  "trackUrl": "https://open.spotify.com/track/7aQjPecQdIuNd1sz3KCDhD",
-  "trackId": "7aQjPecQdIuNd1sz3KCDhD",
-  "fetchedAt": "2026-09-18T21:56:55.555Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-09-19T00:09:00.270Z"
 }
