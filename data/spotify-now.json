@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-09-19T00:09:00.270Z"
+  "isPlaying": true,
+  "title": "Breeze!",
+  "artist": "Kali Uchis",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02a7493f1985f820a9add223d2",
+  "trackUrl": "https://open.spotify.com/track/4lyTGDRXBIItgLDcAxMTbn",
+  "trackId": "4lyTGDRXBIItgLDcAxMTbn",
+  "fetchedAt": "2026-09-19T08:59:41.888Z"
 }
