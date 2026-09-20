@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-09-20T01:04:17.113Z"
+  "isPlaying": true,
+  "title": "Want U Back",
+  "artist": "Cher Lloyd",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02392d37cdeccdcdb378fed318",
+  "trackUrl": "https://open.spotify.com/track/6E11E0lT5Zy7yb6iT3y8DN",
+  "trackId": "6E11E0lT5Zy7yb6iT3y8DN",
+  "fetchedAt": "2026-09-20T17:48:34.682Z"
 }
