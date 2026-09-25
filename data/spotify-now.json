@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Lilac",
-  "artist": "tatsuo",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02f2b5869ef46f7e631beaa702",
-  "trackUrl": "https://open.spotify.com/track/5wZ9NWrX5w8nHTso9C5Sor",
-  "trackId": "5wZ9NWrX5w8nHTso9C5Sor",
-  "fetchedAt": "2026-09-24T23:23:56.376Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-09-25T01:45:10.996Z"
 }
