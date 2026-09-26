@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-09-25T01:45:10.996Z"
+  "isPlaying": true,
+  "title": "Emerging Clouds",
+  "artist": "Yu-Peng Chen, HOYO-MiX",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02ae37e6f73804085bf53b23c7",
+  "trackUrl": "https://open.spotify.com/track/7wCBY8lpveoheSO7FXVsw5",
+  "trackId": "7wCBY8lpveoheSO7FXVsw5",
+  "fetchedAt": "2026-09-26T07:32:37.665Z"
 }
