@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Pokémon Theme",
-  "artist": "Pokémon",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e024731c7045ec101638337ae82",
-  "trackUrl": "https://open.spotify.com/track/3mNH9BXFcNElEFbgKqmq1J",
-  "trackId": "3mNH9BXFcNElEFbgKqmq1J",
-  "fetchedAt": "2026-09-27T22:19:32.104Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-09-28T00:58:27.122Z"
 }
