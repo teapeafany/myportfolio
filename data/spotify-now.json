@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Love Between...",
-  "artist": "Kali Uchis",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e0281fccd758776d16b87721b17",
-  "trackUrl": "https://open.spotify.com/track/128I36bDgYHU9l2QcgEGcd",
-  "trackId": "128I36bDgYHU9l2QcgEGcd",
-  "fetchedAt": "2026-09-28T20:45:54.885Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-09-29T00:37:46.255Z"
 }
