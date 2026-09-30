@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Saturn",
-  "artist": "SZA",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e0216fdde9f6b5606419ca9b7ca",
-  "trackUrl": "https://open.spotify.com/track/040I32EKLxQrkuxQu1pqvT",
-  "trackId": "040I32EKLxQrkuxQu1pqvT",
-  "fetchedAt": "2026-09-30T14:10:27.547Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-09-30T19:23:58.473Z"
 }
