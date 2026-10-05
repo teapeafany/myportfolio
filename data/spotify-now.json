@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "If It Is You",
-  "artist": "Jung Seung Hwan",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02d302508be9a23d452069eaa2",
-  "trackUrl": "https://open.spotify.com/track/5i6gHFXg4aLK5xvc2jJJC5",
-  "trackId": "5i6gHFXg4aLK5xvc2jJJC5",
-  "fetchedAt": "2026-10-05T08:57:07.180Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-10-05T18:18:12.126Z"
 }
