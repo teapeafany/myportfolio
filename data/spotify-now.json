@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-10-05T18:18:12.126Z"
+  "isPlaying": true,
+  "title": "Knees",
+  "artist": "IU",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e026a0cfc4171d2a0cb9dc7c9ab",
+  "trackUrl": "https://open.spotify.com/track/3Sc3OHN2EnhsKwzt7hMFKQ",
+  "trackId": "3Sc3OHN2EnhsKwzt7hMFKQ",
+  "fetchedAt": "2026-10-06T19:02:23.152Z"
 }
