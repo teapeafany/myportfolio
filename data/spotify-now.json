@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Not Your Summer",
-  "artist": "The Academic",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02e1005b6d70d7ffdcc9fab9c7",
-  "trackUrl": "https://open.spotify.com/track/3fDhRyM5qluJuK9gUs7Nuh",
-  "trackId": "3fDhRyM5qluJuK9gUs7Nuh",
-  "fetchedAt": "2026-10-07T16:07:35.851Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-10-07T21:18:04.611Z"
 }
