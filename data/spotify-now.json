@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Glow",
-  "artist": "12BH",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e021d2f2c05e99592b46950359b",
-  "trackUrl": "https://open.spotify.com/track/5o8bvkH9MMH2fkuu8iFWBz",
-  "trackId": "5o8bvkH9MMH2fkuu8iFWBz",
-  "fetchedAt": "2026-10-06T22:59:16.980Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-10-07T02:16:16.591Z"
 }
