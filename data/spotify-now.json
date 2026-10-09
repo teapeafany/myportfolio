@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-10-09T06:36:32.376Z"
+  "isPlaying": true,
+  "title": "This World",
+  "artist": "Baek A",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e0203b9e2ca84aa12ae06956587",
+  "trackUrl": "https://open.spotify.com/track/03kFIoPgCpqlvj7sG9cI64",
+  "trackId": "03kFIoPgCpqlvj7sG9cI64",
+  "fetchedAt": "2026-10-09T23:13:54.552Z"
 }
