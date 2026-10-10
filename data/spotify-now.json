@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Complicated",
-  "artist": "Avril Lavigne",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02f7ec724fbf97a30869d06240",
-  "trackUrl": "https://open.spotify.com/track/5xEM5hIgJ1jjgcEBfpkt2F",
-  "trackId": "5xEM5hIgJ1jjgcEBfpkt2F",
-  "fetchedAt": "2026-10-10T19:14:36.798Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-10-10T22:40:28.662Z"
 }
