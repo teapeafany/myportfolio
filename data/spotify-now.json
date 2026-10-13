@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Break My Heart",
-  "artist": "Dua Lipa",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02c88bae7846e62a8ba59ee0bd",
-  "trackUrl": "https://open.spotify.com/track/017PF4Q3l4DBUiWoXk4OWT",
-  "trackId": "017PF4Q3l4DBUiWoXk4OWT",
-  "fetchedAt": "2026-10-12T18:15:48.875Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-10-13T00:50:31.530Z"
 }
