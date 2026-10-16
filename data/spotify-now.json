@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Still into You",
-  "artist": "Paramore",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02532033d0d90736f661c13d35",
-  "trackUrl": "https://open.spotify.com/track/1yjY7rpaAQvKwpdUliHx0d",
-  "trackId": "1yjY7rpaAQvKwpdUliHx0d",
-  "fetchedAt": "2026-10-16T04:44:03.017Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-10-16T09:20:33.604Z"
 }
