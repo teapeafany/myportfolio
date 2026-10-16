@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Is It a Crime",
-  "artist": "Mariah the Scientist, Kali Uchis",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e0200f16c94b1996a6da42dede8",
-  "trackUrl": "https://open.spotify.com/track/31Oh4pwZWjBTuRmzNtxj10",
-  "trackId": "31Oh4pwZWjBTuRmzNtxj10",
-  "fetchedAt": "2026-10-16T20:58:53.233Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-10-16T23:28:45.436Z"
 }
