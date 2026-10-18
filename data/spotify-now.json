@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Breathe Deeper",
-  "artist": "Tame Impala",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e0258267bd34420a00d5cf83a49",
-  "trackUrl": "https://open.spotify.com/track/3LbZIhU0smEU5SUnxod4j4",
-  "trackId": "3LbZIhU0smEU5SUnxod4j4",
-  "fetchedAt": "2026-10-18T06:19:41.232Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-10-18T11:27:39.617Z"
 }
