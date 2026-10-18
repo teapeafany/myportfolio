@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Baby Powder",
-  "artist": "Jenevieve",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e025039ba5ca4d71c1965bfb6d1",
-  "trackUrl": "https://open.spotify.com/track/4Nw7kywWurWS6ceinn1cHK",
-  "trackId": "4Nw7kywWurWS6ceinn1cHK",
-  "fetchedAt": "2026-10-17T23:22:07.099Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-10-18T01:22:04.661Z"
 }
