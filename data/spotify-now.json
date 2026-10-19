@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Purple Rain",
-  "artist": "Prince",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e028a2ce3f148f57584269c3782",
-  "trackUrl": "https://open.spotify.com/track/1uvyZBs4IZYRebHIB1747m",
-  "trackId": "1uvyZBs4IZYRebHIB1747m",
-  "fetchedAt": "2026-10-19T04:32:12.620Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-10-19T10:15:25.382Z"
 }
