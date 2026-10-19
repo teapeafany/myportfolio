@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-10-18T11:27:39.617Z"
+  "isPlaying": true,
+  "title": "Whiplash",
+  "artist": "aespa",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e026eb604294f8f58c9078f58b1",
+  "trackUrl": "https://open.spotify.com/track/3coRPMnFg2dJcPu5RMloa9",
+  "trackId": "3coRPMnFg2dJcPu5RMloa9",
+  "fetchedAt": "2026-10-19T00:02:52.057Z"
 }
