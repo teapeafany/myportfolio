@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Snooze",
-  "artist": "SZA",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02bc18bdade69ec5ef0bb25b17",
-  "trackUrl": "https://open.spotify.com/track/4iZ4pt7kvcaH6Yo8UoZ4s2",
-  "trackId": "4iZ4pt7kvcaH6Yo8UoZ4s2",
-  "fetchedAt": "2026-10-22T20:02:51.844Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-10-22T23:17:48.603Z"
 }
