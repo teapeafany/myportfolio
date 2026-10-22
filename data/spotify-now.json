@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-10-21T05:28:47.158Z"
+  "isPlaying": true,
+  "title": "Redbone",
+  "artist": "Childish Gambino",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e021c29562d6e8c1f55bb1311d5",
+  "trackUrl": "https://open.spotify.com/track/3vQ4T78TTMOjQXGfXVKQJo",
+  "trackId": "3vQ4T78TTMOjQXGfXVKQJo",
+  "fetchedAt": "2026-10-22T06:00:38.380Z"
 }
