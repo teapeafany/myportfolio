@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Alter Ego (with JT)",
-  "artist": "Doechii, JT",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e026a3a721d2d9bf4f02bc362c2",
-  "trackUrl": "https://open.spotify.com/track/2xaaJcmvMOmpDbTwlWnjFh",
-  "trackId": "2xaaJcmvMOmpDbTwlWnjFh",
-  "fetchedAt": "2026-10-26T00:37:46.354Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-10-26T05:20:08.604Z"
 }
