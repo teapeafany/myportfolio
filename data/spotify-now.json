@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-10-26T05:20:08.604Z"
+  "isPlaying": true,
+  "title": "11:11",
+  "artist": "TAEYEON",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e028da57096b4f09bd7cc6e1954",
+  "trackUrl": "https://open.spotify.com/track/67QGnT1Vdfuuy4HkLTUVjj",
+  "trackId": "67QGnT1Vdfuuy4HkLTUVjj",
+  "fetchedAt": "2026-10-26T17:30:16.957Z"
 }
