@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-10-26T21:49:32.283Z"
+  "isPlaying": true,
+  "title": "Damn Right (feat. Childish Gambino & Kali Uchis)",
+  "artist": "JENNIE, Childish Gambino, Kali Uchis",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02dcf27dec5e479b2e39c4c993",
+  "trackUrl": "https://open.spotify.com/track/6HjYE79OOCGEhkIRfXLqrz",
+  "trackId": "6HjYE79OOCGEhkIRfXLqrz",
+  "fetchedAt": "2026-10-27T06:11:20.933Z"
 }
