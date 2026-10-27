@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Open My Door",
-  "artist": "Alice Phoebe Lou",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e02b9000413b688d298a7ce999e",
-  "trackUrl": "https://open.spotify.com/track/1A8QcZJKhUmJwdqzoAahvR",
-  "trackId": "1A8QcZJKhUmJwdqzoAahvR",
-  "fetchedAt": "2026-10-27T12:19:42.994Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-10-27T18:11:04.263Z"
 }
