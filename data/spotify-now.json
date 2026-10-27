@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-10-27T18:11:04.263Z"
+  "isPlaying": true,
+  "title": "Perfect Night",
+  "artist": "LE SSERAFIM",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02c9af8979e5cb3fe7ecc5e230",
+  "trackUrl": "https://open.spotify.com/track/74X2u8JMVooG2QbjRxXwR8",
+  "trackId": "74X2u8JMVooG2QbjRxXwR8",
+  "fetchedAt": "2026-10-27T22:13:39.204Z"
 }
