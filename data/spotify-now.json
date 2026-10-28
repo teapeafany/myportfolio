@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "My Love",
-  "artist": "maye",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e0276bde875e14724b336cf91a9",
-  "trackUrl": "https://open.spotify.com/track/4mDAxQGyDdpju78hGsACwn",
-  "trackId": "4mDAxQGyDdpju78hGsACwn",
-  "fetchedAt": "2026-10-28T19:34:48.882Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-10-28T23:31:33.896Z"
 }
