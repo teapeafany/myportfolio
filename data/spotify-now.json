@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-10-28T23:31:33.896Z"
+  "isPlaying": true,
+  "title": "15 Minutes",
+  "artist": "Sabrina Carpenter",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02047d6b756e8f5e3f8b50f025",
+  "trackUrl": "https://open.spotify.com/track/1zhvxTuSha22nsUT5Nw8gE",
+  "trackId": "1zhvxTuSha22nsUT5Nw8gE",
+  "fetchedAt": "2026-10-29T21:02:43.969Z"
 }
