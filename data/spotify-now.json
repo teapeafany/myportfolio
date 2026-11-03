@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "The Winner Takes It All",
-  "artist": "ABBA",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e024d08fc99eff4ed52dfce91fa",
-  "trackUrl": "https://open.spotify.com/track/3oEkrIfXfSh9zGnE7eBzSV",
-  "trackId": "3oEkrIfXfSh9zGnE7eBzSV",
-  "fetchedAt": "2026-11-02T19:27:44.487Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-11-03T01:45:18.436Z"
 }
