@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-11-04T09:27:41.869Z"
+  "isPlaying": true,
+  "title": "Animal",
+  "artist": "Neon Trees",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e0226ca7305db69aa21efcf2b7a",
+  "trackUrl": "https://open.spotify.com/track/1fBl642IhJOE5U319Gy2Go",
+  "trackId": "1fBl642IhJOE5U319Gy2Go",
+  "fetchedAt": "2026-11-04T17:27:52.041Z"
 }
