@@ -1,9 +1,9 @@
 {
-  "isPlaying": true,
-  "title": "Pool House",
-  "artist": "The Backseat Lovers",
-  "albumArt": "https://i.scdn.co/image/ab67616d00001e028386795a636d72e74c958590",
-  "trackUrl": "https://open.spotify.com/track/74f0dpqHhTeTJzs4pmZ1yq",
-  "trackId": "74f0dpqHhTeTJzs4pmZ1yq",
-  "fetchedAt": "2026-11-22T08:31:38.626Z"
+  "isPlaying": false,
+  "title": "",
+  "artist": "",
+  "albumArt": "",
+  "trackUrl": "",
+  "trackId": "",
+  "fetchedAt": "2026-11-22T16:36:31.187Z"
 }
