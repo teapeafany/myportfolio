@@ -1,9 +1,9 @@
 {
-  "isPlaying": false,
-  "title": "",
-  "artist": "",
-  "albumArt": "",
-  "trackUrl": "",
-  "trackId": "",
-  "fetchedAt": "2026-11-22T16:36:31.187Z"
+  "isPlaying": true,
+  "title": "My Moon My Man",
+  "artist": "Feist",
+  "albumArt": "https://i.scdn.co/image/ab67616d00001e02b17d3cdd360973516ade9e6d",
+  "trackUrl": "https://open.spotify.com/track/5FFQbvn7055P1DvgJDdCBP",
+  "trackId": "5FFQbvn7055P1DvgJDdCBP",
+  "fetchedAt": "2026-11-23T22:45:23.661Z"
 }
